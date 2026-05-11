@@ -1,0 +1,2125 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VICTOR IA Tracker — Tu proyecto, en tiempo real</title>
+<meta name="description" content="Sigue el avance de tu proyecto en tiempo real. Cobramos por hora, transparentamos cada paso — desde el primer contacto hasta la entrega final.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --void:  #070809;
+  --ink:   #0E0F12;
+  --surf:  #131418;
+  --warm:  #F8F7F5;
+  --gold:  #FFAA17;
+  --g1:    #b87834;
+  --g2:    #e8cc94;
+  --g3:    #c9a870;
+  --muted: rgba(248,247,245,0.42);
+  --dim:   rgba(248,247,245,0.18);
+  --rule:  rgba(248,247,245,0.07);
+  --ease:  cubic-bezier(0.16,1,0.3,1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--void);
+  color: var(--warm);
+  overflow-x: hidden;
+  font-feature-settings: "ss01";
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: url('https://victor-ia-website.vercel.app/assets/bg-light.jpg') center/cover;
+  opacity: 0.013;
+}
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  opacity: 0.02; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 200px; animation: grain .45s steps(1) infinite;
+}
+@keyframes grain {
+  0%,100%{background-position:0 0}10%{background-position:-5% -10%}20%{background-position:-15% 5%}
+  30%{background-position:7% -25%}40%{background-position:20% 15%}50%{background-position:-5% 30%}
+  60%{background-position:15% 10%}70%{background-position:0% 25%}80%{background-position:-10% 10%}
+  90%{background-position:5% -15%}
+}
+@keyframes shimmer { 0%{background-position:-100%;opacity:0}12%{opacity:1}100%{background-position:260%;opacity:0} }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.75)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes barGrow { from{transform:scaleY(0);transform-origin:bottom} to{transform:scaleY(1);transform-origin:bottom} }
+@keyframes countIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+
+.container { max-width: 1160px; margin: 0 auto; padding: 0 clamp(20px,4vw,60px); }
+section { position: relative; z-index: 2; }
+
+/* EYEBROW */
+.eyebrow { display: inline-flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+.eyebrow-line { width: 2rem; height: 1px; background: rgba(255,170,23,0.4); flex-shrink: 0; }
+.eyebrow-text { font-size: 0.575rem; font-weight: 400; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,170,23,0.55); }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .75s var(--ease), transform .75s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: .08s; } .reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; } .reveal-d4 { transition-delay: .32s; }
+
+/* ════════ NAV ════════ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 0 clamp(20px,4vw,60px);
+  background: rgba(7,8,9,0);
+  transition: background .35s, border-color .35s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled { background: rgba(7,8,9,0.92); border-color: var(--rule); backdrop-filter: blur(18px); }
+.nav-inner { max-width: 1160px; margin: 0 auto; height: 68px; display: flex; align-items: center; gap: 32px; }
+.nav-logo { flex-shrink: 0; display: flex; align-items: center; }
+.nav-links { display: flex; align-items: center; gap: clamp(16px,2.5vw,36px); flex: 1; }
+.nav-link { font-size: 0.78rem; font-weight: 400; color: var(--muted); letter-spacing: 0.02em; transition: color .2s; }
+.nav-link:hover { color: var(--warm); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-cta {
+  padding: 9px 20px; background: var(--gold); color: var(--void);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: background .2s, transform .18s var(--ease), box-shadow .2s;
+  position: relative; overflow: hidden;
+}
+.nav-cta::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,0.16),transparent);
+  background-size: 200%; animation: shimmer 3.5s ease-in-out infinite;
+}
+.nav-cta:hover { background: #ffc035; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(255,170,23,0.28); }
+
+/* ════════ HERO ════════ */
+.hero { padding: clamp(80px,12vh,140px) 0 clamp(60px,8vh,100px); overflow: hidden; }
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(40px,5vw,80px); align-items: center;
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 14px; border: 1px solid rgba(255,170,23,0.18);
+  background: rgba(255,170,23,0.05); margin-bottom: 1.6rem;
+}
+.hero-label-dot { width: 6px; height: 6px; border-radius: 50%; background: #3ecf8e; animation: pulse 2s ease-in-out infinite; }
+.hero-label-text { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(248,247,245,0.45); }
+.hero h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.8rem,5.5vw,5.2rem);
+  font-weight: 400; font-style: italic;
+  line-height: 1.0; letter-spacing: -0.05em;
+  color: var(--warm); margin-bottom: 1.4rem;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+.hero-sub {
+  font-size: clamp(0.9rem,1.2vw,1.05rem); font-weight: 300;
+  color: var(--muted); line-height: 1.72; max-width: 46ch;
+  margin-bottom: 2.4rem;
+}
+.hero-sub strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+.hero-btns { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  padding: 14px 28px;
+  background: linear-gradient(130deg, #b87834 0%, #e8cc94 48%, #c9a870 100%);
+  background-size: 200%;
+  color: var(--void); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  position: relative; overflow: hidden;
+  transition: background-position .4s var(--ease), box-shadow .25s, transform .18s var(--ease);
+}
+.btn-primary::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,0.14),transparent);
+  background-size: 200%; animation: shimmer 3s ease-in-out infinite;
+}
+.btn-primary:hover { background-position: 100%; box-shadow: 0 6px 28px rgba(184,120,52,0.44); transform: translateY(-1px); }
+.btn-ghost {
+  padding: 13px 24px; border: 1px solid var(--rule);
+  color: var(--muted); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.1em;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: rgba(248,247,245,0.2); color: var(--warm); }
+
+/* Hero mockup */
+.hero-visual { position: relative; animation: fadeUp .9s var(--ease) .3s both; }
+.hero-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 135%; height: 115%; pointer-events: none;
+  background: radial-gradient(ellipse at 40% 50%, rgba(255,170,23,0.18) 0%, rgba(139,92,246,0.07) 45%, transparent 70%);
+  filter: blur(56px);
+}
+.hero-glow-2 {
+  position: absolute; bottom: -15%; right: -5%; width: 55%; height: 55%;
+  background: radial-gradient(ellipse, rgba(139,92,246,0.11) 0%, transparent 65%);
+  filter: blur(42px); pointer-events: none;
+}
+.hero-particles { position: absolute; inset: 0; pointer-events: none; overflow: visible; z-index: 5; }
+.hero-particle { position: absolute; border-radius: 50%; }
+@keyframes hp1 { 0%,100%{transform:translate(0,0) scale(1);opacity:0.55} 50%{transform:translate(5px,-14px) scale(1.4);opacity:0.85} }
+@keyframes hp2 { 0%,100%{transform:translate(0,0) scale(1);opacity:0.35} 50%{transform:translate(-7px,9px) scale(0.7);opacity:0.15} }
+@keyframes hp3 { 0%,100%{transform:translate(0,0) scale(1);opacity:0.28} 50%{transform:translate(10px,8px) scale(1.5);opacity:0.55} }
+.hero-screen {
+  background: var(--ink); border: 1px solid var(--rule);
+  overflow: hidden; position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(248,247,245,0.04);
+  transform: perspective(1200px) rotateY(-5deg) rotateX(2deg);
+  transition: transform 0.7s cubic-bezier(0.16,1,0.3,1), box-shadow 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.hero-visual:hover .hero-screen {
+  transform: perspective(1200px) rotateY(-1.5deg) rotateX(0.5deg);
+  box-shadow: 0 42px 100px rgba(0,0,0,0.72), 0 0 0 1px rgba(248,247,245,0.07);
+}
+.screen-bar {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 14px; background: rgba(7,8,9,0.8);
+  border-bottom: 1px solid rgba(248,247,245,0.05);
+}
+.screen-dots { display: flex; gap: 5px; }
+.screen-dots span { width: 8px; height: 8px; border-radius: 50%; }
+.screen-dots span:nth-child(1){background:#ff5f57}
+.screen-dots span:nth-child(2){background:#febc2e}
+.screen-dots span:nth-child(3){background:#28c840}
+.screen-url { font-size: 0.6rem; color: rgba(248,247,245,0.2); letter-spacing: 0.08em; margin-left: 8px; }
+.screen-body { padding: 18px; }
+
+/* Mini tracker UI inside mockup */
+.mock-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mock-proj-name { font-size: 0.7rem; font-weight: 500; color: rgba(248,247,245,0.7); }
+.mock-live-badge {
+  font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 3px 8px; background: rgba(62,207,142,0.1); border: 1px solid rgba(62,207,142,0.22);
+  color: rgba(62,207,142,0.7);
+}
+.mock-progress-wrap { margin-bottom: 14px; }
+.mock-progress-label {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 5px;
+}
+.mock-progress-text { font-size: 0.6rem; color: rgba(248,247,245,0.35); }
+.mock-progress-pct {
+  font-family: 'Instrument Serif', serif; font-style: italic;
+  font-size: 1rem; color: var(--gold); line-height: 1;
+}
+.mock-progress-bar {
+  height: 3px; background: rgba(248,247,245,0.07); position: relative; overflow: hidden;
+}
+.mock-progress-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, #b87834, #e8cc94);
+  transition: width 1.6s cubic-bezier(0.16,1,0.3,1);
+}
+.mock-progress-fill.animated { width: 68%; }
+@keyframes barFill { from{width:0} to{width:68%} }
+.mock-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
+.mock-stat {
+  padding: 8px; background: rgba(248,247,245,0.02); border: 1px solid rgba(248,247,245,0.05);
+}
+.mock-stat-lbl { font-size: 0.5rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(248,247,245,0.22); margin-bottom: 3px; }
+.mock-stat-val { font-size: 0.78rem; font-weight: 500; color: rgba(248,247,245,0.75); }
+.mock-stat-val.gold { color: var(--gold); }
+.mock-timeline { display: flex; flex-direction: column; gap: 6px; }
+.mock-phase {
+  display: flex; align-items: center; gap: 9px;
+  padding: 6px 10px; border-left: 2px solid rgba(248,247,245,0.06);
+}
+.mock-phase.done { border-left-color: #3ecf8e; }
+.mock-phase.active { border-left-color: var(--gold); background: rgba(255,170,23,0.03); }
+.mock-phase-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(248,247,245,0.12); flex-shrink: 0; }
+.mock-phase.done .mock-phase-dot { background: #3ecf8e; }
+.mock-phase.active .mock-phase-dot { background: var(--gold); }
+.mock-phase-label { font-size: 0.58rem; color: rgba(248,247,245,0.38); flex: 1; }
+.mock-phase.done .mock-phase-label { color: rgba(248,247,245,0.55); }
+.mock-phase.active .mock-phase-label { color: rgba(248,247,245,0.72); }
+.mock-phase-hrs { font-size: 0.55rem; color: rgba(248,247,245,0.22); }
+.mock-phase.active .mock-phase-hrs { color: rgba(255,170,23,0.55); }
+
+/* ════════ TRUST STRIP ════════ */
+.trust-strip {
+  padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  overflow: hidden; position: relative; z-index: 2;
+}
+.trust-track { display: flex; gap: 0; width: max-content; animation: marquee 28s linear infinite; }
+.trust-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 0 32px; white-space: nowrap;
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(248,247,245,0.22); font-weight: 400;
+}
+.trust-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,170,23,0.4); flex-shrink: 0; }
+
+/* ════════ HOW IT WORKS ════════ */
+.how { padding: clamp(80px,10vh,120px) 0; }
+.section-head { margin-bottom: clamp(48px,6vw,72px); }
+.section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem,4vw,3.6rem);
+  font-weight: 400; font-style: italic;
+  line-height: 1.04; letter-spacing: -0.025em;
+  color: var(--warm);
+}
+.section-title em { color: var(--gold); }
+.section-sub {
+  margin-top: 1rem; font-size: 0.88rem; font-weight: 300;
+  color: var(--muted); line-height: 1.7; max-width: 52ch;
+}
+
+.steps { display: grid; gap: 0; }
+.step {
+  display: grid; grid-template-columns: 72px 1fr;
+  gap: 0 28px; padding: 32px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.step:first-child { border-top: 1px solid var(--rule); }
+.step-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.8rem; font-weight: 400; font-style: italic;
+  color: rgba(255,170,23,0.15); line-height: 1;
+  padding-top: 4px;
+}
+.step-body {}
+.step-eyebrow {
+  font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,170,23,0.45); margin-bottom: 8px;
+}
+.step-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.3rem,2.2vw,1.75rem);
+  font-weight: 400; font-style: italic;
+  color: var(--warm); letter-spacing: -0.02em;
+  line-height: 1.1; margin-bottom: 10px;
+}
+.step-desc {
+  font-size: 0.84rem; font-weight: 300;
+  color: var(--muted); line-height: 1.72; max-width: 56ch;
+}
+.step-tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.step-tag {
+  font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 10px; border: 1px solid rgba(248,247,245,0.08);
+  color: rgba(248,247,245,0.28);
+}
+
+/* ════════ PANEL PREVIEW ════════ */
+.panel { padding: clamp(80px,10vh,120px) 0; }
+.panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: center; }
+.panel-features { display: flex; flex-direction: column; gap: 0; }
+.panel-feat {
+  display: flex; gap: 18px; padding: 20px 0;
+  border-bottom: 1px solid rgba(248,247,245,0.055);
+}
+.panel-feat:first-child { border-top: 1px solid rgba(248,247,245,0.055); }
+.panel-feat-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: rgba(255,170,23,0.06); border: 1px solid rgba(255,170,23,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; margin-top: 2px;
+}
+.panel-feat-title { font-size: 0.82rem; font-weight: 500; color: rgba(248,247,245,0.8); margin-bottom: 4px; letter-spacing: 0.02em; }
+.panel-feat-desc { font-size: 0.75rem; font-weight: 300; color: rgba(248,247,245,0.35); line-height: 1.6; }
+
+/* Panel screen visual */
+.panel-screen {
+  background: var(--ink); border: 1px solid var(--rule);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.panel-screen-bar {
+  padding: 10px 16px; background: rgba(7,8,9,0.6);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 8px;
+}
+.panel-screen-dots { display: flex; gap: 5px; }
+.panel-screen-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(248,247,245,0.08); }
+.panel-screen-title { font-size: 0.6rem; color: rgba(248,247,245,0.18); letter-spacing: 0.12em; margin-left: 6px; }
+.panel-screen-body { padding: 16px; }
+.ps-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.ps-kpi {
+  flex: 1; padding: 10px 12px;
+  background: rgba(248,247,245,0.02); border: 1px solid rgba(248,247,245,0.05);
+}
+.ps-kpi-lbl { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,247,245,0.2); margin-bottom: 4px; }
+.ps-kpi-val { font-size: 0.9rem; font-weight: 500; color: rgba(248,247,245,0.7); }
+.ps-kpi-val.gold { color: var(--gold); }
+.ps-section-lbl { font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(248,247,245,0.2); margin-bottom: 7px; }
+.ps-activity { display: flex; flex-direction: column; gap: 5px; }
+.ps-act-row {
+  display: flex; align-items: center; gap: 9px;
+  padding: 5px 8px; background: rgba(248,247,245,0.02);
+}
+.ps-act-avatar { width: 18px; height: 18px; background: rgba(255,170,23,0.12); border: 1px solid rgba(255,170,23,0.18); display: flex; align-items: center; justify-content: center; font-size: 0.45rem; color: rgba(255,170,23,0.7); font-weight: 600; flex-shrink: 0; }
+.ps-act-info { flex: 1; }
+.ps-act-what { font-size: 0.58rem; color: rgba(248,247,245,0.5); }
+.ps-act-when { font-size: 0.5rem; color: rgba(248,247,245,0.2); }
+.ps-act-hrs { font-size: 0.58rem; color: rgba(255,170,23,0.55); white-space: nowrap; }
+
+/* ════════ B2B / B2C ════════ */
+.for-whom { padding: clamp(80px,10vh,120px) 0; }
+.for-whom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.fw-card {
+  padding: clamp(28px,3.5vw,48px); border: 1px solid rgba(248,247,245,0.07);
+  background: rgba(248,247,245,0.015); position: relative; overflow: hidden;
+  transition: border-color .3s;
+}
+.fw-card:hover { border-color: rgba(248,247,245,0.14); }
+.fw-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,170,23,0.35), transparent);
+}
+.fw-card.b2b::before { background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5), transparent); }
+.fw-tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.55rem; letter-spacing: 0.28em; text-transform: uppercase;
+  padding: 4px 12px; margin-bottom: 1.4rem;
+  border: 1px solid; font-weight: 500;
+}
+.fw-tag.b2c { color: rgba(255,170,23,0.7); border-color: rgba(255,170,23,0.2); background: rgba(255,170,23,0.05); }
+.fw-tag.b2b { color: rgba(139,92,246,0.8); border-color: rgba(139,92,246,0.2); background: rgba(139,92,246,0.05); }
+.fw-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.4rem,2.5vw,2rem);
+  font-weight: 400; font-style: italic;
+  color: var(--warm); line-height: 1.08; letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.fw-headline em { color: var(--gold); }
+.fw-headline.purple em { color: rgba(167,139,250,0.9); }
+.fw-desc { font-size: 0.82rem; font-weight: 300; color: var(--muted); line-height: 1.72; margin-bottom: 1.6rem; }
+.fw-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.8rem; }
+.fw-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.78rem; font-weight: 300; color: var(--muted); }
+.fw-item-check { flex-shrink: 0; margin-top: 1px; }
+.fw-item-check.gold { color: var(--gold); }
+.fw-item-check.purple { color: rgba(167,139,250,0.8); }
+.fw-who {
+  padding: 12px 16px; border: 1px solid rgba(248,247,245,0.06); background: rgba(248,247,245,0.02);
+  font-size: 0.7rem; font-weight: 300; color: rgba(248,247,245,0.35); line-height: 1.6;
+}
+.fw-who strong { color: rgba(248,247,245,0.6); font-weight: 500; }
+@media (max-width: 860px) {
+  .for-whom-grid { grid-template-columns: 1fr; }
+}
+
+/* ════════ INTEGRATIONS ════════ */
+.integrations { padding: clamp(80px,10vh,120px) 0; }
+.integrations-head { text-align: center; margin-bottom: clamp(48px,6vw,64px); }
+.integrations-head .section-title { margin: 0 auto; }
+.integrations-head .section-sub { margin: 1rem auto 0; text-align: center; max-width: 56ch; }
+.int-category { margin-bottom: 36px; }
+.int-category-label {
+  font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(248,247,245,0.22); margin-bottom: 14px; padding-left: 2px;
+  display: flex; align-items: center; gap: 10px;
+}
+.int-category-label::after { content:''; flex:1; height:1px; background:rgba(248,247,245,0.05); }
+
+/* Card grid */
+.int-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px,1fr)); gap: 8px; }
+.int-card {
+  padding: 14px 14px 12px;
+  border: 1px solid rgba(248,247,245,0.07);
+  background: rgba(248,247,245,0.015);
+  display: flex; flex-direction: column; gap: 9px;
+  transition: border-color .22s, background .22s, transform .22s;
+  cursor: default;
+  position: relative; overflow: hidden;
+}
+.int-card::before {
+  content: ''; position: absolute; inset: 0; opacity: 0; pointer-events: none;
+  background: radial-gradient(circle 80px at var(--mx, 50%) var(--my, 50%), rgba(255,170,23,0.13), transparent 70%);
+  transition: opacity 0.2s; z-index: 0;
+}
+.int-card:hover::before { opacity: 1; }
+.int-card > * { position: relative; z-index: 1; }
+.int-card:hover {
+  border-color: rgba(255,170,23,0.22);
+  background: rgba(255,170,23,0.025);
+  transform: translateY(-1px);
+}
+.int-card-logo {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border-radius: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; letter-spacing: -0.02em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.int-card-logo img {
+  width: 28px; height: 28px; object-fit: contain; display: block;
+}
+.icl-text {
+  font-size: 12px;
+}
+.int-card-name {
+  font-size: 0.7rem; font-weight: 500;
+  color: rgba(248,247,245,0.78); letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.int-card-desc {
+  font-size: 0.6rem; font-weight: 300;
+  color: rgba(248,247,245,0.28); line-height: 1.5;
+}
+/* Legacy chips still used in some places */
+.int-chip {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border: 1px solid rgba(248,247,245,0.07);
+  background: rgba(248,247,245,0.02);
+  font-size: 0.7rem; color: rgba(248,247,245,0.5); letter-spacing: 0.04em;
+  transition: border-color .2s, color .2s;
+}
+.int-chip:hover { border-color: rgba(255,170,23,0.22); color: rgba(248,247,245,0.75); }
+.int-chip-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.int-chip-dot.ai { background: rgba(139,92,246,0.6); }
+.int-chip-dot.auto { background: rgba(62,207,142,0.6); }
+.int-chip-dot.crm { background: rgba(255,170,23,0.6); }
+.int-chip-dot.design { background: rgba(59,130,246,0.6); }
+.int-chip-dot.prod { background: rgba(248,113,113,0.6); }
+.int-chip-dot.dev { background: rgba(52,211,153,0.6); }
+.int-chip-dot.comms { background: rgba(196,181,253,0.6); }
+.int-cta-row { text-align: center; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--rule); }
+.int-cta-text { font-size: 0.8rem; font-weight: 300; color: var(--muted); margin-bottom: 16px; }
+.int-cta-text strong { color: rgba(248,247,245,0.65); font-weight: 500; }
+@media (max-width: 640px) {
+  .int-cards { grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 7px; }
+}
+
+/* ════════ TRANSPARENCY SECTION ════════ */
+.transparency { padding: clamp(80px,10vh,120px) 0; }
+.transp-inner {
+  border: 1px solid var(--rule); padding: clamp(40px,5vw,72px);
+  background: linear-gradient(135deg, rgba(255,170,23,0.03) 0%, transparent 60%);
+  position: relative; overflow: hidden;
+}
+.transp-inner::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 360px; height: 360px;
+  background: radial-gradient(ellipse, rgba(255,170,23,0.07) 0%, transparent 65%);
+  filter: blur(50px); pointer-events: none;
+}
+.transp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: start; }
+.transp-promise {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.6rem,3.2vw,2.8rem);
+  font-weight: 400; font-style: italic;
+  color: var(--warm); line-height: 1.08; letter-spacing: -0.025em;
+  margin-bottom: 1.2rem;
+}
+.transp-promise em { color: var(--gold); }
+.transp-body {
+  font-size: 0.86rem; font-weight: 300; color: var(--muted); line-height: 1.75; margin-bottom: 1.6rem;
+}
+.transp-items { display: flex; flex-direction: column; gap: 0; }
+.transp-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid rgba(248,247,245,0.05);
+}
+.transp-item:last-child { border-bottom: none; }
+.transp-check { color: #3ecf8e; font-size: 0.75rem; flex-shrink: 0; margin-top: 1px; }
+.transp-item-text { font-size: 0.82rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+.transp-item-text strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+
+.transp-stats { display: flex; flex-direction: column; gap: 20px; padding-top: 4px; }
+.transp-stat-big {
+  padding: 24px; background: rgba(248,247,245,0.02); border: 1px solid rgba(248,247,245,0.06);
+}
+.transp-stat-val {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.4rem,4vw,4rem);
+  font-weight: 400; font-style: italic; color: var(--gold);
+  line-height: 1; margin-bottom: 6px;
+}
+.transp-stat-label { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(248,247,245,0.3); }
+.transp-stat-sub { font-size: 0.72rem; font-weight: 300; color: rgba(248,247,245,0.25); margin-top: 4px; }
+
+/* ════════ PRICING ════════ */
+.pricing { padding: clamp(80px,10vh,120px) 0; }
+.pricing-inner { max-width: 760px; }
+.pricing-card {
+  border: 1px solid var(--rule); padding: clamp(32px,4vw,56px);
+  background: rgba(248,247,245,0.015);
+}
+.pricing-model {
+  font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: rgba(255,170,23,0.5); margin-bottom: 1rem;
+}
+.pricing-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.5rem,2.8vw,2.2rem);
+  font-weight: 400; font-style: italic;
+  color: var(--warm); letter-spacing: -0.02em; line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+.pricing-desc { font-size: 0.86rem; font-weight: 300; color: var(--muted); line-height: 1.72; margin-bottom: 2rem; max-width: 52ch; }
+.pricing-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+.pricing-point { display: flex; align-items: center; gap: 12px; font-size: 0.82rem; font-weight: 300; color: var(--muted); }
+.pricing-point-icon { color: var(--gold); font-size: 0.75rem; flex-shrink: 0; }
+.pricing-point strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+.pricing-note {
+  padding: 16px 20px; background: rgba(255,170,23,0.04); border-left: 2px solid rgba(255,170,23,0.3);
+  font-size: 0.78rem; font-weight: 300; color: rgba(248,247,245,0.4); line-height: 1.65; margin-bottom: 2rem;
+}
+.pricing-note strong { color: rgba(248,247,245,0.65); font-weight: 500; }
+
+/* ════════ AGENCIES / WHITELABEL ════════ */
+.agencies { padding: clamp(80px,10vh,120px) 0; }
+.agencies-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: center; }
+.agency-visual {
+  background: var(--ink); border: 1px solid var(--rule);
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.agency-mockup-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(248,247,245,0.06);
+}
+.agency-brand-preview { display: flex; align-items: center; gap: 9px; }
+.agency-brand-dot { width: 22px; height: 22px; background: rgba(255,170,23,0.12); border: 1px solid rgba(255,170,23,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.5rem; font-weight: 700; color: rgba(255,170,23,0.7); }
+.agency-brand-name { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; color: rgba(248,247,245,0.55); }
+.agency-wl-badge { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,170,23,0.4); padding: 3px 8px; border: 1px solid rgba(255,170,23,0.12); }
+.agency-mockup-rows { display: flex; flex-direction: column; gap: 8px; }
+.agency-row { padding: 10px 12px; background: rgba(248,247,245,0.02); border: 1px solid rgba(248,247,245,0.04); display: flex; align-items: center; gap: 10px; }
+.agency-row-icon { font-size: 0.7rem; }
+.agency-row-text { flex: 1; }
+.agency-row-label { font-size: 0.62rem; color: rgba(248,247,245,0.5); margin-bottom: 2px; }
+.agency-row-value { font-size: 0.55rem; color: rgba(248,247,245,0.22); }
+.agency-row-status { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 2px 6px; }
+.agency-row-status.green { color: rgba(62,207,142,0.6); background: rgba(62,207,142,0.07); }
+.agency-row-status.gold { color: rgba(255,170,23,0.6); background: rgba(255,170,23,0.07); }
+
+.agency-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 1.8rem; }
+.agency-feat {
+  padding: 16px; background: rgba(248,247,245,0.02); border: 1px solid rgba(248,247,245,0.06);
+}
+.agency-feat-icon { font-size: 1rem; margin-bottom: 8px; }
+.agency-feat-title { font-size: 0.72rem; font-weight: 500; color: rgba(248,247,245,0.7); margin-bottom: 4px; }
+.agency-feat-desc { font-size: 0.65rem; font-weight: 300; color: rgba(248,247,245,0.3); line-height: 1.55; }
+
+/* ════════ SCHEDULE ════════ */
+.schedule-section { padding: clamp(80px,10vh,120px) 0; }
+.schedule-card {
+  border: 1px solid var(--rule); padding: clamp(32px,5vw,64px);
+  background: rgba(248,247,245,0.012);
+  max-width: 860px;
+  position: relative; overflow: hidden;
+}
+.schedule-card::before {
+  content:''; position:absolute; top:-80px; right:-80px;
+  width:320px; height:320px;
+  background: radial-gradient(ellipse, rgba(255,170,23,0.07) 0%, transparent 65%);
+  filter: blur(50px); pointer-events:none;
+}
+.schedule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,4vw,56px); align-items: start; }
+.schedule-steps { display: flex; flex-direction: column; gap: 0; }
+.sched-step {
+  display: flex; gap: 16px; padding: 16px 0;
+  border-bottom: 1px solid rgba(248,247,245,0.05);
+}
+.sched-step:last-child { border-bottom: none; }
+.sched-step-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.4rem; font-weight: 400; font-style: italic;
+  color: var(--gold); line-height: 1; flex-shrink: 0; width: 28px;
+}
+.sched-step-body {}
+.sched-step-title { font-size: 0.78rem; font-weight: 500; color: rgba(248,247,245,0.78); margin-bottom: 3px; }
+.sched-step-desc { font-size: 0.68rem; font-weight: 300; color: rgba(248,247,245,0.3); line-height: 1.55; }
+.schedule-form { display: flex; flex-direction: column; gap: 14px; }
+.sched-field { display: flex; flex-direction: column; gap: 5px; }
+.sched-label { font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(248,247,245,0.28); font-weight: 500; }
+.sched-select, .sched-input {
+  background: rgba(248,247,245,0.03); border: 1px solid rgba(248,247,245,0.1);
+  color: rgba(248,247,245,0.75); padding: 10px 14px;
+  font-size: 0.78rem; font-family: 'Space Grotesk', sans-serif;
+  width: 100%; -webkit-appearance: none; appearance: none;
+  transition: border-color .2s;
+}
+.sched-select:focus, .sched-input:focus {
+  outline: none; border-color: rgba(255,170,23,0.4);
+}
+.sched-select option { background: #0e0f12; }
+.sched-note { font-size: 0.65rem; font-weight: 300; color: rgba(248,247,245,0.22); line-height: 1.55; }
+@media (max-width: 860px) {
+  .schedule-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .schedule-card { padding: 24px 20px; }
+}
+
+/* ════════ CTA ════════ */
+.cta-section { padding: clamp(80px,10vh,120px) 0; }
+.cta-inner { text-align: center; }
+.cta-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem,5vw,4.2rem);
+  font-weight: 400; font-style: italic;
+  color: var(--warm); line-height: 1.04; letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+}
+.cta-title em { color: var(--gold); }
+.cta-sub { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.65; max-width: 48ch; margin: 0 auto 2.4rem; }
+.cta-btns { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.cta-divider { width: 1px; height: 10px; background: rgba(248,247,245,0.1); }
+.cta-link { font-size: 0.72rem; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; transition: color .2s; cursor: pointer; }
+.cta-link:hover { color: var(--warm); }
+
+/* ════════ FILM GRAIN ════════ */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ════════ AI URGENCY ════════ */
+.ai-urgency { padding: clamp(80px,10vh,120px) 0; border-top: 1px solid var(--rule); }
+.ai-urgency-inner { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(40px,6vw,100px); align-items: center; }
+.ai-statement {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem,4.2vw,3.6rem);
+  font-weight: 400; font-style: italic;
+  color: var(--warm); line-height: 1.04; letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+}
+.ai-statement em { color: var(--gold); }
+.ai-statement .dim { color: rgba(248,247,245,0.22); font-style: normal; font-size: 0.85em; }
+.ai-body-text { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.8; margin-bottom: 1.4rem; }
+.ai-body-text strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+.ai-highlight {
+  padding: 18px 22px; border-left: 2px solid var(--gold);
+  background: rgba(255,170,23,0.04); margin-bottom: 1.4rem;
+  font-size: 0.86rem; font-weight: 300; color: rgba(248,247,245,0.55); line-height: 1.72;
+}
+.ai-highlight strong { color: var(--gold); font-weight: 600; }
+.ai-use-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ai-use-case {
+  padding: 14px 16px; border: 1px solid rgba(248,247,245,0.06);
+  background: rgba(248,247,245,0.02); transition: border-color .22s, background .22s;
+}
+.ai-use-case:hover { border-color: rgba(255,170,23,0.2); background: rgba(255,170,23,0.025); transform: translateY(-1px); }
+.ai-use-case-icon { font-size: 1.1rem; margin-bottom: 6px; }
+.ai-use-case-title { font-size: 0.72rem; font-weight: 500; color: rgba(248,247,245,0.72); margin-bottom: 3px; letter-spacing: -0.01em; }
+.ai-use-case-desc { font-size: 0.64rem; font-weight: 300; color: rgba(248,247,245,0.28); line-height: 1.52; }
+
+/* ════════ AI COST SECTION ════════ */
+.ai-cost-bar {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: var(--rule); margin-top: 1.6rem;
+}
+.ai-cost-item {
+  padding: 16px 18px; background: rgba(248,247,245,0.012);
+  text-align: center;
+}
+.ai-cost-val {
+  font-family: 'Instrument Serif', serif; font-size: 1.6rem;
+  font-weight: 400; font-style: italic; color: var(--gold);
+  line-height: 1; margin-bottom: 4px;
+}
+.ai-cost-lbl { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,247,245,0.25); }
+
+/* Animated counter */
+@keyframes countUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+.counter-appeared { animation: countUp 0.35s ease-out forwards; }
+
+@media (max-width: 860px) {
+  .ai-urgency-inner { grid-template-columns: 1fr; }
+  .ai-use-cases { grid-template-columns: 1fr 1fr; }
+  .ai-cost-bar { grid-template-columns: 1fr; }
+}
+
+/* ════════ FOOTER ════════ */
+footer {
+  border-top: 1px solid var(--rule); padding: clamp(32px,4vw,48px) 0;
+  position: relative; z-index: 2;
+}
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-links { display: flex; gap: clamp(16px,2.5vw,28px); }
+.footer-link { font-size: 0.72rem; color: rgba(248,247,245,0.22); transition: color .2s; }
+.footer-link:hover { color: rgba(248,247,245,0.55); }
+.footer-copy { font-size: 0.65rem; color: rgba(248,247,245,0.14); }
+
+/* ════════ RESPONSIVE ════════ */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .panel-grid { grid-template-columns: 1fr; }
+  .panel-screen { display: none; }
+  .transp-grid { grid-template-columns: 1fr; }
+  .agencies-grid { grid-template-columns: 1fr; }
+  .agency-visual { display: none; }
+  .agency-features { grid-template-columns: 1fr 1fr; }
+  .quoter-result-grid { grid-template-columns: 1fr; }
+  .step { grid-template-columns: 44px 1fr; gap: 0 16px; }
+  .step-num { font-size: 2rem; }
+  .nav-links { display: none; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .transp-inner { padding: 28px 24px; }
+  .pricing-card { padding: 28px 24px; }
+  .quoter-card { padding: 24px 20px; }
+  .agency-features { grid-template-columns: 1fr; }
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+  .cta-btns { flex-direction: column; }
+  .q-opt { font-size: 0.68rem; padding: 9px 14px; }
+}
+
+/* ════════ SECURITY TRUST SECTION ════════ */
+.security-trust { padding: clamp(80px,10vh,120px) 0; border-top: 1px solid var(--rule); }
+.security-trust .section-title em { color: #3ecf8e; }
+.sec-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,5vw,80px); align-items: start; margin-bottom: clamp(48px,6vw,64px); }
+.sec-intro-text { font-size: 0.88rem; font-weight: 300; color: var(--muted); line-height: 1.78; }
+.sec-intro-text strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+.sec-doc-cta {
+  display: inline-flex; align-items: center; gap: 11px;
+  padding: 12px 22px; border: 1px solid rgba(62,207,142,0.2);
+  color: rgba(62,207,142,0.7); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em;
+  transition: border-color .22s, color .22s, background .22s;
+  text-decoration: none; margin-top: 1.6rem;
+}
+.sec-doc-cta:hover { border-color: rgba(62,207,142,0.5); color: rgba(62,207,142,0.95); background: rgba(62,207,142,0.04); }
+.sec-doc-cta-arrow { font-size: 0.75rem; transition: transform .22s; }
+.sec-doc-cta:hover .sec-doc-cta-arrow { transform: translateX(3px); }
+.sec-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); }
+.sec-pillar {
+  padding: 28px 24px; background: var(--void);
+  transition: background .25s;
+  position: relative; overflow: hidden;
+}
+.sec-pillar::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(62,207,142,0.18), transparent);
+  opacity: 0; transition: opacity .25s;
+}
+.sec-pillar:hover { background: rgba(248,247,245,0.016); }
+.sec-pillar:hover::before { opacity: 1; }
+.sec-pillar-icon { font-size: 1.15rem; margin-bottom: 12px; }
+.sec-pillar-title { font-size: 0.78rem; font-weight: 500; color: rgba(248,247,245,0.78); margin-bottom: 7px; letter-spacing: 0.01em; }
+.sec-pillar-desc { font-size: 0.7rem; font-weight: 300; color: rgba(248,247,245,0.32); line-height: 1.62; }
+.sec-badges-strip {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 0;
+  border: 1px solid rgba(248,247,245,0.06);
+  background: rgba(248,247,245,0.012);
+  margin-top: 1px;
+}
+.sec-badge {
+  display: flex; align-items: center; gap: 8px;
+  padding: 14px 22px; border-right: 1px solid rgba(248,247,245,0.06);
+  flex-shrink: 0;
+}
+.sec-badge:last-child { border-right: none; }
+.sec-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: #3ecf8e; flex-shrink: 0; animation: pulse 2.4s ease-in-out infinite; }
+.sec-badge-text { font-size: 0.6rem; color: rgba(248,247,245,0.32); letter-spacing: 0.07em; white-space: nowrap; }
+@media (max-width: 860px) {
+  .sec-intro-grid { grid-template-columns: 1fr; }
+  .sec-pillars { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .sec-pillars { grid-template-columns: 1fr; }
+  .sec-badges-strip { flex-direction: column; align-items: flex-start; }
+  .sec-badge { border-right: none; border-bottom: 1px solid rgba(248,247,245,0.06); width: 100%; }
+  .sec-badge:last-child { border-bottom: none; }
+}
+
+/* ════════ AI NETWORK SVG ════════ */
+.ai-network-wrap { display: flex; align-items: center; justify-content: center; padding-top: 2rem; }
+.ai-network { width: 100%; max-width: 320px; overflow: visible; }
+.net-link { stroke: rgba(255,170,23,0.14); stroke-width: 1; }
+.net-bg { fill: rgba(14,15,18,0.95); stroke: rgba(248,247,245,0.08); stroke-width: 1; }
+.net-center-fill { fill: rgba(255,170,23,0.1); stroke: rgba(255,170,23,0.35); stroke-width: 1.5; }
+.net-center-text { font-family:'Instrument Serif',serif; fill:rgba(255,170,23,0.88); font-size:9px; font-style:italic; dominant-baseline:middle; text-anchor:middle; }
+.net-sat-label { font-family:'Space Grotesk',sans-serif; fill:rgba(248,247,245,0.42); font-size:6px; dominant-baseline:middle; text-anchor:middle; }
+.net-sat-abbr { font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:7px; dominant-baseline:middle; text-anchor:middle; }
+.net-pulse-r { fill:none; stroke-width:1.5; animation:netRing 2.2s ease-out infinite; }
+.net-pulse-r2 { fill:none; stroke-width:1; animation:netRing 2.2s ease-out infinite 1.1s; }
+@keyframes netRing { 0%{opacity:0.55;transform:scale(1)} 100%{opacity:0;transform:scale(1.75)} }
+
+/* ════════ PRIVACY SECTION ════════ */
+.privacy-section { padding: clamp(80px,10vh,120px) 0; border-top: 1px solid var(--rule); }
+.privacy-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(48px,6vw,96px); align-items: start; }
+.privacy-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.55rem; letter-spacing: 0.28em; text-transform: uppercase;
+  padding: 5px 14px; margin-bottom: 1.6rem;
+  border: 1px solid rgba(62,207,142,0.2); background: rgba(62,207,142,0.04);
+  color: rgba(62,207,142,0.65);
+}
+.privacy-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: #3ecf8e; animation: pulse 2s ease-in-out infinite; }
+.privacy-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8rem,3.2vw,2.8rem); font-weight: 400; font-style: italic;
+  color: var(--warm); line-height: 1.06; letter-spacing: -0.025em; margin-bottom: 1.2rem;
+}
+.privacy-headline em { color: #3ecf8e; }
+.privacy-body { font-size: 0.86rem; font-weight: 300; color: var(--muted); line-height: 1.78; margin-bottom: 1.6rem; }
+.privacy-body strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+.privacy-items { display: flex; flex-direction: column; gap: 0; margin-bottom: 2rem; }
+.privacy-item { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(248,247,245,0.05); }
+.privacy-item:last-child { border-bottom: none; }
+.privacy-check { color: #3ecf8e; font-size: 0.72rem; flex-shrink: 0; margin-top: 1px; }
+.privacy-item-text { font-size: 0.8rem; font-weight: 300; color: var(--muted); line-height: 1.6; }
+.privacy-item-text strong { color: rgba(248,247,245,0.72); font-weight: 500; }
+.privacy-right { display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
+.priv-box {
+  padding: 22px 24px; border: 1px solid rgba(248,247,245,0.07);
+  background: rgba(248,247,245,0.015); transition: border-color .25s, background .25s;
+  position: relative; overflow: hidden;
+}
+.priv-box:hover { border-color: rgba(62,207,142,0.22); background: rgba(62,207,142,0.018); }
+.priv-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(62,207,142,0.28), transparent);
+}
+.priv-box-icon { font-size: 1rem; margin-bottom: 7px; }
+.priv-box-title { font-size: 0.76rem; font-weight: 500; color: rgba(248,247,245,0.75); margin-bottom: 5px; }
+.priv-box-desc { font-size: 0.68rem; font-weight: 300; color: rgba(248,247,245,0.32); line-height: 1.6; }
+.priv-note {
+  padding: 15px 18px; border: 1px solid rgba(248,247,245,0.06);
+  background: rgba(248,247,245,0.02); border-left: 2px solid rgba(62,207,142,0.4);
+  font-size: 0.72rem; font-weight: 300; color: rgba(248,247,245,0.38); line-height: 1.65;
+}
+.priv-note strong { color: rgba(248,247,245,0.65); font-weight: 500; }
+@media (max-width: 860px) { .privacy-inner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="logo-tracker.png" alt="VICTOR IA Tracker" style="height:28px;width:auto;">
+    </a>
+    <div class="nav-links">
+      <a href="#como-funciona" class="nav-link">Cómo funciona</a>
+      <a href="#tu-panel" class="nav-link">Tu panel</a>
+      <a href="#para-quien" class="nav-link">Para quién</a>
+      <a href="#integraciones" class="nav-link">Integraciones</a>
+      <a href="#agendar" class="nav-link">Agendar llamada</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://victor-ia-tracker.vercel.app" class="nav-cta">Ver mi proyecto →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-label reveal">
+          <div class="hero-label-dot"></div>
+          <span class="hero-label-text">Seguimiento en tiempo real</span>
+        </div>
+        <h1 class="reveal reveal-d1">
+          Tu proyecto,<br>sin <em>secretos.</em>
+        </h1>
+        <p class="hero-sub reveal reveal-d2">
+          La IA está avanzando a pasos agigantados. Nosotros la implementamos por ti — <strong>sin que tú ni tu equipo tengan que aprender nada.</strong> Automatizamos tu empresa, por departamentos, conectamos todo lo que ya usas y lo medimos en tiempo real.
+          <br><br>
+          Sin costos ocultos. Cobramos por hora. Transparentamos todo — <strong>desde el primer contacto hasta la entrega.</strong>
+        </p>
+        <div class="hero-btns reveal reveal-d3">
+          <a href="https://victor-ia-tracker.vercel.app" class="btn-primary">Acceder a mi proyecto →</a>
+          <a href="#como-funciona" class="btn-ghost">Ver cómo funciona</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-particles">
+          <div class="hero-particle" style="width:4px;height:4px;background:rgba(255,170,23,0.5);top:18%;left:12%;animation:hp1 3.4s ease-in-out infinite;"></div>
+          <div class="hero-particle" style="width:3px;height:3px;background:rgba(255,170,23,0.32);top:72%;right:18%;animation:hp2 2.9s ease-in-out infinite 0.5s;"></div>
+          <div class="hero-particle" style="width:5px;height:5px;background:rgba(139,92,246,0.45);top:38%;right:6%;animation:hp3 3.8s ease-in-out infinite 1s;"></div>
+        </div>
+        <div class="hero-screen">
+          <div class="screen-bar">
+            <div class="screen-dots"><span></span><span></span><span></span></div>
+            <span class="screen-url">victor-ia-tracker.vercel.app — Mi Proyecto</span>
+          </div>
+          <div class="screen-body">
+            <div class="mock-header">
+              <span class="mock-proj-name">Ecosistema Digital — Empresa Ejemplo SA</span>
+              <span class="mock-live-badge">● En curso</span>
+            </div>
+            <div class="mock-progress-wrap">
+              <div class="mock-progress-label">
+                <span class="mock-progress-text">Avance general del proyecto</span>
+                <span class="mock-progress-pct">68%</span>
+              </div>
+              <div class="mock-progress-bar">
+                <div class="mock-progress-fill"></div>
+              </div>
+            </div>
+            <div class="mock-stats">
+              <div class="mock-stat">
+                <div class="mock-stat-lbl">Horas trabajadas</div>
+                <div class="mock-stat-val gold">27.5h</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-lbl">Costo acumulado</div>
+                <div class="mock-stat-val">$8,250</div>
+              </div>
+              <div class="mock-stat">
+                <div class="mock-stat-lbl">Entrega estimada</div>
+                <div class="mock-stat-val">May 18</div>
+              </div>
+            </div>
+            <div class="mock-timeline">
+              <div class="mock-phase done">
+                <div class="mock-phase-dot"></div>
+                <span class="mock-phase-label">Brief y planeación</span>
+                <span class="mock-phase-hrs">4h · Completado</span>
+              </div>
+              <div class="mock-phase done">
+                <div class="mock-phase-dot"></div>
+                <span class="mock-phase-label">Diseño y estrategia</span>
+                <span class="mock-phase-hrs">12h · Completado</span>
+              </div>
+              <div class="mock-phase active">
+                <div class="mock-phase-dot"></div>
+                <span class="mock-phase-label">Desarrollo e implementación</span>
+                <span class="mock-phase-hrs">11.5h · En progreso</span>
+              </div>
+              <div class="mock-phase">
+                <div class="mock-phase-dot"></div>
+                <span class="mock-phase-label">Pruebas y entrega</span>
+                <span class="mock-phase-hrs">Pendiente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-track">
+    <div class="trust-item"><div class="trust-dot"></div>Sin costos ocultos</div>
+    <div class="trust-item"><div class="trust-dot"></div>Pago por hora</div>
+    <div class="trust-item"><div class="trust-dot"></div>Seguimiento en tiempo real</div>
+    <div class="trust-item"><div class="trust-dot"></div>Desde el primer contacto</div>
+    <div class="trust-item"><div class="trust-dot"></div>Transparencia total</div>
+    <div class="trust-item"><div class="trust-dot"></div>Ecosistema automatizado</div>
+    <div class="trust-item"><div class="trust-dot"></div>Sin letra pequeña</div>
+    <div class="trust-item"><div class="trust-dot"></div>Entrega documentada</div>
+    <div class="trust-item"><div class="trust-dot"></div>La IA trabaja por ti</div>
+    <div class="trust-item"><div class="trust-dot"></div>Deep learning activo</div>
+    <div class="trust-item"><div class="trust-dot"></div>Agentes IA conectados</div>
+    <div class="trust-item"><div class="trust-dot"></div>Baja costos de nómina</div>
+    <div class="trust-item"><div class="trust-dot"></div>MCP Servers</div>
+    <div class="trust-item"><div class="trust-dot"></div>Workflow personalizado</div>
+    <!-- duplicate for seamless loop -->
+    <div class="trust-item"><div class="trust-dot"></div>Sin costos ocultos</div>
+    <div class="trust-item"><div class="trust-dot"></div>Pago por hora</div>
+    <div class="trust-item"><div class="trust-dot"></div>Seguimiento en tiempo real</div>
+    <div class="trust-item"><div class="trust-dot"></div>Desde el primer contacto</div>
+    <div class="trust-item"><div class="trust-dot"></div>Transparencia total</div>
+    <div class="trust-item"><div class="trust-dot"></div>Ecosistema automatizado</div>
+    <div class="trust-item"><div class="trust-dot"></div>Sin letra pequeña</div>
+    <div class="trust-item"><div class="trust-dot"></div>Entrega documentada</div>
+    <div class="trust-item"><div class="trust-dot"></div>La IA trabaja por ti</div>
+    <div class="trust-item"><div class="trust-dot"></div>Deep learning activo</div>
+    <div class="trust-item"><div class="trust-dot"></div>Agentes IA conectados</div>
+    <div class="trust-item"><div class="trust-dot"></div>Baja costos de nómina</div>
+    <div class="trust-item"><div class="trust-dot"></div>MCP Servers</div>
+    <div class="trust-item"><div class="trust-dot"></div>Workflow personalizado</div>
+  </div>
+</div>
+
+<!-- AI URGENCY -->
+<section class="ai-urgency" id="por-que">
+  <div class="container">
+    <div class="ai-urgency-inner">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:1.6rem"><div class="eyebrow-line"></div><span class="eyebrow-text">El problema real</span></div>
+        <div class="ai-statement">
+          La IA avanza.<br>
+          Tu competencia<br>
+          <em>también.</em><br>
+          <span class="dim">¿Y tú?</span>
+        </div>
+        <div class="ai-network-wrap">
+          <svg class="ai-network" viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line class="net-link" x1="150" y1="130" x2="75" y2="58"/>
+            <line class="net-link" x1="150" y1="130" x2="225" y2="58"/>
+            <line class="net-link" x1="150" y1="130" x2="40" y2="148"/>
+            <line class="net-link" x1="150" y1="130" x2="260" y2="148"/>
+            <line class="net-link" x1="150" y1="130" x2="85" y2="218"/>
+            <line class="net-link" x1="150" y1="130" x2="215" y2="218"/>
+            <!-- Packets -->
+            <circle r="2.5" fill="rgba(255,170,23,0.72)"><animateMotion dur="2.4s" repeatCount="indefinite" path="M150,130 L75,58"/></circle>
+            <circle r="2.5" fill="rgba(255,170,23,0.72)"><animateMotion dur="2.8s" repeatCount="indefinite" begin="0.6s" path="M150,130 L225,58"/></circle>
+            <circle r="2" fill="rgba(255,170,23,0.5)"><animateMotion dur="2.2s" repeatCount="indefinite" begin="1.1s" path="M150,130 L40,148"/></circle>
+            <circle r="2" fill="rgba(255,170,23,0.5)"><animateMotion dur="3s" repeatCount="indefinite" begin="0.3s" path="M150,130 L260,148"/></circle>
+            <circle r="2.5" fill="rgba(255,170,23,0.62)"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.8s" path="M150,130 L85,218"/></circle>
+            <circle r="2" fill="rgba(255,170,23,0.5)"><animateMotion dur="2.9s" repeatCount="indefinite" begin="1.4s" path="M150,130 L215,218"/></circle>
+            <!-- Satellite nodes -->
+            <circle cx="75" cy="58" r="22" class="net-bg"/>
+            <text x="75" y="55" class="net-sat-abbr" fill="rgba(212,169,255,0.75)">Cl</text>
+            <text x="75" y="65" class="net-sat-label">Claude</text>
+            <circle cx="225" cy="58" r="22" class="net-bg"/>
+            <text x="225" y="55" class="net-sat-abbr" fill="rgba(16,163,127,0.85)">GP</text>
+            <text x="225" y="65" class="net-sat-label">GPT-4o</text>
+            <circle cx="40" cy="148" r="22" class="net-bg"/>
+            <text x="40" y="145" class="net-sat-abbr" fill="rgba(234,75,113,0.85)">n8</text>
+            <text x="40" y="155" class="net-sat-label">n8n</text>
+            <circle cx="260" cy="148" r="22" class="net-bg"/>
+            <text x="260" y="145" class="net-sat-abbr" fill="rgba(255,122,89,0.85)">Hs</text>
+            <text x="260" y="155" class="net-sat-label">HubSpot</text>
+            <circle cx="85" cy="218" r="22" class="net-bg"/>
+            <text x="85" y="215" class="net-sat-abbr" fill="rgba(37,211,102,0.85)">WA</text>
+            <text x="85" y="225" class="net-sat-label">WhatsApp</text>
+            <circle cx="215" cy="218" r="22" class="net-bg"/>
+            <text x="215" y="215" class="net-sat-abbr" fill="rgba(253,109,29,0.8)">IG</text>
+            <text x="215" y="225" class="net-sat-label">Instagram</text>
+            <!-- Center VI node -->
+            <circle cx="150" cy="130" r="32" class="net-center-fill"/>
+            <circle cx="150" cy="130" r="32" class="net-pulse-r" stroke="rgba(255,170,23,0.22)" style="transform-origin:150px 130px"/>
+            <circle cx="150" cy="130" r="32" class="net-pulse-r2" stroke="rgba(255,170,23,0.14)" style="transform-origin:150px 130px"/>
+            <text x="150" y="127" class="net-center-text">VI</text>
+            <text x="150" y="138" style="font-family:'Space Grotesk',sans-serif;fill:rgba(255,170,23,0.5);font-size:5.5px;letter-spacing:0.12em;dominant-baseline:middle;text-anchor:middle">ECOSYSTEM</text>
+          </svg>
+        </div>
+      </div>
+      <div class="reveal reveal-d1">
+        <p class="ai-body-text">
+          La inteligencia artificial está avanzando a pasos agigantados. Las empresas que no se están actualizando <strong>se están quedando atrás</strong> — y cada mes la brecha crece.
+          <br><br>
+          El problema no es la voluntad. <strong>La mayoría quiere automatizar sus procesos y no sabe cómo.</strong> Requiere tiempo, conocimiento técnico y experiencia que la mayoría no tiene.
+        </p>
+        <div class="ai-highlight">
+          <strong>Nosotros hacemos todo por ti.</strong> No te complicamos en que tú o tu equipo tengan que aprender. Nosotros diseñamos, conectamos e implementamos tu ecosistema con los mejores modelos LLM, MCP Servers y softwares — tú solo ves los resultados. <strong>Dependiendo de lo que necesites hacer, nosotros lo conectamos y desarrollamos tu workflow personalizado.</strong>
+        </div>
+        <div class="ai-use-cases">
+          <div class="ai-use-case">
+            <div class="ai-use-case-icon">🏠</div>
+            <div class="ai-use-case-title">Vida personal</div>
+            <div class="ai-use-case-desc">Automatiza rutinas, recordatorios y gestión de tu tiempo</div>
+          </div>
+          <div class="ai-use-case">
+            <div class="ai-use-case-icon">🏢</div>
+            <div class="ai-use-case-title">Tu empresa completa</div>
+            <div class="ai-use-case-desc">Operaciones, ventas, marketing — todo automatizado y medido</div>
+          </div>
+          <div class="ai-use-case">
+            <div class="ai-use-case-icon">📂</div>
+            <div class="ai-use-case-title">Por departamentos</div>
+            <div class="ai-use-case-desc">Cada área tiene su flujo — todo integrado, trazable y visible</div>
+          </div>
+          <div class="ai-use-case">
+            <div class="ai-use-case-icon">📈</div>
+            <div class="ai-use-case-title">Mejora diario</div>
+            <div class="ai-use-case-desc">Los modelos aprenden de tus datos y mejoran solos gracias al deep learning</div>
+          </div>
+        </div>
+        <div class="ai-cost-bar">
+          <div class="ai-cost-item">
+            <div class="ai-cost-val" data-counter data-target="100" data-suffix="%">0%</div>
+            <div class="ai-cost-lbl">Trazabilidad de procesos</div>
+          </div>
+          <div class="ai-cost-item">
+            <div class="ai-cost-val" data-counter data-target="0" data-suffix="">0</div>
+            <div class="ai-cost-lbl">Costos ocultos</div>
+          </div>
+          <div class="ai-cost-item">
+            <div class="ai-cost-val" data-counter data-target="24" data-suffix="/7">0/7</div>
+            <div class="ai-cost-lbl">La IA trabaja por ti</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como-funciona">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">El proceso</span></div>
+      <h2 class="section-title">De la idea a la entrega,<br><em>todo visible.</em></h2>
+      <p class="section-sub">Cada etapa de tu proyecto queda registrada en el tracker. Sabes exactamente en qué estamos, cuánto llevamos y cuánto falta — sin tener que preguntar.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-eyebrow">Primer contacto</div>
+          <div class="step-title">Nos cuentas tu proyecto.</div>
+          <p class="step-desc">Una conversación sin compromisos. Entendemos qué necesitas, tu contexto y tus objetivos. Sin contratos de letra pequeña, sin cotizaciones sorpresa. Solo escuchamos.</p>
+          <div class="step-tags">
+            <span class="step-tag">Sin costo inicial</span>
+            <span class="step-tag">Sin compromisos</span>
+          </div>
+        </div>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-eyebrow">Brief y planeación</div>
+          <div class="step-title">Definimos alcance y horas <em>antes</em> de comenzar.</div>
+          <p class="step-desc">Te presentamos un desglose claro: qué vamos a hacer, cuántas horas estimamos por fase y cuánto costaría. Lo apruebas tú. Si algo cambia, lo conversamos antes de actuar — nunca trabajamos horas que no hayas autorizado.</p>
+          <div class="step-tags">
+            <span class="step-tag">Estimado por fases</span>
+            <span class="step-tag">Aprobación previa</span>
+            <span class="step-tag">Sin sorpresas</span>
+          </div>
+        </div>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-eyebrow">Ejecución transparente</div>
+          <div class="step-title">Cada hora trabajada aparece <em>aquí.</em></div>
+          <p class="step-desc">Desde el momento en que empezamos, tu panel se actualiza en tiempo real. Ves qué fase estamos trabajando, cuántas horas llevamos, qué entregamos hoy y cuánto se ha acumulado de costo. No tienes que esperar al final del mes para saber qué está pasando.</p>
+          <div class="step-tags">
+            <span class="step-tag">Tiempo real</span>
+            <span class="step-tag">Por fase</span>
+            <span class="step-tag">Costo visible</span>
+          </div>
+        </div>
+      </div>
+      <div class="step reveal reveal-d3">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-eyebrow">Entrega, cierre y mejora continua</div>
+          <div class="step-title">Recibes el trabajo y tu ecosistema <em>sigue mejorando.</em></div>
+          <p class="step-desc">Al cerrar el proyecto recibes todos los entregables más el desglose exacto de horas. Pero no termina ahí — tu ecosistema de IA aprende de tus datos y mejora diario gracias al deep learning. La automatización se vuelve más inteligente con el tiempo.</p>
+          <div class="step-tags">
+            <span class="step-tag">Factura exacta</span>
+            <span class="step-tag">Deep learning activo</span>
+            <span class="step-tag">Mejora continua</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PANEL PREVIEW -->
+<section class="panel" id="tu-panel">
+  <div class="container">
+    <div class="panel-grid">
+      <div>
+        <div class="section-head reveal">
+          <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Tu panel</span></div>
+          <h2 class="section-title">Todo lo que ves<br>es <em>todo lo que es.</em></h2>
+          <p class="section-sub">Tu panel de proyecto no es una presentación bonita — es el mismo sistema que usa nuestro equipo para trabajar. Lo que ves tú es lo mismo que vemos nosotros.</p>
+        </div>
+        <div class="panel-features">
+          <div class="panel-feat reveal">
+            <div class="panel-feat-icon">📊</div>
+            <div>
+              <div class="panel-feat-title">Avance en tiempo real</div>
+              <div class="panel-feat-desc">Porcentaje de completado por fase, actualizado conforme avanzamos. Sin reportes manuales ni correos de "¿cómo va todo?".</div>
+            </div>
+          </div>
+          <div class="panel-feat reveal reveal-d1">
+            <div class="panel-feat-icon">⏱</div>
+            <div>
+              <div class="panel-feat-title">Horas trabajadas por día</div>
+              <div class="panel-feat-desc">Registro detallado de cada sesión de trabajo. Quién trabajó, en qué tarea y durante cuánto tiempo.</div>
+            </div>
+          </div>
+          <div class="panel-feat reveal reveal-d2">
+            <div class="panel-feat-icon">💰</div>
+            <div>
+              <div class="panel-feat-title">Costo acumulado en vivo</div>
+              <div class="panel-feat-desc">Sabes en todo momento cuánto llevas invertido. No hay cargos que aparezcan solo en la factura final.</div>
+            </div>
+          </div>
+          <div class="panel-feat reveal reveal-d3">
+            <div class="panel-feat-icon">📁</div>
+            <div>
+              <div class="panel-feat-title">Archivos y entregables</div>
+              <div class="panel-feat-desc">Cada documento, diseño o entregable que terminemos aparece en tu panel listo para descargar.</div>
+            </div>
+          </div>
+          <div class="panel-feat reveal reveal-d4">
+            <div class="panel-feat-icon">🔔</div>
+            <div>
+              <div class="panel-feat-title">Notificaciones de hitos</div>
+              <div class="panel-feat-desc">Te avisamos cuando completamos una fase o cuando hay algo que requiere tu revisión o aprobación.</div>
+            </div>
+          </div>
+          <div class="panel-feat reveal" style="animation-delay:0.5s">
+            <div class="panel-feat-icon">🤖</div>
+            <div>
+              <div class="panel-feat-title">Costo real de tu IA</div>
+              <div class="panel-feat-desc">Conectamos tus agentes, chatbots y modelos de IA. Rastreamos cada token, llamada y proceso para que sepas exactamente cuánto te cuesta la inteligencia artificial que estás consumiendo.</div>
+            </div>
+          </div>
+          <div class="panel-feat reveal" style="animation-delay:0.6s">
+            <div class="panel-feat-icon">📊</div>
+            <div>
+              <div class="panel-feat-title">Trazabilidad total de recursos</div>
+              <div class="panel-feat-desc">Seguimiento correcto de dónde se van tus recursos — nómina, herramientas, consumo de IA, agencias y proveedores. Todo en un solo panel con desglose real.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-screen reveal">
+        <div class="panel-screen-bar">
+          <div class="panel-screen-dots"><span></span><span></span><span></span></div>
+          <span class="panel-screen-title">Mi Proyecto · Actividad reciente</span>
+        </div>
+        <div class="panel-screen-body">
+          <div class="ps-row">
+            <div class="ps-kpi">
+              <div class="ps-kpi-lbl">Horas hoy</div>
+              <div class="ps-kpi-val gold">3.5h</div>
+            </div>
+            <div class="ps-kpi">
+              <div class="ps-kpi-lbl">Esta semana</div>
+              <div class="ps-kpi-val">11h</div>
+            </div>
+            <div class="ps-kpi">
+              <div class="ps-kpi-lbl">Costo hoy</div>
+              <div class="ps-kpi-val gold">$1,050</div>
+            </div>
+          </div>
+          <div class="ps-section-lbl" style="margin-bottom:7px">Registro de actividad</div>
+          <div class="ps-activity">
+            <div class="ps-act-row">
+              <div class="ps-act-avatar">VI</div>
+              <div class="ps-act-info">
+                <div class="ps-act-what">Diseño de flujo de automatización n8n</div>
+                <div class="ps-act-when">Hoy · 10:30 – 12:00</div>
+              </div>
+              <div class="ps-act-hrs">1.5h</div>
+            </div>
+            <div class="ps-act-row">
+              <div class="ps-act-avatar">VI</div>
+              <div class="ps-act-info">
+                <div class="ps-act-what">Configuración de integraciones HubSpot</div>
+                <div class="ps-act-when">Hoy · 14:00 – 16:00</div>
+              </div>
+              <div class="ps-act-hrs">2.0h</div>
+            </div>
+            <div class="ps-act-row">
+              <div class="ps-act-avatar">VI</div>
+              <div class="ps-act-info">
+                <div class="ps-act-what">Revisión con cliente — ajustes de scope</div>
+                <div class="ps-act-when">Ayer · 16:30 – 17:00</div>
+              </div>
+              <div class="ps-act-hrs">0.5h</div>
+            </div>
+            <div class="ps-act-row">
+              <div class="ps-act-avatar">VI</div>
+              <div class="ps-act-info">
+                <div class="ps-act-what">Landing page — copy y estructura</div>
+                <div class="ps-act-when">Ayer · 09:00 – 13:00</div>
+              </div>
+              <div class="ps-act-hrs">4.0h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B2B / B2C -->
+<section class="for-whom" id="para-quien">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:clamp(40px,5vw,56px)">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">¿Para quién es?</span></div>
+      <h2 class="section-title">Servimos a dos mundos<br><em>distintos.</em></h2>
+      <p class="section-sub">Ya seas un cliente final que contrata un proyecto, o una empresa que quiere transformar sus operaciones — el tracker se adapta a tu realidad.</p>
+    </div>
+    <div class="for-whom-grid">
+      <!-- B2C -->
+      <div class="fw-card reveal">
+        <div class="fw-tag b2c">B2C · Cliente final</div>
+        <div class="fw-headline">Contrataste un proyecto.<br><em>Síguelo en tiempo real.</em></div>
+        <p class="fw-desc">Eres una persona, emprendedor o empresa que necesita un entregable concreto: un sitio web, una estrategia de IA, una automatización. Nos contratas por horas y ves exactamente cómo avanza tu inversión.</p>
+        <div class="fw-list">
+          <div class="fw-item"><span class="fw-item-check gold">→</span>Tracking en vivo del avance de tu proyecto</div>
+          <div class="fw-item"><span class="fw-item-check gold">→</span>Costo acumulado visible antes de la factura</div>
+          <div class="fw-item"><span class="fw-item-check gold">→</span>Comunicación directa con tu equipo asignado</div>
+          <div class="fw-item"><span class="fw-item-check gold">→</span>Historial permanente de todo lo entregado</div>
+          <div class="fw-item"><span class="fw-item-check gold">→</span>Sin paquetes cerrados — pagas lo que se trabaja</div>
+        </div>
+        <div class="fw-who">
+          <strong>Perfil típico:</strong> Dueños de negocio, startups, emprendedores digitales, departamentos de marketing, cualquier persona que quiera saber exactamente en qué se gasta su dinero.
+        </div>
+      </div>
+      <!-- B2B -->
+      <div class="fw-card b2b reveal reveal-d1">
+        <div class="fw-tag b2b">B2B · Empresa y agencias</div>
+        <div class="fw-headline purple">Quieres automatizar<br><em>cómo opera tu empresa.</em></div>
+        <p class="fw-desc">Eres una empresa que necesita integrar inteligencia artificial en sus procesos, automatizar flujos de trabajo o construir un ecosistema digital completo. Trabajamos contigo para diseñar e implementar la infraestructura.</p>
+        <div class="fw-list">
+          <div class="fw-item"><span class="fw-item-check purple">→</span>Diagnóstico de procesos y oportunidades de IA</div>
+          <div class="fw-item"><span class="fw-item-check purple">→</span>Diseño e implementación del ecosistema digital</div>
+          <div class="fw-item"><span class="fw-item-check purple">→</span>Integraciones con tus sistemas existentes (CRM, ERP, etc.)</div>
+          <div class="fw-item"><span class="fw-item-check purple">→</span>Capacitación del equipo en herramientas IA</div>
+          <div class="fw-item"><span class="fw-item-check purple">→</span>Tracker white label para tus propios clientes</div>
+        </div>
+        <div class="fw-who" style="border-color:rgba(139,92,246,0.1);background:rgba(139,92,246,0.03)">
+          <strong>Perfil típico:</strong> Agencias creativas, despachos de consultoría, empresas de servicios, departamentos de operaciones que buscan escalar sin contratar más personal.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations" id="integraciones">
+  <div class="container">
+    <div class="integrations-head reveal">
+      <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-text">Ecosistema conectado</span><div class="eyebrow-line"></div></div>
+      <h2 class="section-title" style="text-align:center">Todo tu ecosistema,<br><em>conectado.</em></h2>
+      <p class="section-sub">Siempre utilizamos los mejores modelos LLM, MCP Servers y softwares del mercado. Conectamos con lo que ya usas — o elegimos lo que mejor se adapte a cada proyecto.</p>
+    </div>
+
+    <!-- ── MODELOS LLM ── -->
+    <div class="int-category reveal">
+      <div class="int-category-label">Modelos LLM · Inteligencia Artificial de texto</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/anthropic.png" alt="Claude" loading="lazy"></div><div class="int-card-name">Claude</div><div class="int-card-desc">El modelo más avanzado de Anthropic para razonamiento y escritura</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/openai.png" alt="GPT-4o / o3" loading="lazy"></div><div class="int-card-name">GPT-4o / o3</div><div class="int-card-desc">Modelos flagship de OpenAI para texto, visión y razonamiento avanzado</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/google-gemini.png" alt="Gemini 2.5" loading="lazy"></div><div class="int-card-name">Gemini 2.5</div><div class="int-card-desc">Modelo multimodal de Google con contexto de 1M de tokens</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/mistral-ai.png" alt="Mistral" loading="lazy"></div><div class="int-card-name">Mistral</div><div class="int-card-desc">LLM europeo de alto rendimiento, ideal para uso privado y local</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/meta.png" alt="LLaMA 3" loading="lazy"></div><div class="int-card-name">LLaMA 3</div><div class="int-card-desc">Modelo open-source de Meta, deployable en servidores propios</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/xai-grok.png" alt="Grok 3" loading="lazy"></div><div class="int-card-name">Grok 3</div><div class="int-card-desc">LLM de xAI con acceso a datos en tiempo real de X (Twitter)</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/deepseek.png" alt="DeepSeek V3" loading="lazy"></div><div class="int-card-name">DeepSeek V3</div><div class="int-card-desc">Modelo chino de código y razonamiento de alta capacidad</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/perplexity.png" alt="Perplexity" loading="lazy"></div><div class="int-card-name">Perplexity</div><div class="int-card-desc">IA con búsqueda en tiempo real y citación de fuentes verificadas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/openrouter.png" alt="OpenRouter" loading="lazy"></div><div class="int-card-name">OpenRouter</div><div class="int-card-desc">Gateway unificado para acceder a +100 modelos LLM con una sola API</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/cohere.png" alt="Cohere" loading="lazy"></div><div class="int-card-name">Cohere</div><div class="int-card-desc">LLM especializado en búsqueda semántica y embeddings empresariales</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/groq.png" alt="Groq" loading="lazy"></div><div class="int-card-name">Groq</div><div class="int-card-desc">Inferencia ultrarrápida — modelos LLM a velocidades imposibles en CPU</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/ollama.png" alt="Ollama" loading="lazy"></div><div class="int-card-name">Ollama</div><div class="int-card-desc">Ejecuta modelos LLM en local sin internet ni costos de API</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/hugging-face.png" alt="Hugging Face" loading="lazy"></div><div class="int-card-name">Hugging Face</div><div class="int-card-desc">Hub de modelos open-source con +500k modelos y datasets</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/together-ai.png" alt="Together AI" loading="lazy"></div><div class="int-card-name">Together AI</div><div class="int-card-desc">Plataforma cloud para inferencia y fine-tuning de modelos open-source</div></div>
+      </div>
+    </div>
+    <!-- ── IMAGEN ── -->
+    <div class="int-category reveal reveal-d1">
+      <div class="int-category-label">Imagen · Video · Audio · Música · Voz</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/midjourney.png" alt="Midjourney" loading="lazy"></div><div class="int-card-name">Midjourney</div><div class="int-card-desc">Generación de imágenes hiperrealistas y artísticas de calidad fotográfica</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/openai.png" alt="DALL·E 3" loading="lazy"></div><div class="int-card-name">DALL·E 3</div><div class="int-card-desc">Imágenes desde texto de OpenAI, integrado en ChatGPT y APIs</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/stability-ai.png" alt="Flux / SDXL" loading="lazy"></div><div class="int-card-name">Flux / SDXL</div><div class="int-card-desc">Modelos de imagen open-source de alta calidad — Flux y Stable Diffusion</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/runway.png" alt="Runway Gen-4" loading="lazy"></div><div class="int-card-name">Runway Gen-4</div><div class="int-card-desc">Generación y edición de video con IA, efectos y motion profesional</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/openai.png" alt="Sora" loading="lazy"></div><div class="int-card-name">Sora</div><div class="int-card-desc">Video de alta calidad generado desde texto por OpenAI</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/kling-ai.png" alt="Kling AI" loading="lazy"></div><div class="int-card-name">Kling AI</div><div class="int-card-desc">Video de alta calidad con control de movimiento y personajes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/higgsfield.png" alt="Higgsfield" loading="lazy"></div><div class="int-card-name">Higgsfield</div><div class="int-card-desc">Video cinematic con control de cámara, personajes y dirección artística</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/ltx-studio.png" alt="LTX Studio" loading="lazy"></div><div class="int-card-name">LTX Studio</div><div class="int-card-desc">Video generativo con timeline, guiones y producción completa con IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/elevenlabs.png" alt="ElevenLabs" loading="lazy"></div><div class="int-card-name">ElevenLabs</div><div class="int-card-desc">Voces sintéticas hiperrealistas, clonación y agentes de voz en tiempo real</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/suno.png" alt="Suno" loading="lazy"></div><div class="int-card-name">Suno</div><div class="int-card-desc">Generación de canciones completas con letra y producción desde texto</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/udio.png" alt="Udio" loading="lazy"></div><div class="int-card-name">Udio</div><div class="int-card-desc">Música generativa de alta calidad para cualquier género y mood</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/openai.png" alt="Whisper" loading="lazy"></div><div class="int-card-name">Whisper</div><div class="int-card-desc">Transcripción y traducción de audio a texto con precisión alta</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/adobe-firefly.png" alt="Adobe Firefly" loading="lazy"></div><div class="int-card-name">Adobe Firefly</div><div class="int-card-desc">Generación de imágenes segura para uso comercial, integrada en Adobe</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/replicate.png" alt="Replicate" loading="lazy"></div><div class="int-card-name">Replicate</div><div class="int-card-desc">Deploy y ejecución de modelos de IA de imagen y video con una API</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/fal-ai.png" alt="fal.ai" loading="lazy"></div><div class="int-card-name">fal.ai</div><div class="int-card-desc">Inferencia rápida y económica para modelos de imagen y video</div></div>
+      </div>
+    </div>
+    <!-- ── AGENTES IA ── -->
+    <div class="int-category reveal reveal-d2">
+      <div class="int-category-label">Agentes IA · Automatización · Workflows</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/n8n.png" alt="n8n" loading="lazy"></div><div class="int-card-name">n8n</div><div class="int-card-desc">Automatización de flujos de trabajo open-source con cientos de conectores</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/zapier.png" alt="Zapier" loading="lazy"></div><div class="int-card-name">Zapier</div><div class="int-card-desc">Conecta apps y automatiza tareas repetitivas sin código</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/make.png" alt="Make" loading="lazy"></div><div class="int-card-name">Make</div><div class="int-card-desc">Automatización visual avanzada con escenarios complejos y control total</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/langchain.png" alt="LangChain" loading="lazy"></div><div class="int-card-name">LangChain</div><div class="int-card-desc">Framework para construir aplicaciones LLM con cadenas y agentes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/llamaindex.png" alt="LlamaIndex" loading="lazy"></div><div class="int-card-name">LlamaIndex</div><div class="int-card-desc">Indexación y RAG avanzado sobre tus datos para agentes LLM</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0d1a20;color:#38bdf8">AI</div><div class="int-card-name">Agentes IA</div><div class="int-card-desc">Agentes autónomos que ejecutan tareas complejas sin intervención humana</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#051020;color:#3b82f6">R/</div><div class="int-card-name">RAG / Knowledge</div><div class="int-card-desc">IA que responde con tus propios documentos, manuales y base de conocimiento</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0a1f15;color:#34d399">CU</div><div class="int-card-name">Computer Use</div><div class="int-card-desc">IA que opera interfaces gráficas, navega y ejecuta tareas en tu computadora</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0f0a00;color:#fbbf24">W</div><div class="int-card-name">Webhooks</div><div class="int-card-desc">Conexión en tiempo real entre sistemas via eventos y llamadas HTTP</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#050a15;color:#60a5fa">P</div><div class="int-card-name">Pipelines</div><div class="int-card-desc">Flujos automatizados de extracción, transformación y carga de datos</div></div>
+      </div>
+    </div>
+    <!-- ── REDES SOCIALES ── -->
+    <div class="int-category reveal">
+      <div class="int-category-label">Redes sociales · Publicación automática</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/instagram.png" alt="Instagram" loading="lazy"></div><div class="int-card-name">Instagram</div><div class="int-card-desc">Posts, stories, reels y anuncios programados y automatizados</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/tiktok.png" alt="TikTok" loading="lazy"></div><div class="int-card-name">TikTok</div><div class="int-card-desc">Videos cortos, tendencias y estrategia de contenido automatizada</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/youtube.png" alt="YouTube" loading="lazy"></div><div class="int-card-name">YouTube</div><div class="int-card-desc">Publicación de videos, thumbnails, SEO y programación de contenido</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/x-twitter.png" alt="X / Twitter" loading="lazy"></div><div class="int-card-name">X / Twitter</div><div class="int-card-desc">Tweets, hilos, respuestas automatizadas y gestión de comunidad</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/linkedin.png" alt="LinkedIn" loading="lazy"></div><div class="int-card-name">LinkedIn</div><div class="int-card-desc">Posts profesionales, artículos, leads y outreach automatizado</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/facebook.png" alt="Facebook" loading="lazy"></div><div class="int-card-name">Facebook</div><div class="int-card-desc">Publicaciones, grupos, anuncios y gestión de página empresarial</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/pinterest.png" alt="Pinterest" loading="lazy"></div><div class="int-card-name">Pinterest</div><div class="int-card-desc">Pins, tableros y estrategia visual para tráfico orgánico</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/threads.png" alt="Threads" loading="lazy"></div><div class="int-card-name">Threads</div><div class="int-card-desc">Conversaciones y comunidad en la red social de texto de Meta</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/snapchat.png" alt="Snapchat" loading="lazy"></div><div class="int-card-name">Snapchat</div><div class="int-card-desc">Contenido efímero y estrategia para audiencias jóvenes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/reddit.png" alt="Reddit" loading="lazy"></div><div class="int-card-name">Reddit</div><div class="int-card-desc">Participación en comunidades y gestión de reputación en subreddits</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/bluesky.png" alt="Bluesky" loading="lazy"></div><div class="int-card-name">Bluesky</div><div class="int-card-desc">Red social descentralizada en crecimiento acelerado</div></div>
+      </div>
+    </div>
+    <!-- ── CRM ── -->
+    <div class="int-category reveal reveal-d1">
+      <div class="int-category-label">CRM · Ventas · Marketing</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/hubspot.png" alt="HubSpot" loading="lazy"></div><div class="int-card-name">HubSpot</div><div class="int-card-desc">CRM completo: contactos, pipeline, email marketing y automatización</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/gohighlevel.png" alt="Go High Level" loading="lazy"></div><div class="int-card-name">Go High Level</div><div class="int-card-desc">CRM all-in-one: funnels, email, SMS, llamadas y automatizaciones</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/salesforce.png" alt="Salesforce" loading="lazy"></div><div class="int-card-name">Salesforce</div><div class="int-card-desc">El CRM empresarial más completo del mundo para ventas B2B</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/activecampaign.png" alt="ActiveCampaign" loading="lazy"></div><div class="int-card-name">ActiveCampaign</div><div class="int-card-desc">Email marketing y automatización de ventas con segmentación inteligente</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/mailchimp.png" alt="Mailchimp" loading="lazy"></div><div class="int-card-name">Mailchimp</div><div class="int-card-desc">Email marketing, audiencias y campañas para negocios en crecimiento</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/stripe.png" alt="Stripe" loading="lazy"></div><div class="int-card-name">Stripe</div><div class="int-card-desc">Pagos, suscripciones, facturación y cobros recurrentes automatizados</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/google-ads.png" alt="Google Ads" loading="lazy"></div><div class="int-card-name">Google Ads</div><div class="int-card-desc">Campañas de pago en buscadores con optimización automática</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/meta-ads.png" alt="Meta Ads" loading="lazy"></div><div class="int-card-name">Meta Ads</div><div class="int-card-desc">Publicidad en Facebook e Instagram con segmentación avanzada</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/posthog.png" alt="PostHog" loading="lazy"></div><div class="int-card-name">PostHog</div><div class="int-card-desc">Analytics, feature flags y A/B testing para productos digitales</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/mixpanel.png" alt="Mixpanel" loading="lazy"></div><div class="int-card-name">Mixpanel</div><div class="int-card-desc">Análisis de comportamiento de usuario para optimizar conversión</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/amplitude.png" alt="Amplitude" loading="lazy"></div><div class="int-card-name">Amplitude</div><div class="int-card-desc">Product analytics avanzado para entender y mejorar tu producto</div></div>
+      </div>
+    </div>
+    <!-- ── DISEÑO ── -->
+    <div class="int-category reveal reveal-d2">
+      <div class="int-category-label">Diseño · Creatividad · Producción multimedia</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/figma.png" alt="Figma" loading="lazy"></div><div class="int-card-name">Figma</div><div class="int-card-desc">Diseño UI/UX colaborativo, prototipos y sistemas de diseño en equipo</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/adobe-photoshop.png" alt="Photoshop" loading="lazy"></div><div class="int-card-name">Photoshop</div><div class="int-card-desc">Edición y retoque fotográfico profesional con IA integrada</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/adobe-premiere.png" alt="Premiere Pro" loading="lazy"></div><div class="int-card-name">Premiere Pro</div><div class="int-card-desc">Edición de video profesional con flujo editorial avanzado</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/adobe-after-effects.png" alt="After Effects" loading="lazy"></div><div class="int-card-name">After Effects</div><div class="int-card-desc">Motion graphics, animación y efectos visuales para video</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/adobe-illustrator.png" alt="Illustrator" loading="lazy"></div><div class="int-card-name">Illustrator</div><div class="int-card-desc">Diseño vectorial, logos, ilustraciones e identidad de marca</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/adobe-indesign.png" alt="InDesign" loading="lazy"></div><div class="int-card-name">InDesign</div><div class="int-card-desc">Maquetación editorial para revistas, libros y materiales impresos</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/davinci-resolve.png" alt="DaVinci Resolve" loading="lazy"></div><div class="int-card-name">DaVinci Resolve</div><div class="int-card-desc">Edición de video y color grading profesional con IA integrada</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/canva.png" alt="Canva" loading="lazy"></div><div class="int-card-name">Canva</div><div class="int-card-desc">Diseño rápido de contenido visual para redes, presentaciones y más</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/framer.png" alt="Framer" loading="lazy"></div><div class="int-card-name">Framer</div><div class="int-card-desc">Sitios web interactivos con animaciones avanzadas sin código</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/webflow.png" alt="Webflow" loading="lazy"></div><div class="int-card-name">Webflow</div><div class="int-card-desc">Sitios web profesionales con CMS y lógica visual avanzada</div></div>
+      </div>
+    </div>
+    <!-- ── PRODUCTIVIDAD ── -->
+    <div class="int-category reveal">
+      <div class="int-category-label">Productividad · Gestión · Google Workspace</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/notion.png" alt="Notion" loading="lazy"></div><div class="int-card-name">Notion</div><div class="int-card-desc">Base de conocimiento, wikis, proyectos y documentos del equipo</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/google-drive.png" alt="Google Drive" loading="lazy"></div><div class="int-card-name">Google Drive</div><div class="int-card-desc">Almacenamiento y colaboración de archivos en la nube de Google</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/google-sheets.png" alt="Google Sheets" loading="lazy"></div><div class="int-card-name">Google Sheets</div><div class="int-card-desc">Hojas de cálculo colaborativas con automatización y fórmulas avanzadas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/google-calendar.png" alt="Google Calendar" loading="lazy"></div><div class="int-card-name">Google Calendar</div><div class="int-card-desc">Agenda, eventos y programación de reuniones automatizada</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/airtable.png" alt="Airtable" loading="lazy"></div><div class="int-card-name">Airtable</div><div class="int-card-desc">Base de datos visual con automatizaciones, vistas y CRM personalizable</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/monday-com.png" alt="Monday.com" loading="lazy"></div><div class="int-card-name">Monday.com</div><div class="int-card-desc">Gestión de proyectos visual con boards, timelines y reportes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/asana.png" alt="Asana" loading="lazy"></div><div class="int-card-name">Asana</div><div class="int-card-desc">Gestión de tareas y proyectos con automatización de flujos de equipo</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/clickup.png" alt="ClickUp" loading="lazy"></div><div class="int-card-name">ClickUp</div><div class="int-card-desc">Todo en uno: tareas, docs, goals, tiempo y comunicación de equipo</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/trello.png" alt="Trello" loading="lazy"></div><div class="int-card-name">Trello</div><div class="int-card-desc">Gestión visual con tableros Kanban simples para equipos pequeños</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/linear.png" alt="Linear" loading="lazy"></div><div class="int-card-name">Linear</div><div class="int-card-desc">Gestión de proyectos de ingeniería con velocidad, Issues y Cycles</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/atlassian-jira.png" alt="Jira" loading="lazy"></div><div class="int-card-name">Jira</div><div class="int-card-desc">Gestión de proyectos empresariales con sprints, epics y tableros</div></div>
+      </div>
+    </div>
+    <!-- ── COMUNICACIÓN ── -->
+    <div class="int-category reveal reveal-d1">
+      <div class="int-category-label">Comunicación · Mensajería</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/whatsapp.png" alt="WhatsApp Business" loading="lazy"></div><div class="int-card-name">WhatsApp Business</div><div class="int-card-desc">API oficial para mensajes, chatbots y notificaciones a clientes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/telegram.png" alt="Telegram" loading="lazy"></div><div class="int-card-name">Telegram</div><div class="int-card-desc">Bots, canales y automatizaciones con la API más flexible del mercado</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/slack.png" alt="Slack" loading="lazy"></div><div class="int-card-name">Slack</div><div class="int-card-desc">Comunicación de equipo con bots, integraciones y workflows internos</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/discord.png" alt="Discord" loading="lazy"></div><div class="int-card-name">Discord</div><div class="int-card-desc">Comunidades, bots y servidores privados para equipos y usuarios</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/gmail.png" alt="Gmail / Outlook" loading="lazy"></div><div class="int-card-name">Gmail / Outlook</div><div class="int-card-desc">Automatización de correos, seguimientos y respuestas inteligentes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/twilio.png" alt="Twilio" loading="lazy"></div><div class="int-card-name">Twilio</div><div class="int-card-desc">API de SMS, llamadas y WhatsApp para comunicaciones automatizadas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/sendgrid.png" alt="SendGrid" loading="lazy"></div><div class="int-card-name">SendGrid</div><div class="int-card-desc">Envío de emails transaccionales y campañas a escala con API</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0f1018;color:rgba(248,247,245,0.4)">M</div><div class="int-card-name">Mailgun</div><div class="int-card-desc">API de email para envío transaccional y campañas con alta entregabilidad</div></div>
+      </div>
+    </div>
+    <!-- ── DESARROLLO ── -->
+    <div class="int-category reveal reveal-d2">
+      <div class="int-category-label">Desarrollo · Cloud · Deploy</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/github.png" alt="GitHub" loading="lazy"></div><div class="int-card-name">GitHub</div><div class="int-card-desc">Control de versiones, CI/CD, Actions y colaboración en código fuente</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/gitlab.png" alt="GitLab" loading="lazy"></div><div class="int-card-name">GitLab</div><div class="int-card-desc">DevOps completo: repositorios, CI/CD y gestión de releases</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/vercel.png" alt="Vercel" loading="lazy"></div><div class="int-card-name">Vercel</div><div class="int-card-desc">Deploy instantáneo de sitios y apps con edge network global</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/supabase.png" alt="Supabase" loading="lazy"></div><div class="int-card-name">Supabase</div><div class="int-card-desc">Backend open-source: base de datos, autenticación y APIs en minutos</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/firebase.png" alt="Firebase" loading="lazy"></div><div class="int-card-name">Firebase</div><div class="int-card-desc">Base de datos en tiempo real, auth y hosting de Google Cloud</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/aws.png" alt="AWS" loading="lazy"></div><div class="int-card-name">AWS</div><div class="int-card-desc">La nube más grande del mundo — almacenamiento, cómputo y IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/docker.png" alt="Docker" loading="lazy"></div><div class="int-card-name">Docker</div><div class="int-card-desc">Contenedores para deploy consistente en cualquier ambiente</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/cursor.png" alt="Cursor AI" loading="lazy"></div><div class="int-card-name">Cursor AI</div><div class="int-card-desc">Editor de código con IA integrada para desarrollo ultrarrápido</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/vscode.png" alt="VS Code" loading="lazy"></div><div class="int-card-name">VS Code</div><div class="int-card-desc">El editor de código más popular, extensible con cientos de integraciones</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/nextjs.png" alt="Next.js" loading="lazy"></div><div class="int-card-name">Next.js</div><div class="int-card-desc">Framework React full-stack para sitios y apps de producción</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/react.png" alt="React" loading="lazy"></div><div class="int-card-name">React</div><div class="int-card-desc">Librería UI de Meta para construir interfaces de usuario interactivas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/typescript.png" alt="TypeScript" loading="lazy"></div><div class="int-card-name">TypeScript</div><div class="int-card-desc">JavaScript tipado — código más seguro, escalable y mantenible</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/nodejs.png" alt="Node.js" loading="lazy"></div><div class="int-card-name">Node.js</div><div class="int-card-desc">Runtime JS del lado del servidor, ideal para APIs y microservicios</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/python.png" alt="Python" loading="lazy"></div><div class="int-card-name">Python</div><div class="int-card-desc">El lenguaje líder para IA, data science, automatización y backend</div></div>
+      </div>
+    </div>
+    <!-- ── BASES DE DATOS ── -->
+    <div class="int-category reveal">
+      <div class="int-category-label">Bases de Datos · Vectores · Storage</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/postgresql.png" alt="PostgreSQL" loading="lazy"></div><div class="int-card-name">PostgreSQL</div><div class="int-card-desc">Base de datos relacional open-source de nivel empresarial</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/mongodb.png" alt="MongoDB" loading="lazy"></div><div class="int-card-name">MongoDB</div><div class="int-card-desc">Base de datos NoSQL con documentos flexibles para apps modernas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/redis.png" alt="Redis" loading="lazy"></div><div class="int-card-name">Redis</div><div class="int-card-desc">Base de datos en memoria para caché, sesiones y colas de mensajes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/supabase.png" alt="Supabase DB" loading="lazy"></div><div class="int-card-name">Supabase DB</div><div class="int-card-desc">PostgreSQL gestionado con funciones realtime e integraciones IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/neon.png" alt="Neon" loading="lazy"></div><div class="int-card-name">Neon</div><div class="int-card-desc">PostgreSQL serverless con escalado automático y branching de BD</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/mysql.png" alt="MySQL" loading="lazy"></div><div class="int-card-name">MySQL</div><div class="int-card-desc">El motor de base de datos relacional más popular del mundo</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/pinecone.png" alt="Pinecone" loading="lazy"></div><div class="int-card-name">Pinecone</div><div class="int-card-desc">Vector database gestionado para búsqueda semántica y RAG a escala</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/weaviate.png" alt="Weaviate" loading="lazy"></div><div class="int-card-name">Weaviate</div><div class="int-card-desc">Vector database open-source con módulos de embedding integrados</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/qdrant.png" alt="Qdrant" loading="lazy"></div><div class="int-card-name">Qdrant</div><div class="int-card-desc">Motor de búsqueda vectorial de alto rendimiento para IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/chromadb.png" alt="ChromaDB" loading="lazy"></div><div class="int-card-name">ChromaDB</div><div class="int-card-desc">Vector database ligero y embebible, ideal para proyectos LLM locales</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/backblaze.png" alt="Backblaze B2" loading="lazy"></div><div class="int-card-name">Backblaze B2</div><div class="int-card-desc">Almacenamiento cloud económico para archivos, backups y assets</div></div>
+      </div>
+    </div>
+    <!-- ── MCP SERVERS ── -->
+    <div class="int-category reveal reveal-d1">
+      <div class="int-category-label">MCP Servers · Model Context Protocol</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/playwright.png" alt="Playwright" loading="lazy"></div><div class="int-card-name">Playwright</div><div class="int-card-desc">MCP: automatización de navegadores para scraping y testing con IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/brave.png" alt="Brave Search" loading="lazy"></div><div class="int-card-name">Brave Search</div><div class="int-card-desc">MCP: búsqueda web privada integrada directo en flujos de agentes</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/greptile.png" alt="Greptile" loading="lazy"></div><div class="int-card-name">Greptile</div><div class="int-card-desc">MCP: búsqueda inteligente en repositorios de código con IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/exa-ai.png" alt="Exa Search" loading="lazy"></div><div class="int-card-name">Exa Search</div><div class="int-card-desc">MCP: búsqueda semántica avanzada para investigación con IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/postgresql.png" alt="PostgreSQL MCP" loading="lazy"></div><div class="int-card-name">PostgreSQL MCP</div><div class="int-card-desc">MCP: consultas y gestión de bases de datos relacionales desde IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/mongodb.png" alt="MongoDB MCP" loading="lazy"></div><div class="int-card-name">MongoDB MCP</div><div class="int-card-desc">MCP: base de datos NoSQL con consultas flexibles para agentes IA</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/hashicorp-terraform.png" alt="Terraform MCP" loading="lazy"></div><div class="int-card-name">Terraform MCP</div><div class="int-card-desc">MCP: infraestructura como código — despliega y gestiona cloud desde IA</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0a0f1a;color:#60a5fa">M</div><div class="int-card-name">Memory</div><div class="int-card-desc">MCP: memoria persistente para agentes IA — recuerda contexto entre sesiones</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#051015;color:#38bdf8">F</div><div class="int-card-name">Fetch</div><div class="int-card-desc">MCP: acceso a URLs y contenido web en tiempo real desde agentes IA</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#050f1a;color:#a78bfa">C</div><div class="int-card-name">Context7</div><div class="int-card-desc">MCP: documentación técnica y contexto de librerías al instante</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0a1505;color:#86efac">S</div><div class="int-card-name">SQLite</div><div class="int-card-desc">MCP: base de datos ligera embebida, ideal para proyectos locales</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0a0a0a;color:#a3a3a3">W</div><div class="int-card-name">Wikipedia</div><div class="int-card-desc">MCP: acceso a conocimiento enciclopédico en tiempo real para agentes</div></div>
+      </div>
+    </div>
+    <!-- ── SEGURIDAD ── -->
+    <div class="int-category reveal reveal-d2">
+      <div class="int-category-label">Seguridad · DevSecOps · Compliance</div>
+      <div class="int-cards">
+        <div class="int-card"><div class="int-card-logo"><img src="logos/cloudflare.png" alt="Cloudflare" loading="lazy"></div><div class="int-card-name">Cloudflare</div><div class="int-card-desc">CDN, DDoS protection, WAF y Zero Trust para infraestructura global</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/bitwarden.png" alt="Bitwarden" loading="lazy"></div><div class="int-card-name">Bitwarden</div><div class="int-card-desc">Gestor de contraseñas open-source con API para equipos y empresas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/letsencrypt.png" alt="Let's Encrypt" loading="lazy"></div><div class="int-card-name">Let's Encrypt</div><div class="int-card-desc">Certificados SSL/TLS gratuitos y automáticos para cualquier dominio</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/wireguard.png" alt="WireGuard" loading="lazy"></div><div class="int-card-name">WireGuard</div><div class="int-card-desc">VPN moderna de alto rendimiento con criptografía de última generación</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/sentry.png" alt="Sentry" loading="lazy"></div><div class="int-card-name">Sentry</div><div class="int-card-desc">Monitoreo de errores en tiempo real para apps web y mobile</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/datadog.png" alt="Datadog" loading="lazy"></div><div class="int-card-name">Datadog</div><div class="int-card-desc">Observabilidad completa: logs, métricas, trazas y alertas unificadas</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/snyk.png" alt="Snyk" loading="lazy"></div><div class="int-card-name">Snyk</div><div class="int-card-desc">Detección automática de vulnerabilidades en código y dependencias</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/sonarqube.png" alt="SonarQube" loading="lazy"></div><div class="int-card-name">SonarQube</div><div class="int-card-desc">Análisis de calidad y seguridad de código para equipos de desarrollo</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/gitguardian.png" alt="GitGuardian" loading="lazy"></div><div class="int-card-name">GitGuardian</div><div class="int-card-desc">Detección de secretos y credenciales expuestas en repositorios</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/prometheus.png" alt="Prometheus" loading="lazy"></div><div class="int-card-name">Prometheus</div><div class="int-card-desc">Monitoreo y alertas de infraestructura con métricas en tiempo real</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/grafana.png" alt="Grafana" loading="lazy"></div><div class="int-card-name">Grafana</div><div class="int-card-desc">Dashboards de observabilidad para visualizar métricas y logs</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/uptime-robot.png" alt="Uptime Robot" loading="lazy"></div><div class="int-card-name">Uptime Robot</div><div class="int-card-desc">Monitoreo de disponibilidad con alertas al instante si algo cae</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/new-relic.png" alt="New Relic" loading="lazy"></div><div class="int-card-name">New Relic</div><div class="int-card-desc">Observabilidad full-stack: APM, logs, infra y experiencia de usuario</div></div>
+        <div class="int-card"><div class="int-card-logo icl-text" style="background:#0f1018;color:rgba(248,247,245,0.4)">F</div><div class="int-card-name">Fail2Ban</div><div class="int-card-desc">Bloqueo automático de IPs con intentos de acceso maliciosos al servidor</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/auth0.png" alt="Auth0" loading="lazy"></div><div class="int-card-name">Auth0</div><div class="int-card-desc">Autenticación y autorización como servicio — login, MFA, SSO</div></div>
+        <div class="int-card"><div class="int-card-logo"><img src="logos/okta.png" alt="Okta" loading="lazy"></div><div class="int-card-name">Okta</div><div class="int-card-desc">Gestión de identidades empresarial con SSO, MFA y Zero Trust</div></div>
+      </div>
+    </div>
+    <div class="int-cta-row reveal">
+      <p class="int-cta-text">Más de <strong>150 integraciones disponibles.</strong> Dependiendo del proyecto, nosotros elegimos y conectamos las herramientas correctas para ti.</p>
+      <a href="https://victor-ia-tracker.vercel.app" class="btn-ghost">Consultar integración →</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- TRANSPARENCY -->
+<section class="transparency" id="transparencia">
+  <div class="container">
+    <div class="transp-inner reveal">
+      <div class="transp-grid">
+        <div>
+          <div class="eyebrow" style="margin-bottom:1.2rem"><div class="eyebrow-line"></div><span class="eyebrow-text">Nuestra promesa</span></div>
+          <div class="transp-promise">Sin costos ocultos.<br>Sin <em>letra pequeña.</em></div>
+          <p class="transp-body">Sabemos que contratar servicios digitales puede ser una caja negra. No sabes cuánto van a cobrarte al final, no sabes si están trabajando o no. Nosotros eliminamos esa incertidumbre completamente.</p>
+          <div class="transp-items">
+            <div class="transp-item">
+              <span class="transp-check">✓</span>
+              <span class="transp-item-text"><strong>Tarifa acordada antes de comenzar.</strong> La tarifa por hora se define en el brief y no cambia sin tu autorización.</span>
+            </div>
+            <div class="transp-item">
+              <span class="transp-check">✓</span>
+              <span class="transp-item-text"><strong>Solo trabajamos horas que apruebes.</strong> Si el proyecto crece, te avisamos y esperas a que nos des luz verde.</span>
+            </div>
+            <div class="transp-item">
+              <span class="transp-check">✓</span>
+              <span class="transp-item-text"><strong>Tu factura es exactamente lo que viste en el tracker.</strong> Ni un peso más, ni una hora extra que no hayas visto en tiempo real.</span>
+            </div>
+            <div class="transp-item">
+              <span class="transp-check">✓</span>
+              <span class="transp-item-text"><strong>Acceso permanente a tu historial.</strong> Después de que concluimos, tu panel sigue disponible con todo el desglose del proyecto.</span>
+            </div>
+          </div>
+        </div>
+        <div class="transp-stats">
+          <div class="transp-stat-big">
+            <div class="transp-stat-val" data-counter data-target="0" data-suffix="">0</div>
+            <div class="transp-stat-label">Costos ocultos</div>
+            <div class="transp-stat-sub">Lo que ves en tu panel es exactamente lo que pagas.</div>
+          </div>
+          <div class="transp-stat-big">
+            <div class="transp-stat-val" data-counter data-target="100" data-suffix="%">100%</div>
+            <div class="transp-stat-label">Trazabilidad total · Tiempo real</div>
+            <div class="transp-stat-sub">Recursos, IA, equipo y procesos — todo visible y medido.</div>
+          </div>
+          <div class="transp-stat-big">
+            <div class="transp-stat-val">Día 1</div>
+            <div class="transp-stat-label">Desde el primer contacto</div>
+            <div class="transp-stat-sub">El tracker se activa desde que empezamos a trabajar juntos.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="precios">
+  <div class="container">
+    <div class="pricing-inner">
+      <div class="section-head reveal">
+        <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Modelo de precios</span></div>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-model">Pago por hora · Sin paquetes cerrados</div>
+        <div class="pricing-headline">Pagas exactamente por lo que se trabajó. Ni más, ni menos.</div>
+        <p class="pricing-desc">No vendemos paquetes con horas infladas ni contratos de retención que no sabes si usas. La tarifa por hora se acuerda contigo antes de comenzar — y eso es exactamente lo que aparece en tu factura.</p>
+        <div class="pricing-points">
+          <div class="pricing-point"><span class="pricing-point-icon">→</span><span><strong>Tarifa acordada al inicio.</strong> Sin cambios unilaterales durante el proyecto.</span></div>
+          <div class="pricing-point"><span class="pricing-point-icon">→</span><span><strong>Estimado por fases.</strong> Sabes cuánto debería costar cada parte antes de aprobarla.</span></div>
+          <div class="pricing-point"><span class="pricing-point-icon">→</span><span><strong>Horas adicionales preautorizadas.</strong> Si necesitamos más tiempo, tú lo apruebas primero.</span></div>
+          <div class="pricing-point"><span class="pricing-point-icon">→</span><span><strong>Facturación al cierre de cada fase</strong> o al finalizar el proyecto, según lo acuerdes.</span></div>
+        </div>
+        <div class="pricing-note">
+          <strong>¿Cuánto cuesta mi proyecto?</strong> Depende del alcance. Agenda una conversación sin costo — te damos un estimado de horas con desglose por fase antes de comprometerte a nada.
+        </div>
+        <a href="https://victor-ia-tracker.vercel.app" class="btn-primary" style="display:inline-block">Solicitar estimado →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENCIES / WHITELABEL -->
+<section class="agencies" id="agencias">
+  <div class="container">
+    <div class="agencies-grid">
+      <div>
+        <div class="section-head reveal">
+          <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Agencias · White Label</span></div>
+          <h2 class="section-title">Lleva tu agencia<br>al <em>siguiente nivel.</em></h2>
+          <p class="section-sub">¿Tienes una agencia? Ofrece a tus clientes una experiencia de tracking completamente personalizada con tu identidad. Tu logo, tu dominio, tus colores — la tecnología de VICTOR IA trabajando para ti, invisible.</p>
+        </div>
+        <div class="agency-features reveal reveal-d1">
+          <div class="agency-feat">
+            <div class="agency-feat-icon">🎨</div>
+            <div class="agency-feat-title">100% tu marca</div>
+            <div class="agency-feat-desc">Tu logo, tus colores, tu dominio. Tus clientes nunca saben que la tecnología es nuestra — solo ven tu agencia operando a otro nivel.</div>
+          </div>
+          <div class="agency-feat">
+            <div class="agency-feat-icon">💎</div>
+            <div class="agency-feat-title">Experiencia premium para cada cliente</div>
+            <div class="agency-feat-desc">Tu cliente tiene su propio portal de tracking personalizado. Tú controlas qué ve y cómo lo presenta tu agencia.</div>
+          </div>
+          <div class="agency-feat">
+            <div class="agency-feat-icon">📈</div>
+            <div class="agency-feat-title">La transparencia que fideliza</div>
+            <div class="agency-feat-desc">Las agencias que dan acceso en tiempo real retienen más clientes. Convierte la transparencia en tu ventaja competitiva.</div>
+          </div>
+          <div class="agency-feat">
+            <div class="agency-feat-icon">🤝</div>
+            <div class="agency-feat-title">Partnership flexible</div>
+            <div class="agency-feat-desc">Modelo adaptado al volumen de tu agencia. Setup único + tarifa mensual según clientes activos.</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:12px;flex-wrap:wrap" class="reveal reveal-d2">
+          <a href="#agendar" class="btn-primary" style="display:inline-block">Quiero White Label →</a>
+          <a href="#agendar" class="btn-ghost" style="display:inline-block">Agendar llamada</a>
+        </div>
+      </div>
+      <div class="agency-visual reveal">
+        <div class="agency-mockup-bar">
+          <div class="agency-brand-preview">
+            <div class="agency-brand-dot">TU</div>
+            <span class="agency-brand-name">Tu Agencia · Tracker</span>
+          </div>
+          <span class="agency-wl-badge">White Label</span>
+        </div>
+        <div class="agency-mockup-rows">
+          <div class="agency-row">
+            <div class="agency-row-icon">📊</div>
+            <div class="agency-row-text">
+              <div class="agency-row-label">Proyecto — Cliente A</div>
+              <div class="agency-row-value">Sitio web + SEO · 28h trabajadas de 40h estimadas</div>
+            </div>
+            <div class="agency-row-status gold">70% avance</div>
+          </div>
+          <div class="agency-row">
+            <div class="agency-row-icon">✅</div>
+            <div class="agency-row-text">
+              <div class="agency-row-label">Proyecto — Cliente B</div>
+              <div class="agency-row-value">Automatización n8n · 40h completadas</div>
+            </div>
+            <div class="agency-row-status green">Entregado</div>
+          </div>
+          <div class="agency-row">
+            <div class="agency-row-icon">🚀</div>
+            <div class="agency-row-text">
+              <div class="agency-row-label">Proyecto — Cliente C</div>
+              <div class="agency-row-value">Estrategia IA · En planeación</div>
+            </div>
+            <div class="agency-row-status" style="color:rgba(248,247,245,0.3);background:rgba(248,247,245,0.04);font-size:0.5rem;letter-spacing:0.15em;padding:2px 6px;">Próximo</div>
+          </div>
+          <div class="agency-row" style="background:rgba(255,170,23,0.03);border-color:rgba(255,170,23,0.08);">
+            <div class="agency-row-icon">💰</div>
+            <div class="agency-row-text">
+              <div class="agency-row-label">Facturación total este mes</div>
+              <div class="agency-row-value">3 proyectos activos · 68h facturadas</div>
+            </div>
+            <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:0.9rem;color:var(--gold);">$20,400</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY TRUST -->
+<section class="security-trust" id="seguridad">
+  <div class="container">
+
+    <div class="sec-intro-grid">
+      <div class="reveal">
+        <div class="eyebrow" style="margin-bottom:1.2rem"><div class="eyebrow-line" style="background:rgba(62,207,142,0.35)"></div><span class="eyebrow-text" style="color:rgba(62,207,142,0.55)">Seguridad y privacidad</span></div>
+        <h2 class="section-title" style="margin-bottom:1.2rem">Tu información<br><em style="color:#3ecf8e">está protegida.</em></h2>
+        <p class="section-sub" style="margin-top:0">Sabemos que confiar en un tercero con los datos de tu empresa es una decisión seria. Por eso somos completamente transparentes sobre cómo operamos, qué medidas tomamos y qué no tenemos todavía.</p>
+        <a href="https://victor-ia-docs.vercel.app" target="_blank" class="sec-doc-cta" style="margin-top:1.8rem">
+          Leer política de seguridad completa
+          <span class="sec-doc-cta-arrow">→</span>
+        </a>
+      </div>
+      <div class="reveal reveal-d1">
+        <div style="padding:24px;border:1px solid rgba(248,247,245,0.07);background:rgba(248,247,245,0.015);margin-bottom:12px;">
+          <div style="font-size:0.55rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(62,207,142,0.5);margin-bottom:10px;">Lo que garantizamos hoy</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>Cifrado en tránsito (TLS 1.3) y en reposo (AES-256)</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>Acceso solo por MFA — nunca solo por contraseña</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>Backup cifrado diario con copia fuera del sitio</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>Monitoreo y alertas las 24 horas del día</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>NDA con cláusulas económicas antes de empezar</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>Revocación de accesos en máximo 4h al terminar</div>
+            <div style="display:flex;align-items:flex-start;gap:10px;font-size:0.78rem;font-weight:300;color:var(--muted)"><span style="color:#3ecf8e;flex-shrink:0;margin-top:1px">✓</span>Cumplimiento LFPDPPP — ley de privacidad México</div>
+          </div>
+        </div>
+        <div style="padding:15px 18px;border:1px solid rgba(248,247,245,0.06);border-left:2px solid rgba(255,170,23,0.35);background:rgba(248,247,245,0.01);font-size:0.72rem;font-weight:300;color:rgba(248,247,245,0.38);line-height:1.65">
+          <strong style="color:rgba(248,247,245,0.62);font-weight:500">Transparencia total:</strong> No tenemos ISO 27001 todavía. Lo que sí tenemos es que en proyectos de privacidad alta, todo corre en <em>tu</em> infraestructura — tú eres el dueño.
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-pillars reveal">
+      <div class="sec-pillar">
+        <div class="sec-pillar-icon">🔐</div>
+        <div class="sec-pillar-title">Cifrado en todo momento</div>
+        <div class="sec-pillar-desc">Tus datos viajan cifrados y se almacenan cifrados. Nadie puede leerlos sin las llaves correctas — ni siquiera nosotros en los servidores del cliente.</div>
+      </div>
+      <div class="sec-pillar">
+        <div class="sec-pillar-icon">🖥️</div>
+        <div class="sec-pillar-title">En tu propio servidor si lo necesitas</div>
+        <div class="sec-pillar-desc">Para máxima privacidad instalamos todo en tu infraestructura. Tus datos no salen de tus sistemas. Tú tienes las llaves y el control total desde el día uno.</div>
+      </div>
+      <div class="sec-pillar">
+        <div class="sec-pillar-icon">💾</div>
+        <div class="sec-pillar-title">Respaldo automático cada 24h</div>
+        <div class="sec-pillar-desc">Backup diario cifrado almacenado en ubicación separada. Si algo falla, tu información se recupera. Tiempo de recuperación máximo: 4 horas.</div>
+      </div>
+      <div class="sec-pillar">
+        <div class="sec-pillar-icon">👁️</div>
+        <div class="sec-pillar-title">Monitoreo las 24 horas</div>
+        <div class="sec-pillar-desc">Alertas automáticas si cualquier servicio falla o si se detecta actividad sospechosa. Sabemos antes de que tú lo notes — y actuamos de inmediato.</div>
+      </div>
+      <div class="sec-pillar">
+        <div class="sec-pillar-icon">📋</div>
+        <div class="sec-pillar-title">NDA y contrato antes de empezar</div>
+        <div class="sec-pillar-desc">Firmamos acuerdo de confidencialidad con penalizaciones económicas reales antes de tocar ningún sistema o dato tuyo. No es solo una promesa.</div>
+      </div>
+      <div class="sec-pillar">
+        <div class="sec-pillar-icon">🚪</div>
+        <div class="sec-pillar-title">Accesos revocados al terminar</div>
+        <div class="sec-pillar-desc">Al cerrar el proyecto entregamos documento de cierre de accesos firmado. En máximo 4 horas todos nuestros accesos a tus sistemas quedan eliminados.</div>
+      </div>
+    </div>
+
+    <div class="sec-badges-strip reveal">
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">TLS 1.3 activo</span></div>
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">Cifrado AES-256</span></div>
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">MFA obligatorio</span></div>
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">Backup offsite diario</span></div>
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">Cloudflare DDoS</span></div>
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">LFPDPPP México</span></div>
+      <div class="sec-badge"><div class="sec-badge-dot"></div><span class="sec-badge-text">NDA con penalizaciones</span></div>
+      <div class="sec-badge" style="border-right:none"><div class="sec-badge-dot"></div><span class="sec-badge-text">Política completa disponible</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRIVATE ECOSYSTEM -->
+<section class="privacy-section" id="privacidad">
+  <div class="container">
+    <div class="privacy-inner">
+      <div class="reveal">
+        <div class="privacy-badge">
+          <div class="privacy-badge-dot"></div>
+          Ecosistema privado
+        </div>
+        <h2 class="privacy-headline">Tu información<br>no se <em>comparte.</em></h2>
+        <p class="privacy-body">
+          Para clientes que requieren máxima privacidad, <strong>montamos todo el ecosistema en tus propios servidores.</strong> n8n auto-alojado, modelos LLM locales con Ollama y bases de datos en tu infraestructura — tus datos no salen de tus sistemas.
+          <br><br>
+          <strong>No trabajamos con un stack cerrado.</strong> Elegimos las herramientas que mejor sirven a tu proyecto — y si requieres soberanía total sobre tus datos, lo diseñamos así desde el inicio.
+        </p>
+        <div class="privacy-items">
+          <div class="privacy-item">
+            <span class="privacy-check">✓</span>
+            <p class="privacy-item-text"><strong>Workflows en servidor local o VPS propio</strong> — n8n, agentes IA y automatizaciones auto-alojados bajo tu control</p>
+          </div>
+          <div class="privacy-item">
+            <span class="privacy-check">✓</span>
+            <p class="privacy-item-text"><strong>Modelos LLM deployados localmente</strong> — Ollama + LLaMA, Mistral o Phi corren en tu hardware sin enviar datos a terceros</p>
+          </div>
+          <div class="privacy-item">
+            <span class="privacy-check">✓</span>
+            <p class="privacy-item-text"><strong>Bases de datos en tu infraestructura</strong> — PostgreSQL, MongoDB o SQLite configurados y protegidos en tu entorno</p>
+          </div>
+          <div class="privacy-item">
+            <span class="privacy-check">✓</span>
+            <p class="privacy-item-text"><strong>Opción cloud con APIs auditadas</strong> — para proyectos con modelos cloud (Claude, GPT) trabajamos bajo las políticas de privacidad de cada proveedor y te informamos cuáles aplican</p>
+          </div>
+        </div>
+      </div>
+      <div class="privacy-right reveal reveal-d1">
+        <div class="priv-box">
+          <div class="priv-box-icon">🖥️</div>
+          <div class="priv-box-title">Deployment local</div>
+          <div class="priv-box-desc">Instalamos y configuramos toda la infraestructura en tu servidor o VPS. Docker, nginx, SSL — todo listo y documentado. Tú tienes las llaves.</div>
+        </div>
+        <div class="priv-box">
+          <div class="priv-box-icon">🧠</div>
+          <div class="priv-box-title">LLMs locales con Ollama</div>
+          <div class="priv-box-desc">Corremos modelos como LLaMA 3, Mistral o Phi directamente en tu hardware. Sin API keys externas. Sin datos enviados a la nube. Rendimiento real en tu máquina.</div>
+        </div>
+        <div class="priv-box">
+          <div class="priv-box-icon">🔐</div>
+          <div class="priv-box-title">Acceso por roles y cifrado</div>
+          <div class="priv-box-desc">Configuramos autenticación por roles, cifrado en reposo y en tránsito. Solo las personas correctas ven lo que necesitan ver.</div>
+        </div>
+        <div class="priv-note">
+          <strong>Transparencia sobre APIs cloud:</strong> Cuando usamos Claude, GPT u otros modelos vía API, los datos se procesan bajo las políticas de privacidad de Anthropic u OpenAI — lo mismo que tu equipo ya hace cuando usa ChatGPT. Si esto es un bloqueador para ti, construimos una alternativa 100% local.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE CALL -->
+<section class="schedule-section" id="agendar">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:2.4rem">
+      <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Primera videollamada · Sin compromiso</span></div>
+      <h2 class="section-title">Cuéntanos tu proyecto.<br><em>30 minutos, sin costo.</em></h2>
+      <p class="section-sub">Sin vendedores, sin presión. Solo una conversación para entender qué necesitas — y decirte honestamente si podemos ayudarte y cómo.</p>
+    </div>
+    <div class="schedule-card reveal">
+      <div class="schedule-grid">
+        <div>
+          <div class="eyebrow" style="margin-bottom:1.4rem"><div class="eyebrow-line"></div><span class="eyebrow-text">Cómo funciona</span></div>
+          <div class="schedule-steps">
+            <div class="sched-step">
+              <div class="sched-step-num">01</div>
+              <div class="sched-step-body">
+                <div class="sched-step-title">Llenas este formulario</div>
+                <div class="sched-step-desc">Nos cuentes en qué tipo de proyecto estás pensando y cuánto tiempo tienes disponible</div>
+              </div>
+            </div>
+            <div class="sched-step">
+              <div class="sched-step-num">02</div>
+              <div class="sched-step-body">
+                <div class="sched-step-title">Te confirmamos en &lt; 24h</div>
+                <div class="sched-step-desc">Te enviamos un link con disponibilidad para agendar en el horario que te funcione</div>
+              </div>
+            </div>
+            <div class="sched-step">
+              <div class="sched-step-num">03</div>
+              <div class="sched-step-body">
+                <div class="sched-step-title">Videollamada de 30 minutos</div>
+                <div class="sched-step-desc">Escuchamos, hacemos preguntas y te damos un diagnóstico honesto — con estimado de horas incluido</div>
+              </div>
+            </div>
+            <div class="sched-step">
+              <div class="sched-step-num">04</div>
+              <div class="sched-step-body">
+                <div class="sched-step-title">Decides sin presión</div>
+                <div class="sched-step-desc">Si decides continuar, activamos tu panel. Si no, se quedó en una buena conversación</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="schedule-form">
+          <div class="sched-field">
+            <label class="sched-label">¿Qué tipo de proyecto tienes en mente?</label>
+            <select class="sched-select" id="sf-type">
+              <option value="">Selecciona una opción</option>
+              <option>Landing page / Sitio web</option>
+              <option>Automatización de procesos (n8n / IA)</option>
+              <option>Ecosistema digital completo</option>
+              <option>CRM + Integraciones</option>
+              <option>Agentes IA / Chatbots</option>
+              <option>Estrategia y consultoría</option>
+              <option>White Label para mi agencia</option>
+              <option>Otro — lo explico en la llamada</option>
+            </select>
+          </div>
+          <div class="sched-field">
+            <label class="sched-label">¿Cuántas horas mensuales aproximadas necesitarías?</label>
+            <select class="sched-select" id="sf-hours">
+              <option value="">Selecciona una opción</option>
+              <option>10–20h · Proyecto puntual</option>
+              <option>20–40h · Mensual estándar</option>
+              <option>40–80h · Intensivo</option>
+              <option>80h+ · Empresa / agencia</option>
+              <option>No lo sé aún — lo definimos en la llamada</option>
+            </select>
+          </div>
+          <div class="sched-field">
+            <label class="sched-label">¿Tienes herramientas ya en uso?</label>
+            <select class="sched-select" id="sf-setup">
+              <option value="">Selecciona una opción</option>
+              <option>Sí, ya tengo varias conectadas</option>
+              <option>Algunas herramientas básicas</option>
+              <option>Empezamos desde cero</option>
+            </select>
+          </div>
+          <div class="sched-field">
+            <label class="sched-label">Tu nombre</label>
+            <input type="text" class="sched-input" id="sf-name" placeholder="Cómo te llamas">
+          </div>
+          <div class="sched-field">
+            <label class="sched-label">Tu WhatsApp o email</label>
+            <input type="text" class="sched-input" id="sf-contact" placeholder="Para enviarte el link de la llamada">
+          </div>
+          <button class="btn-primary" style="width:100%;justify-content:center;margin-top:4px" onclick="submitSchedule()">Agendar videollamada →</button>
+          <p class="sched-note">La llamada es completamente sin costo y sin compromiso. Nos comprometemos a responderte antes de 24 horas con disponibilidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="eyebrow" style="justify-content:center"><div class="eyebrow-line"></div><span class="eyebrow-text">Empieza hoy</span><div class="eyebrow-line"></div></div>
+      <h2 class="cta-title">La IA no espera.<br><em>Tu negocio tampoco debería.</em></h2>
+      <p class="cta-sub">Automatiza tu empresa, baja costos, agiliza tiempos y mide la trazabilidad de cada proceso — sin que tú ni tu equipo tengan que aprender nada. La conversación inicial no tiene costo.</p>
+      <div class="cta-btns">
+        <a href="#agendar" class="btn-primary">Agendar videollamada →</a>
+        <div class="cta-divider"></div>
+        <a href="https://victor-ia-tracker.vercel.app" class="cta-link">Ya tengo acceso · Entrar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <img src="logo-tracker.png" alt="VICTOR IA Tracker" style="height:22px;width:auto;">
+      <div class="footer-links">
+        <a href="#como-funciona" class="footer-link">Cómo funciona</a>
+        <a href="#para-quien" class="footer-link">Para quién</a>
+        <a href="#integraciones" class="footer-link">Integraciones</a>
+        <a href="#agencias" class="footer-link">Agencias</a>
+        <a href="#agendar" class="footer-link">Agendar llamada →</a>
+      </div>
+      <span class="footer-copy">© 2026 VICTOR IA · Sin costos ocultos. Sin letra pequeña.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+}, { passive: true });
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Mock progress bar — animate when hero enters view
+var progressBar = document.querySelector('.mock-progress-fill');
+if (progressBar) {
+  var progObs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      setTimeout(function(){ progressBar.classList.add('animated'); }, 400);
+      progObs.unobserve(entries[0].target);
+    }
+  }, { threshold: 0.4 });
+  progObs.observe(progressBar);
+}
+
+// Animated counters
+function animateCounter(el, target, suffix, dur) {
+  dur = dur || 1200;
+  const ease = function(t) { return 1 - Math.pow(1-t, 3); };
+  const start = performance.now();
+  function tick(now) {
+    var p = Math.min((now - start) / dur, 1);
+    el.textContent = Math.round(ease(p) * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+var counterObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (!e.isIntersecting) return;
+    var el = e.target;
+    var target = parseInt(el.dataset.target) || 0;
+    var suffix = el.dataset.suffix || '';
+    animateCounter(el, target, suffix, 1400);
+    counterObs.unobserve(el);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('[data-counter]').forEach(function(el) { counterObs.observe(el); });
+
+// Integration card spotlight
+document.querySelectorAll('.int-card').forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+  });
+});
+
+// Schedule form
+function submitSchedule() {
+  var type = document.getElementById('sf-type').value;
+  var hours = document.getElementById('sf-hours').value;
+  var setup = document.getElementById('sf-setup').value;
+  var name = document.getElementById('sf-name').value.trim();
+  var contact = document.getElementById('sf-contact').value.trim();
+  if (!name || !contact) {
+    var nameEl = document.getElementById('sf-name');
+    nameEl.style.borderColor = 'rgba(255,100,100,0.5)';
+    setTimeout(function(){ nameEl.style.borderColor = ''; }, 2000);
+    return;
+  }
+  // In production: POST to backend / Zapier webhook / n8n
+  var btn = document.querySelector('#agendar .btn-primary');
+  btn.textContent = '✓ Recibido — te contactamos en menos de 24h';
+  btn.style.background = 'rgba(62,207,142,0.15)';
+  btn.style.borderColor = 'rgba(62,207,142,0.4)';
+  btn.style.color = '#3ecf8e';
+  btn.style.cursor = 'default';
+  btn.onclick = null;
+}
+</script>
+</body>
+</html>
