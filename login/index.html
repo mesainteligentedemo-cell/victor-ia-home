@@ -12,7 +12,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script>
-const VIA_FB_CONFIG={apiKey:"AIzaSyBciNfVGjH5l3szzGVgatXlZvLvaoNsp14",authDomain:"victor-ia-tracker.firebaseapp.com",projectId:"victor-ia-tracker",storageBucket:"victor-ia-tracker.firebasestorage.app",messagingSenderId:"475376340371",appId:"1:475376340371:web:caaf70c5c4063edfcb6c66"};
+const VIA_FB_CONFIG={apiKey:"AIzaSyBciNfVGjH5l3szzGVgatXlZvLvaoNsp14",authDomain:"victor-ia.xyz",projectId:"victor-ia-tracker",storageBucket:"victor-ia-tracker.firebasestorage.app",messagingSenderId:"475376340371",appId:"1:475376340371:web:caaf70c5c4063edfcb6c66"};
 firebase.initializeApp(VIA_FB_CONFIG);
 const _auth=firebase.auth();
 // Ya logueado → ir directo al tracker
@@ -1364,6 +1364,218 @@ initAuthState();
     update(); setInterval(update, 60000);
   });
 })();
+
+/* ═══════════════════════════════════════════
+   COOKIE CONSENT — VICTOR IA TRACKER
+   ═══════════════════════════════════════════ */
+(function() {
+  var STORAGE_KEY = 'via_cookie_consent';
+  function getConsent() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch(e) { return null; } }
+  function saveConsent(prefs) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs)); } catch(e) {} applyConsent(prefs); }
+  function applyConsent(prefs) {
+    if (prefs && prefs.analytics) { /* loadAnalytics(); */ }
+    if (prefs && prefs.marketing) { /* loadMarketing(); */ }
+  }
+  function hideBanner() {
+    var b = document.getElementById('via-cookie-banner');
+    if (b) { b.classList.remove('via-visible'); setTimeout(function(){ b.style.display='none'; }, 400); }
+  }
+  function showPrefsModal() {
+    hideBanner();
+    var m = document.getElementById('via-cookie-modal');
+    if (m) { m.style.display='flex'; requestAnimationFrame(function(){ m.classList.add('via-visible'); }); }
+    var saved = getConsent() || {};
+    var an = document.getElementById('via-toggle-analytics'); if (an) an.checked = !!saved.analytics;
+    var mk = document.getElementById('via-toggle-marketing'); if (mk) mk.checked = !!saved.marketing;
+  }
+  function hidePrefsModal() {
+    var m = document.getElementById('via-cookie-modal');
+    if (m) { m.classList.remove('via-visible'); setTimeout(function(){ m.style.display='none'; }, 350); }
+  }
+  function showFloatingBtn() { var btn = document.getElementById('via-cookie-fab'); if (btn) btn.style.display='flex'; }
+  function init() {
+    var existing = getConsent();
+    if (existing) { applyConsent(existing); showFloatingBtn(); return; }
+    setTimeout(function() {
+      var b = document.getElementById('via-cookie-banner');
+      if (b) { b.style.display='block'; requestAnimationFrame(function(){ b.classList.add('via-visible'); }); }
+    }, 1200);
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    var btnAll = document.getElementById('via-accept-all');
+    if (btnAll) btnAll.addEventListener('click', function() { saveConsent({essential:true,analytics:true,marketing:true}); hideBanner(); showFloatingBtn(); });
+    var btnRej = document.getElementById('via-reject');
+    if (btnRej) btnRej.addEventListener('click', function() { saveConsent({essential:true,analytics:false,marketing:false}); hideBanner(); showFloatingBtn(); });
+    var btnCust = document.getElementById('via-customize');
+    if (btnCust) btnCust.addEventListener('click', showPrefsModal);
+    var fab = document.getElementById('via-cookie-fab');
+    if (fab) fab.addEventListener('click', showPrefsModal);
+    var btnSave = document.getElementById('via-save-prefs');
+    if (btnSave) btnSave.addEventListener('click', function() {
+      var an = document.getElementById('via-toggle-analytics');
+      var mk = document.getElementById('via-toggle-marketing');
+      saveConsent({essential:true, analytics: an?an.checked:false, marketing: mk?mk.checked:false});
+      hidePrefsModal(); showFloatingBtn();
+    });
+    var btnModalAll = document.getElementById('via-modal-accept-all');
+    if (btnModalAll) btnModalAll.addEventListener('click', function() { saveConsent({essential:true,analytics:true,marketing:true}); hidePrefsModal(); showFloatingBtn(); });
+    var modalOverlay = document.getElementById('via-cookie-modal');
+    if (modalOverlay) modalOverlay.addEventListener('click', function(e) { if (e.target===modalOverlay) hidePrefsModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key==='Escape') hidePrefsModal(); });
+    init();
+  });
+})();
 </script>
+
+<!-- ═══ COOKIE BANNER ═══ -->
+<div id="via-cookie-banner" style="display:none" role="dialog" aria-label="Preferencias de cookies">
+  <div class="via-banner-inner">
+    <div class="via-banner-content">
+      <div class="via-banner-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"/><circle cx="19" cy="19" r="3"/></svg>
+      </div>
+      <div class="via-banner-text">
+        <p class="via-banner-title">Usamos cookies</p>
+        <p class="via-banner-body">Utilizamos cookies esenciales para el funcionamiento del sitio y, con tu permiso, cookies analíticas y de marketing. Consulta nuestro <a href="/privacidad" target="_blank">Aviso de Privacidad</a>.</p>
+      </div>
+    </div>
+    <div class="via-banner-actions">
+      <button id="via-customize" class="via-btn via-btn-ghost" type="button">Personalizar</button>
+      <button id="via-reject" class="via-btn via-btn-outline" type="button">Solo esenciales</button>
+      <button id="via-accept-all" class="via-btn via-btn-primary" type="button">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL PREFERENCIAS ═══ -->
+<div id="via-cookie-modal" style="display:none" role="dialog" aria-modal="true" aria-label="Configurar preferencias de cookies">
+  <div class="via-modal-box">
+    <div class="via-modal-header">
+      <p class="via-modal-title">Configurar cookies</p>
+      <p class="via-modal-sub">Elige qué categorías de cookies deseas habilitar. Las cookies esenciales no pueden desactivarse.</p>
+    </div>
+    <div class="via-modal-body">
+      <div class="via-pref-row">
+        <div class="via-pref-info">
+          <span class="via-pref-name">Esenciales</span>
+          <span class="via-pref-desc">Autenticación, sesión y funcionamiento básico. No pueden desactivarse.</span>
+        </div>
+        <div class="via-toggle via-toggle-locked"><span class="via-toggle-on">Siempre activas</span></div>
+      </div>
+      <div class="via-pref-row">
+        <div class="via-pref-info">
+          <span class="via-pref-name">Analíticas</span>
+          <span class="via-pref-desc">Nos ayudan a mejorar la experiencia del panel. No se comparten con terceros.</span>
+        </div>
+        <label class="via-switch" aria-label="Cookies analíticas">
+          <input type="checkbox" id="via-toggle-analytics">
+          <span class="via-switch-track"><span class="via-switch-thumb"></span></span>
+        </label>
+      </div>
+      <div class="via-pref-row">
+        <div class="via-pref-info">
+          <span class="via-pref-name">Marketing</span>
+          <span class="via-pref-desc">Permiten mostrar contenido relevante basado en tus interacciones.</span>
+        </div>
+        <label class="via-switch" aria-label="Cookies de marketing">
+          <input type="checkbox" id="via-toggle-marketing">
+          <span class="via-switch-track"><span class="via-switch-thumb"></span></span>
+        </label>
+      </div>
+    </div>
+    <div class="via-modal-footer">
+      <a href="/privacidad" target="_blank" class="via-modal-link">Aviso de Privacidad</a>
+      <div class="via-modal-btns">
+        <button id="via-save-prefs" class="via-btn via-btn-outline" type="button">Guardar preferencias</button>
+        <button id="via-modal-accept-all" class="via-btn via-btn-primary" type="button">Aceptar todas</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FAB ═══ -->
+<button id="via-cookie-fab" style="display:none" aria-label="Configurar cookies" title="Configurar cookies">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+</button>
+
+<style>
+#via-cookie-banner {
+  position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(120%);
+  z-index:9990; width:min(calc(100vw - 32px),860px);
+  background:rgba(14,15,18,0.97); border:1px solid rgba(248,247,245,0.1);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 8px 40px rgba(0,0,0,0.6),0 0 0 1px rgba(255,170,23,0.08);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1),opacity 0.4s ease; opacity:0;
+}
+#via-cookie-banner.via-visible { transform:translateX(-50%) translateY(0); opacity:1; }
+.via-banner-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; padding:18px 24px; flex-wrap:wrap; }
+.via-banner-content { display:flex; align-items:flex-start; gap:14px; flex:1; min-width:260px; }
+.via-banner-icon { color:#FFAA17; flex-shrink:0; margin-top:1px; }
+.via-banner-text { display:flex; flex-direction:column; gap:4px; }
+.via-banner-title { font-size:0.8rem; font-weight:500; color:rgba(248,247,245,0.9); margin:0; }
+.via-banner-body { font-size:0.72rem; color:rgba(248,247,245,0.45); line-height:1.6; margin:0; }
+.via-banner-body a { color:#FFAA17; text-decoration:underline; text-underline-offset:2px; }
+.via-banner-actions { display:flex; align-items:center; gap:8px; flex-shrink:0; flex-wrap:wrap; }
+#via-cookie-modal {
+  position:fixed; inset:0; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px); z-index:9995; display:flex; align-items:center;
+  justify-content:center; padding:20px; opacity:0; transition:opacity 0.35s ease;
+}
+#via-cookie-modal.via-visible { opacity:1; }
+.via-modal-box {
+  background:#0e0f12; border:1px solid rgba(248,247,245,0.1);
+  width:min(100%,520px); max-height:90vh; overflow-y:auto;
+  box-shadow:0 24px 80px rgba(0,0,0,0.7);
+  transform:translateY(16px) scale(0.98); transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+#via-cookie-modal.via-visible .via-modal-box { transform:translateY(0) scale(1); }
+.via-modal-header { padding:28px 28px 20px; border-bottom:1px solid rgba(248,247,245,0.07); }
+.via-modal-title { font-size:0.9rem; font-weight:500; color:rgba(248,247,245,0.92); margin:0 0 6px; }
+.via-modal-sub { font-size:0.72rem; color:rgba(248,247,245,0.4); line-height:1.6; margin:0; }
+.via-modal-body { padding:8px 0; }
+.via-pref-row { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 28px; border-bottom:1px solid rgba(248,247,245,0.05); }
+.via-pref-row:last-child { border-bottom:none; }
+.via-pref-info { display:flex; flex-direction:column; gap:4px; }
+.via-pref-name { font-size:0.78rem; font-weight:500; color:rgba(248,247,245,0.8); }
+.via-pref-desc { font-size:0.68rem; color:rgba(248,247,245,0.35); line-height:1.55; max-width:320px; }
+.via-toggle-locked { flex-shrink:0; }
+.via-toggle-on { font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,170,23,0.7); font-weight:500; white-space:nowrap; }
+.via-switch { display:flex; align-items:center; cursor:pointer; flex-shrink:0; }
+.via-switch input { position:absolute; opacity:0; width:0; height:0; }
+.via-switch-track { width:40px; height:22px; border-radius:11px; background:rgba(248,247,245,0.12); border:1px solid rgba(248,247,245,0.15); position:relative; transition:background 0.25s,border-color 0.25s; }
+.via-switch input:checked + .via-switch-track { background:rgba(255,170,23,0.85); border-color:rgba(255,170,23,0.5); }
+.via-switch-thumb { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:rgba(248,247,245,0.55); transition:transform 0.25s cubic-bezier(0.16,1,0.3,1),background 0.25s; }
+.via-switch input:checked + .via-switch-track .via-switch-thumb { transform:translateX(18px); background:#fff; }
+.via-modal-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; padding:20px 28px; border-top:1px solid rgba(248,247,245,0.07); }
+.via-modal-link { font-size:0.68rem; color:rgba(248,247,245,0.35); text-decoration:underline; text-underline-offset:2px; transition:color 0.2s; }
+.via-modal-link:hover { color:#FFAA17; }
+.via-modal-btns { display:flex; gap:8px; }
+.via-btn { font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:500; padding:8px 16px; border:none; cursor:pointer; letter-spacing:0.01em; border-radius:4px; transition:background 0.2s,color 0.2s,opacity 0.2s; white-space:nowrap; }
+.via-btn:hover { opacity:0.85; }
+.via-btn-ghost { background:transparent; color:rgba(248,247,245,0.4); border:1px solid transparent; }
+.via-btn-ghost:hover { color:rgba(248,247,245,0.7); opacity:1; }
+.via-btn-outline { background:transparent; color:rgba(248,247,245,0.65); border:1px solid rgba(248,247,245,0.15); }
+.via-btn-outline:hover { border-color:rgba(248,247,245,0.35); color:rgba(248,247,245,0.9); opacity:1; }
+.via-btn-primary { background:#FFAA17; color:#070809; border:1px solid transparent; font-weight:600; }
+.via-btn-primary:hover { background:#e8980f; opacity:1; }
+#via-cookie-fab {
+  position:fixed; bottom:20px; left:20px; z-index:9980;
+  width:36px; height:36px; background:rgba(14,15,18,0.95);
+  border:1px solid rgba(248,247,245,0.12); border-radius:50%;
+  color:rgba(248,247,245,0.4); cursor:pointer; align-items:center; justify-content:center;
+  backdrop-filter:blur(10px); transition:color 0.2s,border-color 0.2s,transform 0.2s;
+  box-shadow:0 2px 12px rgba(0,0,0,0.4);
+}
+#via-cookie-fab:hover { color:#FFAA17; border-color:rgba(255,170,23,0.3); transform:scale(1.08); }
+@media (max-width:600px) {
+  .via-banner-inner { flex-direction:column; padding:16px 18px; gap:14px; }
+  .via-banner-actions { width:100%; }
+  .via-banner-actions .via-btn { flex:1; font-size:0.68rem; padding:9px 10px; }
+  .via-btn-ghost { display:none; }
+  .via-modal-footer { flex-direction:column; align-items:flex-start; }
+  .via-modal-btns { width:100%; }
+  .via-modal-btns .via-btn { flex:1; }
+}
+</style>
 </body>
 </html>
