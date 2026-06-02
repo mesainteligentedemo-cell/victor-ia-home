@@ -134,25 +134,21 @@ class ConverterManager {
   }
 
   triggerDownload() {
-    // Create and trigger download of guide PDF/HTML
-    // This can be:
-    // 1. A pre-generated PDF in /guides/{slug}.pdf
-    // 2. A server-generated PDF via API
-    // 3. A redirect to external link
+    // Download guide (HTML that can be printed to PDF)
+    const guideUrl = `/blog/guides/${this.guideName}.html`;
 
-    const guideUrl = `/blog/guides/${this.guideName}.pdf`;
-
-    // Create hidden link and click it
+    // Open in new tab so user can save as PDF
     const link = document.createElement('a');
     link.href = guideUrl;
-    link.download = `${this.guideName}.pdf`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
     link.style.display = 'none';
 
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
-    // Track download in analytics (if needed)
+    // Track download in analytics
     this.trackEvent('guide_download', {
       article: this.articleSlug,
       guide: this.guideName,
