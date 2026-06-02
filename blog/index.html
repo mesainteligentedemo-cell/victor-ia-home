@@ -310,16 +310,97 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
     </div>
   </section>
 
+  <!-- SEARCH BAR + CLUSTERS ARRIBA (después de guía) -->
+  <section style="max-width:1200px;margin:0 auto;padding:0 24px 40px 64px" class="rv">
+    <div style="position:relative;max-width:640px">
+      <svg style="position:absolute;left:18px;top:50%;transform:translateY(-50%);opacity:.35;pointer-events:none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAE6DF" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="blog-search" type="text" placeholder="Busca por industria, proceso o palabra clave…" autocomplete="off" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 18px 16px 50px;color:#EAE6DF;font-family:'Inter',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color .22s,box-shadow .22s;letter-spacing:.02em"/>
+      <div id="search-clear" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);cursor:pointer;opacity:0;transition:opacity .2s;color:#706C66;font-size:18px;line-height:1">×</div>
+    </div>
+    <div id="search-hint" style="margin-top:10px;font-size:12px;color:rgba(112,108,102,.45);display:none">
+      <span id="search-count" style="color:#B89A6A;font-weight:400"></span> resultados para "<span id="search-term" style="font-style:italic"></span>"
+    </div>
+  </section>
+
+  <!-- CLUSTERS DE CONTENIDO -->
+  <section style="padding:0 0 0 0;margin-top:16px">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px 20px 64px">
+      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(112,108,102,.4);margin-bottom:20px">Clusters de contenido</div>
+    </div>
+    <div class="cluster-grid rv">
+      <button class="cluster-btn active" data-filter="all" onclick="filterBy('all',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/><rect x="16" y="4" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/><rect x="4" y="16" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/><rect x="16" y="16" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/></svg></span>
+        <span class="c-name">Todos</span>
+        <span class="c-count" id="cnt-all">—</span>
+        <span class="c-desc">Todos los artículos</span>
+      </button>
+      <button class="cluster-btn" data-filter="noticias" onclick="filterBy('noticias',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><rect x="5" y="5" width="18" height="18" rx="2" stroke="#B89A6A" stroke-width="1.3"/><line x1="5" y1="10" x2="23" y2="10" stroke="#B89A6A" stroke-width="1.2"/><line x1="5" y1="15" x2="18" y2="15" stroke="#B89A6A" stroke-width="1.1"/><line x1="5" y1="19" x2="16" y2="19" stroke="#B89A6A" stroke-width="1.1"/></svg></span>
+        <span class="c-name">Noticias de IA</span>
+        <span class="c-count" id="cnt-noticias">—</span>
+        <span class="c-desc">Últimas noticias de IA</span>
+      </button>
+      <button class="cluster-btn" data-filter="industria" onclick="filterBy('industria',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><path d="M4 24V11l6 4V11l6 4V8l8 5v11H4Z" stroke="#B89A6A" stroke-width="1.3" stroke-linejoin="round"/><path d="M8 24v-4M14 24v-4M20 24v-4" stroke="#B89A6A" stroke-width="1.1" stroke-linecap="round"/></svg></span>
+        <span class="c-name">Por Industria</span>
+        <span class="c-count" id="cnt-industria">—</span>
+        <span class="c-desc">IA aplicada por sector</span>
+      </button>
+      <button class="cluster-btn" data-filter="automatizacion" onclick="filterBy('automatizacion',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="3.4" stroke="#B89A6A" stroke-width="1.3"/><path d="M14 3.5v3.6M14 20.9v3.6M3.5 14h3.6M20.9 14h3.6M6.5 6.5l2.5 2.5M19 19l2.5 2.5M21.5 6.5L19 9M9 19l-2.5 2.5" stroke="#B89A6A" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+        <span class="c-name">Automatización</span>
+        <span class="c-count" id="cnt-automatizacion">—</span>
+        <span class="c-desc">Procesos sin esfuerzo humano</span>
+      </button>
+      <button class="cluster-btn" data-filter="agentes" onclick="filterBy('agentes',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><rect x="6" y="9" width="16" height="12" rx="3" stroke="#B89A6A" stroke-width="1.3"/><path d="M14 5v4" stroke="#B89A6A" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="4" r="1.4" fill="#B89A6A"/><circle cx="11" cy="15" r="1.3" fill="#B89A6A"/><circle cx="17" cy="15" r="1.3" fill="#B89A6A"/><path d="M3 13v4M25 13v4" stroke="#B89A6A" stroke-width="1.2" stroke-linecap="round"/></svg></span>
+        <span class="c-name">Agentes IA</span>
+        <span class="c-count" id="cnt-agentes">—</span>
+        <span class="c-desc">Chatbots, voice AI y agentes</span>
+      </button>
+      <button class="cluster-btn" data-filter="estrategia" onclick="filterBy('estrategia',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="6" r="2.6" stroke="#B89A6A" stroke-width="1.3"/><path d="M11.4 8.2 8 13h12l-3.4-4.8M9 13c0 4 1 7 5 7s5-3 5-7M8.5 24h11" stroke="#B89A6A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
+        <span class="c-name">Estrategia</span>
+        <span class="c-count" id="cnt-estrategia">—</span>
+        <span class="c-desc">Cómo implementar y crecer</span>
+      </button>
+      <button class="cluster-btn" data-filter="roi" onclick="filterBy('roi',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><path d="M4 22V6M4 22h20" stroke="#B89A6A" stroke-width="1.3" stroke-linecap="round"/><path d="M8 18l4-5 3.5 2.5L23 8" stroke="#B89A6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 8h4v4" stroke="#B89A6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="c-name">ROI & Métricas</span>
+        <span class="c-count" id="cnt-roi">—</span>
+        <span class="c-desc">Retorno, KPIs y resultados</span>
+      </button>
+      <button class="cluster-btn" data-filter="seguridad" onclick="filterBy('seguridad',this)">
+        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><path d="M14 3.5 5 7v6c0 5.2 3.6 9.2 9 11.5 5.4-2.3 9-6.3 9-11.5V7l-9-3.5Z" stroke="#B89A6A" stroke-width="1.3" stroke-linejoin="round"/><path d="M10.5 14l2.5 2.5 4.5-5" stroke="#B89A6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="c-name">Seguridad & Legal</span>
+        <span class="c-count" id="cnt-seguridad">—</span>
+        <span class="c-desc">Privacidad, datos y LFPDPPP</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- FILTER BAR PILLS -->
+  <div class="fbar" style="margin-top:0;margin-bottom:28px">
+    <button class="fpill active" data-filter="all" onclick="filterBy('all',null)">Todos <span class="fc" id="fp-all"></span></button>
+    <button class="fpill" data-filter="noticias" onclick="filterBy('noticias',null)">Noticias de IA <span class="fc" id="fp-noticias"></span></button>
+    <button class="fpill" data-filter="industria" onclick="filterBy('industria',null)">Industrias <span class="fc" id="fp-industria"></span></button>
+    <button class="fpill" data-filter="automatizacion" onclick="filterBy('automatizacion',null)">Automatización <span class="fc" id="fp-automatizacion"></span></button>
+    <button class="fpill" data-filter="agentes" onclick="filterBy('agentes',null)">Agentes IA <span class="fc" id="fp-agentes"></span></button>
+    <button class="fpill" data-filter="estrategia" onclick="filterBy('estrategia',null)">Estrategia <span class="fc" id="fp-estrategia"></span></button>
+    <button class="fpill" data-filter="roi" onclick="filterBy('roi',null)">ROI & Métricas <span class="fc" id="fp-roi"></span></button>
+    <button class="fpill" data-filter="seguridad" onclick="filterBy('seguridad',null)">Seguridad <span class="fc" id="fp-seguridad"></span></button>
+  </div>
+
   <!-- NEWS — última noticia primero -->
   <section style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;margin-bottom:32px" class="rv">
     <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(184,154,106,.7);margin-bottom:16px">Lo más reciente</div>
-    <a href="ia-news-2026-06-01.html" class="blog-card rv" style="text-decoration:none;display:block">
+    <a href="ia-news-2026-06-01.html" class="blog-card rv" data-category="noticias" style="text-decoration:none;display:block">
       <img src="/blog/covers/ia-news-2026-06-01.webp" alt="IA Today 2026-06-01: noticias de IA de hoy" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block;margin-bottom:20px;">
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:#EAE6DF;margin-bottom:10px;line-height:1.3">IA Today 2026-06-01: Las 5 noticias de IA que tu empresa debe conocer</h2>
       <p style="font-size:13.5px;color:rgba(234,230,223,.55);line-height:1.6;margin-bottom:14px">Resumen diario con las noticias reales más relevantes de inteligencia artificial para empresas en México.</p>
       <div style="font-size:11px;color:#B89A6A;letter-spacing:.06em">2026-06-01 &middot; NOTICIAS</div>
     </a>
-    <a href="ia-news-2026-05-30.html" class="blog-card rv" style="text-decoration:none;display:block">
+    <a href="ia-news-2026-05-30.html" class="blog-card rv" data-category="noticias" style="text-decoration:none;display:block">
       <img src="/blog/covers/ia-news-2026-05-30.webp" alt="IA Today 2026-05-30: las 5 noticias de IA de la semana" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block;margin-bottom:20px;">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;line-height:1.3;color:#EAE6DF;margin-bottom:10px;padding:0 4px">IA Today 2026-05-30: Las 5 noticias de IA que tu empresa debe conocer</h3>
       <p style="font-size:13px;line-height:1.65;color:rgba(234,230,223,.45);margin-bottom:16px;padding:0 4px">Resumen diario con las noticias reales más relevantes de inteligencia artificial para empresas en México.</p>
@@ -328,7 +409,7 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
         <span style="font-size:12px;color:#B89A6A">Leer &#8594;</span>
       </div>
     </a>
-      <a href="ia-news-2026-05-28.html" class="blog-card rv" style="text-decoration:none;display:block">
+      <a href="ia-news-2026-05-28.html" class="blog-card rv" data-category="noticias" style="text-decoration:none;display:block">
         <img src="/blog/covers/ia-news-2026-05-28.webp" alt="IA Today 2026-05-28: avances de IA" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block;margin-bottom:20px;">
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;line-height:1.3;color:#EAE6DF;margin-bottom:10px;padding:0 4px">IA Today 2026-05-28: Los 5 avances de Inteligencia Artificial más importantes</h3>
         <p style="font-size:13px;line-height:1.65;color:rgba(234,230,223,.45);margin-bottom:16px;padding:0 4px">Resumen diario de los avances más relevantes en inteligencia artificial para empresas — 28 de mayo de 2026.</p>
@@ -378,80 +459,6 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
       </div>
     </a>
   </section>
-
-  <!-- SEARCH BAR -->
-  <section style="max-width:1200px;margin:0 auto;padding:0 24px 40px 64px" class="rv">
-    <div style="position:relative;max-width:640px">
-      <svg style="position:absolute;left:18px;top:50%;transform:translateY(-50%);opacity:.35;pointer-events:none" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAE6DF" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="blog-search" type="text" placeholder="Busca por industria, proceso o palabra clave…" autocomplete="off" style="width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 18px 16px 50px;color:#EAE6DF;font-family:'Inter',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color .22s,box-shadow .22s;letter-spacing:.02em"/>
-      <div id="search-clear" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);cursor:pointer;opacity:0;transition:opacity .2s;color:#706C66;font-size:18px;line-height:1">×</div>
-    </div>
-    <div id="search-hint" style="margin-top:10px;font-size:12px;color:rgba(112,108,102,.45);display:none">
-      <span id="search-count" style="color:#B89A6A;font-weight:400"></span> resultados para "<span id="search-term" style="font-style:italic"></span>"
-    </div>
-  </section>
-
-  <!-- CLUSTERS DE CONTENIDO -->
-  <section style="padding:0 0 0 0;margin-top:16px">
-    <div style="max-width:1200px;margin:0 auto;padding:0 24px 20px 64px">
-      <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(112,108,102,.4);margin-bottom:20px">Clusters de contenido</div>
-    </div>
-    <div class="cluster-grid rv">
-      <button class="cluster-btn active" data-filter="all" onclick="filterBy('all',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/><rect x="16" y="4" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/><rect x="4" y="16" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/><rect x="16" y="16" width="8" height="8" rx="1.5" stroke="#B89A6A" stroke-width="1.3"/></svg></span>
-        <span class="c-name">Todos</span>
-        <span class="c-count" id="cnt-all">—</span>
-        <span class="c-desc">Todos los artículos</span>
-      </button>
-      <button class="cluster-btn" data-filter="industria" onclick="filterBy('industria',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><path d="M4 24V11l6 4V11l6 4V8l8 5v11H4Z" stroke="#B89A6A" stroke-width="1.3" stroke-linejoin="round"/><path d="M8 24v-4M14 24v-4M20 24v-4" stroke="#B89A6A" stroke-width="1.1" stroke-linecap="round"/></svg></span>
-        <span class="c-name">Por Industria</span>
-        <span class="c-count" id="cnt-industria">—</span>
-        <span class="c-desc">IA aplicada por sector</span>
-      </button>
-      <button class="cluster-btn" data-filter="automatizacion" onclick="filterBy('automatizacion',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="3.4" stroke="#B89A6A" stroke-width="1.3"/><path d="M14 3.5v3.6M14 20.9v3.6M3.5 14h3.6M20.9 14h3.6M6.5 6.5l2.5 2.5M19 19l2.5 2.5M21.5 6.5L19 9M9 19l-2.5 2.5" stroke="#B89A6A" stroke-width="1.2" stroke-linecap="round"/></svg></span>
-        <span class="c-name">Automatización</span>
-        <span class="c-count" id="cnt-automatizacion">—</span>
-        <span class="c-desc">Procesos sin esfuerzo humano</span>
-      </button>
-      <button class="cluster-btn" data-filter="agentes" onclick="filterBy('agentes',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><rect x="6" y="9" width="16" height="12" rx="3" stroke="#B89A6A" stroke-width="1.3"/><path d="M14 5v4" stroke="#B89A6A" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="4" r="1.4" fill="#B89A6A"/><circle cx="11" cy="15" r="1.3" fill="#B89A6A"/><circle cx="17" cy="15" r="1.3" fill="#B89A6A"/><path d="M3 13v4M25 13v4" stroke="#B89A6A" stroke-width="1.2" stroke-linecap="round"/></svg></span>
-        <span class="c-name">Agentes IA</span>
-        <span class="c-count" id="cnt-agentes">—</span>
-        <span class="c-desc">Chatbots, voice AI y agentes</span>
-      </button>
-      <button class="cluster-btn" data-filter="estrategia" onclick="filterBy('estrategia',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="6" r="2.6" stroke="#B89A6A" stroke-width="1.3"/><path d="M11.4 8.2 8 13h12l-3.4-4.8M9 13c0 4 1 7 5 7s5-3 5-7M8.5 24h11" stroke="#B89A6A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/></svg></span>
-        <span class="c-name">Estrategia</span>
-        <span class="c-count" id="cnt-estrategia">—</span>
-        <span class="c-desc">Cómo implementar y crecer</span>
-      </button>
-      <button class="cluster-btn" data-filter="roi" onclick="filterBy('roi',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><path d="M4 22V6M4 22h20" stroke="#B89A6A" stroke-width="1.3" stroke-linecap="round"/><path d="M8 18l4-5 3.5 2.5L23 8" stroke="#B89A6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 8h4v4" stroke="#B89A6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="c-name">ROI & Métricas</span>
-        <span class="c-count" id="cnt-roi">—</span>
-        <span class="c-desc">Retorno, KPIs y resultados</span>
-      </button>
-      <button class="cluster-btn" data-filter="seguridad" onclick="filterBy('seguridad',this)">
-        <span class="c-icon"><svg viewBox="0 0 28 28" fill="none"><path d="M14 3.5 5 7v6c0 5.2 3.6 9.2 9 11.5 5.4-2.3 9-6.3 9-11.5V7l-9-3.5Z" stroke="#B89A6A" stroke-width="1.3" stroke-linejoin="round"/><path d="M10.5 14l2.5 2.5 4.5-5" stroke="#B89A6A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="c-name">Seguridad & Legal</span>
-        <span class="c-count" id="cnt-seguridad">—</span>
-        <span class="c-desc">Privacidad, datos y LFPDPPP</span>
-      </button>
-    </div>
-  </section>
-
-  <!-- FILTER BAR PILLS -->
-  <div class="fbar" style="margin-top:0;margin-bottom:28px">
-    <button class="fpill active" data-filter="all" onclick="filterBy('all',null)">Todos <span class="fc" id="fp-all"></span></button>
-    <button class="fpill" data-filter="industria" onclick="filterBy('industria',null)">Industrias <span class="fc" id="fp-industria"></span></button>
-    <button class="fpill" data-filter="automatizacion" onclick="filterBy('automatizacion',null)">Automatización <span class="fc" id="fp-automatizacion"></span></button>
-    <button class="fpill" data-filter="agentes" onclick="filterBy('agentes',null)">Agentes IA <span class="fc" id="fp-agentes"></span></button>
-    <button class="fpill" data-filter="estrategia" onclick="filterBy('estrategia',null)">Estrategia <span class="fc" id="fp-estrategia"></span></button>
-    <button class="fpill" data-filter="roi" onclick="filterBy('roi',null)">ROI & Métricas <span class="fc" id="fp-roi"></span></button>
-    <button class="fpill" data-filter="seguridad" onclick="filterBy('seguridad',null)">Seguridad <span class="fc" id="fp-seguridad"></span></button>
-  </div>
 
   <!-- GRID DE 75 ART&#205;CULOS -->
   <section style="max-width:1200px;margin:0 auto;padding:40px 24px 56px 64px">
@@ -1656,6 +1663,7 @@ gsap.utils.toArray('.rv').forEach(el=>{
 
 // ─── CATEGORY FILTER SYSTEM ───────────────────────────────
 const CAT_RULES={
+  noticias: s=>/^ia-news-/.test(s),
   industria: s=>/^ia-para-/.test(s),
   automatizacion: s=>/^automatizar-/.test(s),
   agentes: s=>/^agente-ia|chatbot-whatsapp|voice-ai|que-son-agentes|agentes-ia-vs|ia-multiagente/.test(s),
@@ -1665,12 +1673,15 @@ const CAT_RULES={
 };
 const allCards=[...document.querySelectorAll('.blog-card')];
 allCards.forEach(c=>{
+  // Primero verificar si tiene atributo data-category (asignado manualmente)
+  if(c.dataset.category){c.dataset.cat=c.dataset.category;return;}
+  // Si no, aplicar reglas basadas en slug
   const slug=(c.getAttribute('href')||'').replace('.html','').replace(/.*\//,'');
   for(const[k,fn] of Object.entries(CAT_RULES)){if(fn(slug)){c.dataset.cat=k;break;}}
 });
-const LABELS={'all':'Todos los artículos','industria':'Por Industria','automatizacion':'Automatización','agentes':'Agentes IA','estrategia':'Estrategia','roi':'ROI & Métricas','seguridad':'Seguridad & Legal'};
+const LABELS={'all':'Todos los artículos','noticias':'Noticias de IA','industria':'Por Industria','automatizacion':'Automatización','agentes':'Agentes IA','estrategia':'Estrategia','roi':'ROI & Métricas','seguridad':'Seguridad & Legal'};
 function updateCounts(){
-  const cats=['all','industria','automatizacion','agentes','estrategia','roi','seguridad'];
+  const cats=['all','noticias','industria','automatizacion','agentes','estrategia','roi','seguridad'];
   cats.forEach(k=>{
     const n=k==='all'?allCards.length:allCards.filter(c=>c.dataset.cat===k).length;
     ['cnt-','fp-'].forEach(p=>{const el=document.getElementById(p+k);if(el)el.textContent=n;});
