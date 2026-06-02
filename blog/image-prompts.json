@@ -1,0 +1,138 @@
+{
+  "model": "nano_banana_pro",
+  "aspect_ratio": "16:9",
+  "resolution": "4K",
+  "style_base": "dark luxury tech aesthetic, cinematic lighting, gold accents #B89A6A, ultra detailed 4K, no text overlays, no recognizable faces",
+  "articles": [
+    {
+      "slug": "que-son-agentes-ia",
+      "title": "¿Qué son los Agentes de IA y Cómo Trabajan en 2026?",
+      "prompt_cover": "Autonomous AI agent neural network visualization, luminous gold nodes interconnected across infinite dark space, cinematic volumetric lighting, each node pulsing with warm amber light forming decision trees, luxury tech visualization, photorealistic digital synapses, ultra detailed 4K, no text",
+      "prompt_1": "Abstract AI brain architecture, intricate golden circuit pathways branching like dendrites through dark void, bioluminescent data streams flowing between nodes, deep space cinematic background, luxury corporate tech aesthetic, ultra detailed 4K, no text",
+      "prompt_2": "AI agent perception cycle visualization, radial gold data inputs converging to a central luminous processing core, dark obsidian background, concentric rings of amber light rippling outward, cinematic depth of field, ultra detailed 4K, no text",
+      "prompt_3": "Autonomous decision tree rendered as glowing golden branches in three-dimensional dark space, each branch fork illuminated with subtle amber gradients, architectural precision, luxury data visualization, cinematic lighting, ultra detailed 4K, no text",
+      "prompt_4": "Multiple AI agents operating in parallel, synchronized gold orbs connected by luminous fiber-optic bridges across dark field, choreographed motion trails, luxury tech visualization, volumetric cinematic fog, ultra detailed 4K, no text",
+      "prompt_5": "AI agent memory and learning loop visualization, spiral golden data helix ascending through dark digital landscape, quantum-like information particles orbiting the structure, cinematic luxury aesthetic, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "ia-hoteles-mexico",
+      "title": "IA en Hoteles Mexicanos: Del Revenue Management a la Experiencia Total del Huésped",
+      "prompt_cover": "Luxury Caribbean resort at twilight from aerial view, turquoise waters meeting white sand, gold light reflecting on infinity pool surface, hotel towers with warm amber lighting against deep blue ocean horizon, cinematic drone photography aesthetic, ultra detailed 4K, no text",
+      "prompt_1": "Dynamic pricing revenue management visualization, golden price curves undulating across dark dashboard interface, real-time data streams forming elegant wave patterns, luxury hospitality tech aesthetic, cinematic lighting, abstract financial data visualization, ultra detailed 4K, no text",
+      "prompt_2": "Luxury hotel room at golden hour, immaculate white linens on premium bed, warm amber sunlight streaming through floor-to-ceiling windows overlooking turquoise Caribbean sea, subtle AI personalization ambient glow, editorial photography style, ultra detailed 4K, no text",
+      "prompt_3": "AI concierge digital interface floating in luxury hotel lobby space, holographic golden menus and guest journey maps, marble floors reflecting warm light, dark elegant architecture in background, cinematic luxury tech visualization, ultra detailed 4K, no text",
+      "prompt_4": "Hotel operations command center abstraction, interconnected gold data nodes mapping guest touchpoints from arrival to departure, elegant dark background with ambient amber highlights, luxury hospitality analytics visualization, ultra detailed 4K, no text",
+      "prompt_5": "Aerial view of Mexican Caribbean coastline at sunset, Cancun hotel zone from above with turquoise lagoon on one side and deep Atlantic on the other, golden hour light painting the water, cinematic photography, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "agentes-ia-vs-empleados",
+      "title": "Agentes IA vs Empleados: No es Sustitución, es Multiplicación",
+      "prompt_cover": "Human and AI collaboration visualization, warm amber human silhouette and luminous gold digital entity working in perfect synchrony, dual helix of organic and digital data intertwining, dark luxury background, cinematic depth, no recognizable faces, ultra detailed 4K, no text",
+      "prompt_1": "Multiplication force visualization, single gold node at center radiating into an expanding network of ten interconnected gold spheres, each sphere growing brighter, exponential growth pattern in dark space, luxury tech aesthetic, ultra detailed 4K, no text",
+      "prompt_2": "Human creativity amplified by AI, abstract warm amber hands gesturing with flowing golden data streams extending from fingertips forming complex patterns, dark elegant background, cinematic lighting from below, no recognizable faces, ultra detailed 4K, no text",
+      "prompt_3": "Workflow automation pipeline visualization, gold task tokens flowing through elegant dark channels, bottlenecks dissolving into smooth luminous streams, luxury process optimization aesthetic, cinematic overhead perspective, ultra detailed 4K, no text",
+      "prompt_4": "Team productivity comparison visualization, before-after split showing dim scattered nodes on left and brilliant interconnected gold network on right, division line in warm amber, dark luxury background, ultra detailed 4K, no text",
+      "prompt_5": "AI agent handling repetitive tasks visualization, infinite loop of golden particles cycling through automated processes while a central amber glow represents freed human potential, abstract luxury tech visualization, dark space, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "automatizar-marketing-ia-mexico",
+      "title": "Automatización de Marketing con IA: Cómo las Empresas Mexicanas Están Ganando",
+      "prompt_cover": "Marketing automation funnel visualization, cascading gold data streams narrowing from wide awareness field to precise conversion point, dark luxury background, each stage glowing with varying amber intensity, cinematic top-down perspective, ultra detailed 4K, no text",
+      "prompt_1": "Lead generation AI visualization, golden prospect nodes emerging from dark field and being drawn toward central luminous brand core, magnetic attraction effect, luxury marketing tech aesthetic, cinematic depth of field, ultra detailed 4K, no text",
+      "prompt_2": "Email campaign personalization at scale, thousand golden envelopes each with unique amber glow pattern representing personalized content, arranged in elegant dark grid, luxury tech visualization, cinematic lighting, ultra detailed 4K, no text",
+      "prompt_3": "Social media content AI generation, abstract creative sparks of amber light forming into multiple content formats simultaneously, dark studio aesthetic with elegant gold accents, multiplication effect visualization, ultra detailed 4K, no text",
+      "prompt_4": "Marketing analytics dashboard abstraction, flowing gold data rivers converging into key metric crystals, conversion rate and ROI numbers rendered as luminous amber sculptures in dark space, luxury data visualization, ultra detailed 4K, no text",
+      "prompt_5": "Customer journey AI mapping, elegant gold path tracing through multiple touchpoints across dark landscape, each touchpoint a glowing amber gem, Mexican business context abstract visualization, cinematic aerial perspective, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "reducir-costos-ia",
+      "title": "Cómo la IA Reduce Costos Operativos hasta un 40%: Análisis por Área de Negocio",
+      "prompt_cover": "Cost reduction visualization, excess dark weight being dissolved by golden AI energy beams, elegant corporate abstraction, before state dense and heavy in deep shadow, after state luminous and refined with amber glow, luxury financial tech aesthetic, ultra detailed 4K, no text",
+      "prompt_1": "Business operations efficiency map, eight interconnected dark hexagons each progressively illuminated with amber light as AI optimization activates, elegant corporate dark background, luxury visualization, cinematic depth, ultra detailed 4K, no text",
+      "prompt_2": "Customer service automation visualization, infinite chat threads organizing themselves into elegant gold response patterns, dark luxury background, AI sorting and prioritizing queries with luminous amber intelligence, ultra detailed 4K, no text",
+      "prompt_3": "Supply chain optimization abstraction, gold flow paths through dark logistics network becoming shorter and more efficient, wasted routes fading to shadow, optimal paths glowing amber, aerial industrial aesthetic, ultra detailed 4K, no text",
+      "prompt_4": "Financial analysis AI visualization, complex spreadsheet chaos transforming into elegant gold crystalline structure, dark luxury background, data clarity emerging from computational fog, cinematic transition effect, ultra detailed 4K, no text",
+      "prompt_5": "40 percent savings visualization, dark corporate building with 40 percent of its energy rendered in warm dissipating amber as AI efficiency activates, architectural abstraction, luxury tech aesthetic, cinematic night scene, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "implementar-ia-empresa-mexico",
+      "title": "Cómo Implementar IA en tu Empresa Mexicana en 90 Días: Guía Paso a Paso",
+      "prompt_cover": "90-day implementation roadmap visualization, elegant gold timeline arching through dark space with three luminous milestone markers, each brighter than the last, luxury project management aesthetic, cinematic depth of field, abstract corporate visualization, ultra detailed 4K, no text",
+      "prompt_1": "Business diagnosis phase visualization, corporate infrastructure rendered as abstract dark architecture being scanned by golden AI rays revealing optimization opportunities as amber highlights, luxury tech aesthetic, ultra detailed 4K, no text",
+      "prompt_2": "First AI agent deployment visualization, single luminous gold sphere activating within dark corporate network, ripple of amber light spreading outward connecting previously isolated nodes, cinematic moment of activation, ultra detailed 4K, no text",
+      "prompt_3": "30-day pilot results visualization, before-after comparison in elegant split composition, left side dim and fragmented processes, right side unified gold flow, dividing line in warm amber glow, luxury dark aesthetic, ultra detailed 4K, no text",
+      "prompt_4": "AI integration with existing systems visualization, legacy dark architecture receiving gold data bridges connecting to new luminous AI layer above, seamless integration abstraction, luxury corporate tech aesthetic, cinematic lighting, ultra detailed 4K, no text",
+      "prompt_5": "Scaling phase visualization, single AI node at day 30 expanding into constellation of gold interconnected agents by day 90, exponential growth pattern across dark space, luxury tech visualization, cinematic wide angle, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "ia-pymes-mexico",
+      "title": "IA para PYMEs Mexicanas: Cómo Competir con las Grandes Empresas en 2026",
+      "prompt_cover": "Small business leveling up visualization, compact gold structure rising to match height of large dark corporate towers through AI-powered growth, ambient amber glow surrounding the ascending PYME, Mexican urban skyline abstraction, cinematic lighting, ultra detailed 4K, no text",
+      "prompt_1": "David versus Goliath in business, small luminous gold entity navigating confidently through landscape of massive dark corporate structures using AI intelligence as advantage, abstract luxury visualization, cinematic low angle, ultra detailed 4K, no text",
+      "prompt_2": "Five business process automation visualization, five gold streams flowing through previously manual dark channels, each stream gaining speed and precision, PYME operations optimization abstraction, luxury tech aesthetic, ultra detailed 4K, no text",
+      "prompt_3": "ROI 4.1x multiplication visualization, single gold coin transforming into four luminous coins plus glowing fraction, dark luxury financial abstraction, elegant multiplication effect, cinematic studio lighting, ultra detailed 4K, no text",
+      "prompt_4": "Customer acquisition AI for small business, golden prospect magnet drawing leads from wide dark market landscape, PYME brand glow at center pulling in qualified amber particles, luxury marketing visualization, ultra detailed 4K, no text",
+      "prompt_5": "Mexican business growth chart abstraction, elegant gold curve ascending sharply against dark background with AI adoption point marked as key inflection, luxury financial data visualization, cinematic depth, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "produccion-contenido-ia",
+      "title": "Producción de Contenido con IA: 10× más Rápido sin Perder la Voz de tu Marca",
+      "prompt_cover": "Content production at 10x speed visualization, single brand voice core radiating into ten simultaneous gold content streams, blog posts, videos, social posts all emerging in parallel from central amber intelligence, dark luxury creative studio aesthetic, ultra detailed 4K, no text",
+      "prompt_1": "Brand voice preservation visualization, golden brand DNA helix at center with AI-generated content variations orbiting it, each content piece maintaining the amber glow signature of original voice, luxury creative tech aesthetic, ultra detailed 4K, no text",
+      "prompt_2": "Content workflow acceleration visualization, traditional slow dark linear process transforming into parallel luminous gold streams moving ten times faster, luxury productivity abstraction, cinematic overhead perspective, ultra detailed 4K, no text",
+      "prompt_3": "AI content studio visualization, multiple content formats, articles, videos, social posts, emails, all being assembled simultaneously by golden AI agents in dark luxury production environment, ultra detailed 4K, no text",
+      "prompt_4": "SEO optimization visualization, content pieces finding their perfect position in dark search landscape, gold relevance beams connecting articles to matching query nodes, luxury content strategy abstraction, cinematic depth, ultra detailed 4K, no text",
+      "prompt_5": "Content calendar filled by AI visualization, elegant dark monthly grid with each day cell illuminated by gold as AI generates and schedules content, warm amber glow spreading across the calendar, luxury creative agency aesthetic, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "inteligencia-artificial-para-empresas-mexico",
+      "title": "Inteligencia Artificial para Empresas en México: La Guía Definitiva 2026",
+      "prompt_cover": "Grand vista of Mexican business AI transformation, aerial abstraction of business district with golden AI network overlaid connecting all sectors, tourism, manufacturing, finance, retail, as luminous amber web over dark cityscape, cinematic wide angle, luxury visualization, ultra detailed 4K, no text",
+      "prompt_1": "Complete AI ecosystem for Mexican enterprise, all business functions, marketing, operations, finance, customer service, as interconnected gold modules in elegant dark interface, pillar page visualization, comprehensive luxury tech aesthetic, ultra detailed 4K, no text",
+      "prompt_2": "AI agent types comparison visualization, five distinct gold spheres each with unique internal pattern representing different agent specializations, arranged in elegant dark space formation, luxury taxonomic visualization, cinematic lighting, ultra detailed 4K, no text",
+      "prompt_3": "Industry transformation map Mexico, silhouette of Mexico territory rendered in dark tone with six industry sectors lighting up in amber as AI adoption spreads, tourism coast first, then manufacturing north, luxury data visualization, ultra detailed 4K, no text",
+      "prompt_4": "Implementation journey from zero to full AI, elegant dark road transforming into golden highway as business adopts AI, milestones as amber gemstones embedded in the path, luxury corporate narrative visualization, cinematic perspective, ultra detailed 4K, no text",
+      "prompt_5": "ROI accumulation over time visualization, elegant gold bars rising progressively across dark timeline, exponential growth curve in warm amber, enterprise investment return abstraction, luxury financial visualization, cinematic depth of field, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "ia-sector-turismo-mexico",
+      "title": "IA en el Sector Turismo de México: Cómo el Caribe Mexicano Está Liderando la Revolución",
+      "prompt_cover": "Mexican Caribbean tourism from orbit perspective, turquoise waters of Cancun and Riviera Maya glowing with gold AI intelligence overlay, hotel zones visible as amber clusters, deep blue ocean, luxury aerial visualization blending tropical beauty with tech, ultra detailed 4K, no text",
+      "prompt_1": "Tourist experience personalization visualization, single traveler journey rendered as unique gold path through dark resort landscape, AI anticipating each preference as amber predictive glow appears ahead of the journey, luxury hospitality tech, ultra detailed 4K, no text",
+      "prompt_2": "Real-time occupancy optimization visualization, hotel room grid in dark background, AI shifting prices and availability in gold data streams, dynamic yield management abstraction, luxury revenue management aesthetic, cinematic overhead, ultra detailed 4K, no text",
+      "prompt_3": "AI-powered destination marketing visualization, luxury travel imagery fragments organized by gold AI curation algorithm, perfect content mosaic emerging from dark data chaos, Cancun Tulum Los Cabos abstract montage, ultra detailed 4K, no text",
+      "prompt_4": "Guest journey touchpoint map, elegant gold path from pre-booking through checkout with AI-enhanced moments glowing amber at each interaction, dark luxury resort background, cinematic storytelling visualization, ultra detailed 4K, no text",
+      "prompt_5": "Competition advantage visualization, Mexican Caribbean destinations as luminous gold cluster rising above surrounding darker competing destinations globally, AI-driven differentiation abstraction, luxury geography visualization, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "telemetria-iot-flotillas-mexico",
+      "title": "Telemetría IoT para Flotillas en México: Reducción de Costos del 30% en 6 Meses",
+      "prompt_cover": "Fleet telemetry visualization, aerial view of Mexico highway network with gold GPS tracking lines following truck routes, real-time data streams flowing back to central command node, dark landscape background, cinematic drone perspective, luxury logistics tech aesthetic, ultra detailed 4K, no text",
+      "prompt_1": "IoT sensor network on commercial vehicle, abstract cross-section showing dozens of gold sensor nodes distributed across truck body, engine, fuel system, tires, each transmitting amber data pulses, dark tech visualization, ultra detailed 4K, no text",
+      "prompt_2": "Fuel consumption optimization visualization, dark fuel usage graph with AI intervention point where consumption drops sharply, gold efficiency curve replacing old wasteful amber line, luxury fleet analytics aesthetic, cinematic data visualization, ultra detailed 4K, no text",
+      "prompt_3": "Predictive maintenance AI visualization, mechanical failure approaching as dark storm on horizon, AI detecting warning signs as gold early indicators in telemetry stream, maintenance team alerted by amber signal, luxury industrial tech, ultra detailed 4K, no text",
+      "prompt_4": "Real-time fleet command center visualization, dark operations room with luminous gold map showing all fleet vehicles as moving amber nodes, route optimization lines glowing, Mexican territory abstraction, luxury logistics visualization, ultra detailed 4K, no text",
+      "prompt_5": "ROI 4.1x in 6 months fleet visualization, six-month timeline in dark space with cost curve descending as gold AI savings accumulate into luminous amber profit zone, luxury financial data abstraction, cinematic depth, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "roi-inteligencia-artificial",
+      "title": "ROI de la Inteligencia Artificial: Cómo Medir el Retorno de tu Inversión en IA",
+      "prompt_cover": "AI ROI measurement framework visualization, elegant five-dimensional gold measurement instrument floating in dark space, each dimension a distinct amber crystalline axis, luxury financial measurement abstraction, cinematic studio lighting, ultra detailed 4K, no text",
+      "prompt_1": "Three types of AI value visualization, hard cost savings as solid gold bars, productivity gains as flowing amber streams, strategic value as luminous gold halo above, three distinct yet connected visual elements in dark luxury space, ultra detailed 4K, no text",
+      "prompt_2": "Before and after AI implementation comparison, left side showing dark tangled business processes, right side showing same operations as elegant gold flowing system, dividing moment of AI deployment in warm amber light, luxury visualization, ultra detailed 4K, no text",
+      "prompt_3": "Industry ROI benchmarks visualization, elegant gold bar chart showing ROI multiples by industry sector, hospitality and tourism highest in amber glow, manufacturing and logistics following, dark luxury background, cinematic perspective, ultra detailed 4K, no text",
+      "prompt_4": "AI ROI timeline over 12 months, dark investment phase at left transitioning to break-even amber point and ascending gold return curve, elegant financial narrative visualization, luxury corporate aesthetic, cinematic depth of field, ultra detailed 4K, no text",
+      "prompt_5": "ROI measurement dashboard abstraction, five elegant dark panels each revealing a different AI value dimension in gold, operational efficiency, customer satisfaction, revenue growth, cost reduction, strategic position, luxury analytics visualization, ultra detailed 4K, no text"
+    },
+    {
+      "slug": "monitoreo-edificios-iot-ia",
+      "title": "Monitoreo Inteligente de Edificios con IoT e IA: Eficiencia Total y Cero Sorpresas",
+      "prompt_cover": "Intelligent building cross-section visualization, luxury dark glass tower with IoT sensor network rendered as luminous gold nervous system throughout structure, each floor showing amber activity pulses, AI brain at core coordinating all systems, cinematic night exterior, ultra detailed 4K, no text",
+      "prompt_1": "Building sensor ecosystem visualization, elegant dark architectural floor plan with 50 plus gold sensor icons distributed across HVAC, electrical, security, access zones, each sensor emitting amber data pulse, luxury smart building aesthetic, ultra detailed 4K, no text",
+      "prompt_2": "Energy optimization visualization, building energy flow rendered as gold streams finding optimal paths through dark electrical infrastructure, waste heat shown as dissipating amber particles, AI routing efficiency, luxury industrial visualization, ultra detailed 4K, no text",
+      "prompt_3": "Predictive maintenance building systems, HVAC unit and elevator shown as dark mechanical elements with AI predictive layer highlighting potential failure points in amber before they occur, luxury facility management tech, ultra detailed 4K, no text",
+      "prompt_4": "Building management system dashboard abstraction, elegant dark command interface with real-time building data flowing as gold streams from physical sensors to central AI core, luxury smart building visualization, cinematic lighting, ultra detailed 4K, no text",
+      "prompt_5": "Zero surprise building operations visualization, potential incident approaching as dark anomaly, AI detection system catching it as amber alert, maintenance response dispatched as gold action path, problem resolved before impact, luxury operational visualization, ultra detailed 4K, no text"
+    }
+  ]
+}

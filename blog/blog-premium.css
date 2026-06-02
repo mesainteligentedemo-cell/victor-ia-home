@@ -1,0 +1,136 @@
+/* ════════════════════════════════════════════════════════════════
+   VICTOR IA · BLOG PREMIUM — Web 4.0 + 21st.dev (quiet luxury)
+   Compartido por los 130 posts. Portada generativa única por slug.
+   Paleta: ink #070708 · cream #EAE6DF · gold #B89A6A · muted #706C66
+════════════════════════════════════════════════════════════════ */
+
+:root{
+  --ink:#070708; --ink2:#0A0A0C; --ink3:#0F0F12;
+  --cream:#EAE6DF; --muted:#706C66; --gold:#B89A6A; --gold2:#CDB28C;
+  --line:rgba(255,255,255,.06); --gline:rgba(184,154,106,.22);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Utilidades (subset Tailwind usado en header/nav/footer) ──── */
+.flex{display:flex}.hidden{display:none}.relative{position:relative}
+.items-center{align-items:center}.justify-between{justify-content:space-between}
+.gap-5{gap:1.25rem}.gap-9{gap:2.25rem}
+.mx-auto{margin-left:auto;margin-right:auto}.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.h-full{height:100%}.z-10{z-index:10}.max-w-\[1200px\]{max-width:1200px}
+.font-display{font-family:'Cormorant Garamond','Georgia',serif}.font-light{font-weight:300}
+.text-cream{color:var(--cream)}.text-\[21px\]{font-size:21px}.text-\[18px\]{font-size:18px}
+.tracking-\[\.04em\]{letter-spacing:.04em}
+@media(min-width:640px){.sm\:block{display:block}}
+@media(min-width:768px){.md\:flex{display:flex}.md\:px-16{padding-left:4rem;padding-right:4rem}}
+
+/* ── TÍTULO (texto del artículo) ─────────────────────────────── */
+.vp-h1{font-family:'Cormorant Garamond',serif;font-weight:300;letter-spacing:-.02em;
+  font-size:clamp(32px,5vw,54px);line-height:1.14;color:var(--cream);
+  max-width:20ch;text-wrap:balance}
+.vp-h1 .it{font-style:italic;color:var(--gold)}
+.vp-sub{font-size:clamp(15px,2vw,18px);line-height:1.75;color:rgba(234,230,223,.62);
+  font-weight:300;max-width:62ch}
+.vp-meta{display:flex;gap:16px;align-items:center;font-size:11.5px;letter-spacing:.07em;
+  color:var(--muted);flex-wrap:wrap}
+.vp-meta .dot{width:3px;height:3px;border-radius:50%;background:rgba(184,154,106,.4)}
+.vp-meta .av{display:inline-flex;align-items:center;gap:8px}
+
+/* ── PORTADA (imagen real IA, limpia y nítida) ───────────────── */
+.vp-cover{position:relative;margin:0;border-radius:16px;overflow:hidden;
+  border:1px solid var(--line);background:#0b0b0e;
+  box-shadow:0 30px 80px -40px rgba(0,0,0,.9);will-change:transform}
+.vp-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  transform:scale(1.001);transition:transform 1.2s var(--ease),filter 1.2s var(--ease);
+  filter:saturate(1.02) contrast(1.02)}
+.vp-cover:hover img{transform:scale(1.035)}
+/* borde superior luminoso dorado (acento luxury) */
+.vp-cover::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;z-index:2;
+  background:linear-gradient(90deg,transparent,rgba(205,178,140,.55),transparent)}
+/* grano sutil para que no se vea plano */
+.vp-cover-grain{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:640px){.vp-cover{border-radius:12px}}
+
+/* ── Tags / chips ────────────────────────────────────────────── */
+.vp-tags{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.vp-tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+  border:1px solid var(--gline);border-radius:3px;padding:4px 11px;
+  background:rgba(184,154,106,.04);transition:background .35s,border-color .35s}
+.vp-tag:hover{background:rgba(184,154,106,.1);border-color:var(--gold)}
+.vp-meta .av svg{opacity:.7}
+
+/* ── Barra de progreso de lectura ────────────────────────────── */
+#vp-pbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:100000;transform-origin:left;
+  background:linear-gradient(90deg,var(--gold),var(--gold2))}
+
+/* ── Reveals al hacer scroll ─────────────────────────────────── */
+.vp-rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.vp-rv.on{opacity:1;transform:none}
+.vp-rv[data-d="1"]{transition-delay:.08s}
+.vp-rv[data-d="2"]{transition-delay:.16s}
+.vp-rv[data-d="3"]{transition-delay:.24s}
+
+/* ── Iconos SVG de diseño propio (stroke draw + hover) ───────── */
+.vp-ic{width:1em;height:1em;display:inline-block;vertical-align:-.125em;color:var(--gold)}
+.vp-ic path,.vp-ic circle,.vp-ic rect,.vp-ic line{
+  vector-effect:non-scaling-stroke;transition:stroke-dashoffset .9s var(--ease)}
+/* icono "feature" en chips de sección */
+.vp-chip{display:inline-flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin:8px 0}
+.vp-chip svg{width:18px;height:18px}
+
+/* ── Floating CTA / share rail (21st.dev style) ──────────────── */
+.vp-rail{position:fixed;left:max(18px,calc(50% - 560px));top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:14px;z-index:400}
+.vp-rail a{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);color:var(--muted);background:rgba(15,15,18,.6);backdrop-filter:blur(10px);
+  transition:color .3s,border-color .3s,transform .35s var(--ease)}
+.vp-rail a:hover{color:var(--gold);border-color:var(--gline);transform:translateY(-2px) scale(1.06)}
+.vp-rail svg{width:16px;height:16px}
+@media(max-width:1180px){.vp-rail{display:none}}
+
+/* ── Realce de elementos del cuerpo (parallax sutil) ─────────── */
+.article-visual,.key-takeaways,.data-grid,.compare-table{will-change:transform}
+.data-card{transition:transform .5s var(--ease),border-color .45s,background .45s}
+.data-card:hover{transform:translateY(-4px);border-color:var(--gline);
+  background:rgba(184,154,106,.045)}
+
+/* ── AGENTE LECTOR — resaltado palabra por palabra ───────────── */
+.vp-w{transition:color .15s,background .15s;border-radius:3px;padding:0 .5px}
+.vp-w.on{color:#070708;background:var(--gold);
+  box-shadow:0 0 0 2px var(--gold);}
+/* bloque visual/tabla resaltado mientras el lector lo narra */
+.vp-narrating{position:relative;transition:box-shadow .4s,transform .4s var(--ease)}
+.vp-narrating::after{content:'';position:absolute;inset:-6px;border-radius:14px;pointer-events:none;
+  border:1px solid rgba(184,154,106,.5);box-shadow:0 0 30px -6px rgba(184,154,106,.4);
+  animation:vpNarr 1.6s ease-in-out infinite}
+@keyframes vpNarr{0%,100%{opacity:.5}50%{opacity:1}}
+/* barra flotante del lector (21st.dev style) */
+.vp-reader-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(0);
+  z-index:9000;display:flex;align-items:center;gap:8px;
+  background:rgba(12,12,15,.82);backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  border:1px solid var(--gline);border-radius:999px;padding:7px 8px 7px 7px;
+  box-shadow:0 18px 50px -18px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.05);
+  opacity:0;animation:vpReaderIn .8s var(--ease) .6s forwards}
+@keyframes vpReaderIn{to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.vp-read-btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  background:none;border:none;color:var(--cream);font-family:'Inter',sans-serif;
+  font-size:12.5px;letter-spacing:.04em;padding:7px 16px 7px 13px;border-radius:999px;
+  transition:background .3s,color .3s}
+.vp-read-btn:hover{background:rgba(184,154,106,.12);color:#fff}
+.vp-read-btn svg{color:var(--gold);flex-shrink:0}
+.vp-reader-bar.active .vp-read-btn{background:rgba(184,154,106,.12)}
+.vp-read-stop{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.04);
+  border:1px solid var(--line);color:var(--muted);transition:color .3s,border-color .3s,background .3s}
+.vp-read-stop:hover{color:var(--gold);border-color:var(--gline);background:rgba(184,154,106,.08)}
+/* anillo "en vivo" cuando está leyendo */
+.vp-reader-bar.active::before{content:'';position:absolute;inset:-1px;border-radius:999px;
+  border:1px solid rgba(184,154,106,.35);animation:vpPulse 2s ease-out infinite;pointer-events:none}
+@keyframes vpPulse{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.06)}}
+@media(max-width:640px){.vp-reader-bar{bottom:16px}.vp-read-btn .vp-read-label{display:none}}
+
+/* ── Accesibilidad / rendimiento ─────────────────────────────── */
+@media(prefers-reduced-motion:reduce){.vp-rv{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}.vp-cover img{transform:none!important}.vp-reader-bar{animation:none!important;opacity:1}}
+
