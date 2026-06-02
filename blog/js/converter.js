@@ -198,9 +198,88 @@ class ConverterManager {
   }
 }
 
+// Genera el HTML del modal 3D dinámicamente si no existe
+function injectConverterModal(options = {}) {
+  if (document.getElementById('converter-modal')) return; // Ya existe
+
+  const articleSlug = options.articleSlug ||
+    window.location.pathname.split('/').pop().replace('.html', '');
+  const guideTitle = options.guideTitle || 'Guía Exclusiva';
+  const guideName = options.guideName || articleSlug;
+
+  const modalHTML = `
+    <div id="converter-modal" class="converter-modal hidden"
+         data-article-slug="${articleSlug}"
+         data-guide-title="${guideTitle}"
+         data-guide-name="${guideName}">
+      <div class="converter-overlay"></div>
+      <div class="converter-container">
+        <button class="converter-close" type="button">×</button>
+
+        <!-- 3D EBOOK MOCKUP -->
+        <div class="converter-ebook">
+          <div class="converter-book">
+            <div class="converter-book-front">
+              ${guideTitle}
+            </div>
+            <div class="converter-book-spine"></div>
+            <div class="converter-book-back"></div>
+          </div>
+        </div>
+
+        <!-- FORM CONTENT -->
+        <div class="converter-content">
+          <div class="converter-label">Acceso Gratuito</div>
+          <h2 class="converter-title">${guideTitle}</h2>
+          <p class="converter-subtitle">Descárgala ahora — sin spam, sin compromisos</p>
+
+          <form id="converter-form" class="converter-form">
+            <input
+              type="text"
+              id="converter-name"
+              name="name"
+              placeholder="Tu nombre"
+              required />
+
+            <input
+              type="email"
+              id="converter-email"
+              name="email"
+              placeholder="tu@email.com"
+              required />
+
+            <input
+              type="tel"
+              id="converter-phone"
+              name="phone"
+              placeholder="Teléfono (opcional)" />
+
+            <button type="submit">Descargar Guía Ahora</button>
+          </form>
+
+          <div class="converter-privacy">
+            Protegemos tu privacidad. <a href="/privacidad">Ver política de privacidad</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Inyectar en el body
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Get converter options from data attributes on converter modal
+  // Inyectar modal si no existe
+  const articleSlug = window.location.pathname.split('/').pop().replace('.html', '');
+  injectConverterModal({
+    articleSlug: articleSlug,
+    guideTitle: document.querySelector('.converter-title')?.textContent || 'Guía Exclusiva',
+    guideName: articleSlug,
+  });
+
+  // Obtener opciones del modal
   const modal = document.getElementById('converter-modal');
   if (modal) {
     const options = {

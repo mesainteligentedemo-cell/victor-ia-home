@@ -132,4 +132,5 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(el=>io.observe(el));const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));})();</script>
 <script src="/blog/blog-premium.js?v=3" defer></script>
+<script src="/blog/js/converter.js"><\/script>
 </body></html>
