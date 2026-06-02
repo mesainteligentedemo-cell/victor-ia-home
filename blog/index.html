@@ -1857,6 +1857,25 @@ function vpSubmitNews(e){
   try{localStorage.setItem('vpNewsSeen','1');}catch(e){}
   return false;
 }
+/* ordenar articulos por fecha descendente */
+(function(){
+  var cards=document.querySelectorAll('[class*="blog-card"]');
+  var articles=[];
+  cards.forEach(function(card){
+    var dateEl=card.querySelector('[style*="color:#706C66"]');
+    if(dateEl){
+      var dateStr=dateEl.textContent.split('·')[0].trim();
+      var date=new Date(dateStr);
+      articles.push({card:card,date:date,dateStr:dateStr});
+    }
+  });
+  articles.sort(function(a,b){return b.date-a.date;});
+  var parent=cards[0]?.parentElement;
+  if(parent){
+    articles.forEach(function(item){parent.appendChild(item.card);});
+  }
+})();
+
 /* mostrar newsletter tras 18s o al 55% de scroll, una vez */
 (function(){
   // si llegan con ?suscribir=1 (desde el correo), abrir el popup de inmediato
