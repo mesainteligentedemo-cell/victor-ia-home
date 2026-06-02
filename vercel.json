@@ -1,5 +1,133 @@
 {
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "functions": {
+    "api/agenda.js": {
+      "maxDuration": 10
+    }
+  },
+  "redirects": [
+    {
+      "source": "/app",
+      "destination": "https://tracker.victor-ia.xyz",
+      "permanent": false
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "https://tracker.victor-ia.xyz/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/img/:path*",
+      "destination": "https://victor-ia-website.vercel.app/img/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "https://victor-ia-website.vercel.app/assets/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/blog/ia-para-distribuidores-mayoristas",
+      "destination": "/blog/ia-para-mayoristas-distribuidores",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-distribuidores-mayoristas.html",
+      "destination": "/blog/ia-para-mayoristas-distribuidores",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-aseguradoras",
+      "destination": "/blog/ia-para-aseguradoras-seguros",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-aseguradoras.html",
+      "destination": "/blog/ia-para-aseguradoras-seguros",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-agencias-viajes",
+      "destination": "/blog/ia-para-viajes-agencias-turismo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-agencias-viajes.html",
+      "destination": "/blog/ia-para-viajes-agencias-turismo",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-ecommerce-marketplaces",
+      "destination": "/blog/ia-para-ecommerce-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-ecommerce-marketplaces.html",
+      "destination": "/blog/ia-para-ecommerce-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/errores-comunes-implementar-ia",
+      "destination": "/blog/errores-implementar-ia-empresa",
+      "permanent": true
+    },
+    {
+      "source": "/blog/errores-comunes-implementar-ia.html",
+      "destination": "/blog/errores-implementar-ia-empresa",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-hoteles-hospedaje",
+      "destination": "/blog/ia-hoteles-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-hoteles-hospedaje.html",
+      "destination": "/blog/ia-hoteles-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/adopcion-ia-pymes-mexico-estadisticas",
+      "destination": "/blog/ia-pymes-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/adopcion-ia-pymes-mexico-estadisticas.html",
+      "destination": "/blog/ia-pymes-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/automatizar-ventas-b2b-ia",
+      "destination": "/blog/agente-ia-ventas-b2b",
+      "permanent": true
+    },
+    {
+      "source": "/blog/automatizar-ventas-b2b-ia.html",
+      "destination": "/blog/agente-ia-ventas-b2b",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-constructoras-inmobiliarias",
+      "destination": "/blog/ia-para-inmobiliarias-mexico",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-para-constructoras-inmobiliarias.html",
+      "destination": "/blog/ia-para-inmobiliarias-mexico",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/brain-tracker",
+      "destination": "/"
+    },
+    {
+      "source": "/:slug((?!blog|img|assets|login|privacidad|seguridad|telemetria|telemetria|terminos|terminos-condiciones|aviso-privacidad|politica-cookies|app|crm-agencias|crm|brain-tracker|brain-tracker-slides|auditoria-seo|og-image|favicon|robots|sitemap|logos|logo-tracker|get_adobe|update_home|agenda|api|__|agentes|agentes-ia-agencias|como-funciona|precios|pricing|admin|dashboard|panel|studio|studio-cms|cms|propuesta-aldo|propuesta-rosa-laura|manual-identidad|guia-definitiva|one-pager|presentacion|plan|firma-email|email-preview|contadores|image-lab|alianza-fiscal|video-studio|404|googleede7d050a05a0237|manifest|service|index-old|rebrand-preview|time-tracker-agencias|alma-inclusivo|bahari-inclusivo|cadu-inclusivo|cimamedica-inclusivo|copal-inclusivo|galenia-inclusivo|kaan-inclusivo|laparrilla-inclusivo|palace-inclusivo|xcaret-inclusivo|propuesta-jimena).+)",
+      "destination": "/blog/:slug"
+    },
     {
       "source": "/__/auth/:path*",
       "destination": "https://victor-ia-tracker.firebaseapp.com/__/auth/:path*"
@@ -7,21 +135,100 @@
   ],
   "headers": [
     {
-      "source": "/(.*)\\.html",
+      "source": "/assets/frames/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
-      "source": "/login",
+      "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/blog/covers/(.*)\\.webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Content-Type",
+          "value": "image/webp"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/login",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/brain-tracker-slides",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate"
+        }
       ]
     }
   ]
