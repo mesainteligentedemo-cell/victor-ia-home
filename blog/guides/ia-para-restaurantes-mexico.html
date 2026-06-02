@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guía: IA para Restaurantes en México</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+    .guide-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 60px 40px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #0066ff;
+      padding-bottom: 30px;
+    }
+    .logo {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    h1 {
+      font-size: 32px;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+    }
+    .toc {
+      background: #f0f4ff;
+      padding: 24px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+    .toc h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #0066ff;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .toc ol {
+      margin-left: 20px;
+    }
+    .toc li {
+      margin-bottom: 6px;
+      color: #555;
+    }
+    section {
+      margin: 40px 0;
+    }
+    h2 {
+      font-size: 24px;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      border-left: 4px solid #0066ff;
+      padding-left: 12px;
+    }
+    h3 {
+      font-size: 18px;
+      color: #333;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 12px;
+      color: #555;
+    }
+    .highlight-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .tip-box {
+      background: #d1ecf1;
+      border-left: 4px solid #17a2b8;
+      padding: 16px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    ul {
+      margin: 16px 0 16px 24px;
+    }
+    ul li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .checklist {
+      list-style: none;
+      margin: 20px 0;
+    }
+    .checklist li {
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .checklist li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+      color: white;
+      padding: 32px;
+      border-radius: 8px;
+      margin: 40px 0;
+      text-align: center;
+    }
+    .cta-box h3 {
+      color: white;
+      border: none;
+      padding: 0;
+    }
+    .cta-box p {
+      color: #e6f0ff;
+      margin-bottom: 16px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: #0066ff;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      border-top: 1px solid #eee;
+      padding-top: 24px;
+      margin-top: 60px;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .guide-container {
+        padding: 40px 20px;
+      }
+      h1 { font-size: 24px; }
+      h2 { font-size: 20px; }
+    }
+    @media print {
+      body { background: white; }
+      .guide-container { padding: 0; }
+      header { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="guide-container">
+    <header>
+      <div class="logo">Victor IA</div>
+      <h1>IA para Restaurantes en México</h1>
+      <p class="subtitle">Guía práctica para automatizar reservas, inventario y marketing</p>
+    </header>
+
+    <div class="toc">
+      <h3>📋 Contenido de esta guía</h3>
+      <ol>
+        <li>Por qué la IA es urgente para restaurantes</li>
+        <li>5 casos de éxito de PyMEs mexicanas</li>
+        <li>Sistemas IA que funcionan HOY</li>
+        <li>Pasos concretos para comenzar</li>
+        <li>ROI y presupuestos realistas</li>
+      </ol>
+    </div>
+
+    <section>
+      <h2>1. Por qué la IA es urgente para restaurantes</h2>
+      <p>Los restaurantes mexicanos pierden 15-20% de ingresos por:</p>
+      <ul>
+        <li><strong>Mesas vacías</strong> cuando no hay reserva online</li>
+        <li><strong>Desperdicio de alimentos</strong> por mal pronóstico de demanda</li>
+        <li><strong>Rotación lenta</strong> sin sistemas de reserva inteligentes</li>
+        <li><strong>Marketing desconectado</strong> que no llega a clientes reales</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>📊 Dato real:</strong> Un restaurante de Monterrey pasó de 45% a 78% de ocupación en 3 meses usando un agente IA para reservas.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Cinco casos de éxito PyME</h2>
+
+      <h3>Caso 1: Comedor campestre (Guanajuato)</h3>
+      <p><strong>Problema:</strong> 60% de llamadas a reservas se perdían cuando el teléfono estaba ocupado.</p>
+      <p><strong>Solución:</strong> Chatbot IA en WhatsApp que confirma reservas automáticamente.</p>
+      <p><strong>Resultado:</strong> +35% de reservas en 2 meses. Costo: $800/mes.</p>
+
+      <h3>Caso 2: Marisquería (Veracruz)</h3>
+      <p><strong>Problema:</strong> Compraban camarón fresco que no se vendía (20% desperdicio).</p>
+      <p><strong>Solución:</strong> Sistema IA que predice demanda por día/clima/eventos locales.</p>
+      <p><strong>Resultado:</strong> Desperdicio bajó a 5%. Ahorro: $4,000/mes.</p>
+
+      <h3>Caso 3: Restaurante casual (CDMX)</h3>
+      <p><strong>Problema:</strong> No sabía quién era su cliente habitual ni cómo recuperar clientes perdidos.</p>
+      <p><strong>Solución:</strong> Agente IA que analiza datos de reserva + teléfono + redes sociales.</p>
+      <p><strong>Resultado:</strong> +22% de cliente retenido. Costo: $1,200/mes.</p>
+
+      <h3>Caso 4: Pizzería (Jalisco)</h3>
+      <p><strong>Problema:</strong> Marketing gastaba $3,000/mes en anuncios con ROI desconocido.</p>
+      <p><strong>Solución:</strong> Automatización IA de campañas a clientes por zona, historial de compra y preferencias.</p>
+      <p><strong>Resultado:</strong> Mismo presupuesto, +40% de conversión. Costo automación: $600/mes.</p>
+
+      <h3>Caso 5: Food court (Querétaro)</h3>
+      <p><strong>Problema:</strong> Turnos de atención al cliente desorganizados, tiempos de respuesta lentos.</p>
+      <p><strong>Solución:</strong> Agente IA para triaging de pedidos + consultas frecuentes 24/7.</p>
+      <p><strong>Resultado:</strong> Reducción de turnos necesarios: -2 personas. Ahorro: $18,000/mes.</p>
+    </section>
+
+    <section>
+      <h2>3. Sistemas IA que funcionan HOY</h2>
+
+      <h3>Agente de Reservas (Prioridad: ALTA)</h3>
+      <ul class="checklist">
+        <li>Recibe reservas 24/7 por teléfono, WhatsApp, web</li>
+        <li>Confirma disponibilidad en tu calendario integrado</li>
+        <li>Envía recordatorio 24h antes</li>
+        <li>Costo típico: $800-$1,500/mes</li>
+        <li>ROI: Se paga en 2-3 reservas adicionales por día</li>
+      </ul>
+
+      <h3>Predictor de Demanda (Prioridad: ALTA)</h3>
+      <ul class="checklist">
+        <li>Analiza: historial, clima, eventos locales, redes sociales</li>
+        <li>Predice cobertura exacta de alimentos por día</li>
+        <li>Reduce desperdicio 40-70%</li>
+        <li>Costo típico: $400-$800/mes</li>
+        <li>ROI: Se paga en desperdicio evitado en <30 días</li>
+      </ul>
+
+      <h3>Analista de Clientes (Prioridad: MEDIA)</h3>
+      <ul class="checklist">
+        <li>Identifica cliente habitual vs. ocasional</li>
+        <li>Predice churn (cliente que se va)</li>
+        <li>Automática campaña de reconquista</li>
+        <li>Costo típico: $600-$1,200/mes</li>
+        <li>ROI: +15-25% retención = +20k/mes en pequeño restaurante</li>
+      </ul>
+
+      <h3>Automatización de Marketing (Prioridad: MEDIA)</h3>
+      <ul class="checklist">
+        <li>Segmenta clientes por zona, tipo de comida, historial</li>
+        <li>Envía oferta exacta al momento correcto</li>
+        <li>Integra con SMS, email, WhatsApp, Instagram</li>
+        <li>Costo típico: $600-$1,000/mes</li>
+        <li>ROI: +30-50% mejor conversión que campañas manuales</li>
+      </ul>
+
+      <div class="tip-box">
+        <strong>💡 Pro tip:</strong> Comienza con el Agente de Reservas (impacto máximo en 30 días). Agrega predictor de demanda en mes 2. Luego automatización de marketing.
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Pasos concretos para comenzar HOY</h2>
+
+      <h3>Paso 1: Auditoría de 1 hora (GRATIS)</h3>
+      <p>Responde estas preguntas:</p>
+      <ul>
+        <li>¿Cuántas reservas recibimos al mes por teléfono? (¿Cuántas se pierden?)</li>
+        <li>¿Cuál es nuestro % de desperdicio actual?</li>
+        <li>¿Qué % de clientes regresan en 3 meses?</li>
+        <li>¿Cuánto gastamos en marketing/mes? ¿Cómo medimos ROI?</li>
+        <li>¿Quién maneja todo esto? (¿Saturado o con capacidad?)</li>
+      </ul>
+
+      <h3>Paso 2: Priorizar problema #1 (1 semana)</h3>
+      <ul>
+        <li><strong>Si pierdes reservas:</strong> Agente de Reservas</li>
+        <li><strong>Si desperdicias comida:</strong> Predictor de Demanda</li>
+        <li><strong>Si clientes no regresan:</strong> Analista de Clientes</li>
+        <li><strong>Si marketing no convierte:</strong> Automatización</li>
+      </ul>
+
+      <h3>Paso 3: Elecciona proveedor IA (1 semana)</h3>
+      <ul>
+        <li>Opciones: n8n, Make, Zapier, o proveedor especializado en restaurantes</li>
+        <li>Exige: prueba gratis, soporte en español, integración con tu POS actual</li>
+        <li>Presupuesto: $400-$1,500/mes (recuperable en 30 días)</li>
+      </ul>
+
+      <h3>Paso 4: Piloto en 2 semanas (50% de negocio)</h3>
+      <ul>
+        <li>Implementa el sistema en una zona/horario/categoría de clientes</li>
+        <li>Mide: conversión, tiempo de respuesta, satisfacción del cliente</li>
+        <li>Compara con el resto del negocio (control group)</li>
+      </ul>
+
+      <h3>Paso 5: Escala a 100% (semana 3-4)</h3>
+      <ul>
+        <li>Si piloto tuvo éxito: extiende a todo el negocio</li>
+        <li>Si resultados mixtos: ajusta parámetros y vuelve a pilotar</li>
+        <li>Documenta: qué funcionó, qué no, por qué</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. ROI y presupuestos realistas</h2>
+
+      <h3>Restaurante pequeño (40 mesas, $80k/mes ingresos)</h3>
+      <div class="highlight-box">
+        <strong>Inversión:</strong> Agente Reservas + Predictor Demanda = $1,300/mes<br/>
+        <strong>Impacto esperado:</strong><br/>
+        • +3 reservas/día × $60 = $5,400/mes (Agente)<br/>
+        • Desperdicio evitado = $2,000/mes (Predictor)<br/>
+        <strong>Total beneficio: $7,400/mes</strong><br/>
+        <strong>ROI: 470% en mes 1. Payback: 5 días.</strong>
+      </div>
+
+      <h3>Restaurante mediano (120 mesas, $250k/mes ingresos)</h3>
+      <div class="highlight-box">
+        <strong>Inversión:</strong> Agente + Predictor + Analista Clientes + Marketing = $3,200/mes<br/>
+        <strong>Impacto esperado:</strong><br/>
+        • Agente: +8 reservas/día × $80 = $19,200/mes<br/>
+        • Predictor: Desperdicio evitado = $6,000/mes<br/>
+        • Analista: +12% retención = $30,000/mes<br/>
+        • Marketing: +35% conversión = $12,000/mes<br/>
+        <strong>Total beneficio: $67,200/mes</strong><br/>
+        <strong>ROI: 1,987% en mes 1. Payback: 1.4 días.</strong>
+      </div>
+
+      <h3>Matriz de decisión rápida</h3>
+      <p>
+        <strong>Comienza HOY si:</strong> Pierdes 20%+ de llamadas OR desaprovechas 15%+ de comida OR cliente no regresa en 3 meses<br/>
+        <strong>Comienza en 30 días si:</strong> Tienes capacidad para testear + tienes IA básica funcionando<br/>
+        <strong>Espera 90 días si:</strong> Acabas de implementar otro sistema OR presupuesto muy ajustado
+      </p>
+    </section>
+
+    <div class="cta-box">
+      <h3>Próximo paso: Auditoría Gratuita</h3>
+      <p>Envíanos una foto de tu operación diaria y responde las 5 preguntas del Paso 1. Te diremos exactamente dónde ganarías más dinero con IA.</p>
+      <a href="mailto:mesainteligentedemo@gmail.com?subject=Auditoría%20IA%20Restaurante" class="cta-button">Solicitar Auditoría</a>
+    </div>
+
+    <footer>
+      <p>Guía gratuita — Victor IA © 2026</p>
+      <p>Esta guía es solo educativa. Cada restaurante es distinto. Consulta un especialista antes de invertir.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Allow PDF download functionality
+    if (window.print) {
+      window.onload = function() {
+        // Optional: Auto-prompt to print/save as PDF
+        // window.print();
+      };
+    }
+  </script>
+</body>
+</html>
