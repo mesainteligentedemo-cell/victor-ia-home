@@ -8,6 +8,9 @@
     },
     "api/blog-status.js": {
       "maxDuration": 30
+    },
+    "api/automated-tasks.js": {
+      "maxDuration": 30
     }
   },
   "redirects": [
