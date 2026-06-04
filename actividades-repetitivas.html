@@ -348,6 +348,8 @@
         <!-- Tabs -->
         <div class="tabs-container">
             <button class="tab-btn active" onclick="switchTab('blog')">📚 Blog Publishing</button>
+            <button class="tab-btn" onclick="switchTab('research')">🔍 Research</button>
+            <button class="tab-btn" onclick="switchTab('copy')">✍️ Copy/Redacción</button>
             <button class="tab-btn" onclick="switchTab('social')">📱 Redes Sociales</button>
             <button class="tab-btn" onclick="switchTab('email')">✉️ Email Marketing</button>
             <button class="tab-btn" onclick="switchTab('all')">📊 Todas las Tareas</button>
@@ -358,6 +360,22 @@
             <div class="tasks-grid" id="blog-tasks">
                 <div class="empty-state">
                     <p>Cargando blog publishing tasks...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="research-tab">
+            <div class="tasks-grid" id="research-tasks">
+                <div class="empty-state">
+                    <p>Cargando research tasks...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="copy-tab">
+            <div class="tasks-grid" id="copy-tasks">
+                <div class="empty-state">
+                    <p>Cargando copy tasks...</p>
                 </div>
             </div>
         </div>
@@ -391,6 +409,75 @@
         const TASKS_API = `${API_BASE}/automated-tasks`;
 
         // Datos de demostración (se reemplazarán con datos reales)
+
+        const DEMO_RESEARCH_TASK = {
+            id: 'blog-daily-research',
+            name: 'Investigación Diaria para Blog',
+            category: 'research',
+            status: 'active',
+            what: 'Investigar temas, validar datos, consultar fuentes para artículos de blog',
+            how: 'Web scraping + búsqueda en múltiples fuentes + verificación de datos + fact-checking',
+            why: 'Garantizar que cada artículo tiene información verificada y research de calidad; Cumplir con regla de no información falsa',
+            market: 'Empresas medianas y PyMEs México/LATAM',
+            expectedResults: 'Artículos con 100% de datos verificados, 5+ fuentes por artículo, research time 30-45 min/artículo',
+            startDate: '2026-05-28',
+            endDate: '2027-12-31',
+            frequency: 'daily',
+            department: 'Content Strategy',
+            channels: ['Internal', 'Blog'],
+            platforms: ['Google Scholar', 'Industry Reports', 'Government Stats', 'Academic Sources'],
+            software: ['Web Scraper', 'Fact-check APIs', 'Google Sheets', 'Brave Browser'],
+            agents: ['Claude Opus 4.8 (Research Agent)'],
+            subAgents: ['fact-checker', 'source-validator', 'data-aggregator'],
+            skills: ['web-scrape-complete', 'deep-research', 'fact-checking'],
+            costs: {
+                apiCalls: 200,
+                agents: 450,
+                software: 50,
+                storage: 20,
+                total: 720
+            },
+            executions: [
+                { timestamp: new Date(Date.now() - 3600000).toISOString(), status: 'success', duration: 1800 }
+            ],
+            successCount: 34,
+            errorCount: 0
+        };
+
+        const DEMO_COPY_TASK = {
+            id: 'blog-daily-copy',
+            name: 'Redacción de Artículos Blog',
+            category: 'copy',
+            status: 'active',
+            what: 'Redactar artículos de blog 2,500+ palabras, SEO-optimizados, tono Victor IA',
+            how: 'Claude API (Sonnet 4.6) con prompts especializados + brand guidelines + revisor editorial',
+            why: 'Producir contenido de alta calidad, consistente con marca Victor IA, optimizado para conversión',
+            market: 'Empresas medianas y PyMEs México/LATAM',
+            expectedResults: '1 artículo completo/día, 2,500+ palabras, 95+ puntuación de calidad, tasa conversión +15%',
+            startDate: '2026-05-28',
+            endDate: '2027-12-31',
+            frequency: 'daily',
+            department: 'Content Creation',
+            channels: ['Blog', 'Email', 'Newsletter'],
+            platforms: ['victor-ia.xyz'],
+            software: ['Claude API', 'Google Docs', 'Grammarly Pro'],
+            agents: ['Claude Sonnet 4.6 (Content Generator)'],
+            subAgents: ['editor-qa', 'seo-optimizer', 'brand-enforcer'],
+            skills: ['web-4o', 'copy-ecommerce', 'skill-inclusivo'],
+            costs: {
+                apiCalls: 300,
+                agents: 400,
+                software: 80,
+                storage: 30,
+                total: 810
+            },
+            executions: [
+                { timestamp: new Date(Date.now() - 7200000).toISOString(), status: 'success', duration: 600 }
+            ],
+            successCount: 34,
+            errorCount: 1
+        };
+
         const DEMO_BLOG_TASK = {
             id: 'blog-daily-publishing',
             name: 'Blog Publishing Diario',
@@ -434,7 +521,7 @@
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.getElementById(`${tab}-tab`).classList.add('active');
 
-            if (tab === 'all' || tab === 'blog') {
+            if (tab === 'all' || tab === 'blog' || tab === 'research' || tab === 'copy') {
                 await loadTasks(tab);
             }
         }
@@ -458,7 +545,9 @@
                 // Si no hay datos en la API, usar demo
                 if (Object.keys(tasksData).length === 0) {
                     tasksData = {
-                        'blog-daily-publishing': DEMO_BLOG_TASK
+                        'blog-daily-publishing': DEMO_BLOG_TASK,
+                        'blog-daily-research': DEMO_RESEARCH_TASK,
+                        'blog-daily-copy': DEMO_COPY_TASK
                     };
                 }
 
@@ -467,7 +556,18 @@
                     category === 'all' || t.category === category
                 );
 
-                const containerId = category === 'all' ? 'all-tasks' : 'blog-tasks';
+                let containerId;
+                if (category === 'all') {
+                    containerId = 'all-tasks';
+                } else if (category === 'blog') {
+                    containerId = 'blog-tasks';
+                } else if (category === 'research') {
+                    containerId = 'research-tasks';
+                } else if (category === 'copy') {
+                    containerId = 'copy-tasks';
+                } else {
+                    containerId = `${category}-tasks`;
+                }
                 const container = document.getElementById(containerId);
 
                 if (tasks.length === 0) {
@@ -510,6 +610,13 @@
                             <div class="section-label">Mercado objetivo</div>
                             <div class="section-content">${task.market}</div>
                         </div>
+
+                        ${task.department ? `
+                        <div class="task-section">
+                            <div class="section-label">Departamento responsable</div>
+                            <div class="section-content"><strong>${task.department}</strong></div>
+                        </div>
+                        ` : ''}
 
                         <div class="task-section">
                             <div class="section-label">Resultados esperados</div>
