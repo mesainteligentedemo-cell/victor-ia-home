@@ -385,10 +385,18 @@
         const spotlight = document.getElementById('spotlight');
 
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+        // Usar canvas.clientWidth/clientHeight para mejor compatibilidad
+        const getCanvasSize = () => ({
+            width: canvas.clientWidth || window.innerWidth,
+            height: canvas.clientHeight || window.innerHeight
+        });
+
+        const size = getCanvasSize();
+        const camera = new THREE.PerspectiveCamera(75, size.width / size.height, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(size.width, size.height, false);
         renderer.setClearColor(0x060609, 1);
         renderer.setPixelRatio(window.devicePixelRatio);
         camera.position.z = 3;
@@ -615,11 +623,10 @@
 
         // Handle resize
         window.addEventListener('resize', () => {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            camera.aspect = width / height;
+            const newSize = getCanvasSize();
+            camera.aspect = newSize.width / newSize.height;
             camera.updateProjectionMatrix();
-            renderer.setSize(width, height);
+            renderer.setSize(newSize.width, newSize.height, false);
         });
 
         animate();
