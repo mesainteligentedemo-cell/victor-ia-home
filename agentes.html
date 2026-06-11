@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agentes IA inteligentes y especializados. Automatiza procesos complejos con nuestros agentes IA.">
+    <meta property="og:title" content="Agentes IA | Victor IA">
+    <meta property="og:description" content="Agentes IA inteligentes para automatizar tu empresa">
+    <meta property="og:type" content="website">
+    <title>Agentes IA | Victor IA</title>
+    <link rel="icon" href="/favicon.ico" sizes="any"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: #060609;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        #canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Spotlight cursor */
+        .cursor-spotlight {
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 5;
+            transform: translate(-50%, -50%);
+        }
+
+        /* UI Overlay */
+        .agent-ui {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+            z-index: 10;
+        }
+
+        .nav-header {
+            pointer-events: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            background: rgba(6, 6, 9, 0.3);
+            padding: 20px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: fit-content;
+            margin: -40px 0 0 -40px;
+            padding: 20px 40px;
+            border-radius: 0 0 12px 0;
+        }
+
+        .logo {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #fff;
+            background: linear-gradient(135deg, #D8B4FE 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .nav-links a:hover {
+            color: #D8B4FE;
+        }
+
+        /* Content panel */
+        .content-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            pointer-events: auto;
+        }
+
+        .info-panel {
+            max-width: 520px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .info-panel h1 {
+            font-size: 56px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #D8B4FE 0%, #3B82F6 50%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .info-panel p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #3B82F6 0%, #D8B4FE 100%);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            border-color: #D8B4FE;
+            background: rgba(216, 180, 254, 0.05);
+        }
+
+        /* Agents grid */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            width: 100%;
+            max-width: 560px;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .agent-card {
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            background: rgba(6, 6, 9, 0.6);
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(216, 180, 254, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .agent-card:hover {
+            border-color: #3B82F6;
+            background: rgba(59, 130, 246, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .agent-card:hover::before {
+            left: 100%;
+        }
+
+        .agent-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .agent-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #D8B4FE 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .agent-card p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        /* Grain overlay */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" result="noise"/></filter><rect width="100" height="100" fill="%23fff" filter="url(%23grain)" opacity="0.032"/></svg>');
+            z-index: 9999;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .agents-grid {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .agent-ui {
+                padding: 20px;
+            }
+
+            .nav-header {
+                margin: -20px 0 0 -20px;
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .info-panel h1 {
+                font-size: 36px;
+            }
+
+            .info-panel p {
+                font-size: 14px;
+            }
+
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div class="cursor-spotlight" id="spotlight"></div>
+
+    <div class="agent-ui">
+        <div class="nav-header">
+            <div class="logo">Victor IA</div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/precios">Precios</a></li>
+                <li><a href="/seguridad">Seguridad</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="info-panel">
+                <h1>Agentes IA Especializados</h1>
+                <p>Automatiza procesos complejos con agentes de inteligencia artificial entrenados y especializados. Cada uno diseñado para un propósito específico, integrado perfectamente con tu flujo de trabajo.</p>
+                <div class="cta-group">
+                    <button class="cta-button">Explorar agentes</button>
+                    <button class="cta-button secondary">Ver documentación</button>
+                </div>
+            </div>
+
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-icon">📊</div>
+                    <h3>Analista</h3>
+                    <p>Análisis de datos, reportes automatizados y predicciones en tiempo real.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-icon">💬</div>
+                    <h3>Asistente</h3>
+                    <p>Conversación natural, soporte omnicanal y atención al cliente 24/7.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-icon">⚙️</div>
+                    <h3>Automatizador</h3>
+                    <p>Orquesta flujos complejos sin intervención manual entre sistemas.</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-icon">🔍</div>
+                    <h3>Investigador</h3>
+                    <p>Búsqueda web, análisis competitivo y research profundo autónomo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grain"></div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@r168/build/three.module.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        const canvas = document.getElementById('canvas');
+        const spotlight = document.getElementById('spotlight');
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x060609, 1);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        camera.position.z = 3;
+
+        // Advanced TSL-style Shader with plasma effect
+        const vertexShader = `
+            varying vec3 vPosition;
+            varying vec3 vNormal;
+            varying float vDepth;
+
+            void main() {
+                vPosition = position;
+                vNormal = normalize(normalMatrix * normal);
+                vDepth = gl_Position.z;
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        const fragmentShader = `
+            varying vec3 vPosition;
+            varying vec3 vNormal;
+            uniform float uTime;
+            uniform float uScroll;
+
+            // Advanced noise function
+            float random(vec3 st) {
+                return fract(sin(dot(st.xyz, vec3(12.9898, 78.233, 45.164))) * 43758.5453123);
+            }
+
+            // Perlin-like noise with more octaves
+            float noise(vec3 st) {
+                vec3 i = floor(st);
+                vec3 f = fract(st);
+                f = f * f * (3.0 - 2.0 * f);
+
+                float n0 = random(i);
+                float n1 = random(i + vec3(1.0, 0.0, 0.0));
+                float n2 = random(i + vec3(0.0, 1.0, 0.0));
+                float n3 = random(i + vec3(1.0, 1.0, 0.0));
+                float n4 = random(i + vec3(0.0, 0.0, 1.0));
+
+                float nx = mix(mix(n0, n1, f.x), mix(n2, n3, f.x), f.y);
+                return mix(nx, mix(random(i + vec3(0.0, 0.0, 1.0)), random(i + vec3(1.0, 0.0, 1.0)), f.x), f.z);
+            }
+
+            // Fractional Brownian Motion
+            float fbm(vec3 st) {
+                float value = 0.0;
+                float amplitude = 0.5;
+                float frequency = 1.0;
+
+                for (int i = 0; i < 4; i++) {
+                    value += amplitude * noise(st * frequency);
+                    st *= 2.0;
+                    amplitude *= 0.5;
+                }
+                return value;
+            }
+
+            void main() {
+                // Multiple noise layers for plasma effect
+                float n1 = noise(vPosition * 3.0 + uTime * 0.4);
+                float n2 = noise(vPosition * 5.0 - uTime * 0.3);
+                float fbmVal = fbm(vPosition * 2.0 + vec3(uTime * 0.2));
+
+                // Breathing and pulsing
+                float breathing = 0.6 + 0.4 * sin(uTime * 0.8 + fbmVal * 6.28);
+                float pulse = 0.5 + 0.5 * sin(uTime * 1.2 + n1 * 3.14159);
+
+                // Fresnel for edge glow
+                vec3 viewDir = normalize(-vPosition);
+                float fresnel = pow(1.0 - abs(dot(viewDir, vNormal)), 2.2);
+
+                // Dynamic color mixing with scroll influence
+                vec3 color1 = vec3(0.85, 0.71, 1.0);  // Purple
+                vec3 color2 = vec3(0.23, 0.51, 0.96); // Blue
+                vec3 color3 = vec3(0.4, 0.8, 1.0);    // Cyan
+
+                vec3 baseColor = mix(color1, color2, n1 * 0.5 + 0.5);
+                baseColor = mix(baseColor, color3, n2 * 0.3 + 0.3);
+
+                // Combine effects
+                float intensity = breathing * pulse * (0.7 + fbmVal * 0.3);
+                vec3 finalColor = baseColor * intensity + vec3(fresnel * 0.4 * pulse);
+
+                // Scroll glow
+                finalColor += color2 * uScroll * 0.2 * fresnel;
+
+                gl_FragColor = vec4(finalColor, 0.95);
+            }
+        `;
+
+        // Create shader material
+        const material = new THREE.ShaderMaterial({
+            vertexShader,
+            fragmentShader,
+            uniforms: {
+                uTime: { value: 0 },
+                uScroll: { value: 0 }
+            },
+            transparent: true,
+            wireframe: false,
+            side: THREE.DoubleSide
+        });
+
+        // Main sphere - Agent Network Hub
+        const sphereGeometry = new THREE.IcosahedronGeometry(1.2, 7);
+        const sphere = new THREE.Mesh(sphereGeometry, material);
+        scene.add(sphere);
+
+        // Particle system - Agent nodes
+        const particleCount = 150;
+        const particleGeometry = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(particleCount * 3);
+        const agentNames = ['Analista', 'Asistente', 'Automatizador', 'Investigador'];
+
+        for (let i = 0; i < particleCount; i++) {
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.random() * Math.PI;
+            const r = 2.2 + Math.random() * 1.8;
+
+            particlePositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+            particlePositions[i * 3 + 1] = r * Math.cos(phi);
+            particlePositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+        }
+
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0xD8B4FE,
+            size: 0.12,
+            sizeAttenuation: true,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
+
+        // Connection lines with improved visuals
+        const lineGeometry = new THREE.BufferGeometry();
+        const linePositions = [];
+
+        for (let i = 0; i < Math.min(particleCount, 60); i++) {
+            for (let j = i + 1; j < Math.min(particleCount, i + 5); j++) {
+                const dist = Math.hypot(
+                    particlePositions[i * 3] - particlePositions[j * 3],
+                    particlePositions[i * 3 + 1] - particlePositions[j * 3 + 1],
+                    particlePositions[i * 3 + 2] - particlePositions[j * 3 + 2]
+                );
+
+                if (dist < 1.5) {
+                    linePositions.push(
+                        particlePositions[i * 3], particlePositions[i * 3 + 1], particlePositions[i * 3 + 2],
+                        particlePositions[j * 3], particlePositions[j * 3 + 1], particlePositions[j * 3 + 2]
+                    );
+                }
+            }
+        }
+
+        lineGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
+
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x3B82F6,
+            transparent: true,
+            opacity: 0.4,
+            linewidth: 1.5
+        });
+
+        const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+        scene.add(lines);
+
+        // Mouse tracking
+        let mouseX = 0;
+        let mouseY = 0;
+        let scrollAmount = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+
+            // Update spotlight
+            spotlight.style.left = e.clientX + 'px';
+            spotlight.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('wheel', (e) => {
+            scrollAmount += e.deltaY * 0.0005;
+            scrollAmount = Math.max(-1, Math.min(1, scrollAmount));
+        }, { passive: true });
+
+        // Animation loop
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.016;
+            scrollAmount *= 0.95; // Decay
+
+            // Update shader uniforms
+            material.uniforms.uTime.value = time;
+            material.uniforms.uScroll.value = scrollAmount;
+
+            // Rotate sphere with subtle mouse influence
+            sphere.rotation.x += 0.00025 + mouseY * 0.0001;
+            sphere.rotation.y += 0.00035 + mouseX * 0.0001;
+
+            // Rotate particles faster
+            particles.rotation.x += 0.00015 + scrollAmount * 0.01;
+            particles.rotation.y += 0.00025 + mouseX * 0.0003;
+
+            // Rotate lines
+            lines.rotation.x += 0.00012 + scrollAmount * 0.008;
+            lines.rotation.y += 0.00022 + mouseX * 0.0002;
+
+            // Camera movement with scroll
+            const zoomFactor = 1 + scrollAmount * 0.5;
+            camera.position.z = 3 * zoomFactor;
+            camera.position.x = mouseX * 0.3;
+            camera.position.y = mouseY * 0.3;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        });
+
+        animate();
+    </script>
+</body>
+</html>
