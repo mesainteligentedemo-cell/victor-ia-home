@@ -19,7 +19,7 @@ const _auth=firebase.auth();
 _auth.onAuthStateChanged(function(user){
   try {
     if(user&&localStorage.getItem('via_access_role')){
-      window.location.replace('/dashboard#'+_authHash());
+      window.location.replace('https://tracker.victor-ia.xyz#'+_authHash());
     }
   } catch(e) {}
 });
@@ -908,7 +908,7 @@ let pendingUser = null;
 let selectedRole = 'team';
 let _knownActive = false;
 let _ctaClicked = false;
-const TRACKER_URL = '/dashboard';
+const TRACKER_URL = 'https://tracker.victor-ia.xyz';
 
 // ── WHITELIST ──────────────────────────────────────────────────────────────
 const TEAM_WHITELIST = [
