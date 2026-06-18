@@ -129,6 +129,74 @@
   ],
   "rewrites": [
     {
+      "source": "/onboarding-ia-empresas",
+      "destination": "/onboarding-ia-empresas.html"
+    },
+    {
+      "source": "/agencia-ia-mexico",
+      "destination": "/agencia-ia-mexico.html"
+    },
+    {
+      "source": "/automatizacion-procesos-empresas",
+      "destination": "/automatizacion-procesos-empresas.html"
+    },
+    {
+      "source": "/desarrollo-software-ia",
+      "destination": "/desarrollo-software-ia.html"
+    },
+    {
+      "source": "/software-ia-timeshare-salas-de-ventas",
+      "destination": "/software-ia-timeshare-salas-de-ventas.html"
+    },
+    {
+      "source": "/eficiencia-energetica-iot-hoteles-resorts",
+      "destination": "/eficiencia-energetica-iot-hoteles-resorts.html"
+    },
+    {
+      "source": "/ia-para-inmobiliarias-riviera-maya",
+      "destination": "/ia-para-inmobiliarias-riviera-maya.html"
+    },
+    {
+      "source": "/ia-para-agencias-tours-experiencias",
+      "destination": "/ia-para-agencias-tours-experiencias.html"
+    },
+    {
+      "source": "/ia-para-restaurantes-riviera-maya",
+      "destination": "/ia-para-restaurantes-riviera-maya.html"
+    },
+    {
+      "source": "/ia-para-wellness-yoga-holistico",
+      "destination": "/ia-para-wellness-yoga-holistico.html"
+    },
+    {
+      "source": "/ia-para-educacion-escuelas-capacitacion",
+      "destination": "/ia-para-educacion-escuelas-capacitacion.html"
+    },
+    {
+      "source": "/ia-para-empresas-cancun-riviera-maya-yucatan",
+      "destination": "/ia-para-empresas-cancun-riviera-maya-yucatan.html"
+    },
+    {
+      "source": "/ia-para-empresas-cancun",
+      "destination": "/ia-para-empresas-cancun.html"
+    },
+    {
+      "source": "/time-tracker-agencias",
+      "destination": "/time-tracker-agencias.html"
+    },
+    {
+      "source": "/agentes-ia-agencias",
+      "destination": "/agentes-ia-agencias.html"
+    },
+    {
+      "source": "/crm-agencias",
+      "destination": "/crm-agencias.html"
+    },
+    {
+      "source": "/guia-definitiva",
+      "destination": "/guia-definitiva.html"
+    },
+    {
       "source": "/brain-tracker",
       "destination": "/"
     },
