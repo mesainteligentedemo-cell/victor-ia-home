@@ -1,0 +1,214 @@
+﻿﻿<!-- Victor IA — Política de Cookies -->
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Victor IA | Política de Cookies</title>
+<meta name="description" content="Política de Cookies de Victor IA — qué son, cuáles usamos y cómo gestionarlas."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;1,300&family=Inter:wght@200;300;400&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:'#FFFFFF',cream:'#000000',muted:'#666666',gold:'#1A1A1A'},fontFamily:{display:['Cormorant Garamond','Georgia','serif'],body:['Inter','sans-serif']}}}}</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:auto}
+body{background:#FFFFFF;color:#000000;font-family:'Inter',sans-serif;overflow-x:hidden;font-weight:300}
+@media(pointer:fine){*{cursor:none!important}}
+#cur-d{position:fixed;width:5px;height:5px;background:#1A1A1A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s}
+#cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(26,26,26,.42);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s,height .4s,opacity .4s}
+#cur-r.expand{width:54px;height:54px;}
+#noise{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;border-bottom:1px solid transparent;transition:background .5s,border-color .5s}
+header.scrolled{background:rgba(0,0,0,.08);border-bottom-color:rgba(0,0,0,.08);backdrop-filter:blur(18px)}
+.nav-a{color:#666666;font-size:13px;letter-spacing:.07em;font-weight:300;transition:color .3s;text-decoration:none}
+.nav-a:hover{color:#000000}
+.btn-p{display:inline-flex;align-items:center;border-radius:5px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;text-decoration:none;background:#000000;color:#FFFFFF;padding:10px 22px;transition:background .25s}
+.btn-p:hover{background:#fff}
+.legal{max-width:760px;margin:0 auto;padding:0 24px}
+.legal h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:28px;color:#000000;margin:52px 0 16px;line-height:1.15}
+.legal h3{font-size:15px;font-weight:400;color:#000000;margin:28px 0 10px}
+.legal p{font-size:14.5px;line-height:1.84;color:#666666;margin-bottom:14px}
+.legal ul{list-style:none;padding-left:0;margin-bottom:14px}
+.legal ul li{font-size:14.5px;line-height:1.84;color:#666666;padding-left:16px;position:relative;margin-bottom:6px}
+.legal ul li::before{content:'—';position:absolute;left:0;color:#1A1A1A;font-size:12px}
+.legal a{color:#1A1A1A;text-decoration:none}
+.legal a:hover{text-decoration:underline}
+.legal .note{background:#FAFAFA;border:1px solid rgba(26,26,26,.15);border-radius:8px;padding:18px 22px;margin:24px 0}
+.legal .note p{margin:0;font-size:13.5px}
+/* Cookie table */
+.ctable{width:100%;border-collapse:collapse;margin:20px 0}
+.ctable th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,26,26,.55);font-weight:400;text-align:left;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.08)}
+.ctable td{font-size:13.5px;color:#666666;padding:12px 14px;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top;line-height:1.6}
+.ctable tr:last-child td{border-bottom:none}
+</style>
+<script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
+</head>
+<body>
+<div id="noise"></div>
+<div id="cur-d"></div>
+<div id="cur-r"></div>
+
+<header id="hdr">
+  <div class="flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-16 h-full relative z-10">
+    <a href="index.html" class="font-display text-[21px] font-light tracking-[.04em] text-cream no-underline select-none" style="text-decoration:none">
+      Victor <span style="color:#1A1A1A">IA</span>
+    </a>
+    <nav class="hidden md:flex gap-9 items-center">
+      <a class="nav-a" href="agentes.html">Agentes</a>
+      <a class="nav-a" href="como-funciona.html">Cómo Funciona</a>
+      <a class="nav-a" href="precios.html">Precios</a>
+      <a class="nav-a" href="blog/">Blog</a>
+      <a class="nav-a" href="/agencia-ia-mexico">Agencia IA</a>
+      <a class="nav-a" href="telemetria.html">Eficiencia IoT</a>
+    </nav>
+    <div class="flex items-center gap-5">
+      <a class="nav-a hidden sm:block" href="app.html">Iniciar sesión</a>
+      <div class="mag"><a class="btn-p" href="app.html">Empezar gratis</a></div>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:68px;position:relative;z-index:10">
+<section style="padding:80px 0 40px">
+  <div class="legal">
+    <p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,26,26,.55);margin-bottom:20px">Legal · Privacidad</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,5vw,62px);line-height:1.06;color:#000000;margin-bottom:20px">Política de Cookies</h1>
+    <p style="font-size:13px;color:rgba(102,102,102,.55);letter-spacing:.05em">Última actualización: Mayo 2026</p>
+  </div>
+</section>
+
+<section style="padding:20px 0 100px">
+  <div class="legal">
+
+    <h2>¿Qué son las cookies?</h2>
+    <p>Las cookies son pequeños archivos de texto que los sitios web colocan en su dispositivo cuando los visita. Permiten que el sitio recuerde sus preferencias, su sesión iniciada y cómo interactúa con el contenido, mejorando así su experiencia.</p>
+
+    <h2>Cookies que utilizamos</h2>
+
+    <h3>Cookies estrictamente necesarias</h3>
+    <p>Son esenciales para que el sitio web funcione correctamente. Sin ellas, los servicios que ha solicitado no pueden prestarse. No pueden desactivarse.</p>
+    <table class="ctable">
+      <tr><th>Cookie</th><th>Propósito</th><th>Duración</th></tr>
+      <tr><td>session_id</td><td>Mantiene su sesión iniciada en la plataforma</td><td>Sesión</td></tr>
+      <tr><td>csrf_token</td><td>Protege contra ataques de falsificación de solicitudes</td><td>Sesión</td></tr>
+      <tr><td>preferences</td><td>Guarda sus preferencias de idioma y visualización</td><td>1 año</td></tr>
+    </table>
+
+    <h3>Cookies analíticas</h3>
+    <p>Nos permiten contar visitas y fuentes de tráfico para medir y mejorar el rendimiento de nuestro sitio. Toda la información es agregada y anónima.</p>
+    <table class="ctable">
+      <tr><th>Cookie</th><th>Propósito</th><th>Duración</th></tr>
+      <tr><td>_ga, _gid</td><td>Google Analytics: conteo de visitantes únicos y páginas vistas</td><td>2 años / 24 hrs</td></tr>
+      <tr><td>_gat</td><td>Limita la frecuencia de solicitudes a Analytics</td><td>1 minuto</td></tr>
+    </table>
+
+    <h3>Cookies de funcionalidad</h3>
+    <p>Permiten que el sitio recuerde las elecciones que usted hace (como su nombre de usuario o región) para ofrecerle funciones mejoradas y más personales.</p>
+    <table class="ctable">
+      <tr><th>Cookie</th><th>Propósito</th><th>Duración</th></tr>
+      <tr><td>ui_theme</td><td>Recuerda su preferencia de tema (oscuro/claro)</td><td>6 meses</td></tr>
+      <tr><td>onboarding_done</td><td>Evita mostrar el tutorial de bienvenida más de una vez</td><td>1 año</td></tr>
+    </table>
+
+    <h2>Cómo gestionar las cookies</h2>
+    <p>Puede configurar su navegador para rechazar todas o algunas cookies, o para que le avise cuando los sitios web las establezcan o accedan a ellas. Si deshabilita o rechaza las cookies necesarias, tenga en cuenta que algunas partes de nuestro sitio pueden volverse inaccesibles o no funcionar correctamente.</p>
+    <p>Instrucciones para los principales navegadores:</p>
+    <ul>
+      <li><strong style="color:#000000;font-weight:400">Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</li>
+      <li><strong style="color:#000000;font-weight:400">Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio</li>
+      <li><strong style="color:#000000;font-weight:400">Safari:</strong> Preferencias → Privacidad → Cookies y datos de sitios web</li>
+      <li><strong style="color:#000000;font-weight:400">Edge:</strong> Configuración → Cookies y permisos del sitio</li>
+    </ul>
+
+    <h2>Actualizaciones a esta política</h2>
+    <p>Podemos actualizar esta Política de Cookies ocasionalmente. Le recomendamos revisarla periódicamente. Los cambios significativos se notificarán en el sitio.</p>
+
+    <h2>Contacto</h2>
+    <p>Para preguntas sobre el uso de cookies: <a href="mailto:info@victor-ia.com.mx">info@victor-ia.com.mx</a></p>
+
+    <div class="note" style="margin-top:48px">
+      <p style="color:rgba(102,102,102,.55)">Consulta también nuestro <a href="aviso-privacidad.html">Aviso de Privacidad</a> y nuestros <a href="terminos-condiciones.html">Términos y Condiciones</a>.</p>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,.05);padding:64px 0 40px;position:relative;z-index:10">
+  <div id="footer-grid" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#000000;margin-bottom:18px">Victor <span style="color:#1A1A1A">IA</span></div>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Servicios</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px">
+        <li><a class="nav-a" href="/agencia-ia-mexico">Agencia de IA</a></li>
+        <li><a class="nav-a" href="/automatizacion-procesos-empresas">Automatización</a></li>
+        <li><a class="nav-a" href="/onboarding-ia-empresas">Onboarding IA</a></li>
+        <li><a class="nav-a" href="/desarrollo-software-ia">Software con IA</a></li>
+        <li><a class="nav-a" href="/software-ia-timeshare-salas-de-ventas">Software Timeshare</a></li>
+        <li><a class="nav-a" href="/eficiencia-energetica-iot-hoteles-resorts">Eficiencia Energética IoT</a></li>
+        <li><a class="nav-a" href="/ia-para-inmobiliarias-riviera-maya">IA Inmobiliaria</a></li>
+        <li><a class="nav-a" href="/ia-para-agencias-tours-experiencias">IA para Tours</a></li>
+        <li><a class="nav-a" href="/ia-para-restaurantes-riviera-maya">IA Restaurantes</a></li>
+        <li><a class="nav-a" href="/ia-para-wellness-yoga-holistico">IA Wellness</a></li>
+        <li><a class="nav-a" href="/ia-para-educacion-escuelas-capacitacion">IA Educación</a></li>
+        <li><a class="nav-a" href="/ia-para-empresas-cancun-riviera-maya-yucatan">IA en Cancún</a></li>
+      </ul>
+      <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#666666;max-width:260px;margin-bottom:14px">El primer supercerebro de IA en LATAM. Redefiniendo la productividad empresarial.</p>
+      <p style="font-size:11px;letter-spacing:.10em;color:rgba(102,102,102,.3)">México · victor-ia.xyz</p>
+    </div>
+    <div>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Producto</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+        <li><a class="nav-a" href="agentes.html">Agentes IA</a></li>
+        <li><a class="nav-a" href="como-funciona.html">Cómo funciona</a></li>
+        <li><a class="nav-a" href="precios.html">Precios</a></li>
+        <li><a class="nav-a" href="app.html">App</a></li>
+        <li><a class="nav-a" href="telemetria.html">Eficiencia e IoT</a></li>
+        <li><a class="nav-a" href="time-tracker-agencias.html">Time Tracker Agencias</a></li>
+        <li><a class="nav-a" href="agentes-ia-agencias.html">Agentes para Agencias</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Legal</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+        <li><a class="nav-a" href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+        <li><a class="nav-a" href="terminos-condiciones.html">Términos y Condiciones</a></li>
+        <li><a class="nav-a" href="politica-cookies.html">Política de Cookies</a></li>
+        <li><a class="nav-a" href="seguridad.html">Seguridad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom" style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(0,0,0,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(102,102,102,.28)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
+    <div style="display:flex;gap:18px">
+      <a class="nav-a" href="#" aria-label="Web" style="color:rgba(102,102,102,.28)">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor"/><ellipse cx="7.5" cy="7.5" rx="2.5" ry="6" stroke="currentColor"/><path d="M1.5 7.5h12" stroke="currentColor"/></svg>
+      </a>
+      <a class="nav-a" href="#" aria-label="Email" style="color:rgba(102,102,102,.28)">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1.5" y="3" width="12" height="9" rx="1.5" stroke="currentColor"/><path d="M1.5 5l6 4 6-4" stroke="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+const lenis=new Lenis({duration:1.35,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
+const dot=document.getElementById('cur-d'),ring=document.getElementById('cur-r');
+let cx=innerWidth/2,cy=innerHeight/2,rx=cx,ry=cy,vis=false;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;if(!vis){vis=true;dot.style.opacity='1';ring.style.opacity='1';}});
+document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0';vis=false;});
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('expand'));el.addEventListener('mouseleave',()=>ring.classList.remove('expand'));});
+(function animC(){rx+=(cx-rx)*.10;ry+=(cy-ry)*.10;dot.style.left=cx+'px';dot.style.top=cy+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animC);})();
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+(function(){return;/* Space canvas DISABLED — clean white theme */const cv=document.createElement('canvas');cv.id='space-bg';Object.assign(cv.style,{position:'fixed',inset:'0',width:'100%',height:'100%',zIndex:'0',pointerEvents:'none',opacity:'0',transition:'opacity 3s ease'});document.body.prepend(cv);const ctx=cv.getContext('2d');let W=cv.width=innerWidth,H=cv.height=innerHeight;window.addEventListener('resize',()=>{W=cv.width=innerWidth;H=cv.height=innerHeight;buildS();});let stars=[];function buildS(){stars=[];for(let i=0;i<300;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.6+.12,tw:Math.random()*Math.PI*2,sp:.005+Math.random()*.005});}buildS();(function tick(){requestAnimationFrame(tick);ctx.clearRect(0,0,W,H);for(const s of stars){s.tw+=s.sp;const a=Math.min(.8,.2+Math.sin(s.tw)*.2);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,.)})`;ctx.fill();}})();setTimeout(()=>{cv.style.opacity='1';},400);})();
+})();
+</script>
+</body>
+</html>
