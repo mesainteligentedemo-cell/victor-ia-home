@@ -1,0 +1,37 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Retrieving project…
+Deploying victor-ia/victor-ia-home
+Uploading [--------------------] (0.0B/178.1KB)
+Uploading [=====---------------] (49.8KB/178.1KB)
+Uploading [==========----------] (97.8KB/178.1KB)
+Uploading [================----] (145.8KB/178.1KB)
+Uploading [====================] (178.1KB/178.1KB)
+Inspect: https://vercel.com/victor-ia/victor-ia-home/7hfzs2TrByMBNsWW67m65UFp3i2j [3s]
+Production: https://victor-ia-home-93s2izp68-victor-ia.vercel.app [3s]
+Building...
+Building...
+[2K[1A[2K[GProduction: https://victor-ia-home-93s2izp68-victor-ia.vercel.app [12s]
+Completing...
+Aliased: https://victor-ia.xyz [14s]
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_7hfzs2TrByMBNsWW67m65UFp3i2j",
+    "url": "https://victor-ia-home-93s2izp68-victor-ia.vercel.app",
+    "inspectorUrl": "https://vercel.com/victor-ia/victor-ia-home/7hfzs2TrByMBNsWW67m65UFp3i2j",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_7hfzs2TrByMBNsWW67m65UFp3i2j"
+  },
+  "message": "Deployment victor-ia-home-93s2izp68-victor-ia.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect victor-ia-home-93s2izp68-victor-ia.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

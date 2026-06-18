@@ -1,0 +1,14 @@
+79: /* ══ EBOOK BANNER INTERACTIVO ══ */
+153: <!-- HERO -->
+182: <img src="/blog/covers/ia-news-2026-05-28.webp" alt="IA
+183: <h2 style="font-family:'Cormorant Garamond',serif;font-
+188: <img src="/blog/covers/ia-news-2026-05-30.webp" alt="IA
+189: <h3 style="font-family:'Cormorant Garamond',serif;font-
+207: <!-- PILLAR CARD (destacada) -->
+209: <div style="font-size:10px;letter-spacing:.2em;text-tra
+1586: <img src="/blog/covers/ia-news-2026-05-28.webp" alt="IA
+1587: <h2 style="font-family:'Cormorant Garamond',serif;font-
+1592: <img src="/blog/covers/ia-news-2026-05-30.webp" alt="IA
+1593: <h3 style="font-family:'Cormorant Garamond',serif;font-
+1611: <!-- PILLAR CARD (destacada) -->
+1613: <div style="font-size:10px;letter-spacing:.2em;text-tra

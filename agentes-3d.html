@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentes IA | Victor IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #060609;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        #canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* UI Overlay */
+        .agent-ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+            z-index: 10;
+        }
+
+        .nav-header {
+            pointer-events: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            pointer-events: auto;
+        }
+
+        .nav-links a:hover {
+            color: #D8B4FE;
+        }
+
+        .info-panel {
+            pointer-events: auto;
+            max-width: 480px;
+        }
+
+        .info-panel h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #D8B4FE 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .info-panel p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #3B82F6 0%, #D8B4FE 100%);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            pointer-events: auto;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        .agents-list {
+            pointer-events: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            max-width: 600px;
+        }
+
+        .agent-card {
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(6, 6, 9, 0.8);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .agent-card:hover {
+            border-color: #3B82F6;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .agent-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #D8B4FE;
+        }
+
+        .agent-card p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.4;
+        }
+
+        /* Grain overlay */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4"/></filter><rect width="100" height="100" fill="%23fff" filter="url(%23n)" opacity="0.05"/></svg>');
+            z-index: 9999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .agent-ui {
+                padding: 20px;
+            }
+
+            .info-panel h1 {
+                font-size: 32px;
+            }
+
+            .agents-list {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="agent-ui">
+        <div class="nav-header">
+            <div class="logo">Victor IA</div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/precios">Precios</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div style="display: flex; gap: 40px; align-items: flex-start;">
+            <div class="info-panel">
+                <h1>Agentes IA Inteligentes</h1>
+                <p>Automatiza procesos complejos con agentes IA especializados. Cada uno entrenado para un propósito específico.</p>
+                <button class="cta-button">Explorar capacidades</button>
+            </div>
+
+            <div class="agents-list">
+                <div class="agent-card">
+                    <h3>📊 Analista</h3>
+                    <p>Análisis de datos y reportes automatizados en tiempo real.</p>
+                </div>
+                <div class="agent-card">
+                    <h3>💬 Asistente</h3>
+                    <p>Conversación natural, soporte y atención al cliente 24/7.</p>
+                </div>
+                <div class="agent-card">
+                    <h3>⚙️ Automatizador</h3>
+                    <p>Orquesta flujos de trabajo complejos sin intervención.</p>
+                </div>
+                <div class="agent-card">
+                    <h3>🔍 Investigador</h3>
+                    <p>Búsqueda web, análisis competitivo y research profundo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grain"></div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@r168/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@r168/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        const canvas = document.getElementById('canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x060609);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        camera.position.z = 3;
+
+        // Vertex Shader
+        const vertexShader = `
+            varying vec3 vPosition;
+            varying vec3 vNormal;
+
+            void main() {
+                vPosition = position;
+                vNormal = normalize(normalMatrix * normal);
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+            }
+        `;
+
+        // Fragment Shader (TSL-style with noise)
+        const fragmentShader = `
+            varying vec3 vPosition;
+            varying vec3 vNormal;
+            uniform float uTime;
+
+            // Pseudo-random
+            float random(vec3 st) {
+                return fract(sin(dot(st.xyz, vec3(12.9898, 78.233, 45.164))) * 43758.5453123);
+            }
+
+            // Perlin-like noise
+            float noise(vec3 st) {
+                vec3 i = floor(st);
+                vec3 f = fract(st);
+                f = f * f * (3.0 - 2.0 * f);
+
+                float a = random(i);
+                float b = random(i + vec3(1.0, 0.0, 0.0));
+                float c = random(i + vec3(0.0, 1.0, 0.0));
+                float d = random(i + vec3(1.0, 1.0, 0.0));
+
+                return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+            }
+
+            void main() {
+                // Breathing effect based on noise
+                float n = noise(vPosition * 2.0 + uTime * 0.3);
+                float breathing = 0.5 + 0.5 * sin(uTime * 0.5 + n * 3.14159);
+
+                // Fresnel effect
+                vec3 viewDir = normalize(-vPosition);
+                float fresnel = pow(1.0 - abs(dot(viewDir, vNormal)), 2.5);
+
+                // Color gradient
+                vec3 color1 = vec3(0.85, 0.71, 1.0);  // Purple #D8B4FE
+                vec3 color2 = vec3(0.23, 0.51, 0.96); // Blue #3B82F6
+                vec3 baseColor = mix(color1, color2, vPosition.y * 0.5 + 0.5);
+
+                // Final color
+                vec3 finalColor = baseColor * (0.6 + breathing * 0.4) + vec3(fresnel * 0.3);
+
+                gl_FragColor = vec4(finalColor, 0.9);
+            }
+        `;
+
+        // Create material with custom shader
+        const material = new THREE.ShaderMaterial({
+            vertexShader,
+            fragmentShader,
+            uniforms: {
+                uTime: { value: 0 }
+            },
+            transparent: true,
+            wireframe: false
+        });
+
+        // Main sphere (agent network hub)
+        const sphereGeometry = new THREE.IcosahedronGeometry(1, 6);
+        const sphere = new THREE.Mesh(sphereGeometry, material);
+        scene.add(sphere);
+
+        // Particle system (agent nodes)
+        const particleCount = 100;
+        const particleGeometry = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount; i++) {
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.random() * Math.PI;
+            const r = 2.5 + Math.random() * 1.5;
+
+            particlePositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+            particlePositions[i * 3 + 1] = r * Math.cos(phi);
+            particlePositions[i * 3 + 2] = r * Math.sin(phi) * Math.sin(theta);
+        }
+
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+        const particleMaterial = new THREE.PointsMaterial({
+            color: 0xD8B4FE,
+            size: 0.08,
+            sizeAttenuation: true,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        const particles = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particles);
+
+        // Connection lines
+        const lineGeometry = new THREE.BufferGeometry();
+        const linePositions = [];
+
+        for (let i = 0; i < Math.min(particleCount, 50); i++) {
+            for (let j = i + 1; j < Math.min(particleCount, i + 4); j++) {
+                linePositions.push(
+                    particlePositions[i * 3], particlePositions[i * 3 + 1], particlePositions[i * 3 + 2],
+                    particlePositions[j * 3], particlePositions[j * 3 + 1], particlePositions[j * 3 + 2]
+                );
+            }
+        }
+
+        lineGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(linePositions), 3));
+
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x3B82F6,
+            transparent: true,
+            opacity: 0.3,
+            linewidth: 1
+        });
+
+        const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+        scene.add(lines);
+
+        // Mouse tracking
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Animation loop
+        let time = 0;
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.016;
+
+            // Update shader uniform
+            material.uniforms.uTime.value = time;
+
+            // Rotate sphere
+            sphere.rotation.x += 0.0003;
+            sphere.rotation.y += 0.0005;
+
+            // Rotate particles
+            particles.rotation.x += 0.0001;
+            particles.rotation.y += 0.0002;
+
+            // Rotate lines
+            lines.rotation.x += 0.0001;
+            lines.rotation.y += 0.0002;
+
+            // Mouse influence
+            camera.position.x = mouseX * 0.5;
+            camera.position.y = mouseY * 0.5;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            renderer.setSize(width, height);
+        });
+
+        animate();
+    </script>
+</body>
+</html>

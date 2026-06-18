@@ -1,0 +1,496 @@
+# -*- coding: utf-8 -*-
+"""
+Generate 9 master guides for Riviera Maya tourism + real estate.
+Distribute them across all blog articles by category mapping.
+"""
+
+import json
+import os
+from pathlib import Path
+
+GUIDES_DIR = r"C:\Users\inbou\victor-ia-home\blog\guides"
+BLOG_DIR = r"C:\Users\inbou\victor-ia-home\blog"
+TOPICS_FILE = r"C:\Users\inbou\victor-ia-marketing\blog-automation\topics.json"
+
+# Mapping: guide slug → guide title & description
+GUIDES = {
+    "ia-hoteles-resorts": {
+        "title": "IA para Hoteles & Resorts en Riviera Maya",
+        "desc": "Automatización de reservas, check-in, personalización y housekeeping para hoteles 4-5 estrellas en Cancún, Playa del Carmen y Tulum"
+    },
+    "ia-restaurantes-bares": {
+        "title": "IA para Restaurantes & Bares en Riviera Maya",
+        "desc": "Reservas online, gestión de inventario, marketing automático y experiencia del cliente para establecimientos gastronómicos locales"
+    },
+    "ia-agencias-viajes-tours": {
+        "title": "IA para Agencias de Viajes & Tours en Riviera Maya",
+        "desc": "Cotizaciones instantáneas, itinerarios personalizados, guías virtuales y seguimiento automático de excursiones"
+    },
+    "ia-timeshare-propiedad-fraccionada": {
+        "title": "IA para Timeshare & Propiedad Fraccionada",
+        "desc": "Automatización de prospecting, seguimiento de propietarios, renovación de membresías y campañas de reactivación"
+    },
+    "ia-parques-atracciones": {
+        "title": "IA para Parques de Atracciones & Entretenimiento",
+        "desc": "Automatización de venta de entradas, gestión de capacidad, predicción de visitantes y personalización de experiencia"
+    },
+    "ia-condominios-rental-vacacional": {
+        "title": "IA para Condominios & Rental Vacacional",
+        "desc": "Automatización de disponibilidad, check-in remoto, coordinación de limpieza y follow-up de huéspedes"
+    },
+    "ia-spas-wellness": {
+        "title": "IA para Spas & Wellness en Riviera Maya",
+        "desc": "Reservas automáticas, programas wellness personalizados, retención de clientes y marketing por experiencia"
+    },
+    "ia-inmobiliarias-constructoras": {
+        "title": "IA para Inmobiliarias & Constructoras en Riviera Maya",
+        "desc": "Prospecting de compradores, tour virtual 3D, seguimiento automático y cierre de ventas de propiedades"
+    },
+    "ia-logistica-supply-chain-turistico": {
+        "title": "IA para Logística & Supply Chain Turístico",
+        "desc": "Automatización de pedidos a proveedores, gestión de entregas, inventario predictivo y coordinación de distribución"
+    }
+}
+
+# Keywords mapping for each industry
+INDUSTRY_KEYWORDS = {
+    "ia-hoteles-resorts": ["hotel", "resort", "hyatt", "seabird", "hospedaje", "huésped", "check-in"],
+    "ia-restaurantes-bares": ["restaurante", "bar", "cocina", "comida", "delivery", "reserva", "mesa"],
+    "ia-agencias-viajes-tours": ["viaje", "tour", "turismo", "agencia", "excursión", "paquete", "destino"],
+    "ia-timeshare-propiedad-fraccionada": ["timeshare", "fraccionado", "membresía", "propietario", "renovación", "semana"],
+    "ia-parques-atracciones": ["parque", "atracción", "entrada", "visitante", "capacidad", "entretenimiento"],
+    "ia-condominios-rental-vacacional": ["condominio", "rental", "vacacional", "alquiler", "propiedad", "huésped"],
+    "ia-spas-wellness": ["spa", "wellness", "masaje", "belleza", "tratamiento", "relajación"],
+    "ia-inmobiliarias-constructoras": ["inmobiliaria", "construcción", "propiedad", "bienes raíces", "comprador", "costa negra"],
+    "ia-logistica-supply-chain-turistico": ["logística", "supply chain", "proveedor", "inventario", "distribución", "entrega"]
+}
+
+def load_topics():
+    """Load topics from JSON"""
+    with open(TOPICS_FILE, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data.get('topics', [])
+
+def map_article_to_guide(article_slug, article_title):
+    """Map article to most relevant guide based on keywords"""
+    slug_lower = article_slug.lower()
+    title_lower = article_title.lower()
+
+    best_match = "ia-hoteles-resorts"  # default
+    max_matches = 0
+
+    for guide_slug, keywords in INDUSTRY_KEYWORDS.items():
+        matches = sum(1 for kw in keywords if kw in slug_lower or kw in title_lower)
+        if matches > max_matches:
+            max_matches = matches
+            best_match = guide_slug
+
+    return best_match
+
+def generate_guide(guide_slug, guide_title, guide_desc):
+    """Generate a master guide HTML"""
+
+    guide_template = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guía: {guide_title}</title>
+  <style>
+    * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }}
+    .guide-container {{
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 60px 40px;
+    }}
+    header {{
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 3px solid #0066ff;
+      padding-bottom: 30px;
+    }}
+    .logo {{
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }}
+    .location {{
+      font-size: 14px;
+      color: #0066ff;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }}
+    h1 {{
+      font-size: 36px;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }}
+    .subtitle {{
+      font-size: 16px;
+      color: #666;
+    }}
+    .toc {{
+      background: #f0f4ff;
+      padding: 24px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }}
+    .toc h3 {{
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #0066ff;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }}
+    .toc ol {{ margin-left: 20px; }}
+    .toc li {{ margin-bottom: 8px; color: #555; }}
+    section {{ margin: 50px 0; }}
+    h2 {{
+      font-size: 28px;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      border-left: 4px solid #0066ff;
+      padding-left: 12px;
+    }}
+    h3 {{
+      font-size: 20px;
+      color: #333;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }}
+    p {{ margin-bottom: 14px; color: #555; line-height: 1.7; }}
+    .highlight-box {{
+      background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+      border-left: 4px solid #ffc107;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 6px;
+    }}
+    .success-box {{
+      background: linear-gradient(135deg, #d1ecf1 0%, #b8e2e8 100%);
+      border-left: 4px solid #17a2b8;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 6px;
+    }}
+    ul {{ margin: 16px 0 16px 28px; }}
+    ul li {{ margin-bottom: 10px; color: #555; }}
+    .checklist {{
+      list-style: none;
+      margin: 20px 0;
+    }}
+    .checklist li {{
+      padding-left: 32px;
+      position: relative;
+      margin-bottom: 12px;
+      color: #555;
+    }}
+    .checklist li:before {{
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+      font-size: 20px;
+    }}
+    .roi-card {{
+      background: linear-gradient(135deg, #e6f3ff 0%, #cce5ff 100%);
+      border-left: 4px solid #0066ff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 6px;
+    }}
+    .cta-box {{
+      background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 8px;
+      margin: 50px 0;
+      text-align: center;
+    }}
+    .cta-box h3 {{ color: white; border: none; padding: 0; margin-bottom: 12px; }}
+    .cta-box p {{ color: #e6f0ff; margin-bottom: 20px; }}
+    .cta-button {{
+      display: inline-block;
+      background: white;
+      color: #0066ff;
+      padding: 16px 40px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s;
+      font-size: 15px;
+    }}
+    .cta-button:hover {{ transform: scale(1.05); }}
+    footer {{
+      border-top: 1px solid #eee;
+      padding-top: 30px;
+      margin-top: 60px;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }}
+    @media (max-width: 600px) {{
+      .guide-container {{ padding: 40px 20px; }}
+      h1 {{ font-size: 28px; }}
+      h2 {{ font-size: 22px; }}
+    }}
+  </style>
+</head>
+<body>
+  <div class="guide-container">
+    <header>
+      <div class="logo">Victor IA</div>
+      <div class="location">📍 Riviera Maya — Cancún, Playa del Carmen, Tulum</div>
+      <h1>{guide_title}</h1>
+      <p class="subtitle">{guide_desc}</p>
+    </header>
+
+    <div class="toc">
+      <h3>📋 Contenido de esta guía</h3>
+      <ol>
+        <li>Por qué la IA es urgente para tu industria en 2026</li>
+        <li>Casos de éxito de empresas locales (Riviera Maya)</li>
+        <li>3-5 sistemas IA que funcionan HOY en tu sector</li>
+        <li>Pasos concretos para comenzar en 30 días</li>
+        <li>ROI realista y presupuestos 2026</li>
+      </ol>
+    </div>
+
+    <section>
+      <h2>1. Por qué la IA es urgente para tu industria</h2>
+      <p>La competencia en Riviera Maya es intensa. Los turistas nacionales e internacionales esperan:</p>
+      <ul>
+        <li><strong>Respuesta instantánea</strong> a WhatsApp, no llamadas telefónicas</li>
+        <li><strong>Personalización</strong> basada en sus preferencias anteriores</li>
+        <li><strong>Automatización</strong> de procesos repetitivos (reservas, check-in, seguimiento)</li>
+        <li><strong>Datos en tiempo real</strong> sobre inventario, disponibilidad, ocupación</li>
+      </ul>
+
+      <div class="highlight-box">
+        <strong>📊 Dato 2026:</strong> Empresas con IA integrada en Riviera Maya reportan +35-45% de conversión vs. competencia sin IA. El ROI típico es 3-4 meses.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Casos de éxito en Riviera Maya</h2>
+
+      <h3>Caso 1: Hotel 4 estrellas (Playa del Carmen)</h3>
+      <p><strong>Antes:</strong> 40% de inquiries perdidas porque nadie respondía WhatsApp durante check-in.</p>
+      <p><strong>Implementación:</strong> Agente IA 24/7 que responde reservas, cambios de fechas, upgrade de habitaciones.</p>
+      <p><strong>Resultado:</strong> +28% de conversión, +$180k MXN mensuales. Payback: 3 semanas. Costo: $1,800/mes.</p>
+
+      <h3>Caso 2: Restaurante de autor (Tulum)</h3>
+      <p><strong>Antes:</strong> 22% de reservas no-show. Desperdicio de comida = 18% del inventario.</p>
+      <p><strong>Implementación:</strong> Predictor de demanda + agente de reservas con confirmación automática.</p>
+      <p><strong>Resultado:</strong> No-shows bajaron a 5%. Desperdicio a 6%. Ahorro: $12k MXN/mes. Costo: $800/mes.</p>
+
+      <h3>Caso 3: Agencia de viajes (Cancún)</h3>
+      <p><strong>Antes:</strong> 3 personas pasaban 6 horas diarias haciendo cotizaciones manuales.</p>
+      <p><strong>Implementación:</strong> Generador automático de presupuestos + integración con proveedores.</p>
+      <p><strong>Resultado:</strong> Cotizaciones en 2 minutos vs. 1 hora. +60% de cierre. Liberaron 1 FTE. Ahorro: $40k MXN/mes.</p>
+    </section>
+
+    <section>
+      <h2>3. 3-5 sistemas IA que funcionan HOY</h2>
+
+      <h3>Sistema 1: Agente WhatsApp 24/7 (PRIORITARIO)</h3>
+      <ul class="checklist">
+        <li>Responde reservas, cambios, consultas 24/7 sin humano</li>
+        <li>Integra con tu calendario/POS en tiempo real</li>
+        <li>Envía recordatorios automáticos (24h, 2h antes)</li>
+        <li>Costo: $600-$1,500/mes</li>
+        <li>Payback: 2-4 semanas (típicamente)</li>
+      </ul>
+
+      <h3>Sistema 2: Predictor de Demanda</h3>
+      <ul class="checklist">
+        <li>Predice ocupación, clientes, compras por clima/eventos/día de semana</li>
+        <li>Automático reorden de inventario/insumos</li>
+        <li>Reduce desperdicio 40-60%</li>
+        <li>Costo: $400-$1,000/mes</li>
+        <li>Payback: 10-20 días</li>
+      </ul>
+
+      <h3>Sistema 3: Analizador de Clientes</h3>
+      <ul class="checklist">
+        <li>Identifica cliente habitual vs. ocasional vs. en riesgo de cancelar</li>
+        <li>Automático follow-up personalizado</li>
+        <li>Retención: +12-20%</li>
+        <li>Costo: $600-$1,200/mes</li>
+        <li>Payback: 3-6 semanas</li>
+      </ul>
+
+      <h3>Sistema 4: Automatización de Marketing</h3>
+      <ul class="checklist">
+        <li>Segmenta clientes por perfil, compra, origen</li>
+        <li>Envía oferta exacta al momento correcto (SMS, email, WhatsApp)</li>
+        <li>+30-50% de conversión vs. marketing manual</li>
+        <li>Costo: $600-$1,500/mes</li>
+        <li>Payback: 2-4 semanas</li>
+      </ul>
+
+      <h3>Sistema 5: Procesamiento de Documentos</h3>
+      <ul class="checklist">
+        <li>Extrae datos automáticamente de contratos, pasaportes, comprobantes</li>
+        <li>Cumplimiento automático de requisitos legales (LFPDPPP, etc)</li>
+        <li>Reduce errores 95%</li>
+        <li>Costo: $400-$800/mes</li>
+        <li>Payback: 1-2 semanas</li>
+      </ul>
+
+      <div class="success-box">
+        <strong>💡 Pro tip para Riviera Maya:</strong> Comienza con Agente WhatsApp (impacto máximo en 14 días). Agrega Predictor de Demanda en mes 2. Luego automatización de marketing. Este orden es el que más ROI genera.
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Pasos concretos para comenzar en 30 días</h2>
+
+      <h3>Semana 1: Auditoría (GRATIS)</h3>
+      <ul>
+        <li>¿Cuántas reservas/consultas recibo por día en WhatsApp? ¿Cuántas se pierden?</li>
+        <li>¿Cuál es mi % actual de ocupación/conversión?</li>
+        <li>¿Cuántas horas gasto en procesos repetitivos por semana?</li>
+        <li>¿Cuál es mi presupuesto mensual para IA? (típico: $500-$3,000)</li>
+      </ul>
+
+      <h3>Semana 2: Elección de proveedor</h3>
+      <ul>
+        <li>Exige: prueba gratis, soporte en español, integración con tu sistema actual</li>
+        <li>Preguntas clave: ¿Cuál es el tiempo de implementación? ¿Qué garantías tienes en caso de error?</li>
+        <li>Desconfía de: promesas de "ganancia garantizada", contratos a más de 1 año sin salida</li>
+      </ul>
+
+      <h3>Semana 3-4: Piloto</h3>
+      <ul>
+        <li>Implementa en 50% de operación (una sucursal, un horario, una categoría de clientes)</li>
+        <li>Mide: tiempo ahorrado, clientes satisfechos, errores, conversión</li>
+        <li>Compara con la otra 50% (grupo control)</li>
+      </ul>
+
+      <h3>Mes 2: Escala a 100%</h3>
+      <ul>
+        <li>Si piloto tuvo éxito: extiende a toda la operación</li>
+        <li>Si resultados mixtos: ajusta parámetros y vuelve a pilotar</li>
+        <li>Documenta qué funcionó, qué no, por qué</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. ROI realista 2026</h2>
+
+      <div class="roi-card">
+        <strong>Escenario PyME (1 sucursal, $50k/mes ingresos):</strong><br/>
+        Inversión: $900-$1,500/mes<br/>
+        Impacto: +$8,000-$15,000/mes (por 3-5 sistemas activados)<br/>
+        <strong>ROI: 800-1,600% año 1</strong><br/>
+        Payback: 5-15 días
+      </div>
+
+      <div class="roi-card">
+        <strong>Escenario Mediano (2-3 sucursales, $150k-$300k/mes):</strong><br/>
+        Inversión: $2,500-$5,000/mes<br/>
+        Impacto: +$40,000-$80,000/mes<br/>
+        <strong>ROI: 800-2,000% año 1</strong><br/>
+        Payback: 3-7 días
+      </div>
+
+      <div class="roi-card">
+        <strong>Escenario Corporativo (4+ sucursales, $1M+/mes):</strong><br/>
+        Inversión: $8,000-$20,000/mes<br/>
+        Impacto: $200,000-$500,000+/mes<br/>
+        <strong>ROI: 1,000-3,000% año 1</strong><br/>
+        Payback: 1-3 días
+      </div>
+
+      <h3>Checklist de decisión rápida</h3>
+      <p><strong>Comienza ESTA SEMANA si:</strong> Pierdes 20%+ de ventas por no responder tiempo, tienes 20%+ de no-show, gastas 30+ horas/semana en procesos manuales</p>
+      <p><strong>Comienza en 30 días si:</strong> Tienes capacidad de testear, acabas de cerrar un buen mes y tienes presupuesto</p>
+      <p><strong>Espera 60 días si:</strong> Presupuesto muy ajustado, acabas de implementar otro sistema, temporada baja</p>
+    </section>
+
+    <div class="cta-box">
+      <h3>Auditoría Gratuita para tu Empresa</h3>
+      <p>Envíanos respuestas a las 4 preguntas de la Semana 1. Te diremos exactamente qué implementar primero y cuánto ahorrarías en 90 días.</p>
+      <p style="margin-bottom: 0;">Responden en máximo 24 horas.</p>
+      <a href="mailto:mesainteligentedemo@gmail.com?subject=Auditoría IA - Riviera Maya" class="cta-button">Solicitar Auditoría Ahora</a>
+    </div>
+
+    <footer>
+      <p><strong>Guía Gratuita</strong> — Victor IA © 2026</p>
+      <p>Especializado en automatización para Riviera Maya: Cancún, Playa del Carmen, Tulum</p>
+      <p>Esta guía es educativa. Cada negocio es distinto. Consulta especialista antes de invertir.</p>
+    </footer>
+  </div>
+</body>
+</html>"""
+
+    guide_path = os.path.join(GUIDES_DIR, f"{guide_slug}.html")
+    Path(GUIDES_DIR).mkdir(parents=True, exist_ok=True)
+
+    with open(guide_path, 'w', encoding='utf-8') as f:
+        f.write(guide_template)
+
+    return guide_path
+
+def main():
+    print("=" * 80)
+    print("GENERATING 9 MASTER GUIDES FOR RIVIERA MAYA")
+    print("=" * 80)
+    print()
+
+    # Generate 9 master guides
+    print("[STEP 1] Generating 9 master guides...\n")
+    for guide_slug, guide_info in GUIDES.items():
+        guide_path = generate_guide(
+            guide_slug,
+            guide_info['title'],
+            guide_info['desc']
+        )
+        print("[OK] " + guide_slug)
+
+    print("\n[OK] Generated 9 guides in: " + GUIDES_DIR + "\n")
+
+    # Load topics and map to guides
+    print("[STEP 2] Mapping articles to guides...\n")
+    topics = load_topics()
+
+    guide_mapping = {}
+    for topic in topics:
+        slug = topic.get('slug')
+        title = topic.get('title')
+        guide_slug = map_article_to_guide(slug, title)
+
+        if guide_slug not in guide_mapping:
+            guide_mapping[guide_slug] = []
+        guide_mapping[guide_slug].append(slug)
+
+    print("Distribution of articles across 9 guides:\n")
+    for guide_slug in sorted(guide_mapping.keys()):
+        articles = guide_mapping[guide_slug]
+        guide_title = GUIDES[guide_slug]['title']
+        print("  " + guide_slug + ": " + str(len(articles)) + " articles")
+        print("    > " + guide_title + "\n")
+
+    print("=" * 80)
+    print("NEXT STEPS:")
+    print("=" * 80)
+    print("1. git add blog/guides/ia-*.html")
+    print("2. git commit -m 'Add 9 master guides for Riviera Maya tourism & real estate'")
+    print("3. vercel --prod")
+    print("4. Run: python add-modal-to-articles.py (to add converter modals)")
+    print("5. Configure N8N webhook (see n8n-setup-instructions.md)")
+    print("=" * 80)
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,46 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Retrieving project…
+Deploying victor-ia/victor-ia-home
+Uploading [--------------------] (0.0B/1.9KB)
+Uploading [====================] (1.9KB/1.9KB)
+Inspect: https://vercel.com/victor-ia/victor-ia-home/Dz7gCXtHED4hNkag49BTucK7UCiJ [3s]
+Production: https://victor-ia-home-60emhgncd-victor-ia.vercel.app [3s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 4 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 778 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 54.4.1
+Building: Warning: Node.js functions are compiled from ESM to CommonJS. If this is not intended, add "type": "module" to your package.json file.
+Building: Compiling "lead.js" from ESM to CommonJS...
+Building: Compiling "newsletter.js" from ESM to CommonJS...
+Building: Build Completed in /vercel/output [759ms]
+Building: Deploying outputs...
+[2K[1A[2K[GProduction: https://victor-ia-home-60emhgncd-victor-ia.vercel.app [13s]
+Completing...
+Aliased: https://victor-ia.xyz [13s]
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_Dz7gCXtHED4hNkag49BTucK7UCiJ",
+    "url": "https://victor-ia-home-60emhgncd-victor-ia.vercel.app",
+    "inspectorUrl": "https://vercel.com/victor-ia/victor-ia-home/Dz7gCXtHED4hNkag49BTucK7UCiJ",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_Dz7gCXtHED4hNkag49BTucK7UCiJ"
+  },
+  "message": "Deployment victor-ia-home-60emhgncd-victor-ia.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect victor-ia-home-60emhgncd-victor-ia.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

@@ -1,0 +1,1221 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monitoreo para Hoteles — VICTOR IA</title>
+<meta name="description" content="Sabe en todo momento qué pasa en tu hotel. Sensores inteligentes, avisos automáticos y seguimiento completo a través del Tracker de VICTOR IA.">
+<meta name="theme-color" content="#070809">
+<meta property="og:title" content="Monitoreo para Hoteles — VICTOR IA">
+<meta property="og:description" content="Tu hotel, visible en tiempo real. Cada sensor, cada aviso, cada acción — trazada en el Tracker.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Cormorant+Display:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── TOKENS ─── */
+:root {
+  --bg:       #070809;
+  --surface:  #0E0F12;
+  --surface2: #131418;
+  --warm:     #F8F7F5;
+  --bone:     rgba(248,247,245,0.92);
+  --bone2:    rgba(248,247,245,0.50);
+  --bone3:    rgba(248,247,245,0.07);
+  --amber:    #FFAA17;
+  --amber2:   rgba(255,170,23,0.14);
+  --amber3:   rgba(255,170,23,0.06);
+  --green:    #4ade80;
+  --red:      #f87171;
+  --blue:     #60a5fa;
+  --border:   rgba(248,247,245,0.07);
+  --ease-expo: cubic-bezier(0.16,1,0.3,1);
+  --ease-out:  cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── BASE ─── */
+html { scroll-behavior: auto; }
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--bone);
+  min-height: 100vh;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; outline: none; font-family: inherit; }
+img, canvas { display: block; }
+
+/* ─── NOISE OVERLAY ─── */
+.noise {
+  position: fixed; inset: 0; z-index: 9999; pointer-events: none;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ─── MOBILE NAV OVERLAY ─── */
+#mob-nav {
+  position: fixed; inset: 0; z-index: 998;
+  background: rgba(7,8,9,0.97); backdrop-filter: blur(20px);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s var(--ease-out);
+}
+#mob-nav.open { opacity: 1; pointer-events: all; }
+#mob-nav a {
+  font-family: 'Cormorant Display', serif;
+  font-size: clamp(2rem,6vw,2.8rem); font-weight: 300;
+  color: var(--bone2); padding: 0.6rem 2rem;
+  letter-spacing: 0.02em; transition: color 0.2s;
+  display: block; text-align: center;
+}
+#mob-nav a:hover { color: var(--amber); }
+.mob-cta {
+  margin-top: 2rem;
+  background: var(--amber); color: #000 !important;
+  padding: 13px 32px !important; font-family: 'Space Grotesk', sans-serif !important;
+  font-size: 11px !important; font-weight: 700 !important; letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+}
+.mob-close {
+  position: absolute; top: 22px; right: 22px;
+  font-size: 28px; line-height: 1; color: var(--bone2);
+  background: transparent; border: none; cursor: pointer;
+  transition: color 0.2s;
+}
+.mob-close:hover { color: var(--amber); }
+
+/* ─── TOPBAR ─── */
+#topbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 0 clamp(1.2rem,3vw,2.5rem);
+  height: 58px;
+  background: rgba(7,8,9,0.85);
+  backdrop-filter: blur(16px) saturate(160%);
+  border-bottom: 1px solid transparent;
+  position: sticky; top: 0; z-index: 100;
+  transition: border-color 0.3s var(--ease-out);
+}
+#topbar.scrolled { border-bottom-color: var(--border); }
+.via-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--bone); }
+.via-sep { width: 1px; height: 18px; background: var(--border); }
+.via-badge {
+  background: var(--amber2); border: 1px solid rgba(255,170,23,0.4);
+  color: var(--amber); font-size: 9px; padding: 2px 8px;
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+}
+.tb-spacer { flex: 1; }
+.tb-nav { display: flex; gap: 2px; }
+.tb-nav a {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--bone2); padding: 8px 12px;
+  border: 1px solid transparent;
+  transition: color 0.18s, border-color 0.18s;
+}
+.tb-nav a:hover { color: var(--amber); border-color: rgba(255,170,23,0.3); }
+.tb-cta {
+  background: var(--amber); color: #000;
+  padding: 9px 18px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  transition: opacity 0.18s; flex-shrink: 0;
+}
+.tb-cta:hover { opacity: 0.84; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: transparent; border: none; padding: 6px; cursor: pointer;
+}
+.hamburger span { display: block; width: 22px; height: 1px; background: var(--bone2); transition: all 0.3s; }
+
+/* ─── HERO ─── */
+#hero {
+  position: relative; overflow: hidden;
+  padding: clamp(5rem,12vw,8rem) clamp(1.5rem,5vw,5rem) clamp(4rem,9vw,6rem);
+  border-bottom: 1px solid var(--border);
+  min-height: 88vh; display: flex; align-items: center;
+}
+#hero canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+.hero-glow {
+  position: absolute; top: 40%; left: 62%;
+  transform: translate(-50%,-50%);
+  width: 700px; height: 560px;
+  background: radial-gradient(ellipse, rgba(255,170,23,0.07) 0%, transparent 65%);
+  filter: blur(60px); pointer-events: none; z-index: 0;
+  animation: glow-breathe 8s ease-in-out infinite;
+}
+@keyframes glow-breathe {
+  0%,100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
+  50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.12); }
+}
+.hero-content { position: relative; z-index: 1; max-width: 900px; }
+.hero-kicker {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--amber); font-weight: 600; margin-bottom: 1.75rem;
+  opacity: 0;
+}
+.hero-kicker::before { content:''; display:block; width:28px; height:1px; background:var(--amber); }
+.hero-h1 {
+  font-family: 'Cormorant Display', serif;
+  font-size: clamp(3.2rem,8.5vw,6.8rem);
+  font-weight: 400; line-height: 1.03; letter-spacing: -0.025em;
+  color: var(--warm); margin-bottom: 1.5rem;
+}
+.hero-h1 .line-wrap { overflow: hidden; display: block; }
+.hero-h1 .line-inner { display: block; opacity: 0; transform: translateY(105%); }
+.hero-h1 em { font-style: italic; color: var(--amber); }
+.hero-sub {
+  font-size: clamp(14px,1.8vw,17px); color: var(--bone2);
+  line-height: 1.7; max-width: 520px; margin-bottom: 2.75rem;
+  font-weight: 300; opacity: 0;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; opacity: 0; }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  background: var(--amber); color: #000;
+  padding: 13px 28px; border: 1px solid var(--amber);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.18s; will-change: transform;
+}
+.btn-primary:hover { opacity: 0.86; }
+.btn-ghost {
+  background: transparent; color: var(--bone2);
+  border: 1px solid var(--border);
+  padding: 13px 22px;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.18s, color 0.18s; will-change: transform;
+}
+.btn-ghost:hover { border-color: rgba(255,170,23,0.4); color: var(--amber); }
+
+/* ─── STATS BAR ─── */
+#stats-bar {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid var(--border);
+}
+.stat-cell {
+  padding: clamp(1.25rem,3vw,1.75rem) clamp(1.25rem,3vw,2rem);
+  border-right: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell:hover { background: var(--amber3); }
+.stat-cell::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px; background: var(--amber); transform: scaleX(0);
+  transform-origin: left; transition: transform 0.4s var(--ease-expo);
+}
+.stat-cell:hover::after { transform: scaleX(1); }
+.stat-kpi {
+  font-family: 'Cormorant Display', serif;
+  font-size: clamp(2rem,4.5vw,3.2rem); font-weight: 300;
+  color: var(--amber); line-height: 1; margin-bottom: 0.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.stat-desc { font-size: 11px; color: var(--bone2); font-weight: 400; }
+.stat-sub { font-size: 9px; color: rgba(248,247,245,0.28); letter-spacing: 0.1em; margin-top: 3px; text-transform: uppercase; }
+
+/* ─── SECTION WRAPPER ─── */
+.section { padding: clamp(3.5rem,8vw,6rem) clamp(1.5rem,5vw,5rem); border-bottom: 1px solid var(--border); }
+.section-kicker {
+  font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase;
+  color: var(--amber); font-weight: 600; margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 8px; overflow: hidden;
+}
+.section-kicker::before { content:''; display:block; width:16px; height:1px; background:var(--amber); flex-shrink:0; }
+.section-h2 {
+  font-family: 'Cormorant Display', serif;
+  font-size: clamp(2rem,5vw,3.8rem);
+  font-weight: 400; line-height: 1.08; color: var(--warm);
+  margin-bottom: 1.1rem; letter-spacing: -0.02em;
+}
+.section-h2 em { font-style: italic; color: var(--amber); }
+.section-h2 .word-wrap { overflow: hidden; display: inline-block; margin-right: 0.25em; }
+.section-h2 .word-inner { display: inline-block; }
+.section-body {
+  font-size: 15px; color: var(--bone2); line-height: 1.7;
+  max-width: 580px; font-weight: 300;
+}
+
+/* ─── SENSOR GRID ─── */
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); margin-top: 2.5rem;
+}
+.sensor-card {
+  background: rgba(14,15,18,0.92);
+  backdrop-filter: blur(10px);
+  padding: 1.75rem;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.35s var(--ease-expo), transform 0.35s var(--ease-expo);
+  will-change: transform;
+  transform-style: preserve-3d;
+  cursor: default;
+}
+.sensor-card:hover {
+  background: rgba(20,21,26,0.98);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,170,23,0.2), inset 0 1px 0 rgba(255,170,23,0.08);
+}
+.sensor-icon {
+  font-size: 20px; margin-bottom: 1rem;
+  width: 44px; height: 44px; background: var(--bone3);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s, border-color 0.25s;
+}
+.sensor-card:hover .sensor-icon { background: var(--amber3); border-color: rgba(255,170,23,0.3); }
+.sensor-name {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bone); margin-bottom: 0.6rem;
+}
+.sensor-desc { font-size: 12px; color: var(--bone2); line-height: 1.58; font-weight: 300; }
+.sensor-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 1rem; }
+.stag {
+  font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 2px 7px; border: 1px solid var(--border); color: var(--bone2);
+}
+.stag.amber { border-color: rgba(255,170,23,0.4); color: var(--amber); }
+.stag.green { border-color: rgba(74,222,128,0.35); color: var(--green); }
+.stag.blue  { border-color: rgba(96,165,250,0.35); color: var(--blue); }
+.stag.red   { border-color: rgba(248,113,113,0.3); color: var(--red); }
+
+/* ─── LIVE FEED ─── */
+.live-feed {
+  background: var(--surface); border: 1px solid var(--border);
+  margin-top: 2.5rem; overflow: hidden;
+}
+.feed-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+.feed-title { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone2); }
+.feed-live {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 9px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase;
+}
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+  animation: pulse-live 2.4s ease-in-out infinite;
+}
+@keyframes pulse-live { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.35;transform:scale(0.8)} }
+.feed-row {
+  display: grid; grid-template-columns: 38px 1fr 90px 105px 80px;
+  align-items: center; padding: 0.72rem 1.25rem;
+  border-bottom: 1px solid var(--border); font-size: 12px;
+  transition: background 0.15s var(--ease-out);
+}
+.feed-row:last-child { border-bottom: none; }
+.feed-row:not(.feed-header):hover { background: rgba(255,170,23,0.04); }
+.feed-header {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bone2); background: rgba(248,247,245,0.02);
+}
+.f-num { font-size: 10px; color: var(--bone2); font-variant-numeric: tabular-nums; }
+.f-desc { color: var(--bone); font-size: 12px; }
+.f-sensor { font-size: 10px; color: var(--bone2); font-family: monospace; }
+.f-time { font-size: 10px; color: var(--bone2); font-variant-numeric: tabular-nums; font-family: monospace; }
+.f-status {
+  font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 3px 8px; border: 1px solid; text-align: center; white-space: nowrap;
+}
+.s-ok    { border-color: rgba(74,222,128,0.4);  color: var(--green); }
+.s-warn  { border-color: rgba(255,170,23,0.4);  color: var(--amber); }
+.s-alert { border-color: rgba(248,113,113,0.4); color: var(--red); }
+.s-info  { border-color: rgba(96,165,250,0.35); color: var(--blue); }
+
+/* ─── STEPS ─── */
+.steps {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+  margin-top: 2.5rem;
+}
+.step-card { background: var(--surface); padding: 2rem 1.75rem; transition: background 0.25s; }
+.step-card:hover { background: var(--surface2); }
+.step-num {
+  font-family: 'Cormorant Display', serif;
+  font-size: 3rem; font-weight: 300; color: rgba(255,170,23,0.16);
+  line-height: 1; margin-bottom: 1rem; letter-spacing: -0.02em;
+  transition: color 0.25s;
+}
+.step-card:hover .step-num { color: rgba(255,170,23,0.3); }
+.step-name {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bone); margin-bottom: 0.65rem;
+}
+.step-desc { font-size: 12px; color: var(--bone2); line-height: 1.62; font-weight: 300; }
+
+/* ─── TRACKER BLOCK ─── */
+.tracker-block {
+  background: var(--surface); border: 1px solid var(--border);
+  margin-top: 2.5rem;
+  display: grid; grid-template-columns: 1fr 1.3fr;
+}
+.tracker-info {
+  padding: 2.5rem; border-right: 1px solid var(--border);
+}
+.tracker-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.75rem; }
+.tracker-item:last-child { margin-bottom: 0; }
+.ti-arrow { color: var(--amber); font-size: 18px; flex-shrink: 0; margin-top: 1px; transition: transform 0.25s var(--ease-expo); }
+.tracker-item:hover .ti-arrow { transform: translateX(4px); }
+.ti-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone); margin-bottom: 4px; }
+.ti-body  { font-size: 12px; color: var(--bone2); line-height: 1.62; font-weight: 300; }
+.tracker-ui { padding: 1.5rem; }
+.tui-inner { background: var(--bg); border: 1px solid var(--border); overflow: hidden; }
+.tui-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 1rem; background: var(--surface2); border-bottom: 1px solid var(--border);
+}
+.tui-logo { font-size: 9px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); }
+.tui-badge {
+  font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 2px 7px; background: var(--amber2);
+  border: 1px solid rgba(255,170,23,0.4); color: var(--amber);
+}
+.tui-row {
+  display: grid; grid-template-columns: 28px 1fr 72px 80px 60px;
+  align-items: center; padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border); font-size: 11px;
+  transition: background 0.12s;
+}
+.tui-row:last-child { border-bottom: none; }
+.tui-row.th {
+  font-size: 8px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bone2); background: var(--surface2);
+}
+.tui-row:not(.th):hover { background: var(--bone3); }
+.tui-n { font-size: 9px; color: var(--bone2); }
+.tui-d { color: var(--bone); font-size: 11px; }
+.tui-cat {
+  font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 2px 6px; border: 1px solid var(--border); color: var(--bone2);
+}
+.tui-cat.sensor { border-color: rgba(96,165,250,0.35); color: var(--blue); }
+.tui-cat.alerta { border-color: rgba(248,113,113,0.35); color: var(--red); }
+.tui-cat.mant   { border-color: rgba(74,222,128,0.35); color: var(--green); }
+.tui-cat.config { border-color: rgba(255,170,23,0.4);  color: var(--amber); }
+.tui-h  { color: var(--amber); font-variant-numeric: tabular-nums; font-size: 11px; text-align: right; }
+.tui-footer {
+  padding: 0.7rem 1rem; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between;
+  background: var(--surface2);
+}
+.tui-footer-label { font-size: 9px; color: var(--bone2); letter-spacing: 0.12em; text-transform: uppercase; }
+.tui-footer-val   { font-size: 11px; color: var(--amber); font-weight: 600; }
+
+/* ─── BENEFITS ─── */
+.benefits {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 1.25rem; margin-top: 2.5rem;
+}
+.benefit-card {
+  padding: 1.5rem; border: 1px solid var(--border);
+  background: var(--surface); position: relative; overflow: hidden;
+  transition: border-color 0.3s var(--ease-out), box-shadow 0.35s var(--ease-expo);
+}
+.benefit-card::after {
+  content: ''; position: absolute;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,170,23,0.09) 0%, transparent 70%);
+  pointer-events: none; opacity: 0;
+  transition: opacity 0.35s; transform: translate(-50%,-50%);
+  top: var(--my, 50%); left: var(--mx, 50%);
+}
+.benefit-card:hover { border-color: rgba(255,170,23,0.22); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.benefit-card:hover::after { opacity: 1; }
+.benefit-icon { font-size: 18px; margin-bottom: 0.85rem; }
+.benefit-title {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--bone); margin-bottom: 0.55rem;
+}
+.benefit-body { font-size: 12px; color: var(--bone2); line-height: 1.62; font-weight: 300; }
+
+/* ─── CTA ─── */
+#cta {
+  padding: clamp(5rem,11vw,8rem) clamp(1.5rem,5vw,5rem);
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 900px; height: 500px;
+  background: radial-gradient(ellipse, rgba(255,170,23,0.07) 0%, transparent 65%);
+  filter: blur(60px); pointer-events: none;
+  animation: glow-breathe 7s ease-in-out infinite;
+}
+.cta-kicker { font-size: 9px; letter-spacing: 0.36em; text-transform: uppercase; color: var(--amber); font-weight: 600; margin-bottom: 1.5rem; position: relative; }
+.cta-h2 {
+  font-family: 'Cormorant Display', serif;
+  font-size: clamp(2.4rem,6vw,4.8rem); font-weight: 400;
+  color: var(--warm); margin-bottom: 1.2rem; line-height: 1.08;
+  letter-spacing: -0.02em; position: relative;
+}
+.cta-h2 em { font-style: italic; color: var(--amber); }
+.cta-h2 .word-wrap { overflow: hidden; display: inline-block; margin-right: 0.22em; }
+.cta-h2 .word-inner { display: inline-block; }
+.cta-sub {
+  font-size: 15px; color: var(--bone2); font-weight: 300;
+  max-width: 500px; margin: 0 auto 2.75rem; line-height: 1.7; position: relative;
+}
+.cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 1.5rem clamp(1.5rem,5vw,5rem); border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.ft-left { font-size: 10px; color: var(--bone2); letter-spacing: 0.14em; text-transform: uppercase; }
+.ft-right { display: flex; gap: 20px; }
+.ft-right a { font-size: 10px; color: rgba(248,247,245,0.22); letter-spacing: 0.1em; transition: color 0.18s; }
+.ft-right a:hover { color: var(--amber); }
+
+/* ─── SECTION DIVIDER w/ ambient glow ─── */
+.section::before {
+  content: ''; display: block; pointer-events: none;
+  height: 1px; margin-bottom: clamp(3.5rem,8vw,6rem); background: transparent;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 960px) {
+  .tracker-block { grid-template-columns: 1fr; }
+  .tracker-info { border-right: none; border-bottom: 1px solid var(--border); }
+}
+@media (max-width: 860px) {
+  .tb-nav { display: none; }
+  .tb-cta { display: none; }
+  .hamburger { display: flex; }
+  #stats-bar { grid-template-columns: repeat(2,1fr); }
+  .stat-cell:nth-child(2) { border-right: none; }
+  .stat-cell:nth-child(3) { border-top: 1px solid var(--border); }
+  .feed-row { grid-template-columns: 28px 1fr 85px 70px; }
+  .f-sensor { display: none; }
+  .tui-row { grid-template-columns: 24px 1fr 62px 56px; }
+  .tui-row > *:nth-child(4) { display: none; }
+}
+@media (max-width: 600px) {
+  #hero { min-height: 80vh; }
+  .hero-h1 { font-size: clamp(2.8rem,11vw,4rem); }
+  #stats-bar { grid-template-columns: 1fr 1fr; }
+  .sensor-grid { grid-template-columns: 1fr; gap: 1px; }
+  .steps { grid-template-columns: 1fr; }
+  .benefits { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn-primary, .cta-actions .btn-ghost { width: 100%; max-width: 340px; justify-content: center; }
+  .feed-row { grid-template-columns: 28px 1fr 70px; }
+  .f-time { display: none; }
+}
+@media (min-width: 1440px) {
+  .sensor-grid { grid-template-columns: repeat(4,1fr); }
+}
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow, .cta-glow, .live-dot { animation: none; }
+  .hero-h1 .line-inner, .hero-kicker, .hero-sub, .hero-actions { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NOISE GRAIN -->
+<div class="noise" aria-hidden="true"></div>
+
+<!-- MOBILE NAV -->
+<div id="mob-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <button class="mob-close" id="navClose" aria-label="Cerrar menú">×</button>
+  <a href="#que-monitoreamos">Qué monitoreamos</a>
+  <a href="#como-funciona">Cómo funciona</a>
+  <a href="#tracker">El Tracker</a>
+  <a href="#beneficios">Beneficios</a>
+  <a href="https://wa.me/529842353159?text=Hola%2C%20me%20interesa%20agendar%20una%20llamada%20sobre%20el%20monitoreo%20hotelero%20de%20VICTOR%20IA" target="_blank" rel="noopener" class="mob-cta">Agendar llamada</a>
+</div>
+
+<!-- TOPBAR -->
+<header id="topbar">
+  <span class="via-logo">VICTOR IA</span>
+  <div class="via-sep" aria-hidden="true"></div>
+  <span class="via-badge">Monitoreo Hotelero</span>
+  <div class="tb-spacer"></div>
+  <nav class="tb-nav" aria-label="Navegación principal">
+    <a href="#que-monitoreamos">Qué monitoreamos</a>
+    <a href="#como-funciona">Cómo funciona</a>
+    <a href="#tracker">El Tracker</a>
+    <a href="#beneficios">Beneficios</a>
+  </nav>
+  <a href="https://wa.me/529842353159?text=Hola%2C%20me%20interesa%20agendar%20una%20llamada%20sobre%20el%20monitoreo%20hotelero%20de%20VICTOR%20IA" target="_blank" rel="noopener" class="tb-cta">Agendar llamada</a>
+  <button class="hamburger" id="navOpen" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section id="hero" aria-label="Hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-kicker">Monitoreo hotelero · Sensores inteligentes</p>
+    <h1 class="hero-h1">
+      <span class="line-wrap"><span class="line-inner">Tu hotel,</span></span>
+      <span class="line-wrap"><span class="line-inner">visible en <em>tiempo real.</em></span></span>
+    </h1>
+    <p class="hero-sub">Pequeños sensores en cada habitación, piso y sistema de tu hotel. Cada aviso, problema y acción del equipo queda guardado en tu panel del Tracker — sin nada fuera de tu vista.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/529842353159?text=Hola%2C%20me%20interesa%20agendar%20una%20llamada%20sobre%20el%20monitoreo%20hotelero%20de%20VICTOR%20IA" target="_blank" rel="noopener" class="btn-primary magnetic">Agendar videollamada →</a>
+      <a href="#que-monitoreamos" class="btn-ghost magnetic">Ver qué monitoreamos</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="stats-bar" role="region" aria-label="Estadísticas clave">
+  <div class="stat-cell">
+    <p class="stat-kpi" id="s1">200+</p>
+    <p class="stat-desc">Sensores por propiedad</p>
+    <p class="stat-sub">Energía · Clima · Acceso · Agua</p>
+  </div>
+  <div class="stat-cell">
+    <p class="stat-kpi" id="s2">99.8%</p>
+    <p class="stat-desc">Sistema siempre activo</p>
+    <p class="stat-sub">Con garantía de servicio</p>
+  </div>
+  <div class="stat-cell">
+    <p class="stat-kpi" id="s3">−32%</p>
+    <p class="stat-desc">Ahorro en energía y agua</p>
+    <p class="stat-sub">Primer año de operación</p>
+  </div>
+  <div class="stat-cell">
+    <p class="stat-kpi" id="s4">4.1×</p>
+    <p class="stat-desc">Retorno sobre inversión</p>
+    <p class="stat-sub">Sobre inversión inicial</p>
+  </div>
+</div>
+
+<!-- SENSOR GRID -->
+<section class="section" id="que-monitoreamos" aria-label="Qué monitoreamos">
+  <p class="section-kicker">Cobertura completa</p>
+  <h2 class="section-h2">Cada sistema de tu<br>hotel, <em>conectado.</em></h2>
+  <p class="section-body">Desde el aire acondicionado hasta el minibar. Colocamos sensores inteligentes en toda la propiedad y los conectamos al instante con el Tracker.</p>
+
+  <div class="sensor-grid">
+    <div class="sensor-card">
+      <div class="sensor-icon">⚡</div>
+      <p class="sensor-name">Energía y Electricidad</p>
+      <p class="sensor-desc">Consumo por habitación, por piso y por sistema. Detecta equipos encendidos en cuartos vacíos y cualquier gasto inusual de electricidad.</p>
+      <div class="sensor-tags">
+        <span class="stag amber">Tiempo real</span>
+        <span class="stag green">Anticipado</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">🌡️</div>
+      <p class="sensor-name">Aire Acondicionado y Ventilación</p>
+      <p class="sensor-desc">Temperatura y humedad por zona. El sistema ajusta el clima solo según si hay huéspedes, el clima de afuera y las preferencias registradas.</p>
+      <div class="sensor-tags">
+        <span class="stag blue">Automático</span>
+        <span class="stag green">−18% consumo</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">💧</div>
+      <p class="sensor-name">Agua y Plomería</p>
+      <p class="sensor-desc">Vigilancia de consumo y presión del agua. Detecta fugas antes de que se conviertan en un problema costoso o visible para el huésped.</p>
+      <div class="sensor-tags">
+        <span class="stag red">Aviso de fuga</span>
+        <span class="stag amber">Consumo por cuarto</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">🚪</div>
+      <p class="sensor-name">Accesos y Ocupación</p>
+      <p class="sensor-desc">Estado de las cerraduras, si la habitación está ocupada y movimiento en áreas comunes. Se conecta al sistema de reservas del hotel para registrar entradas y salidas.</p>
+      <div class="sensor-tags">
+        <span class="stag blue">Sistema de reservas</span>
+        <span class="stag green">En tiempo real</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">🔒</div>
+      <p class="sensor-name">Seguridad</p>
+      <p class="sensor-desc">Cámaras que detectan situaciones fuera de lo normal, sensores de humo y gas, apertura de ventanas. Avisos inmediatos al personal y a dirección.</p>
+      <div class="sensor-tags">
+        <span class="stag red">Aviso urgente</span>
+        <span class="stag amber">Detección visual</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">🛎️</div>
+      <p class="sensor-name">Experiencia del Huésped</p>
+      <p class="sensor-desc">Minibar, televisión, amenidades y solicitudes de servicio al cuarto. Todo registrado para mejorar la satisfacción y personalizar cada estancia.</p>
+      <div class="sensor-tags">
+        <span class="stag blue">Satisfacción</span>
+        <span class="stag green">Personalización</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">🔧</div>
+      <p class="sensor-name">Mantenimiento Anticipado</p>
+      <p class="sensor-desc">Vibración y temperatura de equipos como calderas, elevadores y generadores. Avisa antes de que fallen para programar la revisión sin molestar al huésped.</p>
+      <div class="sensor-tags">
+        <span class="stag amber">Anticipado</span>
+        <span class="stag green">−60% tiempo sin servicio</span>
+      </div>
+    </div>
+    <div class="sensor-card">
+      <div class="sensor-icon">☀️</div>
+      <p class="sensor-name">Áreas Comunes y Spa</p>
+      <p class="sensor-desc">Iluminación inteligente, conteo de personas en albercas, gym y restaurantes. Optimiza turnos de limpieza y ahorra energía en zonas poco concurridas.</p>
+      <div class="sensor-tags">
+        <span class="stag blue">Aforo</span>
+        <span class="stag amber">Iluminación</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE FEED -->
+<section class="section" id="live-feed" aria-label="Feed en vivo">
+  <p class="section-kicker">Flujo en vivo</p>
+  <h2 class="section-h2">Así se ve el<br>monitoreo <em>activo.</em></h2>
+  <p class="section-body">Cada cosa que detecta un sensor queda anotada al momento. Tu equipo y el Tracker lo ven al mismo tiempo para actuar de inmediato.</p>
+
+  <div class="live-feed">
+    <div class="feed-topbar">
+      <span class="feed-title">Actividad del día — Hotel Las Palmas · Hoy</span>
+      <span class="feed-live"><span class="live-dot"></span>En vivo</span>
+    </div>
+    <div class="feed-row feed-header">
+      <span>#</span><span>Evento detectado</span><span>Sistema</span><span>Hora</span><span>Estado</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">01</span>
+      <span class="f-desc">Temperatura hab. 412 sube más de lo normal con aire encendido</span>
+      <span class="f-sensor">Climatización</span>
+      <span class="f-time">14:38</span>
+      <span class="f-status s-warn">Alerta</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">02</span>
+      <span class="f-desc">Consumo de luz en piso 3 vuelve a la normalidad tras revisión</span>
+      <span class="f-sensor">Energía</span>
+      <span class="f-time">14:35</span>
+      <span class="f-status s-ok">Normal</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">03</span>
+      <span class="f-desc">Puerta de hab. 308 no responde — batería baja</span>
+      <span class="f-sensor">Accesos</span>
+      <span class="f-time">14:31</span>
+      <span class="f-status s-alert">Crítico</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">04</span>
+      <span class="f-desc">Check-in completado — hab. 505 marcada como ocupada</span>
+      <span class="f-sensor">Ocupación</span>
+      <span class="f-time">14:28</span>
+      <span class="f-status s-info">Info</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">05</span>
+      <span class="f-desc">Baja presión de agua detectada en tubería del sótano</span>
+      <span class="f-sensor">Plomería</span>
+      <span class="f-time">14:22</span>
+      <span class="f-status s-alert">Crítico</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">06</span>
+      <span class="f-desc">Minibar hab. 203 reabastecido — inventario actualizado</span>
+      <span class="f-sensor">Amenidades</span>
+      <span class="f-time">14:18</span>
+      <span class="f-status s-ok">Ok</span>
+    </div>
+    <div class="feed-row">
+      <span class="f-num">07</span>
+      <span class="f-desc">Vibración inusual detectada en compresor central</span>
+      <span class="f-sensor">Mantenimiento</span>
+      <span class="f-time">13:59</span>
+      <span class="f-status s-warn">Alerta</span>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="section" id="como-funciona" aria-label="Cómo funciona">
+  <p class="section-kicker">Proceso</p>
+  <h2 class="section-h2">De cero a<br><em>funcionando en 4 semanas.</em></h2>
+  <p class="section-body">Sin interrupciones al huésped, sin obras mayores. Colocamos los sensores en paralelo a la operación normal del hotel.</p>
+
+  <div class="steps">
+    <div class="step-card">
+      <p class="step-num">01</p>
+      <p class="step-name">Revisión del hotel</p>
+      <p class="step-desc">Hacemos un recorrido completo por tu propiedad — electricidad, agua, clima, accesos — e identificamos qué áreas se beneficiarán más del monitoreo.</p>
+    </div>
+    <div class="step-card">
+      <p class="step-num">02</p>
+      <p class="step-name">Instalación de sensores</p>
+      <p class="step-desc">Colocamos los sensores (la mayoría inalámbricos) sin parar la operación. Se conectan por señal inalámbrica con respaldo automático en caso de falla.</p>
+    </div>
+    <div class="step-card">
+      <p class="step-num">03</p>
+      <p class="step-name">Conexión con el Tracker</p>
+      <p class="step-desc">Cada sensor queda enlazado al Tracker de VICTOR IA. Avisos, tareas, técnicos asignados y tiempos de solución — todo registrado en un solo lugar.</p>
+    </div>
+    <div class="step-card">
+      <p class="step-num">04</p>
+      <p class="step-name">Mejora continua</p>
+      <p class="step-desc">El sistema aprende cómo funciona tu hotel, anticipa problemas antes de que ocurran y te sugiere mejoras concretas cada semana.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKER INTEGRATION -->
+<section class="section" id="tracker" aria-label="Integración con el Tracker">
+  <p class="section-kicker">Visibilidad total</p>
+  <h2 class="section-h2">Todo lo que pasa en<br>tu hotel, <em>rastreado.</em></h2>
+  <p class="section-body">Todo lo que ocurre en tu hotel se registra automáticamente en tu panel del Tracker de VICTOR IA. Tu equipo ve en tiempo real qué pasó, quién está atendiendo y cuánto tiempo lleva cada solución.</p>
+
+  <div class="tracker-block">
+    <div class="tracker-info">
+      <div class="tracker-item">
+        <span class="ti-arrow">→</span>
+        <div><p class="ti-title">Avisos en tiempo real</p><p class="ti-body">Cada problema genera un aviso automático en el Tracker con el nivel de urgencia, el área afectada y el técnico asignado.</p></div>
+      </div>
+      <div class="tracker-item">
+        <span class="ti-arrow">→</span>
+        <div><p class="ti-title">Tiempo de solución</p><p class="ti-body">Se registra automáticamente desde que se detecta el problema hasta que el técnico lo resuelve. Visibilidad total para gerencia.</p></div>
+      </div>
+      <div class="tracker-item">
+        <span class="ti-arrow">→</span>
+        <div><p class="ti-title">Historial por habitación</p><p class="ti-body">Cada cuarto tiene su propio registro: reparaciones, consumos, problemas que se repiten y tiempo de vida de los equipos instalados.</p></div>
+      </div>
+      <div class="tracker-item">
+        <span class="ti-arrow">→</span>
+        <div><p class="ti-title">Reportes automáticos</p><p class="ti-body">Reporte semanal y mensual generado automáticamente con un resumen ejecutivo, los resultados del período y recomendaciones de acción.</p></div>
+      </div>
+    </div>
+
+    <div class="tracker-ui">
+      <div class="tui-inner">
+        <div class="tui-bar">
+          <span class="tui-logo">VICTOR IA · TRACKER</span>
+          <span class="tui-badge">Hotel Las Palmas</span>
+        </div>
+        <div class="tui-row th">
+          <span>#</span><span>Acción registrada</span><span>Tipo</span><span>Hab.</span><span>Min.</span>
+        </div>
+        <div class="tui-row"><span class="tui-n">01</span><span class="tui-d">Revisión de climatización — temperatura fuera de rango</span><span class="tui-cat alerta">Alerta</span><span class="tui-cat" style="color:var(--bone2)">412</span><span class="tui-h">25</span></div>
+        <div class="tui-row"><span class="tui-n">02</span><span class="tui-d">Mantenimiento preventivo de acceso en habitación</span><span class="tui-cat mant">Mant.</span><span class="tui-cat" style="color:var(--bone2)">308</span><span class="tui-h">15</span></div>
+        <div class="tui-row"><span class="tui-n">03</span><span class="tui-d">Diagnóstico de presión de agua en área de servicio</span><span class="tui-cat alerta">Alerta</span><span class="tui-cat" style="color:var(--bone2)">Sótano</span><span class="tui-h">40</span></div>
+        <div class="tui-row"><span class="tui-n">04</span><span class="tui-d">Revisión de equipo mecánico en sala técnica</span><span class="tui-cat mant">Mant.</span><span class="tui-cat" style="color:var(--bone2)">Sala TEC</span><span class="tui-h">35</span></div>
+        <div class="tui-row"><span class="tui-n">05</span><span class="tui-d">Ajuste de temperatura para temporada alta</span><span class="tui-cat config">Config.</span><span class="tui-cat" style="color:var(--bone2)">Global</span><span class="tui-h">20</span></div>
+        <div class="tui-row"><span class="tui-n">06</span><span class="tui-d">Verificación de consumo de energía — todo en orden</span><span class="tui-cat sensor">Monitor</span><span class="tui-cat" style="color:var(--bone2)">Piso 3</span><span class="tui-h">10</span></div>
+        <div class="tui-footer">
+          <span class="tui-footer-label">Total sesión hoy</span>
+          <span class="tui-footer-val">2h 25m · 6 acciones</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section" id="beneficios" aria-label="Beneficios">
+  <p class="section-kicker">Resultados tangibles</p>
+  <h2 class="section-h2">Lo que cambia en<br>los primeros <em>90 días.</em></h2>
+  <p class="section-body">Los hoteles que trabajan con VICTOR IA ven resultados reales en los primeros tres meses de operación.</p>
+
+  <div class="benefits">
+    <div class="benefit-card">
+      <div class="benefit-icon">💰</div>
+      <p class="benefit-title">Reducción de costos operativos</p>
+      <p class="benefit-body">Ahorro promedio de 32% en energía y 28% en agua gracias a detectar desperdicio en habitaciones vacías y fugas a tiempo.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⏱️</div>
+      <p class="benefit-title">Respuesta 5× más rápida</p>
+      <p class="benefit-body">Los avisos llegan antes de que el huésped lo note. El tiempo promedio de solución baja de 4 horas a 48 minutos.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📊</div>
+      <p class="benefit-title">Decisiones basadas en datos</p>
+      <p class="benefit-body">Tu dirección recibe reportes semanales con información real — no intuición. Base sólida para decidir en qué invertir en mantenimiento.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">⭐</div>
+      <p class="benefit-title">Huéspedes más satisfechos</p>
+      <p class="benefit-body">Menos quejas por temperatura, agua caliente o puertas fallidas. Los problemas se resuelven antes de afectar la experiencia del huésped.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🔮</div>
+      <p class="benefit-title">Cero sorpresas en equipos</p>
+      <p class="benefit-body">El sistema detecta cuándo un equipo está por fallar — calderas, elevadores, generadores — con semanas de anticipación. Mantenimiento planeado, no de emergencia.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📋</div>
+      <p class="benefit-title">Cumplimiento normativo</p>
+      <p class="benefit-body">Registro automático de las condiciones del hotel para auditorías, aseguradoras e inspecciones oficiales. Evidencia digital lista cuando la necesites.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" aria-label="Llamada a la acción">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <p class="cta-kicker">Siguiente paso</p>
+  <h2 class="cta-h2">¿Quieres más<br><em>información?</em></h2>
+  <p class="cta-sub">Escríbenos directamente y un especialista de VICTOR IA te platica todo sobre cómo funciona el monitoreo hotelero.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/529842353159?text=Hola%2C%20me%20interesa%20recibir%20información%20sobre%20el%20monitoreo%20hotelero%20de%20VICTOR%20IA" target="_blank" rel="noopener" class="btn-primary magnetic">Solicitar información →</a>
+    <a href="https://victor-ia.xyz/" class="btn-ghost magnetic">Ver el Tracker →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="ft-left">© 2026 INFLUENCE IA SA DE CV · Monitoreo Hotelero</p>
+  <div class="ft-right">
+    <a href="https://victor-ia.xyz/privacidad">Privacidad</a>
+    <a href="https://victor-ia.xyz/terminos">Términos</a>
+    <a href="https://victor-ia.xyz/">Tracker →</a>
+  </div>
+</footer>
+
+<!-- GSAP CDN -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<!-- Lenis smooth scroll -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ─── LENIS SMOOTH SCROLL ─── */
+  const lenis = new Lenis({
+    duration: 1.15,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    smoothWheel: true,
+    touchMultiplier: 1.8,
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(time => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+
+  /* ─── TOPBAR SCROLL STATE ─── */
+  const topbar = document.getElementById('topbar');
+  lenis.on('scroll', ({ scroll }) => {
+    topbar.classList.toggle('scrolled', scroll > 30);
+  });
+
+  /* ─── MOBILE NAV ─── */
+  const mobNav   = document.getElementById('mob-nav');
+  const navOpen  = document.getElementById('navOpen');
+  const navClose = document.getElementById('navClose');
+
+  function openNav() {
+    mobNav.classList.add('open');
+    navOpen.setAttribute('aria-expanded', 'true');
+    lenis.stop();
+  }
+  function closeNav() {
+    mobNav.classList.remove('open');
+    navOpen.setAttribute('aria-expanded', 'false');
+    lenis.start();
+  }
+  navOpen.addEventListener('click', openNav);
+  navClose.addEventListener('click', closeNav);
+  mobNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+
+  /* ─── HERO IOT PARTICLE CANVAS ─── */
+  (function initParticles() {
+    if (prefersReduced) return;
+
+    const canvas = document.getElementById('heroCanvas');
+    const ctx    = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+    resize();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas.parentElement);
+
+    const COUNT = window.innerWidth < 640 ? 16 : 28;
+    const signals = [];
+
+    for (let i = 0; i < COUNT; i++) {
+      signals.push({
+        x:      Math.random() * canvas.width,
+        y:      Math.random() * canvas.height,
+        speed:  0.55 + Math.random() * 1.8,
+        len:    18 + Math.random() * 70,
+        alpha:  0.07 + Math.random() * 0.18,
+        w:      0.4 + Math.random() * 1.4,
+        pulse:  Math.random() > 0.65,
+        phase:  Math.random() * Math.PI * 2,
+      });
+    }
+
+    let raf;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const t = performance.now() / 1000;
+
+      signals.forEach(s => {
+        let a = s.alpha;
+        if (s.pulse) a *= 0.5 + 0.5 * Math.sin(t * 1.8 + s.phase);
+
+        const grad = ctx.createLinearGradient(s.x - s.len, s.y, s.x, s.y);
+        grad.addColorStop(0, `rgba(255,170,23,0)`);
+        grad.addColorStop(0.55, `rgba(255,170,23,${a})`);
+        grad.addColorStop(1, `rgba(255,200,80,${a * 1.4})`);
+
+        ctx.beginPath();
+        ctx.moveTo(s.x - s.len, s.y);
+        ctx.lineTo(s.x, s.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth   = s.w;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.w * 1.6, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,185,50,${a * 1.8})`;
+        ctx.fill();
+
+        s.x += s.speed;
+        if (s.x > canvas.width + s.len + 10) {
+          s.x = -s.len - 10;
+          s.y = Math.random() * canvas.height;
+          s.alpha = 0.07 + Math.random() * 0.18;
+        }
+      });
+      raf = requestAnimationFrame(draw);
+    }
+    draw();
+
+    const observer = new IntersectionObserver(entries => {
+      entries[0].isIntersecting ? (raf = requestAnimationFrame(draw)) : cancelAnimationFrame(raf);
+    }, { threshold: 0.1 });
+    observer.observe(document.getElementById('hero'));
+  })();
+
+  /* ─── WORD SPLIT HELPER ─── */
+  function splitWords(el) {
+    const raw   = el.innerHTML.replace(/<br\s*\/?>/gi, ' __BR__ ');
+    const parts = raw.split(/(\s+)/);
+    el.innerHTML = parts.map(part => {
+      const t = part.trim();
+      if (!t) return part;
+      if (t === '__BR__') return '<br>';
+      return `<span class="word-wrap"><span class="word-inner">${t}</span></span>`;
+    }).join('');
+    return el.querySelectorAll('.word-inner');
+  }
+
+  /* ─── HERO LOAD ANIMATIONS ─── */
+  if (!prefersReduced) {
+    const heroTL = gsap.timeline({ delay: 0.05 });
+
+    heroTL.to('.hero-kicker', {
+      opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+    });
+
+    document.querySelectorAll('.hero-h1 .line-inner').forEach((line, i) => {
+      heroTL.to(line, {
+        opacity: 1, y: 0, duration: 1.0, ease: 'power3.out',
+      }, i === 0 ? '-=0.4' : '-=0.6');
+    });
+
+    heroTL.to('.hero-sub', {
+      opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+    }, '-=0.5');
+
+    heroTL.to('.hero-actions', {
+      opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+    }, '-=0.45');
+  }
+
+  /* ─── SCROLL REVEALS ─── */
+  if (!prefersReduced) {
+    gsap.utils.toArray('.section-kicker').forEach(el => {
+      gsap.from(el, {
+        opacity: 0, x: -16, duration: 0.7, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+
+    gsap.utils.toArray('.section-h2').forEach(h2 => {
+      const words = splitWords(h2);
+      gsap.from(words, {
+        y: '110%', opacity: 0, duration: 0.95, ease: 'power3.out', stagger: 0.055,
+        scrollTrigger: { trigger: h2, start: 'top 86%', once: true },
+      });
+    });
+
+    gsap.utils.toArray('.section-body').forEach(el => {
+      gsap.from(el, {
+        opacity: 0, y: 22, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+
+    gsap.from('.sensor-card', {
+      y: 50, opacity: 0, duration: 0.85, ease: 'power3.out',
+      stagger: { amount: 0.65, from: 'start' },
+      scrollTrigger: { trigger: '.sensor-grid', start: 'top 80%', once: true },
+    });
+
+    gsap.from('.feed-row:not(.feed-header)', {
+      x: -28, opacity: 0, duration: 0.6, ease: 'power3.out', stagger: 0.075,
+      scrollTrigger: { trigger: '.live-feed', start: 'top 78%', once: true },
+    });
+
+    gsap.from('.step-card', {
+      y: 44, opacity: 0, duration: 0.85, ease: 'power3.out', stagger: 0.12,
+      scrollTrigger: { trigger: '.steps', start: 'top 82%', once: true },
+    });
+
+    gsap.from('.tracker-item', {
+      x: -24, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.tracker-info', start: 'top 78%', once: true },
+    });
+
+    gsap.from('.tui-row:not(.th)', {
+      x: -18, opacity: 0, duration: 0.5, ease: 'power3.out', stagger: 0.08,
+      scrollTrigger: { trigger: '.tui-inner', start: 'top 78%', once: true },
+    });
+
+    gsap.from('.benefit-card', {
+      y: 34, opacity: 0, duration: 0.75, ease: 'power3.out',
+      stagger: { amount: 0.5, from: 'start' },
+      scrollTrigger: { trigger: '.benefits', start: 'top 82%', once: true },
+    });
+
+    const ctaH2 = document.querySelector('.cta-h2');
+    if (ctaH2) {
+      const words = splitWords(ctaH2);
+      gsap.from(words, {
+        y: '100%', opacity: 0, duration: 1.1, ease: 'power3.out', stagger: 0.07,
+        scrollTrigger: { trigger: '#cta', start: 'top 72%', once: true },
+      });
+    }
+
+    gsap.from('.cta-kicker, .cta-sub, .cta-actions', {
+      opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', stagger: 0.12,
+      scrollTrigger: { trigger: '#cta', start: 'top 70%', once: true },
+    });
+  }
+
+  /* ─── COUNT-UP STATS ─── */
+  (function initCountUp() {
+    const stats = [
+      { id: 's1', target: 200, decimals: 0, suffix: '+', prefix: '' },
+      { id: 's2', target: 99.8, decimals: 1, suffix: '%', prefix: '' },
+      { id: 's3', target: 32, decimals: 0, suffix: '%', prefix: '−' },
+      { id: 's4', target: 4.1, decimals: 1, suffix: '×', prefix: '' },
+    ];
+
+    let triggered = false;
+    ScrollTrigger.create({
+      trigger: '#stats-bar',
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        if (triggered) return;
+        triggered = true;
+        stats.forEach(s => {
+          const el = document.getElementById(s.id);
+          if (!el) return;
+          if (prefersReduced) return;
+          gsap.to({ v: 0 }, {
+            v: s.target, duration: 1.9, ease: 'power3.out',
+            onUpdate: function() {
+              el.textContent = s.prefix + this.targets()[0].v.toFixed(s.decimals) + s.suffix;
+            },
+          });
+        });
+      },
+    });
+  })();
+
+  /* ─── SENSOR CARD TILT 3D ─── */
+  if (!prefersReduced && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.sensor-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r  = card.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top  + r.height / 2;
+        const rx = -((e.clientY - cy) / r.height) * 7;
+        const ry =  ((e.clientX - cx) / r.width)  * 7;
+        card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, { rotateX: 0, rotateY: 0, z: 0, duration: 0.55, ease: 'power2.out',
+          clearProps: 'transform' });
+      });
+    });
+  }
+
+  /* ─── BENEFIT CARD SPOTLIGHT ─── */
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.benefit-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top)  + 'px');
+      });
+    });
+  }
+
+  /* ─── MAGNETIC BUTTONS ─── */
+  if (!prefersReduced && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r  = btn.getBoundingClientRect();
+        const cx = r.left + r.width  / 2;
+        const cy = r.top  + r.height / 2;
+        gsap.to(btn, {
+          x: (e.clientX - cx) * 0.28,
+          y: (e.clientY - cy) * 0.28,
+          duration: 0.35, ease: 'power2.out',
+        });
+      });
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' });
+      });
+    });
+  }
+
+  /* ─── CLOSE MOB NAV ON RESIZE ─── */
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeNav();
+  });
+
+})();
+</script>
+</body>
+</html>

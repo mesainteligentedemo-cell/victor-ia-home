@@ -1,0 +1,48 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Retrieving project…
+Deploying victor-ia/victor-ia-home
+Uploading [--------------------] (0.0B/2.6KB)
+Uploading [=====---------------] (747.0B/2.6KB)
+Uploading [====================] (2.6KB/2.6KB)
+Inspect: https://vercel.com/victor-ia/victor-ia-home/9hJA48BRwhvKD573Nw9aVgjbAYp9 [3s]
+Production: https://victor-ia-home-bp63nddt0-victor-ia.vercel.app [3s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 4 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 772 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 54.4.1
+Building: Warning: Node.js functions are compiled from ESM to CommonJS. If this is not intended, add "type": "module" to your package.json file.
+Building: Compiling "diag.js" from ESM to CommonJS...
+Building: Compiling "lead.js" from ESM to CommonJS...
+Building: Compiling "newsletter.js" from ESM to CommonJS...
+Building: Build Completed in /vercel/output [1s]
+Building: Deploying outputs...
+[2K[1A[2K[GProduction: https://victor-ia-home-bp63nddt0-victor-ia.vercel.app [15s]
+Completing...
+Aliased: https://victor-ia.xyz [15s]
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_9hJA48BRwhvKD573Nw9aVgjbAYp9",
+    "url": "https://victor-ia-home-bp63nddt0-victor-ia.vercel.app",
+    "inspectorUrl": "https://vercel.com/victor-ia/victor-ia-home/9hJA48BRwhvKD573Nw9aVgjbAYp9",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_9hJA48BRwhvKD573Nw9aVgjbAYp9"
+  },
+  "message": "Deployment victor-ia-home-bp63nddt0-victor-ia.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect victor-ia-home-bp63nddt0-victor-ia.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

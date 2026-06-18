@@ -1,0 +1,21 @@
+{
+  "slug": "ia-news-YYYY-MM-DD",
+  "title": "IA Today YYYY-MM-DD: Las 5 noticias de IA que tu empresa debe conocer",
+  "desc": "Resumen diario con las noticias reales más relevantes de inteligencia artificial para empresas en México y LatAm.",
+  "keywords": "noticias IA, inteligencia artificial hoy, IA empresas México, novedades IA",
+  "cover": "/img/blog-covers/ia-news-2026-05-30.png",
+  "intro": "[Intro de 2-3 oraciones que enmarca el día. SIEMPRE basado en noticias REALES obtenidas con WebSearch — nunca inventar.]",
+  "news": [
+    {"title": "[Titular real noticia 1]", "text": "[Resumen de la noticia con el ángulo para empresas mexicanas. Real y verificable.]"},
+    {"title": "[Titular real noticia 2]", "text": "[...]"},
+    {"title": "[Titular real noticia 3]", "text": "[...]"},
+    {"title": "[Titular real noticia 4]", "text": "[...]"},
+    {"title": "[Titular real noticia 5]", "text": "[...]"}
+  ],
+  "fuentes": "[Lista de fuentes reales: CNBC, Reuters, MIT Tech Review, IBM, etc.]",
+  "faqs": [
+    {"q": "[Pregunta frecuente sobre el tema del día]", "a": "[Respuesta]"},
+    {"q": "[...]", "a": "[...]"},
+    {"q": "[...]", "a": "[...]"}
+  ]
+}

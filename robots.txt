@@ -1,16 +1,25 @@
 User-agent: *
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: GPTBot
 Allow: /
 
-User-agent: Facebot
+User-agent: ClaudeBot
 Allow: /
 
-User-agent: Twitterbot
+User-agent: anthropic-ai
 Allow: /
 
-User-agent: WhatsApp
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://victor-ia.xyz/sitemap.xml

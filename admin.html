@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Admin — Victor IA Brain Tracker</title>
+<meta name="theme-color" content="#060609">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#060609;color:#e5e1e7;font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+:root{--bg:#060609;--bg1:#0C0C12;--bg2:#131317;--bg3:#1b1b1f;--b:rgba(255,255,255,.09);--b2:rgba(255,255,255,.2);--t1:#e5e1e7;--t2:rgba(229,225,231,.58);--t3:rgba(229,225,231,.32);--t4:rgba(229,225,231,.12);--accent:#3B82F6;--accent2:#D8B4FE;--r:16px;--r2:20px}
+a{color:inherit;text-decoration:none}
+
+/* LAYOUT */
+#app{display:flex;height:100vh;overflow:hidden}
+#sidebar{width:220px;flex-shrink:0;border-right:1px solid var(--b);display:flex;flex-direction:column;padding:24px 16px;background:#0A0A0A;gap:4px}
+#main{flex:1;overflow-y:auto;padding:32px}
+#main::-webkit-scrollbar{display:none}
+@media(max-width:768px){
+  #sidebar{display:none}
+  #main{padding:16px}
+  #mobile-nav{display:flex}
+}
+
+/* SIDEBAR */
+.sk-logo{font-size:16px;font-weight:700;letter-spacing:-.4px;padding:0 8px;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.sk-logo span{font-size:20px}
+.sk-label{font-size:10px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;padding:0 8px;margin:12px 0 4px}
+.sk-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:14px;font-weight:500;color:var(--t2);cursor:pointer;transition:background .18s,color .18s}
+.sk-item:hover{background:var(--bg2);color:var(--t1)}
+.sk-item.on{background:var(--bg2);color:var(--t1);border:1px solid var(--b)}
+.sk-ico{font-size:16px;width:22px;text-align:center}
+.sk-spacer{flex:1}
+.sk-user{padding:12px;border-top:1px solid var(--b);margin-top:8px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.sk-avatar{width:32px;height:32px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;border:1px solid var(--b2)}
+.sk-uname{font-size:13px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sk-uemail{font-size:11px;color:var(--t3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* MOBILE NAV */
+#mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.97);border-top:1px solid var(--b);z-index:50;padding:8px 0 max(8px,env(safe-area-inset-bottom))}
+.mn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:2px 0}
+.mn-ico{font-size:20px}
+.mn-label{font-size:10px;font-weight:500;color:var(--t3)}
+.mn-item.on .mn-label{color:var(--t1)}
+
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--b);border-radius:var(--r);padding:16px;margin-bottom:12px}
+.card-tap{cursor:pointer;transition:border-color .2s}
+.card-tap:active{opacity:.7}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.kpi-grid{grid-template-columns:1fr 1fr}}
+.kpi{background:var(--bg2);border:1px solid var(--b);border-radius:var(--r);padding:18px 16px}
+.kpi-n{font-size:28px;font-weight:700;letter-spacing:-1px;margin-bottom:2px}
+.kpi-l{font-size:11px;color:var(--t3);text-transform:uppercase;letter-spacing:.6px}
+.kpi-sub{font-size:12px;color:var(--t2);margin-top:4px}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--b)}
+table{width:100%;border-collapse:collapse}
+th{font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.6px;padding:10px 14px;text-align:left;border-bottom:1px solid var(--b);background:var(--bg2)}
+td{font-size:13px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.025)}
+
+/* FORMS */
+.tinput{width:100%;background:var(--bg3);border:1px solid var(--b2);border-radius:10px;padding:11px 14px;color:var(--t1);font-size:14px;outline:none;font-family:inherit;margin-top:6px}
+.tinput:focus{border-color:rgba(255,255,255,.5)}
+.tinput::placeholder{color:var(--t3)}
+select.tinput{cursor:pointer}
+.form-row{margin-bottom:14px}
+.form-label{font-size:12px;font-weight:600;color:var(--t2);display:block}
+.btn-primary{background:#fff;color:#0A0A0A;border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s}
+.btn-primary:hover{opacity:.88}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--b2);border-radius:10px;padding:10px 18px;font-size:13px;cursor:pointer}
+.btn-ghost:hover{border-color:var(--b2);color:var(--t1)}
+.btn-danger{background:rgba(239,68,68,.12);color:rgba(255,100,100,.9);border:1px solid rgba(239,68,68,.25);border-radius:10px;padding:6px 14px;font-size:12px;cursor:pointer}
+
+/* BADGES */
+.badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
+.b-starter{background:rgba(255,255,255,.06);color:var(--t2)}
+.b-pro{background:rgba(255,255,255,.1);color:#fff}
+.b-agency{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.b-enterprise{background:#fff;color:#0A0A0A}
+
+/* PAGE HEADER */
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.page-title{font-size:22px;font-weight:700;letter-spacing:-.5px}
+.page-sub{font-size:13px;color:var(--t3);margin-top:3px}
+
+/* SECTION */
+.sec-title{font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:.8px;margin:20px 0 10px}
+
+/* PLAN PILL SELECT */
+.plan-select{background:var(--bg3);border:1px solid var(--b2);border-radius:8px;padding:4px 8px;color:var(--t1);font-size:12px;cursor:pointer;outline:none;font-family:inherit}
+
+/* WHITE LABEL PREVIEW */
+#wl-preview{background:var(--bg3);border:1px solid var(--b);border-radius:var(--r2);padding:24px;text-align:center;flex-shrink:0;width:220px}
+.wl-form-row{display:flex;gap:16px;align-items:flex-start}
+@media(max-width:700px){.wl-form-row{flex-direction:column}}
+.emoji-picker{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ep-btn{width:36px;height:36px;border-radius:8px;background:var(--bg3);border:1px solid var(--b);font-size:18px;cursor:pointer;transition:border-color .2s}
+.ep-btn.on{border-color:var(--b2);background:rgba(255,255,255,.1)}
+
+/* TOAST */
+#admin-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#111;border:1px solid var(--b2);border-radius:12px;padding:12px 20px;font-size:13px;font-weight:500;z-index:200;transition:transform .3s;white-space:nowrap}
+#admin-toast.show{transform:translateX(-50%) translateY(0)}
+
+/* SIGN IN */
+#signin-wall{position:fixed;inset:0;z-index:300;background:#0A0A0A;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px}
+.si-box{width:100%;max-width:320px}
+
+/* LOADING */
+.spinner{width:24px;height:24px;border:2px solid var(--b2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* COLOR SWATCH */
+.color-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.cswatch{width:28px;height:28px;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border-color .2s}
+.cswatch.on{border-color:#fff}
+
+/* ══ VICTOR IA BRAND OVERRIDES ══ */
+.btn-primary{background:linear-gradient(135deg,#3B82F6,#8B5CF6);color:#fff;border:none;border-radius:var(--r);padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;transition:opacity .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(59,130,246,.35);font-family:'Plus Jakarta Sans',sans-serif}
+.btn-primary:hover{opacity:.9;box-shadow:0 6px 24px rgba(59,130,246,.45)}
+.page-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.03em}
+.kpi-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.04em}
+.sk-logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;letter-spacing:-.03em}
+.sk-label{font-family:'JetBrains Mono',monospace}
+.sk-item.on{background:rgba(59,130,246,.12);color:#3B82F6;border-color:rgba(59,130,246,.25)}
+.tinput:focus{border-color:rgba(59,130,246,.65);box-shadow:0 0 0 4px rgba(59,130,246,.1)}
+.kpi{position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.7),transparent);opacity:0;transition:opacity .3s}
+.kpi:hover::after{opacity:1}
+.kpi:hover{border-color:rgba(255,255,255,.2);box-shadow:0 4px 20px rgba(0,0,0,.5)}
+th{font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+.b-enterprise{background:linear-gradient(135deg,#3B82F6,#D8B4FE);color:#fff}
+</style>
+<script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
+</head>
+<body>
+
+<!-- SIGN IN WALL -->
+<div id="signin-wall">
+  <div class="si-box">
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="font-size:32px;margin-bottom:8px">🧠</div>
+      <div style="font-size:20px;font-weight:700;margin-bottom:4px">Brain Tracker Admin</div>
+      <div style="font-size:13px;color:var(--t3)">Acceso restringido</div>
+    </div>
+    <button onclick="adminGoogleSignIn()" style="width:100%;padding:13px;background:#fff;color:#0A0A0A;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      Continuar con Google
+    </button>
+    <div id="si-error" style="color:rgba(255,100,100,.8);font-size:13px;text-align:center;margin-top:8px;display:none"></div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" style="display:none">
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <div class="sk-logo"><span>🧠</span>Admin Panel</div>
+    <div class="sk-label">Principal</div>
+    <div class="sk-item on" onclick="goTab('dashboard',this)" data-tab="dashboard"><span class="sk-ico">📊</span>Dashboard</div>
+    <div class="sk-item" onclick="goTab('usuarios',this)" data-tab="usuarios"><span class="sk-ico">👥</span>Usuarios</div>
+    <div class="sk-label">Negocio</div>
+    <div class="sk-item" onclick="goTab('whitelabel',this)" data-tab="whitelabel"><span class="sk-ico">🎨</span>White-label</div>
+    <div class="sk-item" onclick="goTab('distribuidores',this)" data-tab="distribuidores"><span class="sk-ico">🤝</span>Distribuidores</div>
+    <div class="sk-label">Sistema</div>
+    <div class="sk-item" onclick="goTab('config',this)" data-tab="config"><span class="sk-ico">⚙️</span>Configuración</div>
+    <div class="sk-spacer"></div>
+    <div class="sk-user" onclick="adminSignOut()">
+      <div class="sk-avatar" id="sk-av">?</div>
+      <div style="flex:1;overflow:hidden">
+        <div class="sk-uname" id="sk-name">Cargando...</div>
+        <div style="font-size:11px;color:var(--t3)">Cerrar sesión</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="main">
+    <!-- DASHBOARD -->
+    <div id="tab-dashboard" class="tab-content">
+      <div class="page-header">
+        <div><div class="page-title">Dashboard</div><div class="page-sub" id="dash-date"></div></div>
+        <button class="btn-ghost" onclick="loadAllData()">↻ Actualizar</button>
+      </div>
+      <div class="kpi-grid" id="dash-kpis">
+        <div class="kpi"><div class="spinner"></div></div>
+        <div class="kpi"><div class="spinner"></div></div>
+        <div class="kpi"><div class="spinner"></div></div>
+        <div class="kpi"><div class="spinner"></div></div>
+      </div>
+      <div class="sec-title">Distribución de planes</div>
+      <div class="card" id="dash-plans" style="padding:18px"></div>
+      <div class="sec-title">Últimos usuarios registrados</div>
+      <div class="table-wrap" id="dash-recent"></div>
+    </div>
+
+    <!-- USUARIOS -->
+    <div id="tab-usuarios" class="tab-content" style="display:none">
+      <div class="page-header">
+        <div><div class="page-title">Usuarios</div><div class="page-sub" id="usr-count">Cargando...</div></div>
+        <div style="display:flex;gap:8px">
+          <select class="plan-select" id="usr-filter" onchange="filterUsers()">
+            <option value="">Todos los planes</option>
+            <option value="starter">Starter</option>
+            <option value="pro">Pro</option>
+            <option value="agency">Agency</option>
+            <option value="enterprise">Enterprise</option>
+          </select>
+          <button class="btn-ghost" onclick="loadUsers()">↻</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Email</th><th>Plan</th><th>Tokens usados</th><th>Últ. acceso</th><th>Acción</th>
+          </tr></thead>
+          <tbody id="usr-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- WHITE LABEL -->
+    <div id="tab-whitelabel" class="tab-content" style="display:none">
+      <div class="page-header">
+        <div><div class="page-title">White-label</div><div class="page-sub">Personaliza la app por cliente</div></div>
+      </div>
+      <div class="wl-form-row">
+        <div style="flex:1">
+          <div class="form-row">
+            <label class="form-label">Usuario / Organización</label>
+            <select class="tinput" id="wl-user-select" onchange="loadWLBranding()">
+              <option value="">— Selecciona un usuario —</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Nombre de la app</label>
+            <input class="tinput" id="wl-name" placeholder="Ej. Acme AI Command Center" oninput="updateWLPreview()">
+          </div>
+          <div class="form-row">
+            <label class="form-label">Ícono</label>
+            <div class="emoji-picker" id="wl-emoji-picker"></div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Color primario</label>
+            <div class="color-row" id="wl-color-swatches"></div>
+            <input type="color" id="wl-color-input" value="#FFFFFF" oninput="updateWLPreview()" style="margin-top:8px;background:var(--bg3);border:1px solid var(--b2);border-radius:8px;padding:4px;cursor:pointer;width:60px;height:32px">
+          </div>
+          <div class="form-row">
+            <label class="form-label">URL del logo (imagen)</label>
+            <input class="tinput" id="wl-logo-url" placeholder="https://..." oninput="updateWLPreview()">
+          </div>
+          <div class="form-row">
+            <label class="form-label">Dominio personalizado</label>
+            <input class="tinput" id="wl-domain" placeholder="brain.tuagencia.com">
+          </div>
+          <button class="btn-primary" onclick="saveWLBranding()" style="margin-top:8px">💾 Guardar branding</button>
+        </div>
+        <div id="wl-preview">
+          <div style="font-size:11px;color:var(--t3);margin-bottom:12px;text-transform:uppercase;letter-spacing:.6px">Preview</div>
+          <div id="prev-icon" style="font-size:40px;margin-bottom:8px">🧠</div>
+          <div id="prev-name" style="font-size:16px;font-weight:700;margin-bottom:4px">Brain Tracker</div>
+          <div style="font-size:11px;color:var(--t3);margin-bottom:16px">TRACKER · v2.0</div>
+          <div id="prev-color-bar" style="height:3px;border-radius:2px;background:#fff;width:80%;margin:0 auto"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISTRIBUIDORES -->
+    <div id="tab-distribuidores" class="tab-content" style="display:none">
+      <div class="page-header">
+        <div><div class="page-title">Distribuidores</div><div class="page-sub">Agencias revendedoras del Brain Tracker</div></div>
+        <button class="btn-primary" onclick="document.getElementById('new-dist-form').style.display='block'">+ Nuevo distribuidor</button>
+      </div>
+
+      <!-- New distributor form -->
+      <div id="new-dist-form" style="display:none" class="card" style="margin-bottom:20px">
+        <div style="font-size:15px;font-weight:600;margin-bottom:14px">Registrar distribuidor</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="form-row"><label class="form-label">Email del usuario</label><input class="tinput" id="nd-email" placeholder="agencia@ejemplo.com"></div>
+          <div class="form-row"><label class="form-label">Plan a asignar</label>
+            <select class="tinput" id="nd-plan"><option value="agency">Agency</option><option value="enterprise">Enterprise</option></select>
+          </div>
+        </div>
+        <div class="form-row"><label class="form-label">Código de referido (auto)</label><input class="tinput" id="nd-code" placeholder="Se generará automáticamente"></div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button class="btn-primary" onclick="createDistributor()">Crear distribuidor</button>
+          <button class="btn-ghost" onclick="document.getElementById('new-dist-form').style.display='none'">Cancelar</button>
+        </div>
+      </div>
+
+      <div id="dist-list"></div>
+    </div>
+
+    <!-- CONFIG -->
+    <div id="tab-config" class="tab-content" style="display:none">
+      <div class="page-header">
+        <div><div class="page-title">Configuración global</div><div class="page-sub">Variables del sistema SaaS</div></div>
+      </div>
+      <div class="card" style="max-width:560px">
+        <div class="sec-title" style="margin-top:0">Stripe</div>
+        <div class="form-row"><label class="form-label">STRIPE_SECRET_KEY (sk_live_... o sk_test_...)</label><input class="tinput" type="password" id="cfg-stripe-key" placeholder="sk_live_..."></div>
+        <div class="form-row"><label class="form-label">STRIPE_WEBHOOK_SECRET</label><input class="tinput" type="password" id="cfg-stripe-wh" placeholder="whsec_..."></div>
+        <div class="sec-title">Contacto</div>
+        <div class="form-row"><label class="form-label">WhatsApp Enterprise (solo número con código de país)</label><input class="tinput" id="cfg-wa" placeholder="521XXXXXXXXXX"></div>
+        <div class="sec-title">Precios MXN</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+          <div class="form-row"><label class="form-label">Pro</label><input class="tinput" id="cfg-price-pro" placeholder="699"></div>
+          <div class="form-row"><label class="form-label">Agency</label><input class="tinput" id="cfg-price-agency" placeholder="1999"></div>
+          <div class="form-row"><label class="form-label">Enterprise</label><input class="tinput" id="cfg-price-ent" placeholder="5999"></div>
+        </div>
+        <div class="sec-title">Límites de tokens por plan</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="form-row"><label class="form-label">Starter (tokens)</label><input class="tinput" id="cfg-tok-starter" placeholder="100000"></div>
+          <div class="form-row"><label class="form-label">Pro (tokens)</label><input class="tinput" id="cfg-tok-pro" placeholder="1000000"></div>
+          <div class="form-row"><label class="form-label">Agency (tokens)</label><input class="tinput" id="cfg-tok-agency" placeholder="5000000"></div>
+          <div class="form-row"><label class="form-label">Enterprise (tokens)</label><input class="tinput" id="cfg-tok-ent" placeholder="99999999"></div>
+        </div>
+        <button class="btn-primary" onclick="saveGlobalConfig()" style="margin-top:16px;width:100%">💾 Guardar configuración</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav id="mobile-nav">
+    <div class="mn-item on" onclick="goTab('dashboard',this)"><div class="mn-ico">📊</div><div class="mn-label">Dashboard</div></div>
+    <div class="mn-item" onclick="goTab('usuarios',this)"><div class="mn-ico">👥</div><div class="mn-label">Usuarios</div></div>
+    <div class="mn-item" onclick="goTab('whitelabel',this)"><div class="mn-ico">🎨</div><div class="mn-label">White-label</div></div>
+    <div class="mn-item" onclick="goTab('distribuidores',this)"><div class="mn-ico">🤝</div><div class="mn-label">Dist.</div></div>
+    <div class="mn-item" onclick="goTab('config',this)"><div class="mn-ico">⚙️</div><div class="mn-label">Config</div></div>
+  </nav>
+</div>
+
+<div id="admin-toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+// ─── CONFIG ───
+const FB_CFG = {apiKey:'AIzaSyBciNfVGjH5l3szzGVgatXlZvLvaoNsp14',authDomain:'victor-ia-tracker.firebaseapp.com',projectId:'victor-ia-tracker',storageBucket:'victor-ia-tracker.firebasestorage.app',messagingSenderId:'475376340371',appId:'1:475376340371:web:caaf70c5c4063edfcb6c66'};
+const ADMIN_EMAILS = ['mesainteligentedemo@gmail.com']; // add more as needed
+const PLAN_PRICES = {starter:0,pro:699,agency:1999,enterprise:5999};
+const PLAN_ORDER = ['starter','pro','agency','enterprise'];
+
+firebase.initializeApp(FB_CFG);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+let _adminUser = null;
+let _allUsers = [];
+let _currentTab = 'dashboard';
+let _wlSelectedIcon = '🧠';
+let _wlSelectedColor = '#FFFFFF';
+
+// ─── AUTH ───
+auth.onAuthStateChanged(user => {
+  if(user && ADMIN_EMAILS.includes(user.email)) {
+    _adminUser = user;
+    document.getElementById('signin-wall').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    document.getElementById('sk-av').textContent = (user.displayName||user.email||'?')[0].toUpperCase();
+    document.getElementById('sk-name').textContent = user.displayName || user.email;
+    document.getElementById('dash-date').textContent = new Date().toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    initEmojis(); initColors();
+    loadAllData();
+  } else if(user) {
+    auth.signOut();
+    showSiError('Acceso denegado — esta cuenta no tiene permisos de admin.');
+  } else {
+    document.getElementById('signin-wall').style.display = 'flex';
+    document.getElementById('app').style.display = 'none';
+  }
+});
+
+async function adminGoogleSignIn() {
+  try { await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()); }
+  catch(e) { showSiError(e.message); }
+}
+function adminSignOut() { auth.signOut(); }
+function showSiError(msg) { const el=document.getElementById('si-error'); el.textContent=msg; el.style.display='block'; }
+
+// ─── TABS ───
+function goTab(name, el) {
+  _currentTab = name;
+  document.querySelectorAll('.tab-content').forEach(t=>t.style.display='none');
+  document.getElementById('tab-'+name).style.display='block';
+  document.querySelectorAll('.sk-item').forEach(i=>i.classList.remove('on'));
+  document.querySelectorAll('.mn-item').forEach(i=>i.classList.remove('on'));
+  if(el) {
+    el.classList.add('on');
+    // sync mobile ↔ desktop
+    document.querySelectorAll(`[data-tab="${name}"]`).forEach(i=>i.classList.add('on'));
+  }
+  if(name==='usuarios') loadUsers();
+  if(name==='distribuidores') loadDistributors();
+  if(name==='whitelabel') populateWLUserSelect();
+  if(name==='config') loadGlobalConfig();
+}
+
+// ─── DATA LOADING ───
+async function loadAllData() {
+  showToast('Cargando datos...');
+  try {
+    const snap = await db.collection('users').get();
+    _allUsers = snap.docs.map(d => ({id:d.id,...d.data()}));
+    renderDashboard();
+    showToast(`✓ ${_allUsers.length} usuarios cargados`);
+  } catch(e) { showToast('Error: '+e.message); console.error(e); }
+}
+
+function renderDashboard() {
+  const total = _allUsers.length;
+  const mrr = _allUsers.reduce((s,u)=>s+(PLAN_PRICES[u.plan]||0),0);
+  const totalTokens = _allUsers.reduce((s,u)=>s+(u.tokenUsage||0),0);
+  const today = new Date().toDateString();
+  const activeToday = _allUsers.filter(u=>u.lastSeen?.toDate&&u.lastSeen.toDate().toDateString()===today).length;
+
+  document.getElementById('dash-kpis').innerHTML = `
+    <div class="kpi"><div class="kpi-n">${total}</div><div class="kpi-l">Usuarios totales</div></div>
+    <div class="kpi"><div class="kpi-n">$${mrr.toLocaleString()}</div><div class="kpi-l">MRR (MXN)</div><div class="kpi-sub">$${Math.round(mrr/18).toLocaleString()} USD</div></div>
+    <div class="kpi"><div class="kpi-n">${(totalTokens/1000).toFixed(0)}k</div><div class="kpi-l">Tokens usados</div><div class="kpi-sub">~$${(totalTokens/1000000*9).toFixed(2)} USD costo</div></div>
+    <div class="kpi"><div class="kpi-n">${activeToday}</div><div class="kpi-l">Activos hoy</div></div>`;
+
+  // Plan distribution
+  const planCount = {starter:0,pro:0,agency:0,enterprise:0};
+  _allUsers.forEach(u=>{ if(planCount[u.plan]!==undefined) planCount[u.plan]++; });
+  const maxPlan = Math.max(...Object.values(planCount),1);
+  document.getElementById('dash-plans').innerHTML = Object.entries(planCount).map(([p,n])=>`
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+      <span style="width:80px;font-size:12px;color:var(--t2);text-transform:capitalize">${p}</span>
+      <div style="flex:1;background:var(--bg3);border-radius:4px;height:8px;overflow:hidden">
+        <div style="background:#fff;width:${(n/maxPlan*100).toFixed(0)}%;height:100%;border-radius:4px"></div>
+      </div>
+      <span style="font-size:13px;font-weight:600;width:24px;text-align:right">${n}</span>
+    </div>`).join('');
+
+  // Recent users
+  const recent = [..._allUsers].sort((a,b)=>{
+    const ta = a.createdAt?.toDate?.()?.getTime()||0;
+    const tb = b.createdAt?.toDate?.()?.getTime()||0;
+    return tb-ta;
+  }).slice(0,8);
+  document.getElementById('dash-recent').innerHTML = `<table><thead><tr><th>Email</th><th>Plan</th><th>Tokens</th><th>Registro</th></tr></thead><tbody>${
+    recent.map(u=>`<tr>
+      <td>${u.email||u.id}</td>
+      <td><span class="badge b-${u.plan||'starter'}">${u.plan||'starter'}</span></td>
+      <td>${((u.tokenUsage||0)/1000).toFixed(1)}k</td>
+      <td style="color:var(--t3)">${u.createdAt?.toDate?.()?.toLocaleDateString('es-MX')||'—'}</td>
+    </tr>`).join('')
+  }</tbody></table>`;
+}
+
+// ─── USUARIOS TAB ───
+let _filteredUsers = [];
+function loadUsers() {
+  if(!_allUsers.length) { loadAllData().then(()=>filterUsers()); return; }
+  filterUsers();
+}
+function filterUsers() {
+  const f = document.getElementById('usr-filter')?.value||'';
+  _filteredUsers = f ? _allUsers.filter(u=>u.plan===f) : [..._allUsers];
+  document.getElementById('usr-count').textContent = `${_filteredUsers.length} usuarios`;
+  renderUsersTable();
+}
+function renderUsersTable() {
+  document.getElementById('usr-table-body').innerHTML = _filteredUsers.map(u=>`
+    <tr>
+      <td style="font-size:13px">${u.email||u.id}</td>
+      <td>
+        <select class="plan-select" onchange="updateUserPlan('${u.id}',this.value)">
+          ${PLAN_ORDER.map(p=>`<option value="${p}"${p===u.plan?' selected':''}>${p}</option>`).join('')}
+        </select>
+      </td>
+      <td>${((u.tokenUsage||0)/1000).toFixed(1)}k</td>
+      <td style="color:var(--t3);font-size:12px">${u.lastSeen?.toDate?.()?.toLocaleDateString('es-MX')||'—'}</td>
+      <td>
+        <button class="btn-danger" onclick="resetTokens('${u.id}')">Reset tokens</button>
+      </td>
+    </tr>`).join('');
+}
+
+async function updateUserPlan(uid, plan) {
+  try {
+    await db.collection('users').doc(uid).update({plan, updatedAt: firebase.firestore.FieldValue.serverTimestamp()});
+    const u = _allUsers.find(x=>x.id===uid); if(u) u.plan=plan;
+    showToast(`✓ Plan de ${uid.slice(0,12)}... → ${plan}`);
+  } catch(e) { showToast('Error: '+e.message); }
+}
+
+async function resetTokens(uid) {
+  if(!confirm('¿Resetear tokens a 0 para este usuario?')) return;
+  try {
+    await db.collection('users').doc(uid).update({tokenUsage:0, imageUsage:0, videoUsage:0});
+    const u = _allUsers.find(x=>x.id===uid); if(u) { u.tokenUsage=0; }
+    renderUsersTable();
+    showToast('✓ Tokens reseteados');
+  } catch(e) { showToast('Error: '+e.message); }
+}
+
+// ─── WHITE LABEL ───
+const WL_EMOJIS = ['🧠','🚀','⚡','🎯','💎','🔥','🌟','🏆','🤖','💡','🌐','🎬'];
+const WL_COLORS = ['#FFFFFF','#7C3AED','#0EA5E9','#22C55E','#F59E0B','#EF4444','#EC4899','#06B6D4'];
+
+function initEmojis() {
+  document.getElementById('wl-emoji-picker').innerHTML = WL_EMOJIS.map(e=>
+    `<button class="ep-btn${e===_wlSelectedIcon?' on':''}" onclick="selectEmoji('${e}',this)">${e}</button>`).join('');
+}
+function initColors() {
+  document.getElementById('wl-color-swatches').innerHTML = WL_COLORS.map(c=>
+    `<div class="cswatch${c===_wlSelectedColor?' on':''}" style="background:${c}" onclick="selectColor('${c}',this)"></div>`).join('');
+}
+function selectEmoji(e, el) {
+  _wlSelectedIcon=e;
+  document.querySelectorAll('.ep-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  updateWLPreview();
+}
+function selectColor(c, el) {
+  _wlSelectedColor=c;
+  document.querySelectorAll('.cswatch').forEach(s=>s.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById('wl-color-input').value=c;
+  updateWLPreview();
+}
+function updateWLPreview() {
+  document.getElementById('prev-icon').textContent = _wlSelectedIcon;
+  document.getElementById('prev-name').textContent = document.getElementById('wl-name')?.value||'Brain Tracker';
+  document.getElementById('prev-color-bar').style.background = _wlSelectedColor;
+}
+function populateWLUserSelect() {
+  const sel = document.getElementById('wl-user-select');
+  const existing = [...sel.options].map(o=>o.value);
+  _allUsers.forEach(u=>{
+    if(!existing.includes(u.id)) {
+      const o = document.createElement('option');
+      o.value=u.id; o.textContent=u.email||u.id;
+      sel.appendChild(o);
+    }
+  });
+}
+async function loadWLBranding() {
+  const uid = document.getElementById('wl-user-select').value;
+  if(!uid) return;
+  const snap = await db.collection('users').doc(uid).get();
+  const b = snap.data()?.branding||{};
+  if(b.appName) document.getElementById('wl-name').value=b.appName;
+  if(b.icon) { _wlSelectedIcon=b.icon; initEmojis(); }
+  if(b.primaryColor) { _wlSelectedColor=b.primaryColor; initColors(); document.getElementById('wl-color-input').value=b.primaryColor; }
+  if(b.logoUrl) document.getElementById('wl-logo-url').value=b.logoUrl||'';
+  if(b.domain) document.getElementById('wl-domain').value=b.domain||'';
+  updateWLPreview();
+}
+async function saveWLBranding() {
+  const uid = document.getElementById('wl-user-select').value;
+  if(!uid) { showToast('Selecciona un usuario primero'); return; }
+  const branding = {
+    appName: document.getElementById('wl-name').value||'Brain Tracker',
+    icon: _wlSelectedIcon,
+    primaryColor: document.getElementById('wl-color-input').value||_wlSelectedColor,
+    logoUrl: document.getElementById('wl-logo-url').value||'',
+    domain: document.getElementById('wl-domain').value||'',
+  };
+  try {
+    await db.collection('users').doc(uid).update({branding, updatedAt: firebase.firestore.FieldValue.serverTimestamp()});
+    showToast('✓ Branding guardado');
+  } catch(e) { showToast('Error: '+e.message); }
+}
+
+// ─── DISTRIBUIDORES ───
+async function loadDistributors() {
+  const dists = _allUsers.filter(u=>u.plan==='agency'||u.plan==='enterprise'||u.isDistributor);
+  const el = document.getElementById('dist-list');
+  if(!dists.length) { el.innerHTML='<div style="text-align:center;padding:40px;color:var(--t3)">Sin distribuidores registrados aún.<br>Asigna plan Agency o Enterprise a un usuario.</div>'; return; }
+  el.innerHTML = dists.map(u=>{
+    const refs = u.referralCount||0;
+    const commission = refs * PLAN_PRICES[u.plan||'agency'] * 0.30;
+    const code = u.referralCode||'—';
+    return `<div class="card" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:160px">
+        <div style="font-size:15px;font-weight:600">${u.email||u.id}</div>
+        <div style="font-size:12px;color:var(--t3);margin-top:2px">Código: <b>${code}</b> · Plan: <span class="badge b-${u.plan||'agency'}">${u.plan||'agency'}</span></div>
+      </div>
+      <div style="text-align:center;min-width:80px">
+        <div style="font-size:22px;font-weight:700">${refs}</div>
+        <div style="font-size:11px;color:var(--t3)">Clientes</div>
+      </div>
+      <div style="text-align:center;min-width:100px">
+        <div style="font-size:22px;font-weight:700">$${commission.toLocaleString()}</div>
+        <div style="font-size:11px;color:var(--t3)">Comisión MXN</div>
+      </div>
+      <button class="btn-ghost" onclick="generateRefCode('${u.id}')">🔗 Generar código</button>
+    </div>`;
+  }).join('');
+}
+
+async function createDistributor() {
+  const email = document.getElementById('nd-email').value.trim();
+  const plan = document.getElementById('nd-plan').value;
+  if(!email) { showToast('Ingresa un email'); return; }
+  const code = 'BT-'+Math.random().toString(36).slice(2,7).toUpperCase();
+  document.getElementById('nd-code').value = code;
+  // Find user by email
+  const snap = await db.collection('users').where('email','==',email).get();
+  if(snap.empty) { showToast('Usuario no encontrado — debe registrarse primero'); return; }
+  const uid = snap.docs[0].id;
+  await db.collection('users').doc(uid).update({plan, isDistributor:true, referralCode:code, referralCount:0, updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+  showToast(`✓ Distribuidor creado: ${email} · Código: ${code}`);
+  document.getElementById('new-dist-form').style.display='none';
+  await loadAllData(); loadDistributors();
+}
+
+async function generateRefCode(uid) {
+  const code = 'BT-'+Math.random().toString(36).slice(2,7).toUpperCase();
+  await db.collection('users').doc(uid).update({referralCode:code});
+  const u = _allUsers.find(x=>x.id===uid); if(u) u.referralCode=code;
+  showToast(`✓ Código: ${code}`);
+  loadDistributors();
+}
+
+// ─── CONFIG ───
+async function loadGlobalConfig() {
+  try {
+    const snap = await db.collection('config').doc('global').get();
+    const d = snap.data()||{};
+    if(d.whatsapp) document.getElementById('cfg-wa').value=d.whatsapp;
+    if(d.prices?.pro) document.getElementById('cfg-price-pro').value=d.prices.pro;
+    if(d.prices?.agency) document.getElementById('cfg-price-agency').value=d.prices.agency;
+    if(d.prices?.enterprise) document.getElementById('cfg-price-ent').value=d.prices.enterprise;
+    if(d.tokens?.starter) document.getElementById('cfg-tok-starter').value=d.tokens.starter;
+    if(d.tokens?.pro) document.getElementById('cfg-tok-pro').value=d.tokens.pro;
+    if(d.tokens?.agency) document.getElementById('cfg-tok-agency').value=d.tokens.agency;
+    if(d.tokens?.enterprise) document.getElementById('cfg-tok-ent').value=d.tokens.enterprise;
+  } catch(e) {}
+}
+
+async function saveGlobalConfig() {
+  const cfg = {
+    whatsapp: document.getElementById('cfg-wa').value,
+    prices: {
+      pro: parseInt(document.getElementById('cfg-price-pro').value)||699,
+      agency: parseInt(document.getElementById('cfg-price-agency').value)||1999,
+      enterprise: parseInt(document.getElementById('cfg-price-ent').value)||5999,
+    },
+    tokens: {
+      starter: parseInt(document.getElementById('cfg-tok-starter').value)||100000,
+      pro: parseInt(document.getElementById('cfg-tok-pro').value)||1000000,
+      agency: parseInt(document.getElementById('cfg-tok-agency').value)||5000000,
+      enterprise: parseInt(document.getElementById('cfg-tok-ent').value)||99999999,
+    },
+    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+  };
+  // Stripe keys — store as note (never in Firestore client-side — just remind user)
+  const stripeKey = document.getElementById('cfg-stripe-key').value;
+  const stripeWh = document.getElementById('cfg-stripe-wh').value;
+  if(stripeKey) showToast('⚠️ Agrega STRIPE_SECRET_KEY en Vercel Environment Variables, no aquí');
+  if(stripeWh) showToast('⚠️ Agrega STRIPE_WEBHOOK_SECRET en Vercel Environment Variables, no aquí');
+  try {
+    await db.collection('config').doc('global').set(cfg, {merge:true});
+    showToast('✓ Configuración guardada en Firestore');
+  } catch(e) { showToast('Error: '+e.message); }
+}
+
+// ─── TOAST ───
+let _toastTimer;
+function showToast(msg) {
+  const el = document.getElementById('admin-toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(()=>el.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>

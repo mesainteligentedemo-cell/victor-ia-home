@@ -1,0 +1,8 @@
+links ejemplo:
+href="https://victor-ia.xyz/blog/"
+
+fetch/json dinamico: false
+scripts: <script src="https://cdn.tailwindcss.com", <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js", <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+scripts inline: 2
+guia pos:753
+contexto: ctor IA</title> <meta name="description" content="Insights, guías y casos de uso de inteligencia artificial para empresas en México. Aprende cómo los agentes IA

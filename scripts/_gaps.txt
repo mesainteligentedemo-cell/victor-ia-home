@@ -1,0 +1,38 @@
+SIN vp-cover (2):
+agentes-ia-sistemas-legados-mexico.html
+ia-para-hoteles-cancun-riviera-maya.html
+
+SIN og webp (33):
+como-elegir-agente-ia.html → NINGUNO
+como-vender-servicios-ia-mexico.html → NINGUNO
+diferencia-chatbot-agente-ia.html → NINGUNO
+guia-prompts-empresas-mexico.html → NINGUNO
+ia-generativa-para-marketing.html → NINGUNO
+ia-multiagente-que-es.html → NINGUNO
+ia-news-2026-05-28.html → NINGUNO
+ia-news-2026-05-30.html → NINGUNO
+ia-para-abogados-litigio.html → NINGUNO
+ia-para-agencias-publicitarias.html → NINGUNO
+ia-para-bufetes-juridicos.html → NINGUNO
+ia-para-contadores-despachos.html → NINGUNO
+ia-para-corredores-bolsa.html → NINGUNO
+ia-para-despachos-arquitectura.html → NINGUNO
+ia-para-empresas-limpieza.html → NINGUNO
+ia-para-empresas-seguridad-privada.html → NINGUNO
+ia-para-empresas-transporte.html → NINGUNO
+ia-para-escuelas-instituciones.html → NINGUNO
+ia-para-eventos-bodas-catering.html → NINGUNO
+ia-para-gimnasios-spas.html → NINGUNO
+ia-para-hospitales-clinicas.html → NINGUNO
+ia-para-manufactura-industrial.html → NINGUNO
+ia-para-medicos-especialistas.html → NINGUNO
+ia-para-nutriologos-fitness.html → NINGUNO
+ia-para-plataformas-credito.html → NINGUNO
+ia-para-productores-agricolas.html → NINGUNO
+ia-para-rrhh-recursos-humanos.html → NINGUNO
+ia-para-sector-automotriz.html → NINGUNO
+ia-para-vendedores-independientes.html → NINGUNO
+implementar-ia-empresa-mexico.html → NINGUNO
+medir-roi-proyecto-ia.html → NINGUNO
+privacidad-datos-ia-empresas.html → NINGUNO
+tendencias-ia-latam-2026.html → NINGUNO

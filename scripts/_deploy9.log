@@ -1,0 +1,46 @@
+<claude-code-hint v="1" type="plugin" value="vercel@claude-plugins-official" />
+Retrieving project…
+Deploying victor-ia/victor-ia-home
+Uploading [--------------------] (0.0B/177.4KB)
+Uploading [=====---------------] (49.8KB/177.4KB)
+Uploading [===========---------] (97.8KB/177.4KB)
+Uploading [================----] (145.8KB/177.4KB)
+Uploading [====================] (177.4KB/177.4KB)
+Inspect: https://vercel.com/victor-ia/victor-ia-home/FvEC9fMqwgyCVssGrTL23HCE7EY8 [4s]
+Production: https://victor-ia-home-etpy4o64k-victor-ia.vercel.app [4s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 4 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 754 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 54.4.1
+Building: Build Completed in /vercel/output [532ms]
+Building: Deploying outputs...
+[2K[1A[2K[GProduction: https://victor-ia-home-etpy4o64k-victor-ia.vercel.app [16s]
+Completing...
+Aliased: https://victor-ia.xyz [16s]
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_FvEC9fMqwgyCVssGrTL23HCE7EY8",
+    "url": "https://victor-ia-home-etpy4o64k-victor-ia.vercel.app",
+    "inspectorUrl": "https://vercel.com/victor-ia/victor-ia-home/FvEC9fMqwgyCVssGrTL23HCE7EY8",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_FvEC9fMqwgyCVssGrTL23HCE7EY8"
+  },
+  "message": "Deployment victor-ia-home-etpy4o64k-victor-ia.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel inspect victor-ia-home-etpy4o64k-victor-ia.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}
