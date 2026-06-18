@@ -1,9 +1,0 @@
-" y="183" font-family="sans-serif" font-size="11" fill="#EAE6DF" opacity="0.65" text-anchor="end">Operaciones</text>
-<rect x="176" y="169" width="364" height="22" rx="3" fill="#C8AE82" opacity="0.85"/>
-<text x="548" y="183" font-family="sans-serif" font-size="11" fill="#B89A6A">65%</text>
-<text x="168" y="237" font-family="sans-serif" font-size="11" fill="#EAE6DF" opacity="0.65" text-anchor="end">Servicio al cliente</text>
-<rect x="176" y="223" width="459" height="22" rx="3" fill="#A88A5A" opacity="0.85"/>
-<text x="643" y="237" font-family="sans-serif" font-size="11" fill="#B89A6A">82%</text>
-<text x="168" y="291" font-family="sans-serif" font-size="11" fill="#EAE6DF" opacity="0.65" text-anchor="end">Marketing</text>
-<rect x="176" y="277" width="392" height="22" rx="3" fill="#D4BA94" opacity="0.85"/>
-<text x="576" y="291" font-family="sans-serif" font-size="11" fill="#B89A6A">70%</text>
