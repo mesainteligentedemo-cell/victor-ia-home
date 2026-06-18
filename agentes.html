@@ -150,6 +150,34 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
 .acard[hidden],.catblock[hidden]{display:none}
 #noresults{text-align:center;color:#999;font-size:15px;padding:40px 0;display:none}
 @media(max-width:520px){.agrid{grid-template-columns:1fr}}
+
+/* ── Card footer + Ver más ─────────────────────────── */
+.acard{display:flex;flex-direction:column}
+.acard .atags{margin-bottom:16px}
+.amore{margin-top:auto;display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;font-weight:500;color:#000;background:transparent;border:1px solid rgba(26,26,26,.22);border-radius:999px;padding:7px 16px;transition:background .25s,color .25s,border-color .25s,transform .2s}
+.amore svg{transition:transform .3s}
+.amore:hover{background:#000;color:#FFF;border-color:#000;transform:translateY(-1px)}
+.amore:hover svg{transform:translateX(3px)}
+
+/* ── MODAL "Ver más" ───────────────────────────────── */
+#agent-modal{position:fixed;inset:0;z-index:100001;display:none;align-items:center;justify-content:center;padding:24px}
+#agent-modal.open{display:flex}
+#agent-modal .am-overlay{position:absolute;inset:0;background:rgba(10,10,10,.55);backdrop-filter:blur(6px);opacity:0;transition:opacity .35s ease}
+#agent-modal.open .am-overlay{opacity:1}
+#agent-modal .am-card{position:relative;width:100%;max-width:560px;max-height:86vh;overflow-y:auto;background:#FFFFFF;border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:44px 44px 40px;box-shadow:0 40px 120px -30px rgba(0,0,0,.45);transform:translateY(18px) scale(.96);opacity:0;transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .42s cubic-bezier(.16,1,.3,1)}
+#agent-modal.open .am-card{transform:none;opacity:1}
+#agent-modal .am-cat{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,26,26,.55);margin-bottom:14px}
+#agent-modal .am-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(28px,4vw,40px);line-height:1.08;letter-spacing:-.02em;color:#000;margin-bottom:14px}
+#agent-modal .am-short{font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;font-weight:400;color:#1A1A1A;margin-bottom:22px;font-style:italic}
+#agent-modal .am-full{font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.85;font-weight:300;color:#555;margin-bottom:26px}
+#agent-modal .am-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:30px}
+#agent-modal .am-tags .atag{font-size:10.5px}
+#agent-modal .am-close-x{position:absolute;top:20px;right:20px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(0,0,0,.10);background:#FAFAFA;color:#000;transition:background .25s,transform .25s,border-color .25s}
+#agent-modal .am-close-x:hover{background:#000;color:#FFF;border-color:#000;transform:rotate(90deg)}
+#agent-modal .am-close{display:inline-flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.09em;font-weight:500;color:#FFF;background:#000;border:1px solid #000;border-radius:6px;padding:12px 30px;transition:background .25s,transform .2s}
+#agent-modal .am-close:hover{background:#1A1A1A;transform:translateY(-2px)}
+@media(max-width:520px){#agent-modal{padding:14px}#agent-modal .am-card{padding:36px 26px 30px;max-height:90vh}}
+body.modal-open{overflow:hidden}
 </style>
 <script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
 </head>
@@ -158,6 +186,22 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
 <div id="pbar"></div>
 <div id="cur-d"></div>
 <div id="cur-r"></div>
+
+<!-- ══════════════ MODAL "VER MÁS" ══════════════ -->
+<div id="agent-modal" role="dialog" aria-modal="true" aria-labelledby="am-title">
+  <div class="am-overlay" data-am-close></div>
+  <div class="am-card">
+    <button class="am-close-x" type="button" data-am-close aria-label="Cerrar">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 2l11 11M13 2L2 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </button>
+    <p class="am-cat" id="am-cat"></p>
+    <h3 class="am-title" id="am-title"></h3>
+    <p class="am-short" id="am-short"></p>
+    <p class="am-full" id="am-full"></p>
+    <div class="am-tags" id="am-tags"></div>
+    <button class="am-close" type="button" data-am-close>Cerrar</button>
+  </div>
+</div>
 
 <!-- ══════════════════════ HEADER ══════════════════════ -->
 <header id="hdr">
@@ -601,26 +645,87 @@ window.AGENT_DATA = [
   data.forEach(function(c){ html += '<button class="fbtn" data-f="'+slug(c.cat)+'">'+c.cat+' · '+c.agents.length+'</button>'; });
   fbar.innerHTML = html;
 
+  function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+  // ── Generador de descripción profesional completa (4-6 líneas) ──
+  function buildFull(a, catName){
+    if(a.fd) return a.fd;
+    var name = a.n, short = (a.d||'').replace(/\.$/,''), tags = a.t||[];
+    var tagsTxt = tags.length ? tags.join(', ') : catName;
+    var s = name + ' es un agente especializado dentro del área de ' + catName + '. ' + short + '. ';
+    s += 'Opera de forma autónoma y coordinada con el resto del equipo de Victor IA: el supercerebro lo activa automáticamente cuando una tarea entra en su dominio de experiencia';
+    if(tags.length){ s += ', aportando capacidades concretas en ' + tagsTxt; }
+    s += '. ';
+    s += 'Trabaja en paralelo con otros agentes para reducir el tiempo total de entrega a una fracción de lo habitual, y cada resultado que produce pasa por una capa de control de calidad antes de llegar a ti. ';
+    s += 'En la práctica, esto significa que delegas el objetivo en lenguaje natural y recibes un entregable terminado y revisado, sin tener que microgestionar el proceso ni dominar las herramientas técnicas que ' + name + ' utiliza por debajo.';
+    return s;
+  }
+
   // Bloques por categoría
   var out = '';
+  var idx = 0;
+  window.__AGENTS_FLAT = [];
   data.forEach(function(c){
     var cs = slug(c.cat);
     out += '<div class="catblock" data-cat="'+cs+'">';
-    out += '<h3 class="cattitle">'+c.cat+' <span class="catcount">'+c.agents.length+' agentes</span></h3>';
-    out += '<p class="catdesc">'+c.desc+'</p>';
+    out += '<h3 class="cattitle">'+esc(c.cat)+' <span class="catcount">'+c.agents.length+' agentes</span></h3>';
+    out += '<p class="catdesc">'+esc(c.desc)+'</p>';
     out += '<div class="agrid">';
     c.agents.forEach(function(a){
-      var tags = (a.t||[]).map(function(t){return '<span class="atag">'+t+'</span>';}).join('');
+      var full = buildFull(a, c.cat);
+      window.__AGENTS_FLAT[idx] = {n:a.n, d:a.d, fd:full, t:a.t||[], cat:c.cat};
+      var tags = (a.t||[]).map(function(t){return '<span class="atag">'+esc(t)+'</span>';}).join('');
       var hay = (a.n+' '+a.d+' '+(a.t||[]).join(' ')+' '+c.cat).toLowerCase();
       out += '<div class="acard" data-search="'+hay.replace(/"/g,'')+'">';
-      out += '<h4>'+a.n+'</h4>';
-      out += '<p>'+a.d+'</p>';
+      out += '<h4>'+esc(a.n)+'</h4>';
+      out += '<p>'+esc(a.d)+'</p>';
       out += '<div class="atags">'+tags+'</div>';
+      out += '<button class="amore" type="button" data-i="'+idx+'">Ver más <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M7 2.5l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
       out += '</div>';
+      idx++;
     });
     out += '</div></div>';
   });
   dir.innerHTML = out;
+
+  // ── Apertura/cierre del modal ──
+  var modal = document.getElementById('agent-modal');
+  var mCat = document.getElementById('am-cat');
+  var mTitle = document.getElementById('am-title');
+  var mShort = document.getElementById('am-short');
+  var mFull = document.getElementById('am-full');
+  var mTags = document.getElementById('am-tags');
+  var lastFocus = null;
+
+  window.openAgentModal = function(a){
+    if(!a) return;
+    mCat.textContent = a.cat || '';
+    mTitle.textContent = a.n || '';
+    mShort.textContent = a.d || '';
+    mFull.textContent = a.fd || '';
+    mTags.innerHTML = (a.t||[]).map(function(t){return '<span class="atag">'+esc(t)+'</span>';}).join('');
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+  };
+  function closeModal(){
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    if(lastFocus && lastFocus.focus){ try{lastFocus.focus();}catch(e){} }
+  }
+  window.closeAgentModal = closeModal;
+
+  dir.addEventListener('click', function(e){
+    var btn = e.target.closest('.amore'); if(!btn) return;
+    lastFocus = btn;
+    var i = parseInt(btn.getAttribute('data-i'),10);
+    window.openAgentModal(window.__AGENTS_FLAT[i]);
+  });
+  modal.addEventListener('click', function(e){
+    if(e.target.closest('[data-am-close]')) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && modal.classList.contains('open')) closeModal();
+  });
 
   // Lógica de filtro + búsqueda
   var search = document.getElementById('agentsearch');
