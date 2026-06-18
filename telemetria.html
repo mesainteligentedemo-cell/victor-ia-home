@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:'#000000',cream:'#EAE6DF',muted:'#666666',gold:'#1A1A1A'},fontFamily:{display:['Cormorant Garamond','Georgia','serif'],body:['Inter','sans-serif']}}}}</script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{ink:'#000000',cream:'#000000',muted:'#666666',gold:'#1A1A1A'},fontFamily:{display:['Cormorant Garamond','Georgia','serif'],body:['Inter','sans-serif']}}}}</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-font-smoothing:antialiased;scroll-behavior:auto}
@@ -24,7 +24,7 @@ body{background:#FFFFFF;color:#000000;font-family:'Plus Jakarta Sans',sans-serif
 #noise{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.024;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 /* ── Header ──────────────────────────────────────────── */
 header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
-header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,255,255,.06);backdrop-filter:blur(18px)}
+header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,.06);backdrop-filter:blur(18px)}
 .nav-a{position:relative;color:#666666;font-size:13px;letter-spacing:.07em;font-weight:300;transition:color .3s;text-decoration:none}
 .nav-a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#1A1A1A;transition:width .45s cubic-bezier(.16,1,.3,1)}
 .nav-a:hover{color:#000000}
@@ -56,7 +56,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 .mbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.1);border-radius:40px;padding:6px 14px}
 /* Live dot */
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
-.ldot{width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse 2s ease-in-out infinite}
+.ldot{width:7px;height:7px;border-radius:50%;background:#1A1A1A;animation:pulse 2s ease-in-out infinite}
 /* Dashboard mock */
 .dash-line{height:1px;background:rgba(0,0,0,.06);margin:0}
 .dash-bar{background:linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,.15));border-radius:2px}
@@ -73,7 +73,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 <header id="hdr">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-16 h-full relative z-10">
     <a href="index.html" class="font-display text-[21px] font-light tracking-[.04em] text-cream no-underline select-none" style="text-decoration:none">
-      Victor <span style="color:#B89A6A">IA</span>
+      Victor <span style="color:#1A1A1A">IA</span>
     </a>
     <nav class="hidden md:flex gap-9 items-center">
       <a class="nav-a" href="agentes.html">Agentes</a>
@@ -125,7 +125,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
             </div>
           </div>
           <!-- Stats row -->
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(255,255,255,.05)">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(0,0,0,.05)">
             <div style="padding:22px 20px;border-right:1px solid rgba(0,0,0,.06)">
               <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:8px">Alertas activas</p>
               <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">3</p>
@@ -177,7 +177,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
             </div>
             <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);border-radius:7px">
               <div style="display:flex;align-items:center;gap:10px">
-                <div style="width:6px;height:6px;border-radius:50%;background:#4ade80"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:#1A1A1A"></div>
                 <span style="font-size:12px;color:#666666">Unidad 14-F — mantenimiento completado</span>
               </div>
               <span style="font-size:11px;color:rgba(0,0,0,.35)">hace 18 min</span>
@@ -206,7 +206,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
       <!-- Edificios -->
       <div class="vcard rv">
-        <div style="width:52px;height:52px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
+        <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="3" y="2" width="16" height="18" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><path d="M7 6h2M7 10h2M7 14h2M13 6h2M13 10h2M13 14h2" stroke="#1A1A1A" stroke-width="1.1" stroke-linecap="round"/><path d="M9 20v-4h4v4" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/></svg>
         </div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Edificios corporativos</h3>
@@ -220,7 +220,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
       <!-- Hoteles -->
       <div class="vcard rv">
-        <div style="width:52px;height:52px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
+        <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="2" y="4" width="18" height="15" rx="1.5" stroke="#1A1A1A" stroke-width="1.2"/><path d="M2 9h18" stroke="#1A1A1A" stroke-width="1.1"/><path d="M7 9v10M15 9v10" stroke="#1A1A1A" stroke-width="1" stroke-dasharray="2 2"/><circle cx="11" cy="6.5" r="1.2" fill="#1A1A1A" opacity=".35"/></svg>
         </div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Hoteles y resorts</h3>
@@ -234,7 +234,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
       <!-- Flotillas -->
       <div class="vcard rv">
-        <div style="width:52px;height:52px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
+        <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="1" y="7" width="16" height="9" rx="2" stroke="#1A1A1A" stroke-width="1.2"/><path d="M17 11h3l1 2v3h-4" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><circle cx="14.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><path d="M1 11h16" stroke="#1A1A1A" stroke-width="1" opacity=".4"/></svg>
         </div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Flotillas corporativas</h3>
@@ -248,7 +248,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
       <!-- Renta de autos -->
       <div class="vcard rv">
-        <div style="width:52px;height:52px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
+        <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M3 13l2-5h12l2 5" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><rect x="2" y="13" width="18" height="5" rx="1.5" stroke="#1A1A1A" stroke-width="1.2"/><circle cx="6.5" cy="18.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><circle cx="15.5" cy="18.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><path d="M9 10h4" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"/></svg>
         </div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Renta de autos</h3>
@@ -262,7 +262,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
       <!-- Transportadoras -->
       <div class="vcard rv">
-        <div style="width:52px;height:52px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
+        <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M2 8h13v8H2z" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><path d="M15 10l4 2v4h-4V10z" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><circle cx="16.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><path d="M2 5h9" stroke="#1A1A1A" stroke-width="1.1" stroke-linecap="round"/></svg>
         </div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Transportadoras</h3>
@@ -276,7 +276,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
       <!-- Empresas en general -->
       <div class="vcard rv">
-        <div style="width:52px;height:52px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
+        <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><rect x="12" y="3" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><rect x="3" y="12" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><rect x="12" y="12" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/></svg>
         </div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Empresas e industria</h3>
@@ -331,23 +331,23 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
         <div class="card" style="padding:32px">
           <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.35);margin-bottom:20px">Alertas recientes</p>
           <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="padding:14px 18px;background:rgba(255,230,100,.03);border:1px solid rgba(255,210,60,.1);border-radius:8px;display:flex;align-items:center;justify-content:space-between">
+            <div style="padding:14px 18px;background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.1);border-radius:8px;display:flex;align-items:center;justify-content:space-between">
               <div style="display:flex;align-items:center;gap:10px">
-                <div style="width:7px;height:7px;border-radius:50%;background:#facc15;flex-shrink:0"></div>
+                <div style="width:7px;height:7px;border-radius:50%;background:#1A1A1A;flex-shrink:0"></div>
                 <span style="font-size:12.5px;color:#666666">Temperatura zona 3 — 27°C (umbral: 25°C)</span>
               </div>
               <span style="font-size:10.5px;color:rgba(0,0,0,.3)">2 min</span>
             </div>
-            <div style="padding:14px 18px;background:rgba(74,222,128,.025);border:1px solid rgba(74,222,128,.1);border-radius:8px;display:flex;align-items:center;justify-content:space-between">
+            <div style="padding:14px 18px;background:rgba(26,26,26,.025);border:1px solid rgba(26,26,26,.1);border-radius:8px;display:flex;align-items:center;justify-content:space-between">
               <div style="display:flex;align-items:center;gap:10px">
-                <div style="width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0"></div>
+                <div style="width:7px;height:7px;border-radius:50%;background:#1A1A1A;flex-shrink:0"></div>
                 <span style="font-size:12.5px;color:#666666">Unidad F-08 — regresó a zona permitida</span>
               </div>
               <span style="font-size:10.5px;color:rgba(0,0,0,.3)">14 min</span>
             </div>
             <div style="padding:14px 18px;background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);border-radius:8px;display:flex;align-items:center;justify-content:space-between">
               <div style="display:flex;align-items:center;gap:10px">
-                <div style="width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0"></div>
+                <div style="width:7px;height:7px;border-radius:50%;background:#1A1A1A;flex-shrink:0"></div>
                 <span style="font-size:12.5px;color:#666666">Hab. 412 — servicio completado</span>
               </div>
               <span style="font-size:10.5px;color:rgba(0,0,0,.3)">31 min</span>
@@ -507,10 +507,10 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 
 </main>
 
-<footer style="background:#040406;border-top:1px solid rgba(255,255,255,.05);padding:64px 0 40px;position:relative;z-index:10">
+<footer style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,.05);padding:64px 0 40px;position:relative;z-index:10">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
     <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#EAE6DF;margin-bottom:14px">Victor <span style="color:#B89A6A">IA</span></div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#000000;margin-bottom:14px">Victor <span style="color:#1A1A1A">IA</span></div>
       <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#666666;max-width:260px">El primer supercerebro de IA en LATAM.</p>
     </div>
     <div>
@@ -532,8 +532,8 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
       </ul>
     </div>
   </div>
-  <div style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(255,255,255,.05)">
-    <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(112,108,102,.28)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
+  <div style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(0,0,0,.05)">
+    <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(102,102,102,.28)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
   </div>
 </footer>
 
@@ -563,7 +563,7 @@ requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll('
 document.querySelectorAll('[data-eye]').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
 document.querySelectorAll('[data-eyec]').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
 document.querySelectorAll('.mag').forEach(wrap=>{const btn=wrap.querySelector('button,a')||wrap;wrap.addEventListener('mousemove',e=>{const r=wrap.getBoundingClientRect();gsap.to(btn,{x:((e.clientX-r.left)/r.width-.5)*20,y:((e.clientY-r.top)/r.height-.5)*20,duration:.5,ease:'power2.out'});});wrap.addEventListener('mouseleave',()=>gsap.to(btn,{x:0,y:0,duration:.8,ease:'elastic.out(1,.38)'}));});
-(function(){const cv=document.createElement('canvas');cv.id='space-bg';Object.assign(cv.style,{position:'fixed',inset:'0',width:'100%',height:'100%',zIndex:'0',pointerEvents:'none',opacity:'0',transition:'opacity 3s ease'});document.body.prepend(cv);const ctx=cv.getContext('2d');let W=cv.width=innerWidth,H=cv.height=innerHeight,mx=W/2,my=H/2;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});window.addEventListener('resize',()=>{W=cv.width=innerWidth;H=cv.height=innerHeight;buildStars();});let stars=[],shoots=[],st=0;function buildStars(){stars=[];for(let i=0;i<380;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.7+.15,l:0,tw:Math.random()*Math.PI*2,sp:.006+Math.random()*.006});for(let i=0;i<75;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.5,l:1,tw:Math.random()*Math.PI*2,sp:.009+Math.random()*.008});for(let i=0;i<20;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.9,l:2,tw:Math.random()*Math.PI*2,sp:.012+Math.random()*.01});}buildStars();const asts=Array.from({length:4},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.13,vy:(Math.random()-.5)*.1,r:Math.random()*10+6,rot:Math.random()*Math.PI*2,drot:(Math.random()-.5)*.004,sides:Math.floor(Math.random()*4)+5,jt:Array.from({length:8},()=>.6+Math.random()*.8)}));(function tick(){requestAnimationFrame(tick);ctx.clearRect(0,0,W,H);const px=(mx/W-.5),py=(my/H-.5);for(const s of stars){s.tw+=s.sp;const a=Math.min(.95,.25+Math.sin(s.tw)*.22+s.l*.12);ctx.beginPath();ctx.arc(s.x+px*(s.l+1)*-7,s.y+py*(s.l+1)*-7,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(215,205,185,${a.toFixed(2)})`;ctx.fill();}for(const a of asts){a.x+=a.vx;a.y+=a.vy;a.rot+=a.drot;if(a.x<-60)a.x=W+60;if(a.x>W+60)a.x=-60;if(a.y<-60)a.y=H+60;if(a.y>H+60)a.y=-60;ctx.save();ctx.translate(a.x,a.y);ctx.rotate(a.rot);ctx.beginPath();for(let i=0;i<a.sides;i++){const ang=(i/a.sides)*Math.PI*2,jr=a.jt[i%a.jt.length];i===0?ctx.moveTo(Math.cos(ang)*a.r*jr,Math.sin(ang)*a.r*jr):ctx.lineTo(Math.cos(ang)*a.r*jr,Math.sin(ang)*a.r*jr);}ctx.closePath();ctx.strokeStyle='rgba(170,150,110,.15)';ctx.lineWidth=.7;ctx.stroke();ctx.fillStyle='rgba(28,26,22,.45)';ctx.fill();ctx.restore();}st++;if(st>200+Math.random()*220){st=0;shoots.push({x:Math.random()*W*.65,y:Math.random()*H*.28,vx:4.5+Math.random()*5,vy:1.8+Math.random()*2,len:100+Math.random()*120,life:1,fade:.014+Math.random()*.014});}for(let i=shoots.length-1;i>=0;i--){const s=shoots[i];s.x+=s.vx;s.y+=s.vy;s.life-=s.fade;if(s.life<=0){shoots.splice(i,1);continue;}const g=ctx.createLinearGradient(s.x,s.y,s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5));g.addColorStop(0,`rgba(255,248,225,${(s.life*.9).toFixed(2)})`);g.addColorStop(1,'transparent');ctx.strokeStyle=g;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5));ctx.stroke();}})();setTimeout(()=>{cv.style.opacity='1';},500);})();
+(function(){const cv=document.createElement('canvas');cv.id='space-bg';Object.assign(cv.style,{position:'fixed',inset:'0',width:'100%',height:'100%',zIndex:'0',pointerEvents:'none',opacity:'0',transition:'opacity 3s ease'});document.body.prepend(cv);const ctx=cv.getContext('2d');let W=cv.width=innerWidth,H=cv.height=innerHeight,mx=W/2,my=H/2;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});window.addEventListener('resize',()=>{W=cv.width=innerWidth;H=cv.height=innerHeight;buildStars();});let stars=[],shoots=[],st=0;function buildStars(){stars=[];for(let i=0;i<380;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.7+.15,l:0,tw:Math.random()*Math.PI*2,sp:.006+Math.random()*.006});for(let i=0;i<75;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.5,l:1,tw:Math.random()*Math.PI*2,sp:.009+Math.random()*.008});for(let i=0;i<20;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.9,l:2,tw:Math.random()*Math.PI*2,sp:.012+Math.random()*.01});}buildStars();const asts=Array.from({length:4},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.13,vy:(Math.random()-.5)*.1,r:Math.random()*10+6,rot:Math.random()*Math.PI*2,drot:(Math.random()-.5)*.004,sides:Math.floor(Math.random()*4)+5,jt:Array.from({length:8},()=>.6+Math.random()*.8)}));(function tick(){requestAnimationFrame(tick);ctx.clearRect(0,0,W,H);const px=(mx/W-.5),py=(my/H-.5);for(const s of stars){s.tw+=s.sp;const a=Math.min(.95,.25+Math.sin(s.tw)*.22+s.l*.12);ctx.beginPath();ctx.arc(s.x+px*(s.l+1)*-7,s.y+py*(s.l+1)*-7,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(26,26,26,${a.toFixed(2)})`;ctx.fill();}for(const a of asts){a.x+=a.vx;a.y+=a.vy;a.rot+=a.drot;if(a.x<-60)a.x=W+60;if(a.x>W+60)a.x=-60;if(a.y<-60)a.y=H+60;if(a.y>H+60)a.y=-60;ctx.save();ctx.translate(a.x,a.y);ctx.rotate(a.rot);ctx.beginPath();for(let i=0;i<a.sides;i++){const ang=(i/a.sides)*Math.PI*2,jr=a.jt[i%a.jt.length];i===0?ctx.moveTo(Math.cos(ang)*a.r*jr,Math.sin(ang)*a.r*jr):ctx.lineTo(Math.cos(ang)*a.r*jr,Math.sin(ang)*a.r*jr);}ctx.closePath();ctx.strokeStyle='rgba(26,26,26,.15)';ctx.lineWidth=.7;ctx.stroke();ctx.fillStyle='rgba(0,0,0,.45)';ctx.fill();ctx.restore();}st++;if(st>200+Math.random()*220){st=0;shoots.push({x:Math.random()*W*.65,y:Math.random()*H*.28,vx:4.5+Math.random()*5,vy:1.8+Math.random()*2,len:100+Math.random()*120,life:1,fade:.014+Math.random()*.014});}for(let i=shoots.length-1;i>=0;i--){const s=shoots[i];s.x+=s.vx;s.y+=s.vy;s.life-=s.fade;if(s.life<=0){shoots.splice(i,1);continue;}const g=ctx.createLinearGradient(s.x,s.y,s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5));g.addColorStop(0,`rgba(0,0,0,${(s.life*.9).toFixed(2)})`);g.addColorStop(1,'transparent');ctx.strokeStyle=g;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5));ctx.stroke();}})();setTimeout(()=>{cv.style.opacity='1';},500);})();
 })();
 </script>
 </body>
