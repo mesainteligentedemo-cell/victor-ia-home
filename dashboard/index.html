@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VICTOR IA · Dashboard</title>
+<meta name="theme-color" content="#0A0A0C">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#0A0A0C; --bg1:#101013; --bg2:#16161A; --bg3:#1E1E23;
+  --t1:#F5F3EF; --t2:rgba(245,243,239,.62); --t3:rgba(245,243,239,.34);
+  --gold:#B89A6A; --gold-bright:#D4B886; --gold-soft:rgba(184,154,106,.12);
+  --b:rgba(255,255,255,.08); --b2:rgba(255,255,255,.16);
+  --green:#5FB389; --red:#D4756B;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif; background:var(--bg); color:var(--t1);
+  min-height:100vh; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+body::after{
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.018; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+
+/* ───── TOP NAV ───── */
+.topnav{
+  position:sticky; top:0; z-index:100; height:60px;
+  background:rgba(10,10,12,.86); backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--b);
+  display:flex; align-items:center; gap:28px; padding:0 26px;
+}
+.brand{display:flex; align-items:center; gap:11px; flex-shrink:0; text-decoration:none;}
+.brand-wordmark{font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:500; letter-spacing:.02em; color:var(--t1);}
+.brand-wordmark em{color:var(--gold); font-style:italic;}
+.topnav-links{display:flex; gap:2px; flex:1; overflow-x:auto; scrollbar-width:none;}
+.topnav-links::-webkit-scrollbar{display:none;}
+.topnav-links a{
+  font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--t3); text-decoration:none; padding:7px 13px; border-radius:8px;
+  white-space:nowrap; transition:color .2s,background .2s;
+}
+.topnav-links a:hover{color:var(--t1); background:var(--bg3);}
+.topnav-links a.active{color:var(--gold-bright); background:var(--gold-soft); border:1px solid rgba(184,154,106,.22);}
+.topnav-right{margin-left:auto; display:flex; align-items:center; gap:14px; flex-shrink:0;}
+.user-chip{display:flex; align-items:center; gap:9px; cursor:default;}
+.user-av{
+  width:34px; height:34px; border-radius:50%; flex-shrink:0;
+  background:var(--gold-soft); border:1px solid rgba(184,154,106,.3);
+  color:var(--gold-bright); font-size:13px; font-weight:600;
+  display:flex; align-items:center; justify-content:center;
+}
+.user-meta{display:flex; flex-direction:column; line-height:1.25;}
+.user-name{font-size:12.5px; font-weight:500; color:var(--t1);}
+.user-role{font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--t3);}
+.btn-logout{
+  background:transparent; border:1px solid var(--b); color:var(--t2);
+  font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.06em;
+  padding:7px 13px; border-radius:8px; cursor:pointer; transition:all .2s;
+}
+.btn-logout:hover{border-color:var(--b2); color:var(--t1);}
+
+/* ───── LAYOUT ───── */
+.shell{display:grid; grid-template-columns:248px 1fr; min-height:calc(100vh - 60px);}
+
+/* ───── SIDEBAR ───── */
+.sidebar{
+  border-right:1px solid var(--b); background:var(--bg1);
+  padding:26px 20px; position:sticky; top:60px; align-self:start;
+  height:calc(100vh - 60px); overflow-y:auto; scrollbar-width:thin;
+}
+.sidebar::-webkit-scrollbar{width:5px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--bg3); border-radius:4px;}
+.filter-head{
+  font-size:10px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:18px; display:flex; align-items:center; gap:8px;
+}
+.filter-head::after{content:''; flex:1; height:1px; background:var(--b);}
+.filter-group{margin-bottom:24px;}
+.filter-label{font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--t3); margin-bottom:9px; display:block;}
+.filter-select{
+  width:100%; background:var(--bg2); border:1px solid var(--b); color:var(--t1);
+  font-family:'Inter',sans-serif; font-size:13px; padding:10px 12px; border-radius:9px;
+  cursor:pointer; transition:border-color .2s; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23B89A6A' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 12px center;
+}
+.filter-select:focus{outline:none; border-color:rgba(184,154,106,.5);}
+.chip-row{display:flex; flex-wrap:wrap; gap:7px;}
+.chip{
+  font-size:11px; letter-spacing:.04em; padding:6px 11px; border-radius:20px;
+  background:var(--bg2); border:1px solid var(--b); color:var(--t2);
+  cursor:pointer; transition:all .2s;
+}
+.chip:hover{border-color:var(--b2); color:var(--t1);}
+.chip.on{background:var(--gold-soft); border-color:rgba(184,154,106,.4); color:var(--gold-bright);}
+.btn-clear{
+  width:100%; margin-top:6px; background:transparent; border:1px solid var(--b);
+  color:var(--t2); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  padding:9px; border-radius:9px; cursor:pointer; transition:all .2s;
+}
+.btn-clear:hover{border-color:var(--b2); color:var(--t1);}
+
+/* ───── MAIN ───── */
+.main{padding:30px clamp(20px,3vw,40px) 60px; max-width:1240px;}
+.page-head{margin-bottom:28px;}
+.page-eyebrow{display:flex; align-items:center; gap:12px; margin-bottom:10px;}
+.page-eyebrow span{font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold);}
+.page-eyebrow::after{content:''; flex:1; height:1px; background:var(--b);}
+.page-title{font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,2.9rem); font-weight:400; font-style:italic; letter-spacing:-.02em; line-height:1.05;}
+.page-sub{font-size:13px; color:var(--t2); margin-top:6px; font-weight:300;}
+
+.section-label{
+  font-size:10.5px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--t3); margin:36px 0 16px; display:flex; align-items:center; gap:12px;
+}
+.section-label::after{content:''; flex:1; height:1px; background:var(--b);}
+
+/* ───── KPIs ───── */
+.kpi-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.kpi{
+  background:var(--bg1); border:1px solid var(--b); border-radius:16px;
+  padding:22px 22px 20px; position:relative; overflow:hidden;
+  transition:border-color .25s, transform .25s;
+}
+.kpi:hover{border-color:rgba(184,154,106,.3); transform:translateY(-2px);}
+.kpi::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:.5;
+}
+.kpi-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+.kpi-name{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--t3);}
+.kpi-ico{width:32px; height:32px; border-radius:9px; background:var(--gold-soft); display:flex; align-items:center; justify-content:center; color:var(--gold-bright);}
+.kpi-ico svg{width:16px; height:16px;}
+.kpi-val{font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:500; color:var(--t1); line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.01em;}
+.kpi-val .unit{font-size:1.1rem; color:var(--gold); font-style:italic; margin-left:3px;}
+.kpi-delta{font-size:11.5px; margin-top:9px; display:flex; align-items:center; gap:5px; font-family:'JetBrains Mono',monospace;}
+.kpi-delta.up{color:var(--green);} .kpi-delta.down{color:var(--red);}
+.kpi-delta .lbl{color:var(--t3); letter-spacing:.02em;}
+
+/* ───── GENERATION BUTTONS ───── */
+.gen-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:14px;}
+.gen-btn{
+  background:var(--bg1); border:1px solid var(--b); border-radius:16px;
+  padding:24px 20px; cursor:pointer; text-align:left; position:relative; overflow:hidden;
+  display:flex; flex-direction:column; gap:14px; min-height:148px;
+  transition:border-color .28s var(--ease), transform .28s var(--ease), background .28s;
+  font-family:inherit; color:inherit;
+}
+.gen-btn::after{
+  content:''; position:absolute; inset:0; opacity:0; transition:opacity .3s;
+  background:radial-gradient(circle at 30% 20%, var(--gold-soft), transparent 70%);
+}
+.gen-btn:hover{border-color:rgba(184,154,106,.45); transform:translateY(-3px); background:var(--bg2);}
+.gen-btn:hover::after{opacity:1;}
+.gen-btn:active{transform:translateY(-1px) scale(.99);}
+.gen-ico{
+  width:46px; height:46px; border-radius:12px; flex-shrink:0; position:relative; z-index:1;
+  background:var(--gold-soft); border:1px solid rgba(184,154,106,.25);
+  display:flex; align-items:center; justify-content:center; color:var(--gold-bright);
+  transition:background .28s, transform .28s var(--ease);
+}
+.gen-btn:hover .gen-ico{background:rgba(184,154,106,.2); transform:scale(1.06);}
+.gen-ico svg{width:23px; height:23px;}
+.gen-body{position:relative; z-index:1;}
+.gen-title{font-size:14px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--t1); margin-bottom:5px;}
+.gen-desc{font-size:11.5px; color:var(--t3); line-height:1.4; font-weight:300;}
+.gen-arrow{
+  position:absolute; bottom:18px; right:18px; z-index:1;
+  color:var(--t3); transition:transform .28s var(--ease), color .28s;
+}
+.gen-btn:hover .gen-arrow{transform:translateX(4px); color:var(--gold);}
+.gen-btn.admin{grid-column:span 1;}
+.gen-btn.admin .gen-ico{background:rgba(255,255,255,.05); border-color:var(--b); color:var(--t2);}
+
+/* ───── PROJECT METRICS ───── */
+.proj-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px;}
+.proj-card{background:var(--bg1); border:1px solid var(--b); border-radius:16px; padding:20px; transition:border-color .25s;}
+.proj-card:hover{border-color:var(--b2);}
+.proj-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;}
+.proj-name{font-size:14px; font-weight:600; color:var(--t1);}
+.proj-status{font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; padding:4px 9px; border-radius:20px;}
+.proj-status.activo{background:rgba(95,179,137,.12); color:var(--green); border:1px solid rgba(95,179,137,.25);}
+.proj-status.propuesta{background:var(--gold-soft); color:var(--gold-bright); border:1px solid rgba(184,154,106,.25);}
+.proj-status.prospecto{background:rgba(255,255,255,.05); color:var(--t2); border:1px solid var(--b);}
+.proj-bar{height:6px; border-radius:6px; background:var(--bg3); overflow:hidden; margin-bottom:12px;}
+.proj-bar span{display:block; height:100%; border-radius:6px; background:linear-gradient(90deg,var(--gold),var(--gold-bright));}
+.proj-meta{display:flex; justify-content:space-between; font-size:11.5px; color:var(--t2); font-family:'JetBrains Mono',monospace;}
+.proj-meta b{color:var(--t1); font-weight:500;}
+
+/* ───── MODAL ───── */
+.modal-bg{position:fixed; inset:0; z-index:500; background:rgba(5,5,7,.78); backdrop-filter:blur(8px); display:none; align-items:center; justify-content:center; padding:24px;}
+.modal-bg.show{display:flex; animation:fadeIn .3s var(--ease);}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  width:100%; max-width:480px; background:var(--bg1); border:1px solid var(--b2);
+  border-radius:20px; padding:32px; position:relative; animation:modalIn .4s var(--ease);
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.modal-ico{width:52px; height:52px; border-radius:14px; background:var(--gold-soft); border:1px solid rgba(184,154,106,.3); display:flex; align-items:center; justify-content:center; color:var(--gold-bright); margin-bottom:18px;}
+.modal-ico svg{width:26px;height:26px;}
+.modal-title{font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-style:italic; margin-bottom:8px;}
+.modal-desc{font-size:13px; color:var(--t2); line-height:1.6; margin-bottom:22px; font-weight:300;}
+.modal-opts{display:flex; flex-direction:column; gap:9px;}
+.modal-opt{
+  display:flex; align-items:center; gap:12px; padding:14px 16px;
+  background:var(--bg2); border:1px solid var(--b); border-radius:12px;
+  text-decoration:none; color:var(--t1); transition:all .2s; cursor:pointer;
+}
+.modal-opt:hover{border-color:rgba(184,154,106,.4); background:var(--bg3);}
+.modal-opt-dot{width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0;}
+.modal-opt-txt{flex:1;}
+.modal-opt-name{font-size:13px; font-weight:500;}
+.modal-opt-sub{font-size:11px; color:var(--t3); margin-top:2px;}
+.modal-close{position:absolute; top:18px; right:18px; width:32px; height:32px; border-radius:9px; background:var(--bg2); border:1px solid var(--b); color:var(--t2); cursor:pointer; font-size:18px; line-height:1; display:flex; align-items:center; justify-content:center; transition:all .2s;}
+.modal-close:hover{border-color:var(--b2); color:var(--t1);}
+
+/* ───── RESPONSIVE ───── */
+.menu-toggle{display:none; background:transparent; border:1px solid var(--b); color:var(--t1); width:38px; height:38px; border-radius:9px; cursor:pointer; align-items:center; justify-content:center;}
+@media (max-width:980px){
+  .shell{grid-template-columns:1fr;}
+  .sidebar{position:fixed; top:60px; left:0; bottom:0; width:280px; z-index:90; transform:translateX(-100%); transition:transform .3s var(--ease); height:calc(100vh - 60px);}
+  .sidebar.open{transform:translateX(0); box-shadow:30px 0 80px rgba(0,0,0,.5);}
+  .menu-toggle{display:flex;}
+  .topnav-links{display:none;}
+}
+@media (max-width:560px){
+  .main{padding:22px 16px 50px;}
+  .user-meta{display:none;}
+  .kpi-grid{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important;}}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOP NAV ═══ -->
+<nav class="topnav">
+  <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Menú">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="brand" href="/dashboard/">
+    <svg width="28" height="28" viewBox="0 0 38 38" fill="none">
+      <rect width="38" height="38" rx="8" fill="#16161A"/>
+      <path d="M8 9L19 29.5L30 9" stroke="#F5F3EF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="15.2" y="17.5" width="2.2" height="6" fill="#B89A6A"/>
+      <rect x="18.9" y="14.5" width="2.2" height="9" fill="#B89A6A"/>
+      <rect x="22.6" y="18.5" width="2.2" height="5" fill="#B89A6A"/>
+    </svg>
+    <span class="brand-wordmark">Victor <em>IA</em></span>
+  </a>
+  <div class="topnav-links">
+    <a href="/dashboard/" class="active">Dashboard</a>
+    <a href="https://tracker.victor-ia.xyz">Analytics</a>
+    <a href="/dashboard.html">Finanzas</a>
+    <a href="/cms.html">Contenido</a>
+    <a href="/panel.html">Proyectos</a>
+    <a href="/admin.html">Admin</a>
+  </div>
+  <div class="topnav-right">
+    <div class="user-chip">
+      <div class="user-av" id="user-av">V</div>
+      <div class="user-meta">
+        <span class="user-name" id="user-name">Usuario</span>
+        <span class="user-role" id="user-role">Equipo</span>
+      </div>
+    </div>
+    <button class="btn-logout" onclick="logout()">Salir</button>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <!-- ═══ SIDEBAR FILTERS ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="filter-head">Filtros</div>
+
+    <div class="filter-group">
+      <label class="filter-label" for="f-periodo">Período</label>
+      <select class="filter-select" id="f-periodo">
+        <option>Hoy</option>
+        <option selected>Últimos 7 días</option>
+        <option>Últimos 30 días</option>
+        <option>Este trimestre</option>
+        <option>Este año</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-label" for="f-proyecto">Proyecto</label>
+      <select class="filter-select" id="f-proyecto">
+        <option selected>Todos los proyectos</option>
+        <option>Victor IA Website</option>
+        <option>Costa Negra</option>
+        <option>ROES & CO</option>
+        <option>Seabird Hotel</option>
+        <option>Influence IA Awards</option>
+        <option>Dashboard BI</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-label" for="f-cliente">Cliente</label>
+      <select class="filter-select" id="f-cliente">
+        <option selected>Todos los clientes</option>
+        <option>ROES & CO</option>
+        <option>Seabird Ocean Resort</option>
+        <option>Aldo Rendón</option>
+        <option>Jimena Rodríguez</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Estado</span>
+      <div class="chip-row">
+        <button class="chip on" onclick="this.classList.toggle('on')">Activo</button>
+        <button class="chip on" onclick="this.classList.toggle('on')">Propuesta</button>
+        <button class="chip" onclick="this.classList.toggle('on')">Prospecto</button>
+        <button class="chip" onclick="this.classList.toggle('on')">Completado</button>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-label">Tipo de salida</span>
+      <div class="chip-row">
+        <button class="chip" onclick="this.classList.toggle('on')">Imagen</button>
+        <button class="chip" onclick="this.classList.toggle('on')">Video</button>
+        <button class="chip" onclick="this.classList.toggle('on')">Voz</button>
+        <button class="chip" onclick="this.classList.toggle('on')">Web</button>
+      </div>
+    </div>
+
+    <button class="btn-clear" onclick="clearFilters()">Limpiar filtros</button>
+  </aside>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="main">
+    <div class="page-head">
+      <div class="page-eyebrow"><span>Centro de Comando</span></div>
+      <h1 class="page-title" id="greeting">Bienvenido.</h1>
+      <p class="page-sub">Genera, monitorea y entrega — todo desde un solo panel.</p>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-name">Total Tokens</span>
+          <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></span>
+        </div>
+        <div class="kpi-val">8.42<span class="unit">M</span></div>
+        <div class="kpi-delta up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>+12.4%<span class="lbl">vs sem. previa</span></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-name">Costo Actual</span>
+          <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        </div>
+        <div class="kpi-val"><span class="unit" style="margin-left:0;margin-right:2px">$</span>1,284</div>
+        <div class="kpi-delta down"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M17 17H8M17 17V8"/></svg>-3.1%<span class="lbl">MXN este período</span></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-name">Tasa de Flujo</span>
+          <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></span>
+        </div>
+        <div class="kpi-val">94<span class="unit">/h</span></div>
+        <div class="kpi-delta up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>+8.0%<span class="lbl">generaciones/hora</span></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-top">
+          <span class="kpi-name">Proyectos Activos</span>
+          <span class="kpi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-6l-2-3H5a2 2 0 0 0-2 2z"/></svg></span>
+        </div>
+        <div class="kpi-val">8</div>
+        <div class="kpi-delta up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>+2<span class="lbl">nuevos este mes</span></div>
+      </div>
+    </div>
+
+    <!-- GENERATION -->
+    <div class="section-label">Generar</div>
+    <div class="gen-grid">
+
+      <button class="gen-btn" onclick="openGen('imagen')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Imagen</div>
+          <div class="gen-desc">Genera visuales con Higgsfield</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+      <button class="gen-btn" onclick="openGen('video')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 9l6-3v12l-6-3"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Video</div>
+          <div class="gen-desc">Spots, motion design y campañas</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+      <button class="gen-btn" onclick="openGen('presentacion')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Presentación</div>
+          <div class="gen-desc">Decks animados con HyperFrames</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+      <button class="gen-btn" onclick="openGen('web')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Web</div>
+          <div class="gen-desc">Landing pages y sitios Web 4.0</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+      <button class="gen-btn" onclick="openGen('voz')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Voz</div>
+          <div class="gen-desc">Voice over y audio con ElevenLabs</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+      <button class="gen-btn" onclick="openGen('capacitacion')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Capacitación</div>
+          <div class="gen-desc">Cursos y entrenamiento interactivo</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+      <button class="gen-btn admin" onclick="openGen('admin')">
+        <span class="gen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <div class="gen-body">
+          <div class="gen-title">Admin</div>
+          <div class="gen-desc">Configuración, equipo y accesos</div>
+        </div>
+        <span class="gen-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </button>
+
+    </div>
+
+    <!-- PROJECT METRICS -->
+    <div class="section-label">Métricas por proyecto</div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-name">Seabird Ocean Resort</span><span class="proj-status propuesta">Propuesta</span></div>
+        <div class="proj-bar"><span style="width:64%"></span></div>
+        <div class="proj-meta"><span>Avance <b>64%</b></span><span>Tokens <b>1.9M</b></span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-name">ROES & CO</span><span class="proj-status propuesta">Propuesta</span></div>
+        <div class="proj-bar"><span style="width:78%"></span></div>
+        <div class="proj-meta"><span>Avance <b>78%</b></span><span>Tokens <b>2.3M</b></span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-name">Victor IA Website</span><span class="proj-status activo">Activo</span></div>
+        <div class="proj-bar"><span style="width:92%"></span></div>
+        <div class="proj-meta"><span>Avance <b>92%</b></span><span>Tokens <b>3.1M</b></span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-name">Costa Negra</span><span class="proj-status activo">Activo</span></div>
+        <div class="proj-bar"><span style="width:88%"></span></div>
+        <div class="proj-meta"><span>Avance <b>88%</b></span><span>Tokens <b>1.1M</b></span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-name">Influence IA Awards</span><span class="proj-status activo">Activo</span></div>
+        <div class="proj-bar"><span style="width:70%"></span></div>
+        <div class="proj-meta"><span>Avance <b>70%</b></span><span>Tokens <b>0.8M</b></span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-name">Rosa Laura Ubeda</span><span class="proj-status prospecto">Prospecto</span></div>
+        <div class="proj-bar"><span style="width:22%"></span></div>
+        <div class="proj-meta"><span>Avance <b>22%</b></span><span>Tokens <b>0.1M</b></span></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeGen()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeGen()" aria-label="Cerrar">×</button>
+    <div class="modal-ico" id="m-ico"></div>
+    <div class="modal-title" id="m-title">Generar</div>
+    <div class="modal-desc" id="m-desc"></div>
+    <div class="modal-opts" id="m-opts"></div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+// ───── FIREBASE (mismo proyecto que el login) ─────
+const VIA_FB_CONFIG={apiKey:"AIzaSyBciNfVGjH5l3szzGVgatXlZvLvaoNsp14",authDomain:"victor-ia.xyz",projectId:"victor-ia-tracker",storageBucket:"victor-ia-tracker.firebasestorage.app",messagingSenderId:"475376340371",appId:"1:475376340371:web:caaf70c5c4063edfcb6c66"};
+firebase.initializeApp(VIA_FB_CONFIG);
+const _auth=firebase.auth();
+
+// ───── LEER SESIÓN: hash del login (#base64) o localStorage ─────
+function readSession(){
+  let data=null;
+  try{
+    if(location.hash.length>1){
+      data=JSON.parse(decodeURIComponent(atob(location.hash.slice(1))));
+      // persistir para refrescos
+      if(data){
+        localStorage.setItem('via_access_role',data.role||'team');
+        localStorage.setItem('via_access_name',data.name||'');
+        localStorage.setItem('via_access_email',data.email||'');
+        localStorage.setItem('via_access_project',data.project||'');
+        history.replaceState(null,'',location.pathname);
+      }
+    }
+  }catch(e){}
+  if(!data){
+    data={
+      role:localStorage.getItem('via_access_role'),
+      name:localStorage.getItem('via_access_name'),
+      email:localStorage.getItem('via_access_email'),
+      project:localStorage.getItem('via_access_project')
+    };
+  }
+  return data;
+}
+
+const sess=readSession();
+
+// ───── GUARD: sin rol → al login ─────
+if(!sess.role){
+  location.replace('/login');
+}else{
+  const name=sess.name||(sess.email?sess.email.split('@')[0]:'Usuario');
+  const first=name.split(' ')[0];
+  document.getElementById('user-name').textContent=name;
+  document.getElementById('user-av').textContent=(first.charAt(0)||'V').toUpperCase();
+  document.getElementById('user-role').textContent=sess.role==='client'?'Cliente':'Equipo';
+  const h=new Date().getHours();
+  const g=h<12?'Buenos días':h<19?'Buenas tardes':'Buenas noches';
+  document.getElementById('greeting').textContent=g+', '+first+'.';
+}
+
+// ───── LOGOUT ─────
+function logout(){
+  try{
+    ['via_access_role','via_access_name','via_access_email','via_access_project'].forEach(k=>localStorage.removeItem(k));
+    _auth.signOut().finally(()=>location.replace('/login'));
+  }catch(e){location.replace('/login');}
+}
+
+// ───── SIDEBAR (mobile) ─────
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+function clearFilters(){
+  document.querySelectorAll('.filter-select').forEach(s=>s.selectedIndex=0);
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+}
+
+// ───── GENERATION MODAL ─────
+const GEN={
+  imagen:{
+    title:'Generar Imagen', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>',
+    desc:'Elige cómo quieres crear tu imagen. Higgsfield es el motor por defecto.',
+    opts:[
+      {n:'Higgsfield · Foto producto',s:'Realismo fotográfico de alta calidad',h:'#'},
+      {n:'Higgsfield · Ilustración conceptual',s:'Arte y composiciones creativas',h:'#'},
+      {n:'Upscale / Editar imagen existente',s:'Mejora resolución o reencuadre',h:'#'}
+    ]},
+  video:{
+    title:'Generar Video', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M16 9l6-3v12l-6-3"/></svg>',
+    desc:'Selecciona el tipo de video. Cada agente está optimizado para un caso.',
+    opts:[
+      {n:'Motion Design · Campaña/Spot',s:'Cinemático + VO sincronizado',h:'#'},
+      {n:'HyperFrames · Presentación animada',s:'Timeline HTML + GSAP',h:'#'},
+      {n:'Remotion · Datos dinámicos',s:'React + interpolación de datos',h:'#'},
+      {n:'Scroll-Cinematic · Sitio cinético',s:'Frame-sequence con scroll',h:'#'}
+    ]},
+  presentacion:{
+    title:'Generar Presentación', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    desc:'Decks y slides animados con HyperFrames.',
+    opts:[
+      {n:'Deck comercial / propuesta',s:'Pitch con datos y CTA',h:'#'},
+      {n:'Slides animados para video',s:'Export a MP4',h:'#'}
+    ]},
+  web:{
+    title:'Generar Web', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>',
+    desc:'Crea sitios y landing pages con el agente web-4o.',
+    opts:[
+      {n:'web-4o · Sitio nuevo desde cero',s:'R3F, Three.js, shaders, luxury',h:'#'},
+      {n:'Landing page de conversión',s:'Una sección, foco en CTA',h:'#'},
+      {n:'Auditoría + mejoras (curador)',s:'7 dimensiones, benchmarks',h:'#'}
+    ]},
+  voz:{
+    title:'Generar Voz', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4"/></svg>',
+    desc:'Audio y voz con ElevenLabs (voz Victor por defecto).',
+    opts:[
+      {n:'Voice over para video',s:'Con timestamps para sync',h:'#'},
+      {n:'Música original',s:'ElevenLabs Music por video',h:'#'},
+      {n:'Podcast / audio multi-idioma',s:'API directa',h:'#'}
+    ]},
+  capacitacion:{
+    title:'Capacitación', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg>',
+    desc:'Cursos y entrenamiento interactivo.',
+    opts:[
+      {n:'Entrenador interactivo (roleplay)',s:'Agente con voz bilingüe',h:'#'},
+      {n:'Curso en video con módulos',s:'Pipeline de producción',h:'#'}
+    ]},
+  admin:{
+    title:'Administración', ico:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+    desc:'Configuración, equipo y accesos.',
+    opts:[
+      {n:'Panel de administración',s:'Usuarios, roles y permisos',h:'/admin.html'},
+      {n:'CMS / Contenido',s:'Gestión de blog y páginas',h:'/cms.html'},
+      {n:'Finanzas',s:'Dashboard BI de costos',h:'/dashboard.html'}
+    ]}
+};
+function openGen(key){
+  const g=GEN[key]; if(!g)return;
+  document.getElementById('m-ico').innerHTML=g.ico;
+  document.getElementById('m-title').textContent=g.title;
+  document.getElementById('m-desc').textContent=g.desc;
+  document.getElementById('m-opts').innerHTML=g.opts.map(o=>
+    `<a class="modal-opt" href="${o.h}"><span class="modal-opt-dot"></span><span class="modal-opt-txt"><span class="modal-opt-name">${o.n}</span><span class="modal-opt-sub">${o.s}</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:var(--t3)"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`
+  ).join('');
+  document.getElementById('modal').classList.add('show');
+}
+function closeGen(){document.getElementById('modal').classList.remove('show');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGen();});
+</script>
+</body>
+</html>
