@@ -1,1799 +1,1617 @@
+<!-- Victor IA — Web 4.0 · Readymag Premium Edition -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="_grcteJDPwf2UE7oRSRufvalXC063mEyR5N-nqk7vng" />
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js')</script>
+<link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="google-site-verification" content="_grcteJDPwf2UE7oRSRufvalXC063mEyR5N-nqk7vng"/>
+<title>Victor IA | Agentes de Inteligencia Artificial para Empresas en México</title>
+<meta name="description" content="~200 agentes de IA especializados trabajando en paralelo para tu empresa. Automatiza operaciones, reduce costos hasta 40% y crece al 10×. El primer supercerebro de inteligencia artificial para empresas en México y LATAM."/>
+<link rel="canonical" href="https://victor-ia.xyz/"/>
+<meta name="robots" content="index, follow"/>
+<meta http-equiv="content-language" content="es-MX"/>
+<meta name="geo.region" content="MX"/>
+<meta name="geo.placename" content="México"/>
+<meta name="geo.position" content="20.9674;-89.6236"/>
+<meta name="ICBM" content="20.9674, -89.6236"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://victor-ia.xyz/"/>
+<meta property="og:title" content="Victor IA | Agentes de IA para Empresas en México"/>
+<meta property="og:description" content="~200 agentes de inteligencia artificial en paralelo. Automatiza, produce y crece al 10×. El primer supercerebro empresarial en LATAM."/>
+<meta property="og:locale" content="es_MX"/>
+<meta property="og:site_name" content="Victor IA"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Victor IA | Agentes de IA para Empresas"/>
+<meta name="twitter:description" content="~200 agentes de IA en paralelo para tu empresa. El primer supercerebro empresarial en LATAM."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/styles-global.css"/>
+<!-- Tailwind CDN (dev) reemplazado por utilidades estáticas: sin FOUC, sin ~300KB JS, mejor LCP -->
+<style>
+/* ── Utilidades (subset usado en el home) ─────────────────── */
+.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.relative{position:relative}
+.items-center{align-items:center}.justify-between{justify-content:space-between}.flex-wrap{flex-wrap:wrap}
+.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-5{gap:1.25rem}.gap-9{gap:2.25rem}
+.mx-auto{margin-left:auto;margin-right:auto}.mb-5{margin-bottom:1.25rem}.mb-8{margin-bottom:2rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.w-full{width:100%}.h-full{height:100%}.z-10{z-index:10}
+.max-w-\[1200px\]{max-width:1200px}
+.font-display{font-family:'Cormorant Garamond','Georgia',serif}.font-light{font-weight:300}
+.text-cream{color:#EAE6DF}.text-\[21px\]{font-size:21px}.tracking-\[\.04em\]{letter-spacing:.04em}
+.no-underline{text-decoration:none}.select-none{user-select:none}
+@media(min-width:640px){.sm\:block{display:block}}
+@media(min-width:768px){.md\:flex{display:flex}.md\:px-16{padding-left:4rem;padding-right:4rem}}
+</style>
+<style>
+/* ══ DESIGN SYSTEM — CSS VARIABLES ══════════════════════════════════ */
+:root{
+  /* Colors */
+  --bg-primary: #070708;
+  --bg-secondary: #0A0A0C;
+  --bg-card: #0F0F12;
+  --text-primary: #EAE6DF;
+  --text-muted: #706C66;
+  --gold: #B89A6A;
+  --gold-10: rgba(184,154,106,.1);
+  --gold-20: rgba(184,154,106,.2);
+  --gold-30: rgba(184,154,106,.3);
+  --gold-40: rgba(184,154,106,.4);
 
-  <!-- SEO: Primary ──────────────────────────────────────── -->
-  <title>Brain Tracker — Software de Gestión IA para Agencias Digitales | Victor IA</title>
-  <meta name="description" content="CRM + Time Tracker + Finanzas + Agentes IA en un solo dashboard. Brain Tracker es el software de gestión para agencias digitales que elimina el caos de herramientas. Solicita acceso.">
-  <link rel="canonical" href="https://victor-ia.xyz/">
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 64px;
 
-  <!-- SEO: Open Graph ───────────────────────────────────── -->
-  <meta property="fb:app_id" content="1274596911506548">
-  <meta property="og:title" content="Brain Tracker — Software de Gestión IA para Agencias Digitales">
-  <meta property="og:description" content="CRM, time tracker, finanzas y agentes IA en un solo dashboard. La infraestructura digital que necesita tu agencia.">
-  <meta property="og:url" content="https://victor-ia.xyz/">
-  <meta property="og:image" content="https://victor-ia.xyz/og-image.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_MX">
-  <meta property="og:site_name" content="Victor IA">
+  /* Layout */
+  --max-width: 1200px;
+  --padding-mobile: 16px;
+  --padding-tablet: 24px;
+  --padding-desktop: 40px;
 
-  <!-- SEO: Twitter Card ─────────────────────────────────── -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Brain Tracker — Software de Gestión IA para Agencias Digitales">
-  <meta name="twitter:description" content="CRM, time tracker, finanzas y agentes IA en un solo dashboard. Solicita acceso gratuito.">
-  <meta name="twitter:image" content="https://victor-ia.xyz/og-image.jpg">
+  /* Typography */
+  --ls-tight: .02em;
+  --ls-normal: .07em;
+  --ls-wide: .12em;
+  --ls-extra: .18em;
 
-  <!-- Schema: SoftwareApplication ──────────────────────── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Brain Tracker",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "url": "https://victor-ia.xyz/",
-    "description": "Software de gestión todo-en-uno para agencias digitales. Integra CRM, tracker de tiempo, gestión de proyectos, finanzas y agentes de IA autónomos en un solo dashboard en tiempo real.",
-    "featureList": ["Chat IA Integrado","CRM Pipeline","Time Tracker","Gestión de Proyectos","Finanzas Claras","Agentes Autónomos de IA"],
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "MXN", "description": "Plan gratuito con acceso por invitación" },
-    "provider": { "@type": "Organization", "name": "Victor IA", "url": "https://victor-ia.xyz", "email": "hola@victor-ia.com.mx" }
+  /* Z-index */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-sticky: 100;
+  --z-header: 500;
+  --z-overlay: 1000;
+  --z-cursor: 99998;
+  --z-top: 100000;
+
+  /* Transitions */
+  --trans-fast: 200ms cubic-bezier(.16,1,.3,1);
+  --trans-normal: 400ms cubic-bezier(.16,1,.3,1);
+  --trans-slow: 800ms cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Reset & base ─────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:auto}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Inter',sans-serif;overflow-x:hidden;font-weight:300;line-height:1.5}
+
+/* ── Cursor (pointer:fine only) ─────────────────── */
+@media(pointer:fine){*{cursor:none!important}}
+#cur-d{position:fixed;width:5px;height:5px;background:#B89A6A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .15s}
+#cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(184,154,106,.42);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1),border-color .4s,opacity .4s}
+#cur-r.expand{width:58px;height:58px;border-color:rgba(184,154,106,.72)}
+#cur-r.shrink{width:16px;height:16px;border-color:rgba(184,154,106,.9)}
+
+/* ── Space canvas (dynamically created) ─────────── */
+#space-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 3s ease}
+
+/* ── Progress bar ────────────────────────────────── */
+#pbar{position:fixed;top:0;left:0;height:1px;background:#B89A6A;z-index:100000;width:0;transform-origin:left}
+
+/* ── Noise grain ─────────────────────────────────── */
+#noise{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.024;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── Header ──────────────────────────────────────── */
+header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,255,255,.06);backdrop-filter:blur(18px)}
+.nav-a{position:relative;color:#666666;font-size:13px;letter-spacing:.07em;font-weight:300;transition:color .3s;text-decoration:none}
+.nav-a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#1A1A1A;transition:width .45s cubic-bezier(.16,1,.3,1)}
+.nav-a:hover{color:#000000}
+.nav-a:hover::after{width:100%}
+
+/* ── Buttons ─────────────────────────────────────── */
+.btn-p,.btn-g{display:inline-flex;align-items:center;justify-content:center;border-radius:5px;font-family:var(--font-body);font-size:13px;letter-spacing:.09em;font-weight:500;position:relative;overflow:hidden;text-decoration:none}
+.btn-p{background:#000000;color:#FFFFFF;border:1px solid transparent;padding:11px 26px;transition:background .25s,transform .2s}
+.btn-p:hover{background:#1A1A1A;transform:translateY(-2px)}
+.btn-p:active{transform:translateY(0)}
+.btn-g{background:transparent;color:#000000;border:1px solid rgba(0,0,0,.18);padding:11px 26px;transition:border-color .3s,transform .2s}
+.btn-g:hover{border-color:rgba(0,0,0,.45);transform:translateY(-2px)}
+.mag{display:inline-block}
+
+/* ── Cards ───────────────────────────────────────── */
+.card{background:#0F0F12;border:1px solid rgba(255,255,255,.054);border-radius:12px;transition:border-color .45s;transform-style:preserve-3d;will-change:transform}
+.card:hover{border-color:rgba(184,154,106,.22)}
+.card-flat{background:#0F0F12;border:1px solid rgba(255,255,255,.054);border-radius:12px}
+
+/* ── Eyebrow ─────────────────────────────────────── */
+.eye{display:inline-flex;align-items:center;gap:13px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#B89A6A}
+.eye::before{content:'';display:block;width:0;height:1px;background:#B89A6A;flex-shrink:0;transition:width 1.3s cubic-bezier(.16,1,.3,1)}
+.eye.on::before{width:26px}
+.eyec{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(184,154,106,.6);display:flex;align-items:center;justify-content:center;gap:10px}
+.eyec::before,.eyec::after{content:'';display:block;width:0;height:1px;background:rgba(184,154,106,.4);transition:width 1.3s cubic-bezier(.16,1,.3,1)}
+.eyec.on::before,.eyec.on::after{width:18px}
+
+/* ── Split text ──────────────────────────────────── */
+.sl{overflow:hidden;display:block}
+.si{display:block;transform:translateY(108%);opacity:0}
+
+/* ── Initial hidden states (GSAP takes over) ─────── */
+.h-badge,.h-sub,.h-cta,.h-hint,.h-panel{opacity:0;transform:translateY(22px)}
+.h-panel{transform:translateX(36px)}
+
+/* ── Divider ─────────────────────────────────────── */
+.hr{height:1px;background:rgba(255,255,255,.052)}
+
+/* ── Marquee ─────────────────────────────────────── */
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-t{display:flex;animation:mq 30s linear infinite;width:max-content;align-items:center}
+.mq-w:hover .mq-t{animation-play-state:paused}
+
+/* ── Scroll bounce ───────────────────────────────── */
+@keyframes sb{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:.9}}
+.sb{animation:sb 2.2s ease-in-out infinite}
+
+/* ── SVG ring pulses ─────────────────────────────── */
+@keyframes rp{0%{opacity:.18;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+.rp1{animation:rp 4s ease-out infinite}
+.rp2{animation:rp 4s ease-out .9s infinite}
+.rp3{animation:rp 4s ease-out 1.8s infinite}
+
+/* ── Number counter ──────────────────────────────── */
+.stat-n{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1;color:#F5F0E8;text-shadow:0 0 80px rgba(184,154,106,.22)}
+
+/* ── Step hover fill ─────────────────────────────── */
+.step{position:relative;overflow:hidden;transition:background-color .4s}
+.step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(184,154,106,.05);transition:width .55s cubic-bezier(.16,1,.3,1);z-index:0}
+.step:hover::before{width:100%}
+.step>*{position:relative;z-index:1}
+
+/* ── Card glow (follows cursor inside) ───────────── */
+.card-g{transition:background .15s}
+
+/* ── Parallax img ────────────────────────────────── */
+.par-img{will-change:transform}
+
+/* ── Section bg alternating ─────────────────────── */
+.bg2{background:#0A0A0C}
+
+/* ── Scroll reveal base ──────────────────────────── */
+.rv{opacity:0;transform:translateY(30px)}
+@keyframes rv-in{to{opacity:1;transform:none}}
+.rv.on{animation:rv-in .8s cubic-bezier(.16,1,.3,1) forwards}
+/* Fallback sin JS / CDN caído: revelar TODO el contenido */
+.no-js .rv,.no-js .si,.no-js .h-badge,.no-js .h-sub,.no-js .h-cta,.no-js .h-hint,.no-js .h-panel{opacity:1!important;transform:none!important;animation:none!important}
+/* A11y: respetar reduce-motion */
+@media(prefers-reduced-motion:reduce){
+  .rv,.si,.h-badge,.h-sub,.h-cta,.h-hint,.h-panel{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  .mq-t,.sb,.rp1,.rp2,.rp3{animation:none!important}
+  html{scroll-behavior:auto!important}
+}
+
+/* ── Gold vertical rule ──────────────────────────── */
+.gold-vr{width:1px;background:rgba(184,154,106,0);transition:background 1.2s .3s}
+.gold-vr.on{background:rgba(184,154,106,.28)}
+
+/* ── Large decorative number (background) ───────── */
+.deco-n{font-family:'Cormorant Garamond',serif;font-weight:200;color:rgba(255,255,255,.028);line-height:1;pointer-events:none;user-select:none}
+details{border-bottom:1px solid rgba(255,255,255,.06)}
+details summary{list-style:none;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:#EAE6DF;font-weight:300;letter-spacing:.01em}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:'+';color:#B89A6A;font-size:20px;font-weight:200}
+details[open] summary::after{content:'−'}
+details p{font-size:14.5px;line-height:1.84;color:#706C66;padding-bottom:22px}
+.svc-card{background:#0F0F12;border:1px solid rgba(255,255,255,.054);border-radius:12px;padding:36px 32px;text-decoration:none;display:block;transition:border-color .45s,transform .4s}
+.svc-card:hover{border-color:rgba(184,154,106,.22);transform:translateY(-4px)}
+
+/* ══ ICON WRAP + ANIMACIONES POR SLUG (hover, quiet-luxury) ══ */
+.ic-wrap{width:48px;height:48px;border-radius:10px;background:rgba(184,154,106,.06);border:1px solid rgba(184,154,106,.12);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:background .45s,border-color .45s,transform .5s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover .ic-wrap{background:rgba(184,154,106,.11);border-color:rgba(184,154,106,.3);transform:translateY(-2px) scale(1.04)}
+.ic *{transform-box:fill-box;transform-origin:center;transition:opacity .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover .ic{filter:drop-shadow(0 0 5px rgba(184,154,106,.4))}
+/* 1 · Agentes IA — el orbital exterior gira */
+.svc-card:hover .ic-agents .orbit{animation:icSpin 5s linear infinite}
+/* 2 · Producción Creativa — la pantalla revela un play */
+.svc-card:hover .ic-creative .play{opacity:1;animation:icBeat 1.4s ease-in-out infinite}
+.svc-card:hover .ic-creative .screen{stroke:#CDB28C}
+/* 3 · Análisis & Datos — la curva se traza hacia arriba */
+.ic-data .trend{stroke-dasharray:24}
+.svc-card:hover .ic-data .trend{animation:icDraw 1.6s cubic-bezier(.16,1,.3,1) infinite}
+/* 4 · Automatización Total — núcleo gira, radios laten */
+.svc-card:hover .ic-auto .core{animation:icSpin 4s linear infinite}
+.svc-card:hover .ic-auto .spokes{animation:icBeat 1.5s ease-in-out infinite}
+/* 5 · Eficiencia e IoT — ondas de señal que se expanden */
+.svc-card:hover .ic-iot .r1{animation:icPing 1.8s ease-out infinite}
+.svc-card:hover .ic-iot .r2{animation:icPing 1.8s ease-out .5s infinite}
+/* 6 · Plan a tu Medida — la estrella destella y gira sutil */
+.svc-card:hover .ic-plan .star{animation:icTwinkle 2.4s ease-in-out infinite}
+@keyframes icSpin{to{transform:rotate(360deg)}}
+@keyframes icBeat{0%,100%{transform:scale(.92);opacity:.7}50%{transform:scale(1.08);opacity:1}}
+@keyframes icDraw{0%{stroke-dashoffset:24}55%,100%{stroke-dashoffset:0}}
+@keyframes icPing{0%{transform:scale(.55);opacity:.7}80%,100%{transform:scale(1.15);opacity:0}}
+@keyframes icTwinkle{0%,100%{transform:rotate(0) scale(1);opacity:.8}50%{transform:rotate(8deg) scale(1.07);opacity:1}}
+@media(prefers-reduced-motion:reduce){.ic *{animation:none!important}}
+/* ══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — max-width: 768px
+   !important needed to override all inline styles.
+══════════════════════════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* Cursor: ocultar en touch */
+  #cur-d,#cur-r{display:none!important}
+
+  /* Canvas: ocultar (JS ya no lo inicializa pero por si acaso) */
+  #space-bg{display:none!important}
+
+  /* Decorative large numbers: off */
+  .deco-n{opacity:0!important;pointer-events:none}
+
+  /* ── Padding uniforme en todos los inner containers ── */
+  .sec-inner{
+    padding-left:20px!important;
+    padding-right:20px!important;
   }
-  </script>
 
-  <!-- Schema: Organization ──────────────────────────────── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Victor IA",
-    "url": "https://victor-ia.xyz",
-    "logo": "https://victor-ia.xyz/favicon.png",
-    "email": "hola@victor-ia.com.mx",
-    "description": "Empresa de inteligencia artificial y desarrollo digital en México. Especialistas en software para agencias digitales, automatización con IA y desarrollo web.",
-    "areaServed": { "@type": "Country", "name": "México" }
+  /* ── HERO ──────────────────────────────────────────── */
+  #hero-grid{
+    grid-template-columns:1fr!important;
+    gap:36px!important;
+    padding-left:20px!important;
+    padding-right:20px!important;
   }
-  </script>
+  /* Ocultar panel decorativo derecho */
+  #hero-panel{display:none!important}
+  /* Reducir padding top del hero */
+  main>section:first-child{padding-top:56px!important;padding-bottom:48px!important;min-height:unset!important}
+  /* Badge text: reducir letter-spacing */
+  .h-badge span:last-child{letter-spacing:.08em!important;font-size:10px!important}
+  /* Hero CTA buttons: full width */
+  .h-cta{flex-direction:column!important;align-items:flex-start!important}
+  .h-cta .btn-p,.h-cta .btn-g{width:100%!important;justify-content:center!important}
 
-  <!-- Schema: FAQPage ───────────────────────────────────── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "¿Qué es Brain Tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Brain Tracker es un software de gestión todo-en-uno para agencias digitales con IA. Integra CRM Pipeline, Time Tracker, Gestión de Proyectos, Finanzas y Agentes IA Autónomos en un solo dashboard en tiempo real." } },
-      { "@type": "Question", "name": "¿Brain Tracker reemplaza Notion, HubSpot y Toggl?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Brain Tracker consolida en un solo lugar lo que antes requería 4 o más herramientas: CRM, time tracking, gestión de proyectos y finanzas. Elimina el costo y la fricción de coordinar múltiples plataformas desconectadas." } },
-      { "@type": "Question", "name": "¿Cuánto cuesta Brain Tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Brain Tracker ofrece un plan de acceso por invitación gratuito. Los planes de pago escalan según usuarios, workspaces y tokens de IA. Más información en victor-ia.xyz/pricing." } },
-      { "@type": "Question", "name": "¿Con qué herramientas se integra Brain Tracker?", "acceptedAnswer": { "@type": "Answer", "text": "Brain Tracker se integra con n8n, HubSpot, Slack, Notion, Linear, Google Workspace, Stripe, Claude AI y OpenAI." } }
-    ]
+  /* ── STATS ─────────────────────────────────────────── */
+  #stats-grid{grid-template-columns:repeat(2,1fr)!important}
+  #stats-grid>div{padding:28px 18px!important}
+  #stats-grid .stat-n{font-size:clamp(40px,12vw,60px)!important}
+
+  /* ── PHILOSOPHY ────────────────────────────────────── */
+  #philosophy-grid{
+    grid-template-columns:1fr!important;
+    gap:28px!important;
   }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    /* ─── DESIGN TOKENS ─────────────────────────────────── */
-    :root {
-      --ink: #0E0F12;
-      --ink2: #1a1b1f;
-      --warm: #F8F7F5;
-      --bone: #F2EEE5;
-      --gold: #FFAA17;
-      --gold-pale: rgba(255,170,23,0.10);
-      --muted: rgba(14,15,18,0.42);
-      --rule: rgba(14,15,18,0.09);
-      --ease-cinema: cubic-bezier(0.22, 0.61, 0.36, 1);
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans: 'Space Grotesk', sans-serif;
-    }
-
-    /* ─── RESET ─────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--warm);
-      color: var(--ink);
-      font-family: var(--font-sans);
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body { overflow-x: hidden; }
-
-    /* ─── NOISE OVERLAY (premium grain) ─────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9998;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 180px 180px;
-    }
-
-    /* ─── SCROLL PROGRESS BAR ────────────────────────────── */
-    .scroll-progress {
-      position: fixed;
-      top: 0; left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--gold);
-      z-index: 9999;
-      transition: width 0.08s linear;
-    }
-
-    /* ─── TYPOGRAPHY ─────────────────────────────────────── */
-    h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      font-weight: 400;
-      color: var(--ink);
-    }
-
-    h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      font-weight: 400;
-      color: var(--ink);
-    }
-
-    h3 {
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-      line-height: 1.3;
-      color: var(--ink);
-    }
-
-    p {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-      line-height: 1.65;
-      color: var(--ink);
-    }
-
-    .text-muted { color: var(--muted); }
-
-    /* SECTION LABEL */
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 22px;
-      height: 1px;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* ─── BUTTONS ────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: clamp(0.85rem, 1.05vw, 0.95rem);
-      padding: 0.85em 1.7em;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.4s var(--ease-cinema);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255,255,255,0.07);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .btn:hover::after { opacity: 1; }
-
-    .btn-primary {
-      background-color: var(--ink);
-      color: var(--warm);
-      border: 1px solid var(--ink);
-    }
-
-    .btn-primary:hover {
-      background-color: transparent;
-      color: var(--ink);
-    }
-
-    .btn-secondary {
-      background-color: transparent;
-      color: var(--ink);
-      border: 1px solid var(--rule);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--bone);
-      border-color: rgba(14,15,18,0.2);
-    }
-
-    .btn-dark {
-      background-color: var(--ink);
-      color: var(--warm);
-      border: 1px solid var(--ink);
-    }
-
-    .btn-dark:hover {
-      background-color: transparent;
-      color: var(--ink);
-      border-color: var(--ink);
-    }
-
-    /* ─── LAYOUT ─────────────────────────────────────────── */
-    .container {
-      width: 100%;
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 0 clamp(1.5rem, 4vw, 4rem);
-    }
-
-    .section-padding {
-      padding-top: clamp(4rem, 8vw, 8rem);
-      padding-bottom: clamp(4rem, 8vw, 8rem);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
-      gap: clamp(2rem, 5vw, 5rem);
-      align-items: center;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-      gap: 2rem;
-    }
-
-    /* ─── REVEAL ANIMATIONS ──────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 1s var(--ease-cinema), transform 1s var(--ease-cinema);
-    }
-
-    .reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── NAV ────────────────────────────────────────────── */
-    .nav-bar {
-      width: 100%;
-      border-bottom: 1px solid var(--rule);
-      position: sticky;
-      top: 0;
-      background-color: rgba(248, 247, 245, 0.88);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      z-index: 100;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 68px;
-    }
-
-    .nav-logo-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-logo {
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 1.15rem;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .badge-gold {
-      background-color: var(--gold);
-      color: var(--ink);
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      padding: 3px 8px;
-      border-radius: 3px;
-    }
-
-    /* ─── NAV LINKS ─────────────────────────────────────── */
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: clamp(1.2rem, 2.5vw, 2rem);
-      list-style: none;
-    }
-
-    .nav-link {
-      font-family: var(--font-sans);
-      font-weight: 400;
-      font-size: 0.88rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.25s;
-      white-space: nowrap;
-    }
-
-    .nav-link:hover { color: var(--ink); }
-
-    .nav-link.active {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .nav-link-slides {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .nav-link-slides::before {
-      content: '';
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .nav-divider {
-      width: 1px;
-      height: 18px;
-      background: var(--rule);
-    }
-
-    /* Mobile: hide nav-links below 768px */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-divider { display: none; }
-    }
-
-    /* ─── HERO ───────────────────────────────────────────── */
-    .hero {
-      padding-top: clamp(3.5rem, 7vw, 7rem);
-      padding-bottom: clamp(4rem, 8vw, 8rem);
-      border-bottom: 1px solid var(--rule);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* radial gold glow behind mockup */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 55%;
-      height: 120%;
-      background: radial-gradient(ellipse at 60% 40%, rgba(255,170,23,0.07) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-subhead { max-width: 500px; }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-top: 0.5rem;
-    }
-
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .hero-stat-value {
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-
-    .hero-stat-label {
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .hero-divider {
-      width: 1px;
-      height: 30px;
-      background-color: var(--rule);
-    }
-
-    /* ─── MOCKUP DASHBOARD ───────────────────────────────── */
-    .mockup-wrapper {
-      width: 100%;
-      perspective: 1200px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .mockup-window {
-      background-color: var(--ink2);
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow:
-        0 2px 4px rgba(0,0,0,0.08),
-        0 8px 16px rgba(0,0,0,0.12),
-        0 32px 64px rgba(0,0,0,0.22),
-        0 0 0 1px rgba(255,255,255,0.04) inset;
-      overflow: hidden;
-      transform: rotateY(-6deg) rotateX(4deg);
-      transition: transform 0.7s var(--ease-cinema), box-shadow 0.7s var(--ease-cinema);
-    }
-
-    .mockup-window:hover {
-      transform: rotateY(0deg) rotateX(0deg);
-      box-shadow:
-        0 4px 8px rgba(0,0,0,0.1),
-        0 16px 32px rgba(0,0,0,0.16),
-        0 48px 80px rgba(0,0,0,0.24),
-        0 0 0 1px rgba(255,255,255,0.06) inset;
-    }
-
-    .window-header {
-      background-color: rgba(255,255,255,0.025);
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      border-bottom: 1px solid rgba(255,255,255,0.045);
-    }
-
-    .window-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .window-dot.red   { background-color: #ff5f56; }
-    .window-dot.yellow{ background-color: #ffbd2e; }
-    .window-dot.green { background-color: #27c93f; }
-
-    .window-address {
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.25);
-      background-color: rgba(0,0,0,0.22);
-      padding: 3px 14px;
-      border-radius: 3px;
-      width: 48%;
-      text-align: center;
-      font-family: var(--font-sans);
-      letter-spacing: 0.02em;
-    }
-
-    .window-body {
-      display: flex;
-      min-height: 340px;
-    }
-
-    .mockup-sidebar {
-      width: 56px;
-      border-right: 1px solid rgba(255,255,255,0.045);
-      padding: 20px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .sidebar-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 5px;
-      background-color: rgba(255,255,255,0.08);
-      transition: background-color 0.3s;
-    }
-
-    .sidebar-icon.active { background-color: var(--gold); }
-
-    .mockup-main {
-      flex: 1;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .mockup-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .mockup-title {
-      color: #fff;
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-    }
-
-    .mockup-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: rgba(255,170,23,0.12);
-      border: 1px solid rgba(255,170,23,0.2);
-      color: var(--gold);
-      padding: 4px 10px;
-      border-radius: 100px;
-      font-size: 0.7rem;
-      font-weight: 500;
-    }
-
-    .pulse-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--gold);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255,170,23,0.7); }
-      70%  { transform: scale(1);    box-shadow: 0 0 0 6px rgba(255,170,23,0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255,170,23,0); }
-    }
-
-    .mockup-kpis {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .mockup-card {
-      background-color: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transition: border-color 0.3s;
-    }
-
-    .mockup-card:hover { border-color: rgba(255,170,23,0.3); }
-
-    .card-label {
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.38);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .card-val {
-      font-size: 1.25rem;
-      color: #fff;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    /* SVG sparkline chart */
-    .chart-container {
-      height: 36px;
-      margin-top: 4px;
-    }
-
-    .chart-svg { width: 100%; height: 100%; overflow: visible; }
-
-    .chart-line {
-      stroke-dasharray: 200;
-      stroke-dashoffset: 200;
-      animation: drawLine 2.5s var(--ease-cinema) forwards;
-      animation-delay: 0.6s;
-    }
-
-    @keyframes drawLine {
-      to { stroke-dashoffset: 0; }
-    }
-
-    /* donut / arc */
-    .donut-arc {
-      transform-origin: 20px 20px;
-      animation: donutSpin 2.5s var(--ease-cinema) forwards;
-      animation-delay: 0.6s;
-      stroke-dasharray: 0 113;
-    }
-
-    @keyframes donutSpin {
-      to { stroke-dasharray: 85 113; }
-    }
-
-    /* progress bar in mockup */
-    .mockup-progress {
-      width: 100%;
-      height: 3px;
-      background-color: rgba(255,255,255,0.08);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
-
-    .mockup-progress-fill {
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold), #ffd27f);
-      animation: fillBar 2.5s var(--ease-cinema) forwards;
-      animation-delay: 0.5s;
-    }
-
-    @keyframes fillBar { to { width: 78%; } }
-
-    /* row of mini bars */
-    .mini-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      height: 30px;
-      margin-top: 6px;
-    }
-
-    .mini-bar {
-      flex: 1;
-      background-color: rgba(255,170,23,0.25);
-      border-radius: 2px 2px 0 0;
-      animation: growBar 1.5s var(--ease-cinema) forwards;
-      animation-delay: calc(var(--i) * 0.08s + 0.5s);
-      transform-origin: bottom;
-      transform: scaleY(0);
-    }
-
-    @keyframes growBar { to { transform: scaleY(1); } }
-
-    .mini-bar.hi { background-color: var(--gold); }
-
-    /* activity log in mockup */
-    .mockup-activity {
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .activity-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      animation: fadeRow 0.5s var(--ease-cinema) forwards;
-      opacity: 0;
-    }
-
-    .activity-row:nth-child(1) { animation-delay: 1.2s; }
-    .activity-row:nth-child(2) { animation-delay: 1.5s; }
-    .activity-row:nth-child(3) { animation-delay: 1.8s; }
-
-    @keyframes fadeRow { to { opacity: 1; } }
-
-    .activity-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .activity-text {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.5);
-      flex: 1;
-    }
-
-    .activity-time {
-      font-size: 0.62rem;
-      color: rgba(255,255,255,0.22);
-    }
-
-    /* ─── MARQUEE ────────────────────────────────────────── */
-    .marquee-section {
-      border-bottom: 1px solid var(--rule);
-      overflow: hidden;
-      padding: 1rem 0;
-      background-color: var(--bone);
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 30s linear infinite;
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 0 2.5rem;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .marquee-sep {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background-color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    @keyframes marqueeScroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ─── FEATURES ───────────────────────────────────────── */
-    .features { border-bottom: 1px solid var(--rule); }
-
-    .section-header {
-      max-width: 600px;
-      margin-bottom: clamp(3rem, 6vw, 5rem);
-    }
-
-    .feature-card {
-      background-color: var(--bone);
-      border: 1px solid transparent;
-      border-radius: 10px;
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      transition: all 0.45s var(--ease-cinema);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 0% 0%, rgba(255,170,23,0.06) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.45s;
-    }
-
-    .feature-card:hover {
-      border-color: rgba(14,15,18,0.12);
-      background-color: var(--warm);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-    }
-
-    .feature-card:hover::before { opacity: 1; }
-
-    .feature-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .feature-icon-wrapper {
-      width: 46px;
-      height: 46px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(14,15,18,0.05);
-      border-radius: 8px;
-      color: var(--ink);
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .feature-card:hover .feature-icon-wrapper {
-      background-color: var(--gold);
-    }
-
-    .feature-num {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* ─── INTEGRATIONS / TOOLS STRIP ────────────────────── */
-    .integrations-strip {
-      border-bottom: 1px solid var(--rule);
-      padding: clamp(2rem, 4vw, 2.5rem) 0;
-    }
-
-    .integrations-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .integrations-label {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .integrations-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: clamp(1.5rem, 3.5vw, 3.5rem);
-      align-items: center;
-    }
-
-    .integration-tag {
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: clamp(0.85rem, 1.4vw, 1rem);
-      color: var(--ink);
-      opacity: 0.25;
-      letter-spacing: -0.01em;
-      transition: opacity 0.3s;
-    }
-
-    .integration-tag:hover { opacity: 0.5; }
-
-    /* ─── STATS ──────────────────────────────────────────── */
-    .stats { border-bottom: 1px solid var(--rule); }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      border-top: 1px solid var(--rule);
-      padding-top: 2rem;
-    }
-
-    .stat-number {
-      font-family: var(--font-serif);
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      line-height: 0.88;
-      color: var(--ink);
-      background: linear-gradient(140deg, var(--ink) 50%, rgba(14,15,18,0.45));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ─── HOW IT WORKS ───────────────────────────────────── */
-    .how-it-works { border-bottom: 1px solid var(--rule); }
-
-    .step-card {
-      border-top: 1px solid var(--rule);
-      padding-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      position: relative;
-    }
-
-    .step-number {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      color: var(--gold);
-    }
-
-    .step-arrow {
-      position: absolute;
-      top: 2.5rem;
-      right: 0;
-      color: var(--muted);
-      opacity: 0.4;
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .grid-3 .step-card:not(:last-child) .step-arrow { display: block; }
-    }
-
-    /* ─── TESTIMONIAL ────────────────────────────────────── */
-    .testimonial {
-      background-color: var(--ink);
-      color: var(--warm);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial::before {
-      content: '"';
-      position: absolute;
-      top: -1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-serif);
-      font-size: 22rem;
-      line-height: 1;
-      color: rgba(255,255,255,0.03);
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .quote-text {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1.6rem, 3.5vw, 2.9rem);
-      line-height: 1.2;
-      color: var(--warm);
-      max-width: 900px;
-      margin: 0 auto 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .quote-author {
-      font-family: var(--font-sans);
-      font-weight: 400;
-      font-size: clamp(0.8rem, 1.1vw, 0.95rem);
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ─── CTA FINAL ──────────────────────────────────────── */
-    .cta-final {
-      background-color: var(--gold);
-      color: var(--ink);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-final::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") center/200px 200px;
-      opacity: 0.04;
-      pointer-events: none;
-    }
-
-    .cta-final h2 {
-      margin-bottom: 1.5rem;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-final p {
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-      color: rgba(14,15,18,0.75);
-    }
-
-    .btn-cta {
-      background-color: var(--ink);
-      color: var(--warm);
-      border: 1px solid transparent;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 1em 2em;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: all 0.4s var(--ease-cinema);
-    }
-
-    .btn-cta:hover {
-      background-color: transparent;
-      color: var(--ink);
-      border-color: var(--ink);
-    }
-
-    .btn-cta svg {
-      transition: transform 0.3s var(--ease-cinema);
-    }
-
-    .btn-cta:hover svg { transform: translateX(4px); }
-
-    /* ─── FOOTER ─────────────────────────────────────────── */
-    /* ─── HAMBURGER (mobile) ────────────────────────────── */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-      border: none;
-      background: none;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--ink);
-      transition: all 0.3s var(--ease-cinema);
-      transform-origin: center;
-    }
-
-    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
-
-    @media (max-width: 768px) { .nav-hamburger { display: flex; } }
-
-    /* ─── MOBILE MENU OVERLAY ────────────────────────────── */
-    .mobile-menu {
-      position: fixed;
-      inset: 0;
-      background: var(--warm);
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      padding: 5rem 2rem 2rem;
-      gap: 0;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-12px);
-      transition: opacity 0.35s var(--ease-cinema), transform 0.35s var(--ease-cinema);
-    }
-
-    .mobile-menu.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .mobile-menu-section {
-      border-top: 1px solid var(--rule);
-      padding: 1rem 0;
-    }
-
-    .mobile-menu-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-    }
-
-    .mobile-menu-link {
-      display: block;
-      font-family: var(--font-serif);
-      font-size: clamp(1.6rem, 5vw, 2rem);
-      color: var(--ink);
-      text-decoration: none;
-      line-height: 1.25;
-      padding: 0.2rem 0;
-      transition: color 0.2s;
-    }
-
-    .mobile-menu-link:hover { color: var(--gold); }
-
-    .mobile-menu-link-sm {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-decoration: none;
-      padding: 0.2rem 0;
-      transition: color 0.2s;
-    }
-
-    .mobile-menu-link-sm:hover { color: var(--ink); }
-
-    .mobile-menu-legal {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────── */
-    footer {
-      background-color: var(--ink);
-      color: rgba(248,247,245,0.4);
-      padding: 4rem 0 2.5rem;
-      font-size: 0.88rem;
-      border-top: 1px solid rgba(255,255,255,0.04);
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr repeat(3, 1fr);
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 2rem;
-    }
-
-    .footer-brand-desc {
-      font-size: 0.82rem;
-      line-height: 1.65;
-      margin-top: 0.85rem;
-      max-width: 220px;
-    }
-
-    .footer-col-title {
-      font-size: 0.65rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(248,247,245,0.3);
-      margin-bottom: 1rem;
-    }
-
-    .footer-col-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .footer-logo {
-      font-family: var(--font-sans);
-      font-weight: 600;
-      color: var(--warm);
-      text-decoration: none;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .footer-badge {
-      background: var(--gold);
-      color: var(--ink);
-      font-size: 0.6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 2px 6px;
-      border-radius: 3px;
-    }
-
-    .footer-link {
-      color: rgba(248,247,245,0.45);
-      text-decoration: none;
-      font-size: 0.82rem;
-      transition: color 0.2s;
-      width: fit-content;
-    }
-
-    .footer-link:hover { color: var(--warm); }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.75rem;
-    }
-
-    /* ─── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 768px) {
-      .footer-top {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-top { grid-template-columns: 1fr; }
-    }
-  </style>
+  /* Floating card: sacar de position:absolute */
+  #float-card{
+    position:relative!important;
+    bottom:auto!important;
+    right:auto!important;
+    margin-top:14px!important;
+    max-width:100%!important;
+    display:block!important;
+  }
+  #sphere-wrap{aspect-ratio:4/3!important}
+
+  /* ── HOW IT WORKS ──────────────────────────────────── */
+  #steps-grid{
+    grid-template-columns:1fr!important;
+    background:transparent!important;
+    gap:0!important;
+  }
+  #steps-grid .step{
+    padding:28px 20px!important;
+    border-bottom:1px solid rgba(255,255,255,.05)!important;
+  }
+
+  /* ── SERVICES ──────────────────────────────────────── */
+  #services-grid{grid-template-columns:1fr!important;gap:12px!important}
+  .svc-card{padding:26px 20px!important}
+
+  /* ── INFRASTRUCTURE ────────────────────────────────── */
+  #victor-card{
+    width:auto!important;
+    max-width:100%!important;
+    padding:16px 20px!important;
+  }
+  #directors-grid{
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:6px!important;
+  }
+  #directors-grid>div{padding:12px 6px!important}
+  #infra-stats{grid-template-columns:repeat(2,1fr)!important}
+  #infra-stats>div{padding:24px 14px!important}
+  #infra-stats div[style*="font-size:52px"]{font-size:36px!important}
+
+  /* ── COMPARISON TABLE ──────────────────────────────── */
+  /* Mostrar solo 2 columnas: Label | Victor IA */
+  #comparison-wrapper>div{
+    grid-template-columns:1fr 1fr!important;
+    display:grid!important;
+  }
+  /* Ocultar columnas 3 y 4 (Agencia y Equipo interno) */
+  #comparison-wrapper>div>div:nth-child(3),
+  #comparison-wrapper>div>div:nth-child(4){
+    display:none!important;
+  }
+  #comparison-wrapper>div>div:nth-child(1){padding:14px 14px!important;font-size:12px!important}
+  #comparison-wrapper>div>div:nth-child(2){padding:14px 12px!important}
+  #comparison-wrapper{border-radius:10px!important}
+
+  /* ── TESTIMONIALS ──────────────────────────────────── */
+  #testimonials-grid{grid-template-columns:1fr!important;gap:12px!important}
+  #testimonials-grid .card{padding:26px 22px!important}
+  /* Testimonial quote text: slightly smaller */
+  #testimonials-grid .card p[style*="font-size:18px"]{font-size:16px!important}
+
+  /* ── FAQ ───────────────────────────────────────────── */
+  details summary{font-size:14.5px!important;padding:18px 0!important}
+  details p{font-size:14px!important}
+
+  /* ── CTA SECTION ───────────────────────────────────── */
+  #cta-card{padding:40px 22px!important}
+  #cta-card h2{font-size:clamp(36px,10vw,56px)!important}
+  #cta-card>div>div[style*="display:flex"]{flex-direction:column!important;align-items:center!important}
+  #cta-card .btn-p,#cta-card .btn-g{width:100%!important;max-width:280px!important}
+
+  /* ── FOOTER ────────────────────────────────────────── */
+  #footer-grid{
+    grid-template-columns:1fr!important;
+    padding-left:20px!important;
+    padding-right:20px!important;
+    gap:28px!important;
+  }
+  #footer-bottom{
+    padding-left:20px!important;
+    padding-right:20px!important;
+  }
+  /* Footer nav links: no word breaks */
+  #footer-grid a.nav-a{display:block!important;white-space:nowrap!important}
+
+  /* ── GLOBAL: section vertical padding reducido ─────── */
+  section[style*="padding:120px"]{padding-top:72px!important;padding-bottom:72px!important}
+  section[style*="padding:100px"]{padding-top:64px!important;padding-bottom:64px!important}
+
+  /* ── MARQUEE ───────────────────────────────────────── */
+  .mq-t{animation-duration:16s!important}
+  .mq-w{overflow:hidden!important}
+
+} /* end @media 768px */
+
+/* ══ RESPONSIVE BREAKPOINTS (GLOBAL STANDARD) ════════════════════ */
+/* Mobile: 375px */
+@media(max-width:639px){
+  :root{
+    --padding-desktop: var(--padding-mobile);
+  }
+  body{line-height:1.4}
+  .h-cta .btn-p,.h-cta .btn-g{font-size:12px!important;padding:10px 18px!important}
+  @supports (scroll-padding-top:68px){
+    html{scroll-padding-top:68px}
+  }
+}
+
+/* Tablet: 640px - 767px */
+@media(min-width:640px) and (max-width:767px){
+  :root{--padding-desktop: var(--padding-tablet);}
+}
+
+/* Desktop: 768px+ */
+@media(min-width:768px){
+  body{line-height:1.6}
+}
+
+/* Large desktop: 1024px+ */
+@media(min-width:1024px){
+  :root{--padding-desktop: var(--spacing-2xl);}
+}
+
+/* Extra wide: 1440px+ */
+@media(min-width:1440px){
+  :root{--padding-desktop: calc(var(--spacing-3xl) - 24px);}
+}
+
+/* Respeta reduced motion GLOBALMENTE */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;scroll-behavior:auto!important
+  }
+  .mq-t,.sb,.rp1,.rp2,.rp3{animation:none!important}
+}
+
+/* Extra small screens */
+@media(max-width:420px){
+  #directors-grid{grid-template-columns:repeat(2,1fr)!important}
+  #stats-grid .stat-n{font-size:clamp(36px,11vw,48px)!important}
+  .h-cta .btn-p,.h-cta .btn-g{font-size:13px!important;padding:12px 20px!important}
+}
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":["Organization","LocalBusiness"],"@id":"https://victor-ia.xyz/#org","name":"INFLUENCE IA S.A. DE C.V.","alternateName":"Victor IA","url":"https://victor-ia.xyz","logo":{"@type":"ImageObject","url":"https://victor-ia.xyz/logo.png","width":512,"height":512},"image":"https://victor-ia.xyz/logo.png","description":"El primer supercerebro de inteligencia artificial para empresas en México y LATAM","address":{"@type":"PostalAddress","addressLocality":"Playa del Carmen","addressRegion":"Quintana Roo","postalCode":"77710","addressCountry":"MX"},"contactPoint":{"@type":"ContactPoint","email":"info@victor-ia.com.mx","contactType":"customer service","areaServed":"MX","availableLanguage":"es"}},
+{"@type":"WebSite","@id":"https://victor-ia.xyz/#website","url":"https://victor-ia.xyz","name":"Victor IA","inLanguage":"es-MX","publisher":{"@id":"https://victor-ia.xyz/#org"}},
+{"@type":"SoftwareApplication","name":"Victor IA","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://victor-ia.xyz","description":"Plataforma de agentes de inteligencia artificial para empresas en México. Automatización, producción creativa, análisis de datos, monitoreo IoT."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Qué es Victor IA?","acceptedAnswer":{"@type":"Answer","text":"Victor IA es el primer supercerebro de inteligencia artificial para empresas en LATAM, desarrollado por INFLUENCE IA S.A. DE C.V. Coordina ~200 agentes expertos especializados en paralelo para automatizar operaciones, producir contenido, analizar datos y tomar decisiones empresariales."}},
+{"@type":"Question","name":"¿Cuánto cuesta Victor IA?","acceptedAnswer":{"@type":"Answer","text":"No hay paquetes fijos. Ofrecemos diagnóstico gratuito y propuesta personalizada para cada empresa. Puedes comenzar sin tarjeta de crédito en menos de 2 minutos."}},
+{"@type":"Question","name":"¿En qué países está disponible Victor IA?","acceptedAnswer":{"@type":"Answer","text":"Victor IA está disponible en México y toda LATAM. Con sede en Playa del Carmen, Quintana Roo, México, el sistema entiende el contexto regional, mercados locales y español nativo."}},
+{"@type":"Question","name":"¿Necesito conocimientos técnicos para usar Victor IA?","acceptedAnswer":{"@type":"Answer","text":"No. Victor IA funciona con lenguaje natural. Solo describes lo que necesitas y el sistema activa los agentes correctos automáticamente. Sin configuración técnica ni curva de aprendizaje."}},
+{"@type":"Question","name":"¿Qué resultados puedo esperar con Victor IA?","acceptedAnswer":{"@type":"Answer","text":"En promedio, los clientes logran un retorno de 3.2× sobre la inversión, reducen el tiempo operativo hasta 68% y ahorran hasta 40% en costos desde las primeras semanas."}}
+]}
+]}
+</script>
+<script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
 </head>
+
 <body>
+<!-- VICTOR IA LUXURY ICONS SYSTEM -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+<symbol id="ic-agents-lux" viewBox="0 0 20 20"><g fill="none" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"><circle cx="10" cy="8" r="3"/><path d="M6 16c0-2.2 1.8-4 4-4s4 1.8 4 4"/><circle cx="16" cy="6" r="2" opacity="0.5"/><circle cx="4" cy="6" r="2" opacity="0.5"/></g></symbol>
+<symbol id="ic-creative-lux" viewBox="0 0 20 20"><g fill="none" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"><rect x="2" y="3" width="16" height="11" rx="1.5"/><path d="M7 8l3-2 3 2v2l-3 2-3-2v-2z" opacity="0.3"/><path d="M8 18h4M10 15v3"/></g></symbol>
+<symbol id="ic-data-lux" viewBox="0 0 20 20"><g fill="none" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"><rect x="2" y="2" width="16" height="14" rx="1.5"/><path d="M4 14l3-4 2 2 3-5 4 7" stroke-width="1.1"/><circle cx="7" cy="6" r="1" opacity="0.3"/></g></symbol>
+<symbol id="ic-auto-lux" viewBox="0 0 20 20"><g fill="none" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><path d="M10 2v2M10 16v2M18 10h-2M4 10H2M15.5 4.5l-1.4 1.4M6.9 14.1l1.4-1.4M15.5 15.5l-1.4-1.4M4.5 4.5l1.4 1.4"/></g></symbol>
+<symbol id="ic-iot-lux" viewBox="0 0 20 20"><g fill="none" stroke="#B89A6A" stroke-width="0.9" stroke-linecap="round"><circle cx="10" cy="10" r="2.5" fill="#B89A6A" opacity="0.3"/><circle cx="10" cy="10" r="5.5" opacity="0.4"/><circle cx="10" cy="10" r="8.5" opacity="0.2"/></g></symbol>
+<symbol id="ic-plan-lux" viewBox="0 0 20 20"><g fill="none" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"><path d="M10 2l2.5 6h6.5l-5 3.5 2 6L10 14l-5 3.5 2-6-5-3.5h6.5L10 2z"/></g></symbol>
+</svg>
+<!-- Overlays -->
+<div id="noise"></div>
+<div id="pbar"></div>
+<div id="cur-d"></div>
+<div id="cur-r"></div>
+<!-- Space canvas created by JS -->
 
-  <!-- Scroll Progress -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+<!-- ══════════════════════ HEADER ══════════════════════ -->
+<header id="hdr">
+  <div class="flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-16 h-full relative z-10">
+    <a href="index.html" class="font-display text-[21px] font-light tracking-[.04em] text-cream no-underline select-none" style="text-decoration:none">
+      Victor <span style="color:#B89A6A">IA</span>
+    </a>
+    <nav class="hidden md:flex gap-9 items-center">
+      <a class="nav-a" href="agentes.html">Agentes</a>
+      <a class="nav-a" href="como-funciona.html">Cómo Funciona</a>
+      <a class="nav-a" href="precios.html">Precios</a>
+      <a class="nav-a" href="blog/">Blog</a>
+      <a class="nav-a" href="/agencia-ia-mexico">Agencia IA</a>
+      <a class="nav-a" href="telemetria.html">Eficiencia IoT</a>
+    </nav>
+    <div class="flex items-center gap-5">
+      <a class="nav-a hidden sm:block" href="app.html">Iniciar sesión</a>
+      <div class="mag"><a class="btn-p" href="app.html">Empezar gratis</a></div>
+    </div>
+  </div>
+</header>
 
-  <!-- MOBILE MENU OVERLAY ──────────────────────────────────── -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-section">
-      <div class="mobile-menu-label">Producto</div>
-      <a href="/" class="mobile-menu-link">Brain Tracker</a>
-      <a href="/brain-tracker-slides" class="mobile-menu-link">Slides</a>
+<main style="padding-top:68px;position:relative;z-index:10">
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section style="min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 0 60px">
+
+  <!-- Ambient glow -->
+  <div style="position:absolute;top:20%;left:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(184,154,106,.04) 0%,transparent 70%);pointer-events:none;border-radius:50%"></div>
+  <div style="position:absolute;bottom:10%;right:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(184,154,106,.025) 0%,transparent 70%);pointer-events:none;border-radius:50%"></div>
+
+  <!-- SVG decorative rings -->
+  <div style="position:absolute;right:8%;top:50%;transform:translateY(-50%);pointer-events:none;z-index:0">
+    <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <circle class="rp1" cx="250" cy="250" r="120" stroke="rgba(184,154,106,.35)" stroke-width=".8"/>
+      <circle class="rp2" cx="250" cy="250" r="170" stroke="rgba(184,154,106,.25)" stroke-width=".6"/>
+      <circle class="rp3" cx="250" cy="250" r="220" stroke="rgba(184,154,106,.15)" stroke-width=".5"/>
+      <circle cx="250" cy="250" r="80" stroke="rgba(184,154,106,.12)" stroke-width=".8" fill="none"/>
+    </svg>
+  </div>
+
+  <div id="hero-grid" class="max-w-[1200px] mx-auto px-6 md:px-16 w-full" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+
+    <!-- Left: copy -->
+    <div id="hero-copy">
+      <!-- Badge -->
+      <div class="h-badge inline-flex items-center gap-2 mb-8">
+        <span style="width:5px;height:5px;border-radius:50%;background:rgba(184,154,106,.6);animation:sb 2s infinite ease-in-out"></span>
+        <span style="font-size:10.5px;letter-spacing:.13em;color:rgba(184,154,106,.65);text-transform:uppercase">~200 agentes activos · El primer supercerebro IA en LATAM</span>
+      </div>
+
+      <!-- Title — split lines -->
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:200;line-height:1.02;letter-spacing:-.025em;color:#EAE6DF;margin-bottom:28px">
+        <span class="sl" style="font-size:clamp(56px,7vw,100px)"><span class="si">La IA que</span></span>
+        <span class="sl" style="font-size:clamp(56px,7vw,100px)"><span class="si" style="font-style:italic;color:#B89A6A">opera tu empresa.</span></span>
+      </h1>
+
+      <p class="h-sub" style="font-size:17px;line-height:1.8;font-weight:300;color:#706C66;max-width:440px;margin-bottom:36px">
+        Lo que antes requería una agencia, un equipo de 12 personas y semanas de trabajo — hoy lo entrega Victor en horas. Con ~200 agentes especializados operando en paralelo, tu empresa produce más, gasta menos y compite diferente.
+      </p>
+
+      <div class="h-cta flex flex-wrap gap-3 items-center mb-5">
+        <div class="mag"><a class="btn-p" href="app.html" style="padding:13px 32px;font-size:14px">Empezar gratis</a></div>
+        <div class="mag"><a class="btn-g" href="como-funciona.html" style="padding:13px 32px;font-size:14px;display:inline-flex;align-items:center;gap:10px">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-opacity=".35"/><path d="M6 4.8L11 7.5L6 10.2V4.8Z" fill="currentColor" opacity=".65"/></svg>
+          Ver cómo funciona
+        </a></div>
+      </div>
+
+      <p class="h-hint" style="font-size:11px;letter-spacing:.10em;color:rgba(112,108,102,.4)">Sin tarjeta · Listo en 2 minutos</p>
+
+      <!-- Scroll indicator -->
+      <div class="sb" style="margin-top:52px;display:flex;align-items:center;gap:8px">
+        <svg width="14" height="20" viewBox="0 0 14 20" fill="none"><rect x="1" y="1" width="12" height="18" rx="6" stroke="rgba(184,154,106,.3)" stroke-width="1"/><rect x="6" y="4" width="2" height="4" rx="1" fill="rgba(184,154,106,.5)"/></svg>
+        <span style="font-size:10px;letter-spacing:.15em;color:rgba(112,108,102,.4);text-transform:uppercase">Scroll</span>
+      </div>
     </div>
-    <div class="mobile-menu-section">
-      <div class="mobile-menu-label">Acceso</div>
-      <a href="https://tracker.victor-ia.xyz" class="mobile-menu-link" target="_blank">Entrar al panel →</a>
-      <a href="/agenda" class="mobile-menu-link">Agendar llamada</a>
+
+    <!-- Right: agent panel -->
+    <div id="hero-panel" class="h-panel card card-g" style="padding:28px;max-width:400px;margin-left:auto">
+      <!-- SVG corner brackets -->
+      <svg style="position:absolute;top:10px;left:10px;opacity:.35" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 9V1h8" stroke="#B89A6A" stroke-width="1.2"/></svg>
+      <svg style="position:absolute;top:10px;right:10px;opacity:.35" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M17 9V1H9" stroke="#B89A6A" stroke-width="1.2"/></svg>
+      <svg style="position:absolute;bottom:10px;left:10px;opacity:.35" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 9v8h8" stroke="#B89A6A" stroke-width="1.2"/></svg>
+      <svg style="position:absolute;bottom:10px;right:10px;opacity:.35" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M17 9v8H9" stroke="#B89A6A" stroke-width="1.2"/></svg>
+
+      <div style="position:relative">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:34px;height:34px;border-radius:50%;background:rgba(184,154,106,.08);display:flex;align-items:center;justify-content:center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="2.5" fill="#B89A6A" opacity=".7"/><circle cx="7" cy="7" r="5.5" stroke="#B89A6A" stroke-opacity=".18"/></svg>
+            </div>
+            <div>
+              <p style="font-size:13px;color:#EAE6DF;letter-spacing:.03em">Victor · <span style="color:#B89A6A">en proceso</span></p>
+              <p style="font-size:11px;color:#706C66;letter-spacing:.04em">6 de 200 agentes activos</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:4px;align-items:center">
+            <span style="width:5px;height:5px;border-radius:50%;background:rgba(184,154,106,.65);animation:sb 2s infinite"></span>
+            <span style="width:5px;height:5px;border-radius:50%;background:rgba(184,154,106,.2)"></span>
+            <span style="width:5px;height:5px;border-radius:50%;background:rgba(184,154,106,.1)"></span>
+          </div>
+        </div>
+
+        <!-- Agent rows -->
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div class="card-flat" style="padding:13px;border-left:2px solid rgba(184,154,106,.4);display:flex;align-items:center;justify-content:space-between;border-radius:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:30px;height:30px;border-radius:6px;background:#141418;display:flex;align-items:center;justify-content:center;opacity:.7">
+                <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><rect x="1" y="2.5" width="11" height="8" rx="1.2" stroke="#EAE6DF" stroke-width="1.1"/></svg>
+              </div>
+              <div><p style="font-size:12px;color:#EAE6DF">Director de Video</p><p style="font-size:11px;color:#706C66">Generando spot cinematográfico…</p></div>
+            </div>
+            <span style="font-size:10px;letter-spacing:.12em;color:rgba(184,154,106,.6);text-transform:uppercase">activo</span>
+          </div>
+          <div class="card-flat" style="padding:13px;display:flex;align-items:center;justify-content:space-between;border-radius:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:30px;height:30px;border-radius:6px;background:#141418;display:flex;align-items:center;justify-content:center;opacity:.55">
+                <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M6.5 1L7.8 5H11.5L8.6 7.2l1.1 3.9L6.5 9.1 3.4 11.1l1.1-3.9L1.5 5h3.7Z" stroke="#EAE6DF" stroke-width="1.1" stroke-linejoin="round"/></svg>
+              </div>
+              <div><p style="font-size:12px;color:#EAE6DF">Diseñador Visual</p><p style="font-size:11px;color:#706C66">8 creativos para social media…</p></div>
+            </div>
+            <span style="font-size:10px;letter-spacing:.12em;color:rgba(112,108,102,.4);text-transform:uppercase">proceso</span>
+          </div>
+          <div class="card-flat" style="padding:13px;display:flex;align-items:center;justify-content:space-between;border-radius:8px">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="width:30px;height:30px;border-radius:6px;background:#141418;display:flex;align-items:center;justify-content:center;opacity:.55">
+                <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M2 4h9M2 6.5h6.5M2 9h4" stroke="#EAE6DF" stroke-width="1.1" stroke-linecap="round"/></svg>
+              </div>
+              <div><p style="font-size:12px;color:#EAE6DF">Copywriter Senior</p><p style="font-size:11px;color:#706C66">Copy en 3 tonos de voz…</p></div>
+            </div>
+            <span style="font-size:10px;letter-spacing:.12em;color:rgba(112,108,102,.4);text-transform:uppercase">proceso</span>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05);text-align:center">
+          <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(112,108,102,.35)">194 agentes más disponibles</p>
+        </div>
+      </div>
     </div>
-    <div class="mobile-menu-section">
-      <div class="mobile-menu-label">Empresa</div>
-      <div class="mobile-menu-legal">
-        <a href="/privacidad" class="mobile-menu-link-sm">Privacidad</a>
-        <a href="/terminos" class="mobile-menu-link-sm">Términos</a>
-        <a href="/seguridad" class="mobile-menu-link-sm">Seguridad</a>
-        <a href="mailto:hola@victor-ia.com.mx" class="mobile-menu-link-sm">Contacto</a>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ MARQUEE ══════════════════════ -->
+<section style="padding:14px 0;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);overflow:hidden" class="mq-w">
+  <div class="mq-t" style="gap:0;opacity:.32">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Generación de Video</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Síntesis de Voz</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Modelos de Lenguaje</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Diseño Visual IA</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Automatización Total</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Análisis de Datos</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <!-- duplicate -->
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Generación de Video</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Síntesis de Voz</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Modelos de Lenguaje</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Diseño Visual IA</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Automatización Total</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#EAE6DF;padding:0 40px">Análisis de Datos</span>
+    <span style="color:rgba(184,154,106,.3);font-size:12px">◆</span>
+  </div>
+</section>
+
+<!-- ══════════════════════ STATS ══════════════════════ -->
+<section class="rv" style="padding:100px 0;background:#0A0A0C;position:relative;overflow:hidden">
+  <!-- Decorative large number -->
+  <div class="deco-n" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:260px;letter-spacing:-.05em">IA</div>
+
+  <div class="sec-inner" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <p class="eyec" style="margin-bottom:48px">Resultados medibles</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)" id="stats-grid">
+      <div style="background:#0A0A0C;padding:40px 32px">
+        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="3.2" data-suffix="×">0</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#706C66;text-transform:uppercase;margin-top:10px">Retorno promedio</p>
+      </div>
+      <div style="background:#0A0A0C;padding:40px 32px">
+        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="68" data-suffix="%">0</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#706C66;text-transform:uppercase;margin-top:10px">Menos tiempo operativo</p>
+      </div>
+      <div style="background:#0A0A0C;padding:40px 32px">
+        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="40" data-prefix="−" data-suffix="%">0</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#706C66;text-transform:uppercase;margin-top:10px">Reducción de costos</p>
+      </div>
+      <div style="background:#0A0A0C;padding:40px 32px">
+        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="200">0</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#706C66;text-transform:uppercase;margin-top:10px">Agentes disponibles</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ① NAV ──────────────────────────────────────────────── -->
-  <nav class="nav-bar">
-    <div class="container nav-container">
-      <div class="nav-logo-group">
-        <a href="/" class="nav-logo">Victor IA</a>
-        <span class="badge-gold">Brain Tracker</span>
-      </div>
+<div class="hr"></div>
 
-      <ul class="nav-links">
-        <li><a href="#features" class="nav-link">Herramientas</a></li>
-        <li><a href="#stats" class="nav-link">Métricas</a></li>
-        <li><a href="/brain-tracker-slides" class="nav-link nav-link-slides">Slides</a></li>
-        <li class="nav-divider"></li>
-        <li><a href="/agenda" class="nav-link">Agenda</a></li>
-        <li><a href="/app" class="nav-link">App</a></li>
-        <li><a href="https://tracker.victor-ia.xyz" class="nav-link active">Acceso →</a></li>
-      </ul>
+<!-- ══════════════════════ PHILOSOPHY ══════════════════════ -->
+<section style="padding:120px 0;position:relative;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <div id="philosophy-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center">
 
-      <a href="#solicitar" class="btn btn-primary">Solicitar acceso</a>
-      <button class="nav-hamburger" id="navHamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ② HERO ─────────────────────────────────────────────── -->
-  <header class="hero">
-    <div class="container grid-2">
-
-      <div class="hero-content reveal">
-        <div class="section-label">Infraestructura IA para agencias</div>
-        <h1>La infraestructura digital de tu agencia.</h1>
-        <p class="hero-subhead text-muted">Cada hora trabajada. Cada cliente. Cada peso. Dashboards en tiempo real para agencias que operan con inteligencia artificial.</p>
-        <div class="hero-ctas">
-          <a href="https://tracker.victor-ia.xyz" class="btn btn-primary" target="_blank" rel="noopener">
-            Abrir Brain Tracker
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#solicitar" class="btn btn-secondary">Solicitar acceso</a>
-        </div>
-        <div class="hero-meta">
-          <div class="hero-stat">
-            <span class="hero-stat-value">6</span>
-            <span class="hero-stat-label">Módulos integrados</span>
-          </div>
-          <div class="hero-divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat-value">0 ms</span>
-            <span class="hero-stat-label">Latencia real-time</span>
-          </div>
-          <div class="hero-divider"></div>
-          <div class="hero-stat">
-            <span class="hero-stat-value">100%</span>
-            <span class="hero-stat-label">Control total</span>
-          </div>
+      <!-- Image (parallax) -->
+      <div class="rv" style="position:relative">
+        <div id="sphere-wrap" style="width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,#0c0a18 0%,#060608 70%)"></div>
+        <!-- Floating stat card -->
+        <div id="float-card" class="card-flat rv" style="position:absolute;bottom:-28px;right:-28px;padding:20px 24px;border-radius:10px;max-width:240px">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:#EAE6DF;margin-bottom:5px">Aprendizaje continuo</p>
+          <p style="font-size:13px;line-height:1.6;font-weight:300;color:#706C66">El sistema se perfecciona solo con cada proyecto.</p>
         </div>
       </div>
 
-      <!-- Mockup Dashboard -->
-      <div class="mockup-wrapper reveal" style="transition-delay: 0.18s;">
-        <div class="mockup-window">
-          <div class="window-header">
-            <span class="window-dot red"></span>
-            <span class="window-dot yellow"></span>
-            <span class="window-dot green"></span>
-            <div class="window-address">brain.victor-ia.com/dashboard</div>
-          </div>
-          <div class="window-body">
-            <div class="mockup-sidebar">
-              <div class="sidebar-icon active"></div>
-              <div class="sidebar-icon"></div>
-              <div class="sidebar-icon"></div>
-              <div class="sidebar-icon"></div>
+      <!-- Copy -->
+      <div class="rv">
+        <p class="eye" style="margin-bottom:28px" data-eye>Filosofía</p>
+
+        <!-- Readymag-style: very large display headline -->
+        <div style="margin-bottom:32px">
+          <p style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4vw,56px);line-height:1.07;letter-spacing:-.02em;color:#EAE6DF">
+            No es un asistente.
+          </p>
+          <p style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4vw,56px);line-height:1.07;letter-spacing:-.02em;color:#706C66;font-style:italic">
+            Es el primer supercerebro empresarial de IA en LATAM.
+          </p>
+        </div>
+
+        <p style="font-size:16.5px;line-height:1.8;font-weight:300;color:#706C66;margin-bottom:44px">
+          Victor dirige casi 200 agentes expertos de forma simultánea — selecciona el mejor modelo de las mejores empresas del mundo para cada tarea.
+        </p>
+
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;gap:18px">
+            <div class="gold-vr" style="align-self:stretch;flex-shrink:0;margin-top:2px" data-vr></div>
+            <div>
+              <p style="font-size:15px;font-weight:400;color:#EAE6DF;margin-bottom:5px;letter-spacing:.01em">Orquestación Total</p>
+              <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#706C66">Gestiona presupuestos y modelos automáticamente sin intervención humana.</p>
             </div>
-            <div class="mockup-main">
-              <div class="mockup-header-row">
-                <span class="mockup-title">Brain Tracker</span>
-                <span class="mockup-badge">
-                  <span class="pulse-dot"></span>
-                  Sync Activo
-                </span>
-              </div>
-
-              <!-- KPI Grid 3 cols -->
-              <div class="mockup-kpis">
-                <!-- KPI 1: Eficiencia -->
-                <div class="mockup-card">
-                  <span class="card-label">Eficiencia</span>
-                  <span class="card-val">94.2%</span>
-                  <div class="chart-container">
-                    <svg viewBox="0 0 100 36" class="chart-svg">
-                      <defs>
-                        <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stop-color="#FFAA17" stop-opacity="0.3"/>
-                          <stop offset="100%" stop-color="#FFAA17" stop-opacity="0"/>
-                        </linearGradient>
-                      </defs>
-                      <path d="M0,30 Q15,22 25,26 T50,14 T75,8 T100,2" fill="none" stroke="var(--gold)" stroke-width="1.5" class="chart-line"/>
-                    </svg>
-                  </div>
-                </div>
-                <!-- KPI 2: Presupuesto -->
-                <div class="mockup-card">
-                  <span class="card-label">Presupuesto</span>
-                  <span class="card-val">$84.2k</span>
-                  <div class="mockup-progress">
-                    <div class="mockup-progress-fill"></div>
-                  </div>
-                  <div class="mini-bars">
-                    <div class="mini-bar" style="height:40%;--i:0;"></div>
-                    <div class="mini-bar" style="height:65%;--i:1;"></div>
-                    <div class="mini-bar" style="height:50%;--i:2;"></div>
-                    <div class="mini-bar hi" style="height:85%;--i:3;"></div>
-                    <div class="mini-bar" style="height:70%;--i:4;"></div>
-                    <div class="mini-bar" style="height:78%;--i:5;"></div>
-                    <div class="mini-bar hi" style="height:95%;--i:6;"></div>
-                  </div>
-                </div>
-                <!-- KPI 3: Donut -->
-                <div class="mockup-card">
-                  <span class="card-label">Rentabilidad</span>
-                  <span class="card-val">75%</span>
-                  <div class="chart-container" style="display:flex;align-items:center;justify-content:center;">
-                    <svg width="40" height="40" viewBox="0 0 40 40">
-                      <circle cx="20" cy="20" r="16" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="5"/>
-                      <circle cx="20" cy="20" r="16" fill="none" stroke="var(--gold)" stroke-width="5"
-                        stroke-linecap="round"
-                        transform="rotate(-90 20 20)"
-                        class="donut-arc"/>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Activity log -->
-              <div class="mockup-activity">
-                <div class="activity-row">
-                  <div class="activity-dot" style="background:#27c93f;"></div>
-                  <span class="activity-text">Time tracker — Proyecto Seabird Resort</span>
-                  <span class="activity-time">ahora</span>
-                </div>
-                <div class="activity-row">
-                  <div class="activity-dot" style="background:var(--gold);"></div>
-                  <span class="activity-text">CRM: Lead calificado — ROES &amp; CO</span>
-                  <span class="activity-time">2m</span>
-                </div>
-                <div class="activity-row">
-                  <div class="activity-dot" style="background:rgba(255,255,255,0.25);"></div>
-                  <span class="activity-text">Agente IA completó propuesta #014</span>
-                  <span class="activity-time">8m</span>
-                </div>
-              </div>
-
+          </div>
+          <div style="display:flex;gap:18px">
+            <div class="gold-vr" style="align-self:stretch;flex-shrink:0;margin-top:2px" data-vr></div>
+            <div>
+              <p style="font-size:15px;font-weight:400;color:#EAE6DF;margin-bottom:5px;letter-spacing:.01em">Escalabilidad LATAM</p>
+              <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#706C66">Entiende el contexto regional, mercados y lenguajes locales de forma nativa.</p>
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-  </header>
-
-  <!-- ③ MARQUEE ───────────────────────────────────────────── -->
-  <div class="marquee-section" aria-hidden="true">
-    <div class="marquee-track">
-      <!-- set × 2 for seamless loop -->
-      <span class="marquee-item">Time Tracking <span class="marquee-sep"></span></span>
-      <span class="marquee-item">CRM Pipeline <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Finanzas en Tiempo Real <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Agentes Autónomos <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Gestión de Proyectos <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Chat IA Integrado <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Dashboards en Vivo <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Automatización Total <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Time Tracking <span class="marquee-sep"></span></span>
-      <span class="marquee-item">CRM Pipeline <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Finanzas en Tiempo Real <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Agentes Autónomos <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Gestión de Proyectos <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Chat IA Integrado <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Dashboards en Vivo <span class="marquee-sep"></span></span>
-      <span class="marquee-item">Automatización Total <span class="marquee-sep"></span></span>
     </div>
   </div>
+</section>
 
-  <!-- ④ FEATURES ──────────────────────────────────────────── -->
-  <section id="features" class="features section-padding">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Herramientas</div>
-        <h2>Diseñadas para agencias del futuro.</h2>
-        <p class="text-muted" style="margin-top: 1rem;">Elimina la fragmentación. Conecta tu operación a un cerebro centralizado.</p>
+<div class="hr"></div>
+
+<!-- ══════════════════════ HOW IT WORKS ══════════════════════ -->
+<section style="padding:120px 0;background:#0A0A0C;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+
+    <div class="rv" style="margin-bottom:72px">
+      <p class="eyec" style="margin-bottom:22px" data-eyec>Cómo funciona</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em;text-align:center">
+        Tres pasos.<br/><span style="font-style:italic;color:#706C66">Resultados extraordinarios.</span>
+      </h2>
+    </div>
+
+    <div id="steps-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05)">
+      <div class="step rv" style="background:#0A0A0C;padding:44px 36px">
+        <div class="deco-n" style="font-size:100px;letter-spacing:-.05em;margin-bottom:20px;line-height:1">01</div>
+        <h3 style="font-size:17px;font-weight:400;color:#EAE6DF;margin-bottom:14px;letter-spacing:.01em">Das una instrucción</h3>
+        <p style="font-size:14px;line-height:1.78;font-weight:300;color:#706C66">Escribe en lenguaje natural qué necesitas. Victor entiende el contexto completo: marca, industria y objetivo.</p>
       </div>
-      <div class="grid-3">
-
-        <!-- Card 1: Chat IA -->
-        <div class="feature-card reveal">
-          <div class="feature-top">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.48 2 2 6.03 2 11c0 2.5 1.06 4.77 2.78 6.41L3 21l4.06-1.36A10.5 10.5 0 0 0 12 20c5.52 0 10-4.03 10-9s-4.48-9-10-9Z"/>
-                <circle cx="8" cy="11" r="1" fill="currentColor" stroke="none"/>
-                <circle cx="12" cy="11" r="1" fill="currentColor" stroke="none"/>
-                <circle cx="16" cy="11" r="1" fill="currentColor" stroke="none"/>
-              </svg>
-            </div>
-            <span class="feature-num">01</span>
-          </div>
-          <h3>Chat IA Integrado</h3>
-          <p class="text-muted">Centraliza prompts de equipo, automatiza respuestas y gestiona la comunicación con inteligencia artificial sin salir de tu entorno.</p>
-        </div>
-
-        <!-- Card 2: CRM -->
-        <div class="feature-card reveal" style="transition-delay: 0.1s;">
-          <div class="feature-top">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <span class="feature-num">02</span>
-          </div>
-          <h3>CRM Pipeline</h3>
-          <p class="text-muted">Visualiza cada trato, lead y etapa de venta en tiempo real. Mantén a tu equipo comercial enfocado en las cuentas de alto valor.</p>
-        </div>
-
-        <!-- Card 3: Time Tracker -->
-        <div class="feature-card reveal" style="transition-delay: 0.2s;">
-          <div class="feature-top">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <span class="feature-num">03</span>
-          </div>
-          <h3>Time Tracker</h3>
-          <p class="text-muted">Mide la rentabilidad real de cada minuto invertido. Descubre qué proyectos consumen tus recursos y optimiza el costo por hora.</p>
-        </div>
-
-        <!-- Card 4: Proyectos -->
-        <div class="feature-card reveal">
-          <div class="feature-top">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11l3 3L22 4"/>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-              </svg>
-            </div>
-            <span class="feature-num">04</span>
-          </div>
-          <h3>Gestión de Proyectos</h3>
-          <p class="text-muted">Asigna tareas, controla entregables y define hitos sin fricción. Todo conectado directamente con los tiempos de desarrollo.</p>
-        </div>
-
-        <!-- Card 5: Finanzas -->
-        <div class="feature-card reveal" style="transition-delay: 0.1s;">
-          <div class="feature-top">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-              </svg>
-            </div>
-            <span class="feature-num">05</span>
-          </div>
-          <h3>Finanzas Claras</h3>
-          <p class="text-muted">Monitorea ingresos, egresos, costos de servidores IA y proyecciones de flujo. Toma decisiones financieras con datos duros.</p>
-        </div>
-
-        <!-- Card 6: Agentes -->
-        <div class="feature-card reveal" style="transition-delay: 0.2s;">
-          <div class="feature-top">
-            <div class="feature-icon-wrapper">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <path d="M8 21h8M12 17v4"/>
-                <path d="M7 10h2l2 2 2-4 2 2h2"/>
-              </svg>
-            </div>
-            <span class="feature-num">06</span>
-          </div>
-          <h3>Agentes Autónomos</h3>
-          <p class="text-muted">Coordina y monitorea tus agentes de IA en el mismo dashboard. Logs de ejecución, consumo de API y alertas al instante.</p>
-        </div>
-
+      <div class="step rv" style="background:#0A0A0C;padding:44px 36px">
+        <div class="deco-n" style="font-size:100px;letter-spacing:-.05em;margin-bottom:20px;line-height:1">02</div>
+        <h3 style="font-size:17px;font-weight:400;color:#EAE6DF;margin-bottom:14px;letter-spacing:.01em">Victor activa los agentes</h3>
+        <p style="font-size:14px;line-height:1.78;font-weight:300;color:#706C66">El orquestador decide qué directores y especialistas activa — video, marketing, diseño, datos, legal — todos trabajando al mismo tiempo, sin esperas.</p>
+      </div>
+      <div class="step rv" style="background:#0A0A0C;padding:44px 36px">
+        <div class="deco-n" style="font-size:100px;letter-spacing:-.05em;margin-bottom:20px;line-height:1">03</div>
+        <h3 style="font-size:17px;font-weight:400;color:#EAE6DF;margin-bottom:14px;letter-spacing:.01em">Resultados en tu dashboard</h3>
+        <p style="font-size:14px;line-height:1.78;font-weight:300;color:#706C66">Ve el avance en tiempo real, el gasto en IA y recibe entregables listos para publicar.</p>
       </div>
     </div>
-  </section>
 
-  <!-- ⑤ INTEGRATIONS STRIP ────────────────────────────────── -->
-  <div class="integrations-strip">
-    <div class="container integrations-inner reveal">
-      <span class="integrations-label">Se integra con las herramientas que ya usas</span>
-      <div class="integrations-logos">
-        <span class="integration-tag">n8n</span>
-        <span class="integration-tag">HubSpot</span>
-        <span class="integration-tag">Slack</span>
-        <span class="integration-tag">Notion</span>
-        <span class="integration-tag">Linear</span>
-        <span class="integration-tag">Google Workspace</span>
-        <span class="integration-tag">Claude</span>
-        <span class="integration-tag">OpenAI</span>
-        <span class="integration-tag">Stripe</span>
-      </div>
-    </div>
   </div>
+</section>
 
-  <!-- ⑥ STATS ─────────────────────────────────────────────── -->
-  <section class="stats section-padding">
-    <div class="container">
-      <div class="section-label reveal" style="margin-bottom: 3rem;">Métricas clave</div>
-      <div class="grid-3">
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="100" data-suffix="%">100%</span>
-          <h3>Transparencia total</h3>
-          <p class="text-muted">Tu equipo y tus clientes ven el avance y el consumo de presupuesto sin reportes manuales.</p>
-        </div>
-        <div class="stat-item reveal" style="transition-delay: 0.1s;">
-          <span class="stat-number">0 ms</span>
-          <h3>Sincronización real-time</h3>
-          <p class="text-muted">Actualizaciones instantáneas entre herramientas de desarrollo, chats con IA y dashboards financieros.</p>
-        </div>
-        <div class="stat-item reveal" style="transition-delay: 0.2s;">
-          <span class="stat-number" data-target="1" data-suffix="">1</span>
-          <h3>Todo en uno</h3>
-          <p class="text-muted">Olvídate de pagar 5 suscripciones. Victor IA unifica CRM, tracker, finanzas y automatización.</p>
-        </div>
-      </div>
+<div class="hr"></div>
+
+<!-- ══════════════════════ SERVICIOS ══════════════════════ -->
+<section style="padding:120px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <div class="rv" style="text-align:center;margin-bottom:72px">
+      <p class="eyec" style="margin-bottom:22px" data-eyec>Capacidades</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
+        Un sistema.<br/><span style="font-style:italic;color:#706C66">Infinitas aplicaciones.</span>
+      </h2>
     </div>
-  </section>
-
-  <!-- ⑦ HOW IT WORKS ──────────────────────────────────────── -->
-  <section class="how-it-works section-padding">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Proceso</div>
-        <h2>Un camino simple hacia la eficiencia.</h2>
-        <p class="text-muted" style="margin-top: 1rem;">Diseñado para implementarse rápido, sin detener tu operación actual.</p>
-      </div>
-      <div class="grid-3">
-        <div class="step-card reveal">
-          <span class="step-number">01</span>
-          <div class="step-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-          <h3>Implementar</h3>
-          <p class="text-muted">Conectamos tus canales, repositorios y bases de datos en menos de 24 horas con nuestras integraciones nativas.</p>
-        </div>
-        <div class="step-card reveal" style="transition-delay: 0.12s;">
-          <span class="step-number">02</span>
-          <div class="step-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-          <h3>Trackear</h3>
-          <p class="text-muted">Nuestra IA analiza tiempos de desarrollo, interacciones con clientes y costos operativos en segundo plano.</p>
-        </div>
-        <div class="step-card reveal" style="transition-delay: 0.24s;">
-          <span class="step-number">03</span>
-          <h3>Escalar</h3>
-          <p class="text-muted">Usa los insights consolidados para ajustar tarifas, optimizar flujos con agentes IA y aumentar tu margen neto.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑧ TESTIMONIAL ───────────────────────────────────────── -->
-  <section class="testimonial section-padding">
-    <div class="container reveal">
-      <blockquote class="quote-text">
-        "Victor IA transformó la operación de nuestra agencia. Ahora sabemos exactamente qué proyectos son rentables, cuánto consumen nuestros agentes y dónde perdemos dinero en tiempo real."
-      </blockquote>
-      <cite class="quote-author">— Rodrigo Mendoza, CEO de Nexus Media</cite>
-    </div>
-  </section>
-
-  <!-- ⑨ CTA FINAL ──────────────────────────────────────────── -->
-  <section id="solicitar" class="cta-final section-padding">
-    <div class="container reveal">
-      <h2>Toma el control absoluto de tu agencia.</h2>
-      <p>Únete a la lista de espera exclusiva para agencias que buscan operar con máxima eficiencia y automatización de vanguardia.</p>
-      <a href="https://tracker.victor-ia.xyz" class="btn-cta" target="_blank" rel="noopener">
-        Abrir Brain Tracker
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div id="services-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <a href="agentes.html" class="svc-card card-g rv">
+        <div class="ic-wrap"><svg class="ic" width="20" height="20"><use href="#ic-agents-lux"/></svg></div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:10px">Agentes IA</h3>
+        <p style="font-size:13.5px;line-height:1.78;color:#706C66;margin-bottom:18px">~200 expertos especializados coordinados por un supercerebro. Producción, diseño, datos, estrategia y más — en paralelo.</p>
+        <span style="font-size:12px;letter-spacing:.08em;color:#B89A6A">Explorar agentes →</span>
       </a>
-      <a href="mailto:hola@victor-ia.com.mx?subject=Solicitud%20de%20Acceso%20-%20Brain%20Tracker" style="display:block;margin-top:1rem;font-size:0.85rem;color:rgba(14,15,18,0.6);text-decoration:underline;text-underline-offset:3px;">o solicitar acceso por email</a>
+      <a href="como-funciona.html" class="svc-card card-g rv">
+        <div class="ic-wrap"><svg class="ic" width="20" height="20"><use href="#ic-creative-lux"/></svg></div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:10px">Producción Creativa</h3>
+        <p style="font-size:13.5px;line-height:1.78;color:#706C66;margin-bottom:18px">Video, copy, diseño visual e identidad de marca generados en horas. Calidad de agencia, velocidad de IA.</p>
+        <span style="font-size:12px;letter-spacing:.08em;color:#B89A6A">Ver proceso →</span>
+      </a>
+      <a href="app.html" class="svc-card card-g rv">
+        <div class="ic-wrap"><svg class="ic" width="20" height="20"><use href="#ic-data-lux"/></svg></div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:10px">Análisis &amp; Datos</h3>
+        <p style="font-size:13.5px;line-height:1.78;color:#706C66;margin-bottom:18px">Dashboard en tiempo real con ROI visible, reportes automáticos y decisiones basadas en inteligencia operativa.</p>
+        <span style="font-size:12px;letter-spacing:.08em;color:#B89A6A">Ver dashboard →</span>
+      </a>
+      <a href="como-funciona.html" class="svc-card card-g rv">
+        <div class="ic-wrap"><svg class="ic" width="20" height="20"><use href="#ic-auto-lux"/></svg></div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:10px">Automatización Total</h3>
+        <p style="font-size:13.5px;line-height:1.78;color:#706C66;margin-bottom:18px">Flujos que se ejecutan solos. Desde captación de leads hasta entrega de proyectos completos, sin intervención manual.</p>
+        <span style="font-size:12px;letter-spacing:.08em;color:#B89A6A">Cómo funciona →</span>
+      </a>
+      <a href="telemetria.html" class="svc-card card-g rv">
+        <div class="ic-wrap"><svg class="ic" width="20" height="20"><use href="#ic-iot-lux"/></svg></div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:10px">Eficiencia e IoT</h3>
+        <p style="font-size:13.5px;line-height:1.78;color:#706C66;margin-bottom:18px">Monitoreo para edificios, hoteles, flotillas y transportadoras. Alertas en tiempo real y análisis predictivo.</p>
+        <span style="font-size:12px;letter-spacing:.08em;color:#B89A6A">Ver verticales →</span>
+      </a>
+      <a href="precios.html" class="svc-card card-g rv">
+        <div class="ic-wrap"><svg class="ic" width="20" height="20"><use href="#ic-plan-lux"/></svg></div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:10px">Plan a tu Medida</h3>
+        <p style="font-size:13.5px;line-height:1.78;color:#706C66;margin-bottom:18px">Sin paquetes fijos. Diagnóstico gratuito y propuesta personalizada. Solo pagas por lo que realmente necesitas.</p>
+        <span style="font-size:12px;letter-spacing:.08em;color:#B89A6A">Ver planes →</span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ⑩ FOOTER ─────────────────────────────────────────────── -->
-  <footer>
-    <div class="container">
-      <div class="footer-top">
+<div class="hr"></div>
 
-        <!-- Brand -->
-        <div>
-          <a href="/" class="footer-logo">
-            Victor IA <span class="footer-badge">Brain Tracker</span>
-          </a>
-          <p class="footer-brand-desc">La infraestructura digital de tu agencia. Cada hora. Cada cliente. Cada peso.</p>
+<!-- ══════════════════════ INFRAESTRUCTURA ══════════════════════ -->
+<section style="padding:120px 0;background:#0A0A0C;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <div class="rv" style="text-align:center;margin-bottom:72px">
+      <p class="eyec" style="margin-bottom:22px" data-eyec>Cómo está construido</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
+        Una empresa completa.<br/><span style="font-style:italic;color:#706C66">Dentro de un solo sistema.</span>
+      </h2>
+      <p style="max-width:600px;margin:24px auto 0;font-size:15px;line-height:1.8;color:#706C66;font-weight:300">Victor IA no es un chatbot — es una infraestructura de inteligencia artificial organizada como una empresa, con directores especializados y equipos de agentes que trabajan en simultáneo.</p>
+    </div>
+
+    <!-- Pirámide de capas -->
+    <div style="max-width:860px;margin:0 auto">
+
+      <!-- Capa 1: Victor -->
+      <div class="rv" style="display:flex;justify-content:center;margin-bottom:2px">
+        <div id="victor-card" style="background:linear-gradient(135deg,rgba(184,154,106,.12),rgba(184,154,106,.04));border:1px solid rgba(184,154,106,.35);border-radius:14px;padding:20px 36px;text-align:center;width:320px">
+          <div style="font-size:11px;letter-spacing:.14em;color:rgba(184,154,106,.6);text-transform:uppercase;margin-bottom:6px">Nivel 1 — Orquestador</div>
+          <div style="font-size:19px;font-weight:500;color:#EAE6DF;margin-bottom:4px">Victor — Super Agente</div>
+          <div style="font-size:12px;color:#706C66">Recibe la instrucción · Selecciona estrategia · Coordina a todos</div>
         </div>
-
-        <!-- Producto -->
-        <div>
-          <div class="footer-col-title">Producto</div>
-          <div class="footer-col-links">
-            <a href="/" class="footer-link">Home</a>
-            <a href="/brain-tracker" class="footer-link">Brain Tracker</a>
-            <a href="/brain-tracker-slides" class="footer-link">Slides</a>
-            <a href="#features" class="footer-link">Herramientas</a>
-            <a href="#stats" class="footer-link">Métricas</a>
-          </div>
-        </div>
-
-        <!-- Acceso -->
-        <div>
-          <div class="footer-col-title">Acceso</div>
-          <div class="footer-col-links">
-            <a href="/app" class="footer-link">Abrir App</a>
-            <a href="https://tracker.victor-ia.xyz" class="footer-link">Entrar al panel</a>
-            <a href="/agenda" class="footer-link">Agendar llamada</a>
-            <a href="#solicitar" class="footer-link">Solicitar acceso</a>
-            <a href="mailto:hola@victor-ia.com.mx" class="footer-link">Contacto</a>
-          </div>
-        </div>
-
-        <!-- Legal -->
-        <div>
-          <div class="footer-col-title">Legal</div>
-          <div class="footer-col-links">
-            <a href="/privacidad" class="footer-link">Aviso de Privacidad</a>
-            <a href="/terminos" class="footer-link">Términos y Condiciones</a>
-            <a href="/seguridad" class="footer-link">Política de Seguridad</a>
-          </div>
-        </div>
-
+      </div>
+      <div style="display:flex;justify-content:center;height:28px;align-items:center">
+        <svg width="1" height="28"><line x1="0.5" y1="0" x2="0.5" y2="28" stroke="rgba(184,154,106,.2)" stroke-width="1" stroke-dasharray="3 3"/></svg>
       </div>
 
-      <div class="footer-bottom">
-        <span>&copy; 2026 INFLUENCE IA SA DE CV · Brain Tracker</span>
-        <span>victor-ia.xyz</span>
+      <!-- Capa 2: Directores -->
+      <div id="directors-grid" class="rv" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:2px">
+        <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 12px;text-align:center">
+          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#B89A6A" stroke-width="1" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 10l5 3 5-3" opacity="0.3"/><circle cx="10" cy="10" r="1.5" fill="#B89A6A" opacity="0.5"/></g></svg></div>
+          <div style="font-size:12px;font-weight:500;color:#EAE6DF;margin-bottom:2px">Director de Video</div>
+          <div style="font-size:10px;color:#706C66">8 agentes</div>
+        </div>
+        <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 12px;text-align:center">
+          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#B89A6A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1 3h3.5l-3 2 1 3.5L12 9l-2.5 1.5 1-3.5-3-2h3.5L12 2z"/><path d="M12 15v6M8 20h8" opacity="0.3"/></g></svg></div>
+          <div style="font-size:12px;font-weight:500;color:#EAE6DF;margin-bottom:2px">Director de Marketing</div>
+          <div style="font-size:10px;color:#706C66">6 agentes</div>
+        </div>
+        <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 12px;text-align:center">
+          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#B89A6A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 5h6l-5 3.5 2 6L12 13l-5 3.5 2-6-5-3.5h6L12 2z"/><path d="M12 13v7" opacity="0.2"/></g></svg></div>
+          <div style="font-size:12px;font-weight:500;color:#EAE6DF;margin-bottom:2px">Director Creativo</div>
+          <div style="font-size:10px;color:#706C66">7 agentes</div>
+        </div>
+        <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 12px;text-align:center">
+          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#B89A6A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="14" rx="2"/><path d="M6 18h12M8 20h8" opacity="0.3"/><circle cx="12" cy="9" r="2" opacity="0.4"/></g></svg></div>
+          <div style="font-size:12px;font-weight:500;color:#EAE6DF;margin-bottom:2px">Director Técnico</div>
+          <div style="font-size:10px;color:#706C66">5 agentes</div>
+        </div>
+        <div style="background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 12px;text-align:center">
+          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#B89A6A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="16" rx="1.5"/><path d="M5 16l3-5 2 2.5 4-6 5 8" stroke-width="1.1"/><circle cx="8" cy="6" r="1" fill="#B89A6A" opacity="0.3"/></g></svg></div>
+          <div style="font-size:12px;font-weight:500;color:#EAE6DF;margin-bottom:2px">Director de Datos</div>
+          <div style="font-size:10px;color:#706C66">4 agentes</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;height:28px;align-items:center">
+        <div style="width:80%;border-top:1px dashed rgba(184,154,106,.12)"></div>
+      </div>
+
+      <!-- Capa 3: Especialistas -->
+      <div class="rv" style="background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:24px 32px;text-align:center">
+        <div style="font-size:11px;letter-spacing:.14em;color:rgba(112,108,102,.5);text-transform:uppercase;margin-bottom:10px">Nivel 3 — ~200 Especialistas</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">SEO Técnico</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Copywriter</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Growth Hacker</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Diseñador Visual</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Automatizaciones</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Email Marketing</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Analista de Datos</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Desarrollador Web</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Brand Strategist</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Asesor Legal</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">Director de Video</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:20px;color:#706C66">CFO Virtual</span>
+          <span style="font-size:11px;padding:4px 12px;background:rgba(184,154,106,.08);border:1px solid rgba(184,154,106,.15);border-radius:20px;color:rgba(184,154,106,.6)">+ ~188 más</span>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script>
-    /* ─── HAMBURGER MENU ─────────────────────────────────── */
-    const hamburger = document.getElementById('navHamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        document.body.style.overflow = '';
+    <!-- Stats de infraestructura -->
+    <div id="infra-stats" class="rv" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);margin-top:72px">
+      <div style="background:#0A0A0C;padding:36px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#EAE6DF;line-height:1">~200</div>
+        <div style="font-size:12px;letter-spacing:.09em;color:#706C66;margin-top:8px;text-transform:uppercase">Agentes activos</div>
+      </div>
+      <div style="background:#0A0A0C;padding:36px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#EAE6DF;line-height:1">40%</div>
+        <div style="font-size:12px;letter-spacing:.09em;color:#706C66;margin-top:8px;text-transform:uppercase">Reducción de costos</div>
+      </div>
+      <div style="background:#0A0A0C;padding:36px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#EAE6DF;line-height:1">10×</div>
+        <div style="font-size:12px;letter-spacing:.09em;color:#706C66;margin-top:8px;text-transform:uppercase">Más velocidad</div>
+      </div>
+      <div style="background:#0A0A0C;padding:36px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#EAE6DF;line-height:1">3.2×</div>
+        <div style="font-size:12px;letter-spacing:.09em;color:#706C66;margin-top:8px;text-transform:uppercase">ROI promedio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════ VENTAJA COMPETITIVA ══════════════════════ -->
+<section style="padding:120px 0;overflow:hidden">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <div class="rv" style="text-align:center;margin-bottom:72px">
+      <p class="eyec" style="margin-bottom:22px" data-eyec>Por qué Victor IA gana</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
+        Antes, tenías que elegir<br/><span style="font-style:italic;color:#706C66">entre velocidad, calidad o costo.</span>
+      </h2>
+      <p style="max-width:560px;margin:24px auto 0;font-size:15px;line-height:1.8;color:#706C66;font-weight:300">Con Victor IA, tienes los tres al mismo tiempo. Así es cómo nos comparamos con las alternativas tradicionales.</p>
+    </div>
+
+    <!-- Tabla de comparativa -->
+    <div id="comparison-wrapper" class="rv" style="overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.07)">
+
+      <!-- Header -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;background:#0A0A0C;border-bottom:1px solid rgba(255,255,255,.07)">
+        <div style="padding:20px 28px;font-size:12px;letter-spacing:.09em;color:#706C66;text-transform:uppercase"></div>
+        <div style="padding:20px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.25);background:rgba(184,154,106,.04)">
+          <div style="font-size:14px;font-weight:500;color:#EAE6DF;margin-bottom:2px">Victor IA</div>
+          <div style="font-size:10px;letter-spacing:.09em;color:rgba(184,154,106,.6);text-transform:uppercase">Recomendado</div>
+        </div>
+        <div style="padding:20px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.05)">
+          <div style="font-size:14px;font-weight:400;color:#706C66">Agencia tradicional</div>
+        </div>
+        <div style="padding:20px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.05)">
+          <div style="font-size:14px;font-weight:400;color:#706C66">Equipo interno</div>
+        </div>
+      </div>
+
+      <!-- Filas -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.04)">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Costo mensual promedio</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03);font-size:14px;color:#B89A6A;font-weight:500">$3,000 – $8,000 USD</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">$8,000 – $25,000 USD</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">$15,000 – $40,000 USD</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.04)">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Velocidad de entrega</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03);font-size:14px;color:#B89A6A;font-weight:500">Horas</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">3 – 8 semanas</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">Días o semanas</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.04)">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Disponibilidad</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03);font-size:14px;color:#B89A6A;font-weight:500">24 / 7 / 365</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">Horario laboral</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">Horario laboral</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.04)">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Número de expertos</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03);font-size:14px;color:#B89A6A;font-weight:500">~200 simultáneos</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">3 – 8 personas</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:13px;color:#706C66">5 – 15 personas</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.04)">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Video + diseño + copy + datos</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(184,154,106,.15)"/><path d="M5 8l2.5 2.5L11 5.5" stroke="#B89A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(112,108,102,.5)">Contratos separados</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(112,108,102,.5)">Depende del equipo</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(255,255,255,.04)">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Escala sin límite</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(184,154,106,.15)"/><path d="M5 8l2.5 2.5L11 5.5" stroke="#B89A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(112,108,102,.5)">Limitado a capacidad</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(112,108,102,.5)">Requiere contratación</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr">
+        <div style="padding:18px 28px;font-size:13px;color:#EAE6DF">Dashboard y ROI en tiempo real</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(184,154,106,.15);background:rgba(184,154,106,.03)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(184,154,106,.15)"/><path d="M5 8l2.5 2.5L11 5.5" stroke="#B89A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(112,108,102,.5)">Reportes mensuales</div>
+        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(112,108,102,.5)">Herramientas externas</div>
+      </div>
+
+    </div>
+
+    <!-- CTA debajo de la tabla -->
+    <div class="rv" style="text-align:center;margin-top:52px">
+      <p style="font-size:14px;color:#706C66;margin-bottom:24px;font-weight:300">¿Listo para operar diferente?</p>
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+        <a class="btn-p" href="agenda.html" style="padding:13px 32px;font-size:14px">Agendar diagnóstico gratuito</a>
+        <a class="btn-g" href="precios.html" style="padding:13px 32px;font-size:14px">Ver planes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════ TESTIMONIALS ══════════════════════ -->
+<section style="padding:120px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+
+    <div class="rv" style="margin-bottom:72px;text-align:center">
+      <p class="eyec" style="margin-bottom:22px" data-eyec>Resultados reales</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
+        Lo que dicen<br/><span style="font-style:italic;color:#706C66">nuestros clientes.</span>
+      </h2>
+    </div>
+
+    <div id="testimonials-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+
+      <div class="card card-g card-tilt rv" style="padding:36px;position:relative">
+        <!-- Large decorative quote mark SVG -->
+        <svg style="position:absolute;top:20px;right:20px;opacity:.08" width="44" height="36" viewBox="0 0 44 36" fill="none">
+          <path d="M0 36V22.5C0 16.9 1.13333 11.9667 3.4 7.7C5.66667 3.36667 9.23333.633333 14.1 0L16 3.7C13.4667 4.7 11.4 6.23333 9.8 8.3C8.26667 10.3 7.5 12.7 7.5 15.5H14V36H0ZM26 36V22.5C26 16.9 27.1333 11.9667 29.4 7.7C31.6667 3.36667 35.2333.633333 40.1 0L42 3.7C39.4667 4.7 37.4 6.23333 35.8 8.3C34.2667 10.3 33.5 12.7 33.5 15.5H40V36H26Z" fill="#B89A6A"/>
+        </svg>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.72;font-weight:300;color:#EAE6DF;margin-bottom:28px">
+          "Reducimos 6 semanas de trabajo de producción a 3 días. Victor coordina a todos los agentes y nosotros solo aprobamos."
+        </p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(184,154,106,.08);border:1px solid rgba(184,154,106,.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:#B89A6A;letter-spacing:.06em">DM</div>
+          <div><p style="font-size:13px;font-weight:400;color:#EAE6DF">Daniela Méndez</p><p style="font-size:11px;letter-spacing:.06em;color:#706C66">CMO · Nexora Capital</p></div>
+        </div>
+      </div>
+
+      <div class="card card-g card-tilt rv" style="padding:36px;position:relative">
+        <svg style="position:absolute;top:20px;right:20px;opacity:.08" width="44" height="36" viewBox="0 0 44 36" fill="none"><path d="M0 36V22.5C0 16.9 1.13333 11.9667 3.4 7.7C5.66667 3.36667 9.23333.633333 14.1 0L16 3.7C13.4667 4.7 11.4 6.23333 9.8 8.3C8.26667 10.3 7.5 12.7 7.5 15.5H14V36H0ZM26 36V22.5C26 16.9 27.1333 11.9667 29.4 7.7C31.6667 3.36667 35.2333.633333 40.1 0L42 3.7C39.4667 4.7 37.4 6.23333 35.8 8.3C34.2667 10.3 33.5 12.7 33.5 15.5H40V36H26Z" fill="#B89A6A"/></svg>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.72;font-weight:300;color:#EAE6DF;margin-bottom:28px">
+          "Por fin un sistema que entiende toda la empresa — no solo marketing. Legal, capacitación y ventas en un solo lugar con IA."
+        </p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(184,154,106,.08);border:1px solid rgba(184,154,106,.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:#B89A6A;letter-spacing:.06em">RP</div>
+          <div><p style="font-size:13px;font-weight:400;color:#EAE6DF">Rodrigo Peña</p><p style="font-size:11px;letter-spacing:.06em;color:#706C66">CEO · Meridian Group</p></div>
+        </div>
+      </div>
+
+      <div class="card card-g card-tilt rv" style="padding:36px;position:relative">
+        <svg style="position:absolute;top:20px;right:20px;opacity:.08" width="44" height="36" viewBox="0 0 44 36" fill="none"><path d="M0 36V22.5C0 16.9 1.13333 11.9667 3.4 7.7C5.66667 3.36667 9.23333.633333 14.1 0L16 3.7C13.4667 4.7 11.4 6.23333 9.8 8.3C8.26667 10.3 33.5 12.7 33.5 15.5H14V36H0ZM26 36V22.5C26 16.9 27.1333 11.9667 29.4 7.7C31.6667 3.36667 35.2333.633333 40.1 0L42 3.7C39.4667 4.7 37.4 6.23333 35.8 8.3C34.2667 10.3 33.5 12.7 33.5 15.5H40V36H26Z" fill="#B89A6A"/></svg>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.72;font-weight:300;color:#EAE6DF;margin-bottom:28px">
+          "El dashboard en tiempo real cambió cómo tomamos decisiones. Ver el gasto en IA vs. ROI generado cada día es invaluable."
+        </p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(184,154,106,.08);border:1px solid rgba(184,154,106,.2);display:flex;align-items:center;justify-content:center;font-size:11px;color:#B89A6A;letter-spacing:.06em">ST</div>
+          <div><p style="font-size:13px;font-weight:400;color:#EAE6DF">Sofía Torres</p><p style="font-size:11px;letter-spacing:.06em;color:#706C66">Directora · Lumina Studios</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FAQ ══════════════════════ -->
+<section style="padding:100px 0;background:#0A0A0C">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <div class="rv" style="margin-bottom:72px;text-align:center">
+      <p class="eyec" style="margin-bottom:22px" data-eyec>Preguntas Frecuentes</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
+        Todo lo que<br/><span style="font-style:italic;color:#706C66">necesitas saber.</span>
+      </h2>
+    </div>
+    <div class="rv" style="max-width:760px;margin:0 auto">
+      <details>
+        <summary>¿Qué es Victor IA y cómo funciona?</summary>
+        <p>Victor IA es el primer supercerebro de inteligencia artificial para empresas en LATAM. Coordina ~200 agentes expertos especializados de forma simultánea — selecciona el mejor modelo disponible para cada tarea y los orquesta automáticamente. Solo necesitas describir lo que necesitas en lenguaje natural y el sistema hace el resto.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto cuesta Victor IA?</summary>
+        <p>No hay paquetes fijos. Cada empresa es diferente — ofrecemos un diagnóstico gratuito y una propuesta personalizada basada en tus necesidades reales. Puedes comenzar sin tarjeta de crédito. <a href="precios.html" style="color:#B89A6A">Ver planes →</a></p>
+      </details>
+      <details>
+        <summary>¿Necesito conocimientos técnicos para usarlo?</summary>
+        <p>No. Victor IA funciona con lenguaje natural. Solo describes lo que necesitas — igual que hablarías con un asistente humano — y el sistema activa los agentes correctos automáticamente. Sin configuración técnica, sin curva de aprendizaje.</p>
+      </details>
+      <details>
+        <summary>¿En qué países está disponible?</summary>
+        <p>Victor IA está disponible en México y toda LATAM. Con sede en Playa del Carmen, Quintana Roo, México, el sistema entiende el contexto regional, los mercados locales y el español nativo de la región.</p>
+      </details>
+      <details>
+        <summary>¿Qué resultados puedo esperar?</summary>
+        <p>En promedio, nuestros clientes ven un retorno de 3.2× sobre la inversión, una reducción del 68% en tiempo operativo y hasta un 40% de ahorro en costos. Los resultados son visibles en el dashboard desde la primera semana.</p>
+      </details>
+      <details>
+        <summary>¿Qué tipos de tareas puede hacer Victor IA?</summary>
+        <p>Producción de video, copy y contenido, diseño visual, análisis de datos, automatización de procesos completos, monitoreo IoT para flotillas y edificios, reportes ejecutivos, estrategia de marca, y mucho más — todo coordinado desde un solo comando. <a href="agentes.html" style="color:#B89A6A">Ver todos los agentes →</a></p>
+      </details>
+      <details>
+        <summary>¿Por qué es mejor que contratar una agencia o un equipo interno?</summary>
+        <p>Una agencia tradicional trabaja con 3-8 personas, tarda semanas en entregar y cobra por proyecto. Un equipo interno cuesta $15,000–$40,000 USD mensuales solo en sueldos, más prestaciones. Victor IA opera con ~200 expertos simultáneos, entrega en horas, está disponible 24/7 y cuesta una fracción de ambas opciones. Además, todo queda documentado en tu dashboard con ROI visible desde el día uno.</p>
+      </details>
+      <details>
+        <summary>¿Cómo ahorra tiempo y dinero en operaciones?</summary>
+        <p>Nuestros clientes eliminan tareas manuales repetitivas (reportes, seguimientos, generación de contenido, análisis de datos) que antes tomaban días. El sistema automatiza flujos completos — desde captar un lead hasta entregar la propuesta — sin intervención humana. En promedio, el equipo recupera 68% de su tiempo operativo para enfocarse en decisiones estratégicas.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════ GUÍA DEFINITIVA CONVERTER ══════════════════════ -->
+<section style="padding:80px 24px;background:#070708">
+  <div class="sec-inner" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
+    <div class="rv" style="background:linear-gradient(135deg,rgba(184,154,106,.06) 0%,rgba(184,154,106,.02) 100%);border:1px solid rgba(184,154,106,.18);border-radius:16px;padding:56px 64px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center">
+      <div>
+        <p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px">Recurso gratuito</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:200;color:#EAE6DF;line-height:1.12;letter-spacing:-.025em;margin-bottom:16px">Guía Definitiva de IA<br/>para Empresas en México <em style="font-style:italic;color:#706C66">2026</em></h2>
+        <p style="font-size:15px;line-height:1.7;color:rgba(234,230,223,.55);margin-bottom:24px;max-width:520px">10 capítulos con datos reales, calculadora de ROI interactiva, checklist de evaluación de proveedores y plan de implementación de 90 días.</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+          <a href="/guia-definitiva.html" class="btn-p" style="padding:13px 28px;font-size:13px">Descargar gratis</a>
+          <div style="display:flex;gap:16px;font-size:12px;color:rgba(184,154,106,.65)">
+            <span>✓ 10 Capítulos</span>
+            <span>✓ Calculadora ROI</span>
+            <span>✓ Checklist Proveedores</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;min-width:180px">
+        <div style="background:linear-gradient(135deg,#0F0F12,#141418);border:1px solid rgba(184,154,106,.22);border-radius:12px;padding:28px 24px;display:inline-block">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:200;color:#B89A6A;line-height:1">47</div>
+          <div style="font-size:11px;letter-spacing:.12em;color:rgba(184,154,106,.6);text-transform:uppercase;margin-top:4px">Páginas de valor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ══════════════════════ CTA ══════════════════════ -->
+<section style="padding:80px 24px 120px;background:#0A0A0C">
+  <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+    <div id="cta-card" class="card rv" style="padding:80px 64px;text-align:center;position:relative;overflow:hidden">
+      <!-- Radial glow that expands on scroll (JS handles it) -->
+      <div id="cta-glow" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(184,154,106,.03) 0%,transparent 65%);transition:opacity .8s"></div>
+      <div style="position:relative">
+        <p class="eyec" style="margin-bottom:28px" data-eyec>¿Listo para empezar?</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,6vw,86px);line-height:1.04;letter-spacing:-.03em;margin-bottom:24px">
+          Comienza gratis<br/><span style="font-style:italic;color:#706C66">hoy mismo.</span>
+        </h2>
+        <p style="font-size:16px;line-height:1.8;font-weight:300;color:#706C66;max-width:400px;margin:0 auto 44px">
+          Sin tarjeta de crédito · Configuración en 2 minutos. Únete a las empresas que ya operan al 10× de velocidad.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+          <div class="mag"><a class="btn-p" href="app.html" style="padding:14px 40px;font-size:14px">Crear cuenta gratis</a></div>
+          <div class="mag"><a class="btn-g" href="como-funciona.html" style="padding:14px 40px;font-size:14px">Ver cómo funciona →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer style="background:#040406;border-top:1px solid rgba(255,255,255,.05);padding:64px 0 40px;position:relative;z-index:10">
+  <div id="footer-grid" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#EAE6DF;margin-bottom:14px">Victor <span style="color:#B89A6A">IA</span></div><div><h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(112,108,102,.35);margin-bottom:18px">Servicios</h4><ul style="list-style:none;display:flex;flex-direction:column;gap:11px"><li><a class="nav-a" href="/agencia-ia-mexico">Agencia de IA</a></li><li><a class="nav-a" href="/automatizacion-procesos-empresas">Automatización</a></li><li><a class="nav-a" href="/onboarding-ia-empresas">Onboarding IA</a></li><li><a class="nav-a" href="/desarrollo-software-ia">Software con IA</a></li><li><a class="nav-a" href="/software-ia-timeshare-salas-de-ventas">Software Timeshare</a></li><li><a class="nav-a" href="/eficiencia-energetica-iot-hoteles-resorts">Eficiencia Energética IoT</a></li><li><a class="nav-a" href="/ia-para-inmobiliarias-riviera-maya">IA Inmobiliaria</a></li><li><a class="nav-a" href="/ia-para-agencias-tours-experiencias">IA para Tours</a></li><li><a class="nav-a" href="/ia-para-restaurantes-riviera-maya">IA Restaurantes</a></li><li><a class="nav-a" href="/ia-para-wellness-yoga-holistico">IA Wellness</a></li><li><a class="nav-a" href="/ia-para-educacion-escuelas-capacitacion">IA Educación</a></li><li><a class="nav-a" href="/ia-para-empresas-cancun-riviera-maya-yucatan">IA en Cancún</a></li></ul></div>
+      <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#706C66;max-width:260px;margin-bottom:14px">El primer supercerebro de IA en LATAM. Redefiniendo la productividad empresarial.</p>
+      <p style="font-size:11px;letter-spacing:.10em;color:rgba(112,108,102,.3)">México · victor-ia.xyz</p>
+    </div>
+    <div>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(112,108,102,.35);margin-bottom:18px">Producto</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+        <li><a class="nav-a" href="agentes.html">Agentes IA</a></li>
+        <li><a class="nav-a" href="como-funciona.html">Cómo funciona</a></li>
+        <li><a class="nav-a" href="precios.html">Precios</a></li>
+        <li><a class="nav-a" href="app.html">App</a></li>
+        <li><a class="nav-a" href="telemetria.html">Eficiencia e IoT</a></li>
+        <li><a class="nav-a" href="time-tracker-agencias.html">Time Tracker Agencias</a></li>
+        <li><a class="nav-a" href="agentes-ia-agencias.html">Agentes para Agencias</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(112,108,102,.35);margin-bottom:18px">Legal</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
+        <li><a class="nav-a" href="aviso-privacidad.html">Aviso de Privacidad</a></li>
+        <li><a class="nav-a" href="terminos-condiciones.html">Términos y Condiciones</a></li>
+        <li><a class="nav-a" href="politica-cookies.html">Política de Cookies</a></li>
+        <li><a class="nav-a" href="seguridad.html">Seguridad</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer-bottom" style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+    <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(112,108,102,.28)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
+    <div style="display:flex;gap:18px">
+      <a class="nav-a" href="#" aria-label="Web" style="color:rgba(112,108,102,.28)">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor"/><ellipse cx="7.5" cy="7.5" rx="2.5" ry="6" stroke="currentColor"/><path d="M1.5 7.5h12" stroke="currentColor"/></svg>
+      </a>
+      <a class="nav-a" href="#" aria-label="Email" style="color:rgba(112,108,102,.28)">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1.5" y="3" width="12" height="9" rx="1.5" stroke="currentColor"/><path d="M1.5 5l6 4 6-4" stroke="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<!-- Three.js eliminado: el home no lo usa (evita 404 + request bloqueante) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script>
+(function(){
+'use strict';
+
+/* ────────────────────────────────────────────────────────────
+   GUARD — si un CDN (GSAP/ScrollTrigger) no cargó, revelar TODO
+   el contenido y abortar el realce, en vez de dejar la página negra.
+──────────────────────────────────────────────────────────── */
+if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+  document.documentElement.classList.add('no-js');
+  return;
+}
+const hasLenis = typeof Lenis !== 'undefined';
+
+/* ────────────────────────────────────────────────────────────
+   LENIS — ultra-smooth scroll (con fallback si no cargó)
+──────────────────────────────────────────────────────────── */
+const lenis = (hasLenis && window.innerWidth>768) ? new Lenis({
+  duration: 1.35,
+  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smoothWheel: true,
+}) : {raf:()=>{},on:()=>{},destroy:()=>{}};
+(function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
+
+/* ────────────────────────────────────────────────────────────
+   GSAP + ScrollTrigger
+──────────────────────────────────────────────────────────── */
+gsap.registerPlugin(ScrollTrigger);
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+
+/* ────────────────────────────────────────────────────────────
+   CUSTOM CURSOR (lerp lag)
+──────────────────────────────────────────────────────────── */
+const dot = document.getElementById('cur-d');
+const ring= document.getElementById('cur-r');
+let cx=window.innerWidth/2, cy=window.innerHeight/2;
+let rx=cx, ry=cy;
+const LF = 0.10;
+let cursorVisible = false;
+
+document.addEventListener('mousemove', e => {
+  cx = e.clientX; cy = e.clientY;
+  if(!cursorVisible){ cursorVisible=true; dot.style.opacity='1'; ring.style.opacity='1'; }
+});
+document.addEventListener('mouseleave', ()=>{ dot.style.opacity='0'; ring.style.opacity='0'; cursorVisible=false; });
+document.addEventListener('mousedown', ()=>ring.classList.add('shrink'));
+document.addEventListener('mouseup',   ()=>ring.classList.remove('shrink'));
+document.querySelectorAll('a,button,[data-hover]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('expand'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('expand'));
+});
+
+(function animCursor(){
+  rx += (cx-rx)*LF; ry += (cy-ry)*LF;
+  dot.style.left=cx+'px';  dot.style.top=cy+'px';
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
+  requestAnimationFrame(animCursor);
+})();
+
+/* ────────────────────────────────────────────────────────────
+   SCROLL PROGRESS BAR
+──────────────────────────────────────────────────────────── */
+const pbar = document.getElementById('pbar');
+lenis.on('scroll', ({progress})=>{ pbar.style.width=(progress*100)+'%'; });
+
+/* ────────────────────────────────────────────────────────────
+   HEADER scroll state
+──────────────────────────────────────────────────────────── */
+const hdr = document.getElementById('hdr');
+ScrollTrigger.create({ start:'top -40', onUpdate: self => hdr.classList.toggle('scrolled', self.scroll()>40) });
+
+/* ────────────────────────────────────────────────────────────
+   HERO ENTRANCE TIMELINE
+──────────────────────────────────────────────────────────── */
+const heroTL = gsap.timeline({ delay: 0.25 });
+heroTL
+  .to('.h-badge',  { opacity:1, y:0, duration:.75, ease:'power3.out' })
+  .to('.si',       { y:'0%', opacity:1, duration:1.1, ease:'power4.out', stagger:.13 }, '-=.35')
+  .to('.h-sub',    { opacity:1, y:0, duration:.9, ease:'power3.out' }, '-=.6')
+  .to('.h-cta',    { opacity:1, y:0, duration:.8, ease:'power3.out' }, '-=.5')
+  .to('.h-hint',   { opacity:1, y:0, duration:.7, ease:'power3.out' }, '-=.4')
+  .to('.h-panel',  { opacity:1, x:0, duration:1.1, ease:'power4.out' }, '-=.8')
+  /* space canvas fades in via its own setTimeout */
+
+/* ────────────────────────────────────────────────────────────
+   HERO — MOUSE PARALLAX DEPTH
+──────────────────────────────────────────────────────────── */
+/* throttled con rAF: máx 1 update por frame, no por cada evento de ratón */
+let _pmx=0,_pmy=0,_pTick=false;
+document.addEventListener('mousemove', e => {
+  if(window.innerWidth<=768)return;
+  _pmx = (e.clientX/window.innerWidth  - .5);
+  _pmy = (e.clientY/window.innerHeight - .5);
+  if(_pTick)return; _pTick=true;
+  requestAnimationFrame(()=>{
+    gsap.to('#hero-copy', { x:_pmx*-14, y:_pmy*-9, duration:1.8, ease:'power2.out', overwrite:'auto' });
+    gsap.to('.h-panel',   { x:_pmx*20,  y:_pmy*14, duration:1.8, ease:'power2.out', overwrite:'auto' });
+    _pTick=false;
+  });
+});
+
+/* ────────────────────────────────────────────────────────────
+   SCROLL REVEALS — generic
+──────────────────────────────────────────────────────────── */
+requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll('.rv').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.95){el.classList.add('on');}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});}));
+
+/* Recalcular triggers cuando las fuentes terminan de cargar (evita disparos a destiempo) */
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(()=>ScrollTrigger.refresh());}
+window.addEventListener('load',()=>ScrollTrigger.refresh());
+
+/* ────────────────────────────────────────────────────────────
+   EYEBROWS
+──────────────────────────────────────────────────────────── */
+document.querySelectorAll('[data-eye]').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
+document.querySelectorAll('[data-eyec]').forEach(el=>{el.classList.add('eyec');const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
+document.querySelectorAll('.eye').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
+
+/* ────────────────────────────────────────────────────────────
+   GOLD VERTICAL RULES
+──────────────────────────────────────────────────────────── */
+document.querySelectorAll('[data-vr]').forEach(el=>{
+  ScrollTrigger.create({ trigger:el, start:'top 85%', onEnter:()=>el.classList.add('on') });
+});
+
+/* ────────────────────────────────────────────────────────────
+   STAT COUNTERS
+──────────────────────────────────────────────────────────── */
+document.querySelectorAll('.stat-n[data-target]').forEach(el=>{
+  const target = parseFloat(el.dataset.target);
+  const suffix = el.dataset.suffix||'';
+  const prefix = el.dataset.prefix||'';
+  const isFloat = el.dataset.target.includes('.');
+  let started = false;
+  ScrollTrigger.create({
+    trigger: el, start: 'top 85%',
+    onEnter: ()=>{
+      if(started) return; started=true;
+      gsap.to({ v:0 }, {
+        v: target, duration:2.2, ease:'power2.out',
+        onUpdate: function(){
+          const val = this.targets()[0].v;
+          el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+        }
       });
+    }
+  });
+});
+
+/* ────────────────────────────────────────────────────────────
+   MAGNETIC BUTTONS
+──────────────────────────────────────────────────────────── */
+document.querySelectorAll('.mag').forEach(wrap => {
+  const btn = wrap.querySelector('button,a') || wrap;
+  wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    const x = ((e.clientX - r.left)/r.width  - .5) * 20;
+    const y = ((e.clientY - r.top) /r.height - .5) * 20;
+    gsap.to(btn, { x, y, duration:.5, ease:'power2.out' });
+  });
+  wrap.addEventListener('mouseleave', () => {
+    gsap.to(btn, { x:0, y:0, duration:.8, ease:'elastic.out(1,.38)' });
+  });
+});
+
+/* ────────────────────────────────────────────────────────────
+   CARD 3D TILT
+──────────────────────────────────────────────────────────── */
+document.querySelectorAll('.card-tilt').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width;
+    const y = (e.clientY - r.top) /r.height;
+    gsap.to(card, {
+      rotateX:(y-.5)*-12, rotateY:(x-.5)*12,
+      duration:.5, ease:'power2.out',
+      transformPerspective:900, transformStyle:'preserve-3d'
     });
+  });
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, { rotateX:0, rotateY:0, duration:.9, ease:'elastic.out(1,.3)' });
+  });
+});
 
-    /* ─── SCROLL PROGRESS BAR ─────────────────────────────── */
-    const progressBar = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => {
-      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      progressBar.style.width = Math.min(scrolled, 100) + '%';
-    }, { passive: true });
+/* ────────────────────────────────────────────────────────────
+   CARD INNER GLOW (cursor radial follows mouse inside card)
+──────────────────────────────────────────────────────────── */
+document.querySelectorAll('.card-g').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(184,154,106,.07) 0%, transparent 55%), #0F0F12`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.background=''; });
+});
 
-    /* ─── INTERSECTION OBSERVER (reveal + count-up) ──────── */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('revealed');
+/* par-img removed — sphere has no parallax */
 
-        /* count-up for stats */
-        const target = entry.target.querySelector('[data-target]');
-        if (target) countUp(target);
+/* ────────────────────────────────────────────────────────────
+   CTA SECTION — glow intensifies on scroll
+──────────────────────────────────────────────────────────── */
+const ctaGlow = document.getElementById('cta-glow');
+if(ctaGlow){
+  ScrollTrigger.create({
+    trigger:ctaGlow, start:'top 70%', end:'top 10%', scrub:1,
+    onUpdate: self => {
+      ctaGlow.style.background = `radial-gradient(ellipse at 50% 0%, rgba(184,154,106,${.03+self.progress*.09}) 0%, transparent 65%)`;
+    }
+  });
+}
 
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+/* ────────────────────────────────────────────────────────────
+   CANVAS 2D — Deep Space Background
+──────────────────────────────────────────────────────────── */
+(function initSpace(){ if(window.innerWidth<=768&&!window.matchMedia("(pointer:fine)").matches)return;
+  const cv = document.createElement('canvas');
+  cv.id = 'space-bg';
+  Object.assign(cv.style, { position:'fixed', inset:'0', width:'100%', height:'100%', zIndex:'0', pointerEvents:'none', opacity:'0', transition:'opacity 3s ease' });
+  document.body.prepend(cv);
+  const ctx = cv.getContext('2d');
+  const DPR = Math.min(window.devicePixelRatio||1, 2);
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  let W, H, mx, my;
+  function sizeCanvas(){
+    W = window.innerWidth; H = window.innerHeight;
+    cv.width = W*DPR; cv.height = H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);   /* dibujar en píxeles CSS, nítido en Retina */
+  }
+  sizeCanvas(); mx = W/2; my = H/2;
 
-    /* ─── COUNT-UP ────────────────────────────────────────── */
-    function countUp(el) {
-      const end    = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix ?? '';
-      const dur    = 1600;
-      const step   = 16;
-      const inc    = end / (dur / step);
-      let cur = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  window.addEventListener('resize', () => { sizeCanvas(); buildStars(); });
 
-      const timer = setInterval(() => {
-        cur += inc;
-        if (cur >= end) { cur = end; clearInterval(timer); }
-        el.textContent = Math.round(cur) + suffix;
-      }, step);
+  let stars = [], shoots = [], shootTimer = 0;
+
+  function buildStars(){
+    stars = [];
+    for(let i=0;i<420;i++) stars.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*.7+.15, layer:0, tw:Math.random()*Math.PI*2, sp:Math.random()*.008+.004 });
+    for(let i=0;i<90;i++)  stars.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.1+.5, layer:1, tw:Math.random()*Math.PI*2, sp:Math.random()*.012+.006 });
+    for(let i=0;i<28;i++)  stars.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.6+1.0, layer:2, tw:Math.random()*Math.PI*2, sp:Math.random()*.018+.009 });
+  }
+
+  const asts = Array.from({length:5}, () => ({
+    x:Math.random()*W, y:Math.random()*H,
+    vx:(Math.random()-.5)*.14, vy:(Math.random()-.5)*.11,
+    r:Math.random()*11+7, rot:Math.random()*Math.PI*2, drot:(Math.random()-.5)*.004,
+    sides:Math.floor(Math.random()*4)+5,
+    jt:Array.from({length:9}, ()=>.6+Math.random()*.8)
+  }));
+
+  buildStars();
+
+  let t = 0;
+  function tick(){
+    requestAnimationFrame(tick);
+    t++;
+    ctx.clearRect(0, 0, W, H);
+
+    /* Nebula patches */
+    const nb = [
+      [W*.12, H*.2,  280, 'rgba(70,30,110,.022)'],
+      [W*.78, H*.55, 220, 'rgba(25,50,110,.018)'],
+      [W*.5,  H*.82, 180, 'rgba(110,55,30,.013)'],
+    ];
+    for(const [nx,ny,nr,nc] of nb){
+      const g = ctx.createRadialGradient(nx,ny,0,nx,ny,nr);
+      g.addColorStop(0, nc); g.addColorStop(1, 'transparent');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(nx,ny,nr,0,Math.PI*2); ctx.fill();
     }
 
-    /* ─── MOCKUP CARD HOVER TILT (micro interaction) ─────── */
-    const mockupWindow = document.querySelector('.mockup-window');
-    const mockupWrapper = document.querySelector('.mockup-wrapper');
-
-    if (mockupWrapper && mockupWindow) {
-      mockupWrapper.addEventListener('mousemove', (e) => {
-        const rect = mockupWrapper.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        mockupWindow.style.transform = `rotateY(${x * 8}deg) rotateX(${-y * 6}deg)`;
-      });
-
-      mockupWrapper.addEventListener('mouseleave', () => {
-        mockupWindow.style.transform = 'rotateY(-6deg) rotateX(4deg)';
-      });
+    /* Stars with parallax layers */
+    const px = (mx/W-.5), py = (my/H-.5);
+    for(const s of stars){
+      s.tw += s.sp;
+      const a = .25 + Math.sin(s.tw)*.22 + s.layer*.12;
+      const ox = px*(s.layer+1)*-7;
+      const oy = py*(s.layer+1)*-7;
+      ctx.beginPath(); ctx.arc(s.x+ox, s.y+oy, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(215,205,185,${Math.min(a,.95).toFixed(2)})`;
+      ctx.fill();
     }
-  </script>
+
+    /* Asteroids */
+    for(const a of asts){
+      a.x+=a.vx; a.y+=a.vy; a.rot+=a.drot;
+      if(a.x<-60) a.x=W+60; if(a.x>W+60) a.x=-60;
+      if(a.y<-60) a.y=H+60; if(a.y>H+60) a.y=-60;
+      ctx.save(); ctx.translate(a.x,a.y); ctx.rotate(a.rot);
+      ctx.beginPath();
+      for(let i=0;i<a.sides;i++){
+        const ang=(i/a.sides)*Math.PI*2;
+        const jr = a.jt[i%a.jt.length];
+        const rx=Math.cos(ang)*a.r*jr, ry=Math.sin(ang)*a.r*jr;
+        i===0 ? ctx.moveTo(rx,ry) : ctx.lineTo(rx,ry);
+      }
+      ctx.closePath();
+      ctx.strokeStyle='rgba(170,150,110,.16)'; ctx.lineWidth=.7; ctx.stroke();
+      ctx.fillStyle='rgba(28,26,22,.45)'; ctx.fill();
+      ctx.restore();
+    }
+
+    /* Shooting stars */
+    shootTimer++;
+    if(shootTimer > 180+Math.random()*220){
+      shootTimer=0;
+      shoots.push({ x:Math.random()*W*.65, y:Math.random()*H*.28, vx:4.5+Math.random()*5, vy:1.8+Math.random()*2, len:90+Math.random()*130, life:1, fade:.014+Math.random()*.014 });
+    }
+    for(let i=shoots.length-1;i>=0;i--){
+      const s=shoots[i]; s.x+=s.vx; s.y+=s.vy; s.life-=s.fade;
+      if(s.life<=0){ shoots.splice(i,1); continue; }
+      const g=ctx.createLinearGradient(s.x,s.y,s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5));
+      g.addColorStop(0,`rgba(255,248,225,${(s.life*.9).toFixed(2)})`);
+      g.addColorStop(1,'transparent');
+      ctx.strokeStyle=g; ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5)); ctx.stroke();
+    }
+  }
+
+  tick();
+  setTimeout(()=>{ cv.style.opacity='1'; }, 500);
+})();
+
+/* ────────────────────────────────────────────────────────────
+   PHILOSOPHY SECTION — Gravitational Mind (Canvas2D, mouse-reactive)
+──────────────────────────────────────────────────────────── */
+(function initPhilosophy(){
+  const wrap=document.getElementById('sphere-wrap');
+  if(!wrap)return;
+  const cv=document.createElement('canvas');
+  cv.style.cssText='width:100%;height:100%;display:block;border-radius:12px';
+  wrap.innerHTML='';
+  wrap.appendChild(cv);
+  const ctx=cv.getContext('2d');
+  const DPR=Math.min(window.devicePixelRatio||1,2);
+  let S=wrap.offsetWidth||500;                       /* tamaño lógico (px CSS) */
+  function resize(){S=wrap.offsetWidth||500;cv.width=S*DPR;cv.height=S*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+  resize();
+  new ResizeObserver(resize).observe(wrap);
+  let mx=-999,my=-999,mIn=false;
+  wrap.addEventListener('mousemove',e=>{const rc=wrap.getBoundingClientRect();mx=(e.clientX-rc.left);my=(e.clientY-rc.top);mIn=true;});
+  wrap.addEventListener('mouseleave',()=>{mIn=false;mx=-999;my=-999;});
+  const N=280;
+  const ps=Array.from({length:N},(_,i)=>{const a=Math.random()*Math.PI*2,d=40+Math.random()*180;return{x:(S/2)+Math.cos(a)*d,y:(S/2)+Math.sin(a)*d,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:.6+Math.random()*1.6,ph:Math.random()*Math.PI*2};});
+  const blobs=Array.from({length:6},()=>({x:Math.random()*S,y:Math.random()*S,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:70+Math.random()*110,ph:Math.random()*Math.PI*2}));
+  let t=0;
+  (function frame(){
+    requestAnimationFrame(frame);
+    t+=.010;
+    const W=S,H=S;
+    ctx.fillStyle='rgba(8,6,14,.17)';
+    ctx.fillRect(0,0,W,H);
+    blobs.forEach(b=>{b.x+=b.vx;b.y+=b.vy;if(b.x<-b.r||b.x>W+b.r)b.vx*=-1;if(b.y<-b.r||b.y>H+b.r)b.vy*=-1;const al=.11+Math.sin(t*.7+b.ph)*.05;const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);g.addColorStop(0,`rgba(80,50,190,${al})`);g.addColorStop(1,'rgba(8,6,14,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();});
+    for(let i=0;i<N;i++){
+      const p=ps[i];
+      const dx=mx-p.x,dy=my-p.y,d=Math.sqrt(dx*dx+dy*dy)+.1;
+      if(d<220){const f=(220-d)/220;if(d<70){p.vx-=(dx/d)*f*2.5;p.vy-=(dy/d)*f*2.5;}else{p.vx+=(dx/d)*f*.9;p.vy+=(dy/d)*f*.9;}}
+      p.vx+=(W/2-p.x)*.00018;p.vy+=(H/2-p.y)*.00018;
+      p.vx+=Math.sin(t*1.1+p.ph)*.018;p.vy+=Math.cos(t*.9+p.ph)*.018;
+      p.vx*=.968;p.vy*=.968;
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
+      const tc=Math.min(spd/3.5,1);
+      const cr=Math.round(100+tc*150),cg=Math.round(60+tc*150),cb=Math.round(220-tc*80);
+      ctx.shadowColor=`rgba(${cr},${cg},${cb},.9)`;
+      ctx.shadowBlur=6+spd*4;
+      ctx.fillStyle=`rgba(${cr},${cg},${cb},${.65+tc*.35})`;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*(1+spd*.25),0,Math.PI*2);ctx.fill();
+    }
+    ctx.shadowBlur=0;
+    for(let i=0;i<N;i+=2){const p=ps[i];for(let j=i+2;j<N;j+=2){const q=ps[j];const dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){ctx.strokeStyle=`rgba(130,90,230,${(1-d/85)*.22})`;ctx.lineWidth=.4;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}
+    const pr=45+Math.sin(t*1.6)*18;
+    const pg=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,pr);
+    pg.addColorStop(0,'rgba(180,140,255,.4)');pg.addColorStop(.5,'rgba(100,60,200,.15)');pg.addColorStop(1,'rgba(8,6,14,0)');
+    ctx.fillStyle=pg;ctx.beginPath();ctx.arc(W/2,H/2,pr,0,Math.PI*2);ctx.fill();
+    if(mIn&&mx>0){const mg=ctx.createRadialGradient(mx,my,0,mx,my,90);mg.addColorStop(0,'rgba(230,200,90,.28)');mg.addColorStop(.6,'rgba(150,100,240,.1)');mg.addColorStop(1,'rgba(8,6,14,0)');ctx.fillStyle=mg;ctx.beginPath();ctx.arc(mx,my,90,0,Math.PI*2);ctx.fill();}
+  })();
+})();
+
+})();
+</script>
 </body>
 </html>
