@@ -1,40 +1,132 @@
 ﻿<!-- Victor IA — Agentes IA -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="no-js">
 <head>
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js')</script>
+<link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="google-site-verification" content="_grcteJDPwf2UE7oRSRufvalXC063mEyR5N-nqk7vng"/>
 <title>Victor IA | Agentes IA — ~200 Expertos en Paralelo</title>
 <meta name="description" content="Casi 200 agentes especializados coordinados por un supercerebro de IA. Producción, diseño, datos, estrategia y más — todo en un solo comando."/>
+<link rel="canonical" href="https://victor-ia.xyz/agentes.html"/>
+<meta name="robots" content="index, follow"/>
+<meta http-equiv="content-language" content="es-MX"/>
+<meta name="geo.region" content="MX"/>
+<meta name="geo.placename" content="México"/>
+<meta name="geo.position" content="20.9674;-89.6236"/>
+<meta name="ICBM" content="20.9674, -89.6236"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://victor-ia.xyz/agentes.html"/>
+<meta property="og:title" content="Victor IA | Agentes IA — ~200 Expertos en Paralelo"/>
+<meta property="og:description" content="Casi 200 agentes especializados coordinados por un supercerebro de IA. Producción, diseño, datos, estrategia y más — todo en un solo comando."/>
+<meta property="og:locale" content="es_MX"/>
+<meta property="og:site_name" content="Victor IA"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Victor IA | Agentes IA — ~200 Expertos en Paralelo"/>
+<meta name="twitter:description" content="Casi 200 agentes de IA en paralelo para tu empresa. El primer supercerebro empresarial en LATAM."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com" integrity="sha384-igm5BeiBt36UU4gqwWS7imYmelpTsZlQ45FZf+XBn9MuJbn4nQr7yx1yFydocC/K" crossorigin="anonymous"></script>
-<script>
-tailwind.config={darkMode:'class',theme:{extend:{
-  colors:{ink:'#1A1A1A',ink2:'#F5F5F5',ink3:'#FAFAFA',ink4:'#F5F5F5',cream:'#000000',muted:'#666666',faint:'#666666',gold:'#1A1A1A',gold2:'#1A1A1A'},
-  fontFamily:{display:['Cormorant Garamond','Georgia','serif'],body:['Inter','sans-serif']},
-}}}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/styles-global.css"/>
+<!-- Tailwind CDN (dev) reemplazado por utilidades estáticas: sin FOUC, sin ~300KB JS, mejor LCP -->
 <style>
+/* ── Utilidades (subset usado en el home) ─────────────────── */
+.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.relative{position:relative}
+.items-center{align-items:center}.justify-between{justify-content:space-between}.flex-wrap{flex-wrap:wrap}
+.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-5{gap:1.25rem}.gap-9{gap:2.25rem}
+.mx-auto{margin-left:auto;margin-right:auto}.mb-5{margin-bottom:1.25rem}.mb-8{margin-bottom:2rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.w-full{width:100%}.h-full{height:100%}.z-10{z-index:10}
+.max-w-\[1200px\]{max-width:1200px}
+.font-display{font-family:'Cormorant Garamond','Georgia',serif}.font-light{font-weight:300}
+.text-cream{color:#000000}.text-\[21px\]{font-size:21px}.tracking-\[\.04em\]{letter-spacing:.04em}
+.no-underline{text-decoration:none}.select-none{user-select:none}
+@media(min-width:640px){.sm\:block{display:block}}
+@media(min-width:768px){.md\:flex{display:flex}.md\:px-16{padding-left:4rem;padding-right:4rem}}
+</style>
+<style>
+/* ══ DESIGN SYSTEM — CSS VARIABLES ══════════════════════════════════ */
+:root{
+  /* Colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FAFAFA;
+  --bg-card: #FAFAFA;
+  --text-primary: #000000;
+  --text-muted: #666666;
+  --gold: #1A1A1A;
+  --gold-10: rgba(26,26,26,.1);
+  --gold-20: rgba(26,26,26,.2);
+  --gold-30: rgba(26,26,26,.3);
+  --gold-40: rgba(26,26,26,.4);
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 64px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --padding-mobile: 16px;
+  --padding-tablet: 24px;
+  --padding-desktop: 40px;
+
+  /* Typography */
+  --ls-tight: .02em;
+  --ls-normal: .07em;
+  --ls-wide: .12em;
+  --ls-extra: .18em;
+
+  /* Z-index */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-sticky: 100;
+  --z-header: 500;
+  --z-overlay: 1000;
+  --z-cursor: 99998;
+  --z-top: 100000;
+
+  /* Transitions */
+  --trans-fast: 200ms cubic-bezier(.16,1,.3,1);
+  --trans-normal: 400ms cubic-bezier(.16,1,.3,1);
+  --trans-slow: 800ms cubic-bezier(.16,1,.3,1);
+}
+
+/* ── Reset & base ─────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-font-smoothing:antialiased;scroll-behavior:auto}
-body{background:#FFFFFF;color:#000000;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;font-weight:400}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:auto}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Inter',sans-serif;overflow-x:hidden;font-weight:300;line-height:1.5}
+
+/* ── Cursor (pointer:fine only) ─────────────────── */
 @media(pointer:fine){*{cursor:none!important}}
-#cur-d{position:fixed;width:5px;height:5px;background:#1A1A1A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s}
-#cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(0,0,0,.18);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s,border-color .4s,opacity .4s}
-#cur-r.expand{width:58px;height:58px;border-color:rgba(0,0,0,.45)}
-#cur-r.shrink{width:16px;height:16px;border-color:rgba(0,0,0,.9)}
-#pbar{position:fixed;top:0;left:0;height:1px;background:#1A1A1A;z-index:100000;width:0}
+#cur-d{position:fixed;width:5px;height:5px;background:#1A1A1A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s,transform .15s}
+#cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(26,26,26,.42);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s cubic-bezier(.16,1,.3,1),border-color .4s,opacity .4s}
+#cur-r.expand{width:58px;height:58px;border-color:rgba(26,26,26,.72)}
+#cur-r.shrink{width:16px;height:16px;border-color:rgba(26,26,26,.9)}
+
+/* ── Space canvas (dynamically created) ─────────── */
+#space-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 3s ease}
+
+/* ── Progress bar ────────────────────────────────── */
+#pbar{position:fixed;top:0;left:0;height:1px;background:#1A1A1A;z-index:100000;width:0;transform-origin:left}
+
+/* ── Noise grain ─────────────────────────────────── */
 #noise{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.024;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-/* ── Header ──────────────────────────────────────────── */
+
+/* ── Header ──────────────────────────────────────── */
 header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
-header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,255,255,.06);backdrop-filter:blur(18px)}
+header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,.06);backdrop-filter:blur(18px)}
 .nav-a{position:relative;color:#666666;font-size:13px;letter-spacing:.07em;font-weight:300;transition:color .3s;text-decoration:none}
 .nav-a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:#1A1A1A;transition:width .45s cubic-bezier(.16,1,.3,1)}
 .nav-a:hover{color:#000000}
 .nav-a:hover::after{width:100%}
+
+/* ── Buttons ─────────────────────────────────────── */
 .btn-p,.btn-g{display:inline-flex;align-items:center;justify-content:center;border-radius:5px;font-family:var(--font-body);font-size:13px;letter-spacing:.09em;font-weight:500;position:relative;overflow:hidden;text-decoration:none}
 .btn-p{background:#000000;color:#FFFFFF;border:1px solid transparent;padding:11px 26px;transition:background .25s,transform .2s}
 .btn-p:hover{background:#1A1A1A;transform:translateY(-2px)}
@@ -42,21 +134,70 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(255,25
 .btn-g{background:transparent;color:#000000;border:1px solid rgba(0,0,0,.18);padding:11px 26px;transition:border-color .3s,transform .2s}
 .btn-g:hover{border-color:rgba(0,0,0,.45);transform:translateY(-2px)}
 .mag{display:inline-block}
-.card{background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:12px;transition:border-color .45s}
-.card:hover{border-color:rgba(0,0,0,.2)}
+
+/* ── Cards ───────────────────────────────────────── */
+.card{background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:12px;transition:border-color .45s;transform-style:preserve-3d;will-change:transform}
+.card:hover{border-color:rgba(26,26,26,.22)}
+.card-flat{background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:12px}
+
+/* ── Eyebrow ─────────────────────────────────────── */
 .eye{display:inline-flex;align-items:center;gap:13px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#1A1A1A}
-.eye::before{content:'';display:block;width:0;height:1px;background:#1A1A1A;transition:width 1.3s cubic-bezier(.16,1,.3,1)}
+.eye::before{content:'';display:block;width:0;height:1px;background:#1A1A1A;flex-shrink:0;transition:width 1.3s cubic-bezier(.16,1,.3,1)}
 .eye.on::before{width:26px}
-.eyec{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;gap:10px}
-.eyec::before,.eyec::after{content:'';display:block;width:0;height:1px;background:rgba(0,0,0,.3);transition:width 1.3s cubic-bezier(.16,1,.3,1)}
+.eyec{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,26,26,.6);display:flex;align-items:center;justify-content:center;gap:10px}
+.eyec::before,.eyec::after{content:'';display:block;width:0;height:1px;background:rgba(26,26,26,.4);transition:width 1.3s cubic-bezier(.16,1,.3,1)}
 .eyec.on::before,.eyec.on::after{width:18px}
-.rv{opacity:0;transform:translateY(30px)}
+
+/* ── Split text ──────────────────────────────────── */
+.sl{overflow:hidden;display:block}
+.si{display:block;transform:translateY(108%);opacity:0}
+
+/* ── Initial hidden states (GSAP takes over) ─────── */
+.h-badge,.h-sub,.h-cta,.h-hint,.h-panel{opacity:0;transform:translateY(22px)}
+.h-panel{transform:translateX(36px)}
+
+/* ── Divider ─────────────────────────────────────── */
 .hr{height:1px;background:rgba(0,0,0,.052)}
-.mag{display:inline-block}
-.gold-vr{width:1px;background:rgba(0,0,0,0);transition:background 1.2s .3s}
-.gold-vr.on{background:rgba(0,0,0,.08)}
-.deco-n{font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;color:rgba(0,0,0,.04);line-height:1;pointer-events:none;user-select:none}
+
+/* ── Marquee ─────────────────────────────────────── */
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-t{display:flex;animation:mq 30s linear infinite;width:max-content;align-items:center}
+.mq-w:hover .mq-t{animation-play-state:paused}
+
+/* ── Scroll bounce ───────────────────────────────── */
+@keyframes sb{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:.9}}
+.sb{animation:sb 2.2s ease-in-out infinite}
+
+/* ── SVG ring pulses ─────────────────────────────── */
+@keyframes rp{0%{opacity:.18;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+.rp1{animation:rp 4s ease-out infinite}
+.rp2{animation:rp 4s ease-out .9s infinite}
+.rp3{animation:rp 4s ease-out 1.8s infinite}
+
+/* ── Number counter ──────────────────────────────── */
+.stat-n{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1;color:#000000;text-shadow:0 0 80px rgba(26,26,26,.22)}
+
+/* ── Scroll reveal base ──────────────────────────── */
+.rv{opacity:0;transform:translateY(30px)}
+@keyframes rv-in{to{opacity:1;transform:none}}
+.rv.on{animation:rv-in .8s cubic-bezier(.16,1,.3,1) forwards}
+/* Fallback sin JS / CDN caído: revelar TODO el contenido */
+.no-js .rv,.no-js .si,.no-js .h-badge,.no-js .h-sub,.no-js .h-cta,.no-js .h-hint,.no-js .h-panel{opacity:1!important;transform:none!important;animation:none!important}
+/* A11y: respetar reduce-motion */
+@media(prefers-reduced-motion:reduce){
+  .rv,.si,.h-badge,.h-sub,.h-cta,.h-hint,.h-panel{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+  .mq-t,.sb,.rp1,.rp2,.rp3{animation:none!important}
+  html{scroll-behavior:auto!important}
+}
+
+/* ── Gold vertical rule ──────────────────────────── */
+.gold-vr{width:1px;background:rgba(26,26,26,0);transition:background 1.2s .3s}
+.gold-vr.on{background:rgba(26,26,26,.28)}
+
+/* ── Large decorative number (background) ───────── */
+.deco-n{font-family:'Cormorant Garamond',serif;font-weight:200;color:rgba(0,0,0,.028);line-height:1;pointer-events:none;user-select:none}
 </style>
+<script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
 </head>
 <body>
 <div id="noise"></div>
