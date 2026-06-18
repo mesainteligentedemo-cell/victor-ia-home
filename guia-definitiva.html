@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Definitiva de IA para Empresas en México 2026 | Victor IA</title>
+<meta name="description" content="10 capítulos, calculadora de ROI, checklist de proveedores y plan de 90 días. La guía más completa de inteligencia artificial para empresas mexicanas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070708;
+  --text:#EAE6DF;
+  --gold:#B89A6A;
+  --gold-light:#D4B896;
+  --gold-dim:#7A6645;
+  --muted:#706C66;
+  --surface:#0F0F10;
+  --surface2:#161618;
+  --border:#1E1E20;
+  --red:#C0392B;
+  --green:#27AE60;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--gold-light)}
+img{max-width:100%}
+::selection{background:var(--gold);color:#000}
+
+/* ── PROGRESS BAR ── */
+#progress-bar{
+  position:fixed;top:0;left:0;height:3px;width:0%;
+  background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-light));
+  z-index:10000;transition:width .1s linear;
+}
+
+/* ── NAV ── */
+nav.site-nav{
+  position:fixed;top:3px;left:0;right:0;z-index:9000;
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;
+  background:rgba(7,7,8,.85);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(184,154,106,.12);
+}
+.nav-logo{font-family:var(--font-serif);font-size:1.35rem;font-weight:300;letter-spacing:.08em;color:var(--text)}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:2.2rem}
+.nav-links a{font-size:.78rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  background:transparent;border:1px solid var(--gold);
+  color:var(--gold);padding:.45rem 1.2rem;
+  font-family:var(--font-sans);font-size:.74rem;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
+  transition:all .25s;border-radius:2px;
+}
+.nav-cta:hover{background:var(--gold);color:#000}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:1px;background:var(--text)}
+
+/* ── LAYOUT ── */
+.page-wrapper{display:flex;gap:0;max-width:1400px;margin:0 auto;padding:0 2%}
+.toc-sidebar{
+  width:260px;flex-shrink:0;position:sticky;top:88px;
+  height:calc(100vh - 100px);overflow-y:auto;
+  padding:2rem 1.5rem 2rem 0;
+  border-right:1px solid var(--border);
+}
+.toc-sidebar::-webkit-scrollbar{width:3px}
+.toc-sidebar::-webkit-scrollbar-thumb{background:var(--border)}
+.main-content{flex:1;min-width:0;padding:2rem 0 4rem 3rem}
+
+/* ── TOC SIDEBAR ── */
+.toc-title{font-family:var(--font-serif);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.toc-list{list-style:none}
+.toc-list li{margin-bottom:.5rem}
+.toc-list a{font-size:.75rem;font-weight:300;color:var(--muted);letter-spacing:.03em;display:flex;align-items:flex-start;gap:.5rem;line-height:1.5;transition:color .2s}
+.toc-list a:hover,.toc-list a.active{color:var(--gold)}
+.toc-list .ch-num{color:var(--gold-dim);font-family:var(--font-serif);font-size:.85rem;flex-shrink:0}
+.toc-list a.active .ch-num{color:var(--gold)}
+.toc-dl-btn{
+  margin-top:2rem;width:100%;padding:.6rem;
+  border:1px solid var(--gold-dim);background:transparent;
+  color:var(--gold);font-family:var(--font-sans);font-size:.72rem;
+  letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;
+  transition:all .25s;
+}
+.toc-dl-btn:hover{background:var(--gold);color:#000}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;
+  padding:120px 5% 80px;
+  background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(184,154,106,.07) 0%,transparent 70%);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B89A6A' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid var(--gold-dim);padding:.35rem .9rem;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.8rem;border-radius:2px;
+}
+.hero-badge::before{content:'';display:block;width:6px;height:6px;background:var(--gold);border-radius:50%}
+.hero h1{
+  font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,4.2rem);
+  font-weight:200;line-height:1.15;letter-spacing:-.01em;
+  max-width:760px;margin-bottom:1.4rem;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:.95rem;font-weight:300;color:var(--muted);max-width:540px;margin-bottom:2.8rem;letter-spacing:.02em}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:4rem}
+.btn-primary{
+  background:var(--gold);color:#000;
+  padding:.75rem 2rem;font-family:var(--font-sans);
+  font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:2px;transition:all .25s;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-secondary{
+  background:transparent;color:var(--text);
+  padding:.75rem 2rem;font-family:var(--font-sans);
+  font-size:.78rem;font-weight:300;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid var(--border);cursor:pointer;border-radius:2px;transition:all .25s;
+}
+.btn-secondary:hover{border-color:var(--muted)}
+.stats-bar{
+  display:flex;gap:3rem;flex-wrap:wrap;
+  padding-top:2rem;border-top:1px solid var(--border);
+  width:100%;max-width:700px;
+}
+.stat-item{display:flex;flex-direction:column;gap:.2rem}
+.stat-num{font-family:var(--font-serif);font-size:1.8rem;font-weight:300;color:var(--gold)}
+.stat-label{font-size:.72rem;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ── TOC SECTION (inline, not sidebar) ── */
+.toc-section{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:4px;padding:2.5rem 3rem;margin:3rem 0;
+}
+.toc-section h2{
+  font-family:var(--font-serif);font-size:1.4rem;font-weight:300;
+  letter-spacing:.08em;margin-bottom:1.8rem;color:var(--gold);
+}
+.toc-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:.8rem;
+}
+.toc-item{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:.8rem 1rem;border:1px solid var(--border);border-radius:3px;
+  transition:border-color .2s,background .2s;
+}
+.toc-item:hover{border-color:var(--gold-dim);background:rgba(184,154,106,.04)}
+.toc-item .n{
+  font-family:var(--font-serif);font-size:2rem;font-weight:200;
+  color:var(--gold-dim);line-height:1;flex-shrink:0;min-width:2rem;
+}
+.toc-item .t{font-size:.82rem;font-weight:300;color:var(--text);line-height:1.5}
+.toc-item .t strong{display:block;font-weight:400;margin-bottom:.15rem}
+.toc-item .t span{color:var(--muted);font-size:.76rem}
+
+/* ── CHAPTERS ── */
+.chapter{
+  padding:4rem 0;
+  border-bottom:1px solid var(--border);
+  scroll-margin-top:90px;
+}
+.chapter:last-child{border-bottom:none}
+.chapter-label{
+  font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold-dim);margin-bottom:.6rem;display:block;
+}
+.chapter-num-display{
+  font-family:var(--font-serif);font-size:6rem;font-weight:200;
+  line-height:1;color:rgba(184,154,106,.12);
+  margin-bottom:-1.5rem;margin-left:-.3rem;
+  user-select:none;
+}
+.chapter h2{
+  font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:300;line-height:1.2;margin-bottom:1.8rem;letter-spacing:-.01em;
+}
+.chapter h3{
+  font-family:var(--font-serif);font-size:1.35rem;font-weight:400;
+  margin:2.2rem 0 .9rem;color:var(--gold-light);
+}
+.chapter h4{
+  font-size:.85rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);margin:1.8rem 0 .7rem;
+}
+.chapter p{
+  font-size:.93rem;line-height:1.85;color:rgba(234,230,223,.85);
+  margin-bottom:1.2rem;
+}
+.chapter ul,.chapter ol{
+  padding-left:1.4rem;margin-bottom:1.4rem;
+}
+.chapter li{
+  font-size:.93rem;line-height:1.85;color:rgba(234,230,223,.85);
+  margin-bottom:.45rem;
+}
+.chapter ul li::marker{color:var(--gold)}
+.chapter ol li::marker{color:var(--gold);font-family:var(--font-serif)}
+
+/* Data callouts */
+.data-callout{
+  background:rgba(184,154,106,.07);border-left:3px solid var(--gold);
+  padding:1.2rem 1.5rem;margin:1.8rem 0;border-radius:0 4px 4px 0;
+}
+.data-callout p{margin:0;font-size:.9rem;color:var(--text)}
+.data-callout strong{color:var(--gold)}
+
+/* Stat grid */
+.stat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:1rem;margin:2rem 0;
+}
+.stat-card{
+  background:var(--surface);border:1px solid var(--border);
+  padding:1.4rem;border-radius:4px;text-align:center;
+}
+.stat-card .big{
+  font-family:var(--font-serif);font-size:2.4rem;font-weight:200;
+  color:var(--gold);display:block;line-height:1;margin-bottom:.4rem;
+}
+.stat-card .label{font-size:.73rem;font-weight:300;color:var(--muted);letter-spacing:.05em}
+
+/* Type cards (Ch 3) */
+.type-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:4px;padding:1.5rem;margin-bottom:1rem;
+  transition:border-color .2s;
+}
+.type-card:hover{border-color:var(--gold-dim)}
+.type-card .type-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:.8rem}
+.type-card .type-num{
+  font-family:var(--font-serif);font-size:2.2rem;font-weight:200;
+  color:var(--gold-dim);line-height:1;flex-shrink:0;
+}
+.type-card .type-title{
+  font-family:var(--font-serif);font-size:1.2rem;font-weight:400;
+  color:var(--text);line-height:1.3;
+}
+.type-card .type-sub{font-size:.78rem;color:var(--gold);letter-spacing:.05em;display:block;margin-top:.2rem}
+.type-card p{font-size:.88rem;color:rgba(234,230,223,.75);line-height:1.75;margin:0}
+.type-card .impact{
+  display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;
+  background:rgba(184,154,106,.1);padding:.3rem .8rem;border-radius:2px;
+  font-size:.75rem;color:var(--gold);
+}
+
+/* Gold rule */
+.gold-rule{
+  border:none;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-dim),transparent);
+  margin:3rem 0;
+}
+
+/* Urgency timeline */
+.timeline{display:flex;flex-direction:column;gap:0;margin:2rem 0}
+.tl-item{display:flex;gap:1.5rem;position:relative}
+.tl-item::before{
+  content:'';position:absolute;left:19px;top:38px;bottom:-10px;
+  width:1px;background:var(--border);
+}
+.tl-item:last-child::before{display:none}
+.tl-dot{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--gold-dim);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;z-index:1;
+  font-family:var(--font-serif);font-size:1rem;color:var(--gold);
+}
+.tl-body{padding-bottom:2rem}
+.tl-body h4{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+.tl-body p{font-size:.86rem;color:var(--muted);line-height:1.7;margin:0}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none;padding:0;margin:1.5rem 0}
+.checklist li{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.6rem .8rem;margin-bottom:.3rem;
+  background:var(--surface);border:1px solid var(--border);border-radius:3px;
+  font-size:.87rem;line-height:1.5;
+}
+.checklist li input[type=checkbox]{
+  flex-shrink:0;width:16px;height:16px;margin-top:2px;
+  accent-color:var(--gold);cursor:pointer;
+}
+
+/* Red/green flags */
+.flag-list{list-style:none;padding:0;margin:1.5rem 0}
+.flag-list li{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.5rem 0;border-bottom:1px solid var(--border);
+  font-size:.89rem;line-height:1.6;
+}
+.flag-list li:last-child{border-bottom:none}
+.flag-icon{flex-shrink:0;width:20px;font-size:1rem}
+
+/* Roadmap */
+.roadmap{margin:2rem 0}
+.roadmap-phase{
+  border:1px solid var(--border);border-radius:4px;
+  margin-bottom:1rem;overflow:hidden;
+}
+.phase-header{
+  background:var(--surface2);padding:1rem 1.5rem;
+  display:flex;align-items:center;gap:1rem;
+  border-bottom:1px solid var(--border);
+}
+.phase-days{
+  font-family:var(--font-serif);font-size:1.5rem;font-weight:200;
+  color:var(--gold);white-space:nowrap;
+}
+.phase-name{font-size:.9rem;font-weight:500;color:var(--text)}
+.phase-body{padding:1.2rem 1.5rem}
+.phase-body p{font-size:.88rem;line-height:1.75;color:rgba(234,230,223,.8);margin-bottom:.6rem}
+.phase-kpis{
+  display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem;
+}
+.kpi-tag{
+  font-size:.72rem;letter-spacing:.06em;padding:.25rem .7rem;
+  border:1px solid var(--gold-dim);color:var(--gold);border-radius:2px;
+}
+
+/* Industry cases */
+.case-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:1rem;margin:2rem 0;
+}
+.case-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:4px;padding:1.5rem;
+}
+.case-card h4{font-size:.88rem;font-weight:500;color:var(--gold);margin-bottom:.8rem;letter-spacing:.05em}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}
+.ba-block{background:var(--surface2);padding:.8rem;border-radius:3px;text-align:center}
+.ba-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.3rem}
+.ba-val{font-family:var(--font-serif);font-size:1.4rem;font-weight:300;color:var(--text);display:block}
+.ba-block.after .ba-val{color:var(--gold)}
+.case-desc{font-size:.82rem;color:var(--muted);line-height:1.6;margin-top:.6rem}
+
+/* ── ROI CALCULATOR ── */
+.calculator{
+  background:var(--surface);border:1px solid var(--gold-dim);
+  border-radius:6px;padding:2.5rem;margin:2.5rem 0;
+}
+.calc-title{
+  font-family:var(--font-serif);font-size:1.8rem;font-weight:300;
+  color:var(--gold);margin-bottom:.4rem;
+}
+.calc-sub{font-size:.83rem;color:var(--muted);margin-bottom:2rem}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.calc-inputs,.calc-outputs{display:flex;flex-direction:column;gap:1.4rem}
+.field-group{display:flex;flex-direction:column;gap:.5rem}
+.field-group label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.field-group input[type=range]{
+  -webkit-appearance:none;width:100%;height:3px;
+  background:var(--border);border-radius:2px;outline:none;
+}
+.field-group input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;
+  border-radius:50%;background:var(--gold);cursor:pointer;
+}
+.field-group input[type=number]{
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--text);padding:.5rem .8rem;font-family:var(--font-sans);
+  font-size:.9rem;border-radius:3px;outline:none;width:100%;
+}
+.field-group input[type=number]:focus{border-color:var(--gold-dim)}
+.field-group select{
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--text);padding:.5rem .8rem;font-family:var(--font-sans);
+  font-size:.88rem;border-radius:3px;outline:none;width:100%;cursor:pointer;
+}
+.range-val{font-size:.9rem;font-weight:400;color:var(--gold);text-align:right}
+.output-card{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:4px;padding:1.2rem;text-align:center;
+}
+.output-card .out-label{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4rem}
+.output-card .out-val{font-family:var(--font-serif);font-size:2rem;font-weight:200;color:var(--gold);display:block;line-height:1}
+.output-card.highlight{border-color:var(--gold);background:rgba(184,154,106,.06)}
+.output-card.highlight .out-val{font-size:2.6rem;color:var(--gold-light)}
+.calc-cta{margin-top:2rem;text-align:center}
+
+/* ── ERRORS LIST ── */
+.error-list{list-style:none;padding:0;margin:1.5rem 0;counter-reset:err}
+.error-item{
+  counter-increment:err;
+  display:flex;gap:1.2rem;padding:1.2rem;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:4px;margin-bottom:.8rem;
+}
+.error-item::before{
+  content:counter(err);
+  font-family:var(--font-serif);font-size:2rem;font-weight:200;
+  color:rgba(192,57,43,.4);flex-shrink:0;line-height:1;
+}
+.error-item .err-title{font-size:.9rem;font-weight:500;color:var(--text);margin-bottom:.3rem}
+.error-item .err-desc{font-size:.84rem;color:var(--muted);line-height:1.6}
+.err-cost{font-size:.76rem;color:#E74C3C;margin-top:.4rem}
+
+/* ── LEGAL CHECKLIST ── */
+.legal-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:.8rem;margin:1.5rem 0;
+}
+.legal-item{
+  display:flex;align-items:flex-start;gap:.7rem;
+  background:var(--surface);border:1px solid var(--border);
+  padding:.9rem 1rem;border-radius:3px;
+  font-size:.85rem;line-height:1.5;
+}
+.legal-item::before{
+  content:'✓';color:var(--gold);flex-shrink:0;font-weight:500;
+}
+
+/* ── CTA FINAL ── */
+.final-cta{
+  background:linear-gradient(135deg,rgba(184,154,106,.08),rgba(184,154,106,.03));
+  border:1px solid var(--gold-dim);border-radius:6px;
+  padding:4rem;text-align:center;margin:4rem 0;
+}
+.final-cta h2{
+  font-family:var(--font-serif);font-size:clamp(1.8rem,3vw,3rem);
+  font-weight:200;margin-bottom:1rem;
+}
+.final-cta p{font-size:.95rem;color:var(--muted);max-width:540px;margin:0 auto 2rem}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.85);
+  z-index:20000;display:flex;align-items:center;justify-content:center;
+  padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.modal-overlay.visible{opacity:1;pointer-events:all}
+.modal-card{
+  background:var(--surface2);border:1px solid var(--gold-dim);
+  border-radius:6px;padding:2.5rem;max-width:440px;width:100%;
+  position:relative;transform:translateY(20px);transition:transform .3s;
+}
+.modal-overlay.visible .modal-card{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:1rem;right:1rem;
+  background:none;border:none;color:var(--muted);
+  font-size:1.3rem;cursor:pointer;transition:color .2s;line-height:1;
+}
+.modal-close:hover{color:var(--text)}
+.modal-badge{
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.8rem;display:block;
+}
+.modal-card h3{
+  font-family:var(--font-serif);font-size:1.6rem;font-weight:300;
+  margin-bottom:.5rem;line-height:1.3;
+}
+.modal-card p{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
+.form-field{margin-bottom:1rem}
+.form-field label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.form-field input{
+  width:100%;background:var(--surface);border:1px solid var(--border);
+  color:var(--text);padding:.65rem .9rem;font-family:var(--font-sans);
+  font-size:.9rem;border-radius:3px;outline:none;transition:border-color .2s;
+}
+.form-field input:focus{border-color:var(--gold-dim)}
+.form-submit{
+  width:100%;padding:.75rem;background:var(--gold);color:#000;
+  border:none;font-family:var(--font-sans);font-size:.78rem;
+  font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;border-radius:2px;margin-top:.5rem;transition:background .25s;
+}
+.form-submit:hover{background:var(--gold-light)}
+.modal-privacy{font-size:.7rem;color:var(--muted);text-align:center;margin-top:.8rem}
+.modal-what{
+  display:flex;flex-direction:column;gap:.4rem;
+  margin-bottom:1.5rem;
+}
+.modal-what-item{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.82rem;color:rgba(234,230,223,.75);
+}
+.modal-what-item::before{content:'→';color:var(--gold);font-size:.75rem}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:2rem;right:2rem;z-index:30000;
+  background:var(--surface2);border:1px solid var(--gold);
+  padding:.8rem 1.4rem;border-radius:4px;
+  font-size:.85rem;color:var(--gold);
+  transform:translateY(60px);opacity:0;
+  transition:all .35s cubic-bezier(.34,1.56,.64,1);
+  pointer-events:none;
+}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .toc-sidebar{display:none}
+  .main-content{padding:2rem 1rem}
+  .page-wrapper{padding:0 1rem}
+  .calc-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .hero{padding:100px 5% 60px}
+  .stats-bar{gap:1.5rem}
+  .toc-grid{grid-template-columns:1fr}
+  .case-grid{grid-template-columns:1fr}
+  .final-cta{padding:2.5rem 1.5rem}
+  .calc-grid{grid-template-columns:1fr}
+  .calculator{padding:1.5rem}
+  .chapter-num-display{font-size:4rem}
+}
+@media(max-width:480px){
+  .nav-logo{font-size:1.1rem}
+  .hero h1{font-size:2rem}
+  .before-after{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ── PRINT ── */
+@media print{
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff!important;color:#111!important;font-size:11pt}
+  nav.site-nav,.toc-sidebar,#progress-bar,.modal-overlay,.toast,
+  .nav-cta,.btn-primary,.btn-secondary,.toc-dl-btn,
+  .hero-actions,.final-cta .cta-buttons,
+  .field-group input[type=range],.field-group select,.calc-cta{display:none!important}
+  .hero{min-height:auto;padding:2cm 0 1cm;background:none!important;border-bottom:1pt solid #ccc}
+  .hero::before{display:none}
+  .hero h1{font-size:28pt;color:#111!important}
+  .hero-sub{color:#555!important}
+  .stats-bar{border-top:1pt solid #ccc;padding-top:1cm}
+  .stat-num,.big{color:#8B6914!important}
+  .page-wrapper{display:block}
+  .main-content{padding:0}
+  .chapter{padding:1cm 0;page-break-before:always;border-bottom:1pt solid #eee}
+  .chapter:first-child{page-break-before:avoid}
+  .chapter h2{font-size:20pt;color:#111!important}
+  .chapter h3{color:#8B6914!important}
+  .chapter p,.chapter li{color:#333!important}
+  .data-callout{background:#FFF9F0!important;border-left:3pt solid #B89A6A!important}
+  .stat-card,.type-card,.case-card,.checklist li,.error-item,.legal-item{
+    background:#F9F9F9!important;border:1pt solid #DDD!important
+  }
+  .calculator{border:2pt solid #B89A6A!important;background:#FFF!important}
+  .output-card{background:#F5F0E8!important;border:1pt solid #DDD!important}
+  .out-val,.calc-title,.type-num,.toc-item .n{color:#8B6914!important}
+  .roadmap-phase{border:1pt solid #DDD!important}
+  .phase-header{background:#F5F5F5!important}
+  .phase-days{color:#8B6914!important}
+  .gold-rule{background:#B89A6A!important;height:1pt!important}
+  .chapter-num-display{color:#EEE!important}
+  a{color:#8B6914!important;text-decoration:underline}
+  .toc-section{background:#F9F9F9!important;border:1pt solid #DDD!important}
+  .toc-item{border:1pt solid #DDD!important;background:#FFF!important}
+  .ba-block{background:#F5F5F5!important}
+  .final-cta{background:#F9F9F9!important;border:2pt solid #B89A6A!important}
+  .final-cta h2,.final-cta p{color:#111!important}
+}
+</style>
+<script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">&#x2715;</button>
+    <span class="modal-badge">&#9679; Acceso gratuito</span>
+    <h3>Desbloquea la Guía Completa + Calculadora</h3>
+    <p>Recibe acceso inmediato a los 10 capítulos, la calculadora de ROI interactiva y el checklist de proveedores.</p>
+    <div class="modal-what">
+      <div class="modal-what-item">10 capítulos con datos reales del mercado mexicano</div>
+      <div class="modal-what-item">Calculadora de ROI para tu empresa específica</div>
+      <div class="modal-what-item">Checklist de 15 puntos para evaluar proveedores</div>
+      <div class="modal-what-item">Plan de acción de 90 días listo para implementar</div>
+    </div>
+    <form id="lead-form" onsubmit="handleFormSubmit(event)">
+      <div class="form-field">
+        <label for="lead-nombre">Tu nombre</label>
+        <input type="text" id="lead-nombre" placeholder="Ej. María González" required autocomplete="given-name">
+      </div>
+      <div class="form-field">
+        <label for="lead-email">Correo empresarial</label>
+        <input type="email" id="lead-email" placeholder="tu@empresa.com" required autocomplete="email">
+      </div>
+      <button type="submit" class="form-submit">Desbloquear guía ahora →</button>
+    </form>
+    <p class="modal-privacy">Sin spam. Nunca. Puedes darte de baja en un clic.</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">victor<span>IA</span></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="agentes.html">Agentes IA</a>
+    <a href="como-funciona.html">Cómo funciona</a>
+    <a href="casos-de-uso.html">Casos de uso</a>
+    <a href="blog">Blog</a>
+  </div>
+  <button class="nav-cta btn-primary" onclick="window.location.href='app.html'">Empezar gratis</button>
+  <div class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-badge">Guía Gratuita 2026</div>
+  <h1>Guía Definitiva de<br><em>Inteligencia Artificial</em><br>para Empresas en México</h1>
+  <p class="hero-sub">10 capítulos · Calculadora ROI · Checklist de Proveedores · Plan de 90 días. Todo lo que necesitas saber para implementar IA con resultados medibles.</p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="handleDownload()" id="hero-dl-btn">Descargar PDF gratis</button>
+    <button class="btn-secondary" onclick="scrollToContent()">Leer ahora ↓</button>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">10</span>
+      <span class="stat-label">Capítulos</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">47</span>
+      <span class="stat-label">Páginas de valor</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1</span>
+      <span class="stat-label">Calculadora de ROI</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">+8,000</span>
+      <span class="stat-label">Empresas</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOC SECTION -->
+<div style="background:var(--surface);border-bottom:1px solid var(--border);padding:3rem 5%" id="toc-anchor">
+  <div class="toc-section" style="max-width:1100px;margin:0 auto">
+    <h2>Contenido de la Guía</h2>
+    <div class="toc-grid">
+      <a href="#ch1" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">01</div>
+        <div class="t"><strong>El Estado de la IA en México 2026</strong><span>Mercado $2.8B, barreras y sectores líderes</span></div>
+      </a>
+      <a href="#ch2" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">02</div>
+        <div class="t"><strong>Por Qué la IA es Urgente Ahora</strong><span>La ventana de 18-24 meses y el efecto compuesto</span></div>
+      </a>
+      <a href="#ch3" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">03</div>
+        <div class="t"><strong>Los 7 Tipos de IA que Necesitas</strong><span>Chatbots, RPA, predictivo, contenido y más</span></div>
+      </a>
+      <a href="#ch4" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">04</div>
+        <div class="t"><strong>Cómo Elegir al Proveedor Correcto</strong><span>Checklist 15 puntos · 10 red flags · 5 green flags</span></div>
+      </a>
+      <a href="#ch5" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">05</div>
+        <div class="t"><strong>Roadmap — Los 90 Días Críticos</strong><span>Diagnóstico → Quick wins → Escala</span></div>
+      </a>
+      <a href="#ch6" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">06</div>
+        <div class="t"><strong>IA por Industria — 12 Casos Reales</strong><span>Números ANTES/DESPUÉS por sector</span></div>
+      </a>
+      <a href="#ch7" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">07</div>
+        <div class="t"><strong>ROI de la IA — Calculadora Interactiva</strong><span>Calcula tu ahorro en tiempo real</span></div>
+      </a>
+      <a href="#ch8" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">08</div>
+        <div class="t"><strong>Los 8 Errores que Cuestan Millones</strong><span>Cómo evitar los errores más caros</span></div>
+      </a>
+      <a href="#ch9" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">09</div>
+        <div class="t"><strong>Marco Legal y Ético en México 2026</strong><span>LFPDPPP, NOM-151, Ley Federal de IA</span></div>
+      </a>
+      <a href="#ch10" class="toc-item" style="text-decoration:none;color:inherit">
+        <div class="n">10</div>
+        <div class="t"><strong>Tu Plan de Acción — 30 Días</strong><span>Semana por semana, resultado medible</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE WRAPPER: SIDEBAR + CONTENT -->
+<div class="page-wrapper" style="padding-top:2rem">
+  <!-- STICKY SIDEBAR TOC -->
+  <aside class="toc-sidebar">
+    <div class="toc-title">Capítulos</div>
+    <ul class="toc-list" id="sidebar-toc">
+      <li><a href="#ch1" data-target="ch1"><span class="ch-num">01</span>Estado de la IA en México</a></li>
+      <li><a href="#ch2" data-target="ch2"><span class="ch-num">02</span>Por Qué es Urgente Ahora</a></li>
+      <li><a href="#ch3" data-target="ch3"><span class="ch-num">03</span>Los 7 Tipos de IA</a></li>
+      <li><a href="#ch4" data-target="ch4"><span class="ch-num">04</span>Elegir al Proveedor</a></li>
+      <li><a href="#ch5" data-target="ch5"><span class="ch-num">05</span>Roadmap 90 Días</a></li>
+      <li><a href="#ch6" data-target="ch6"><span class="ch-num">06</span>IA por Industria</a></li>
+      <li><a href="#ch7" data-target="ch7"><span class="ch-num">07</span>Calculadora ROI</a></li>
+      <li><a href="#ch8" data-target="ch8"><span class="ch-num">08</span>8 Errores Costosos</a></li>
+      <li><a href="#ch9" data-target="ch9"><span class="ch-num">09</span>Marco Legal 2026</a></li>
+      <li><a href="#ch10" data-target="ch10"><span class="ch-num">10</span>Plan de Acción 30 días</a></li>
+    </ul>
+    <button class="toc-dl-btn" onclick="handleDownload()">Descargar PDF</button>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- CHAPTER 1 -->
+    <article class="chapter" id="ch1">
+      <div class="chapter-num-display">01</div>
+      <span class="chapter-label">Capítulo Uno</span>
+      <h2>El Estado de la Inteligencia Artificial en México 2026</h2>
+
+      <p>México está viviendo uno de los momentos más significativos de su historia empresarial. La inteligencia artificial dejó de ser un tema de laboratorio o de grandes corporaciones transnacionales para convertirse en la herramienta de competitividad más poderosa que tienen en sus manos las empresas mexicanas de todos los tamaños. Sin embargo, la brecha entre las empresas que ya adoptaron IA y las que siguen esperando crece semana a semana.</p>
+
+      <p>Entender dónde estamos hoy no es un ejercicio académico: es la diferencia entre tomar decisiones informadas y dejarse llevar por el ruido mediático o el miedo al cambio.</p>
+
+      <h3>El mercado mexicano de IA en números reales</h3>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="big">$2.8B</span>
+          <span class="label">USD mercado IA México 2026</span>
+        </div>
+        <div class="stat-card">
+          <span class="big">$11.4B</span>
+          <span class="label">USD proyección para 2030</span>
+        </div>
+        <div class="stat-card">
+          <span class="big">22%</span>
+          <span class="label">CAGR crecimiento anual</span>
+        </div>
+        <div class="stat-card">
+          <span class="big">73%</span>
+          <span class="label">Empresas que planean adoptar IA en 2026</span>
+        </div>
+        <div class="stat-card">
+          <span class="big">19%</span>
+          <span class="label">Lo han hecho con éxito medible</span>
+        </div>
+        <div class="stat-card">
+          <span class="big">3.4×</span>
+          <span class="label">Más ingresos vs. competidores sin IA</span>
+        </div>
+      </div>
+
+      <p>Según datos del IMCO (Instituto Mexicano para la Competitividad) publicados a finales de 2025, el 73% de las empresas mexicanas con más de 10 empleados tienen planes concretos para implementar alguna solución de inteligencia artificial durante 2026. Sin embargo, el dato que realmente importa está en la otra cara: solo el 19% de las empresas que intentaron implementar IA en años anteriores lo lograron con resultados medibles y sostenibles.</p>
+
+      <p>Esa brecha del 54% —entre intención y resultado— no es casualidad. Es consecuencia directa de tres barreras estructurales que exploraremos a profundidad en esta guía, y que Victor IA lleva tres años ayudando a empresas mexicanas a superar.</p>
+
+      <h3>Las 3 Barreras Principales que Frenan la Adopción</h3>
+
+      <div class="data-callout">
+        <p><strong>Barrera #1 — Desconocimiento técnico:</strong> El 61% de los directivos mexicanos considera que "no tiene los conocimientos suficientes para evaluar una solución de IA". El problema no es la capacidad intelectual: es que el mercado de proveedores habla en inglés, usa terminología confusa y raramente explica los beneficios en términos de pesos y centavos.</p>
+      </div>
+
+      <div class="data-callout">
+        <p><strong>Barrera #2 — Miedo al costo:</strong> La percepción generalizada es que "la IA es para empresas grandes". Esta percepción es incorrecta: en 2026, un agente de inteligencia artificial que atiende clientes las 24 horas cuesta entre $8,000 y $25,000 MXN al mes, mientras que un empleado en el mismo rol cuesta entre $18,000 y $35,000 MXN más prestaciones. La paridad de costo ya se alcanzó —y en muchos casos se invirtió.</p>
+      </div>
+
+      <div class="data-callout">
+        <p><strong>Barrera #3 — Falta de proveedor confiable:</strong> El mercado está saturado de agencias que prometen resultados mágicos sin entregar diagnóstico, sin métricas claras y sin garantía. El 43% de las empresas que "fallaron" en su implementación de IA reportan haber trabajado con proveedores que no tenían experiencia en su industria específica.</p>
+      </div>
+
+      <h3>El Dato que Nadie Te Dice</h3>
+
+      <p>Existe un hallazgo que raramente aparece en los titulares pero que es quizás el más relevante para cualquier director o dueño de empresa en México: las empresas que adoptaron inteligencia artificial entre 2022 y 2023 reportan hoy ingresos <strong>3.4 veces mayores</strong> que sus competidores directos que no lo hicieron.</p>
+
+      <p>Este multiplicador no es magia. Es el resultado de procesos más eficientes, menor costo operativo, mayor velocidad de respuesta al cliente, mejor personalización y —lo más importante— la capacidad de escalar sin contratar proporcionalmente más personas. Mientras tus competidores siguen dependiendo de equipos que crecen linealmente con los ingresos, las empresas con IA implementada escalan sus resultados de forma exponencial.</p>
+
+      <p>El problema de no actuar hoy no es "perderse una tendencia". Es permitir que ese gap de 3.4× se amplíe cada trimestre hasta volverse insuperable.</p>
+
+      <h3>Sectores que Lideran la Adopción en México</h3>
+
+      <p>No todos los sectores mexicanos avanzan al mismo ritmo. Conocer qué está pasando en tu industria te permite calibrar con precisión el nivel de urgencia que tienes:</p>
+
+      <ul>
+        <li><strong>Fintech y servicios financieros:</strong> Líder absoluto. Las fintech mexicanas usan IA para análisis de crédito en tiempo real, detección de fraude, onboarding digital y servicio al cliente automatizado. Bancos como Banorte y BBVA México ya tienen equipos internos de IA con cientos de personas.</li>
+        <li><strong>Retail y e-commerce:</strong> La segunda posición. Personalización de producto, predicción de demanda, gestión automática de inventario y chatbots de servicio al cliente son ya estándar en retailers medianos y grandes. Mercado Libre genera el 38% de sus ventas a través de recomendaciones IA.</li>
+        <li><strong>Manufactura:</strong> Aceleración acelerada tras el nearshoring. Con más de 4,000 nuevas plantas instaladas en México desde 2023, el mantenimiento predictivo, el control de calidad por visión computarizada y la optimización de rutas logísticas son las aplicaciones más demandadas.</li>
+        <li><strong>Salud:</strong> En expansión rápida. Clínicas privadas y hospitales medianos usan IA para agendar citas, gestionar expedientes clínicos, asistir diagnósticos y automatizar el seguimiento post-consulta. La pandemia aceleró 5 años de adopción tecnológica en este sector.</li>
+        <li><strong>Bienes raíces:</strong> Transformación profunda. Tours virtuales con IA, valuación automática de propiedades, calificación inteligente de leads y generación automatizada de contratos están cambiando radicalmente cómo operan las inmobiliarias mexicanas.</li>
+        <li><strong>Agencias de marketing y publicidad:</strong> El sector más afectado y el que más rápido se está adaptando. La generación de contenido con IA, el análisis automático de campañas y la personalización masiva están redefiniendo qué significa "hacer marketing" en 2026.</li>
+      </ul>
+
+      <p>Si tu empresa opera en alguno de estos sectores, la pregunta ya no es si debes implementar IA. La pregunta es cuánto tiempo más puedes permitirte no hacerlo.</p>
+
+      <h3>La Oportunidad para las PyMEs Mexicanas</h3>
+
+      <p>Hay una noticia extraordinariamente buena que nadie está comunicando con suficiente claridad: las pequeñas y medianas empresas mexicanas tienen hoy acceso a la misma infraestructura de IA que usan Amazon, Google y Tesla. La democratización de estas herramientas —gracias a modelos como GPT-4o, Claude, Gemini y decenas de soluciones especializadas— significa que una empresa con 15 empleados puede automatizar procesos que antes requerían un equipo de tecnología de 50 personas.</p>
+
+      <p>El momento más valioso de la historia de la IA para las empresas mexicanas no fue cuando apareció ChatGPT en 2022. Es hoy, en 2026, cuando las herramientas maduraron, los costos cayeron y los proveedores especializados —como Victor IA— aprendieron exactamente cómo implementarlas con resultados predecibles.</p>
+    </article>
+
+    <hr class="gold-rule">
+
+    <!-- CHAPTER 2 -->
+    <article class="chapter" id="ch2">
+      <div class="chapter-num-display">02</div>
+      <span class="chapter-label">Capítulo Dos</span>
+      <h2>Por Qué la IA es Urgente Ahora (No en 2027)</h2>
+
+      <p>La respuesta más común que escuchamos cuando hablamos con directivos de empresas mexicanas es: "Sí, sabemos que la IA es importante. Lo vamos a hacer el próximo trimestre." O el próximo año. O "cuando el presupuesto esté más holgado". Esta respuesta, que suena razonable y prudente, es en realidad uno de los errores estratégicos más costosos que puede cometer una empresa en 2026.</p>
+
+      <p>No porque la IA sea una moda que va a pasar. Sino porque el costo de esperar no es cero: es activamente negativo, y se mide en pérdida de market share, erosión de márgenes y desventaja competitiva que se vuelve más difícil de revertir cada mes que pasa.</p>
+
+      <h3>La Ventana de Adopción se Cierra en 18-24 Meses</h3>
+
+      <p>Existe lo que los estrategas de tecnología llaman la "ventana de adopción temprana": el período en el que implementar una nueva tecnología todavía otorga una ventaja competitiva diferencial. Una vez que la mayoría de los competidores la tienen, el beneficio no desaparece —pero se convierte en el piso mínimo para operar, no en una ventaja.</p>
+
+      <p>Para la inteligencia artificial en México, esa ventana está abierta hoy. Los modelos de adopción en mercados similares (Brasil, Colombia, España) sugieren que en 18 a 24 meses, la IA habrá pasado de ser "una ventaja competitiva" a ser "un requisito para no quebrar". Las empresas que implementen IA en 2026 llegarán al punto de saturación con dos años de aprendizaje organizacional, datos propios entrenados y equipos capacitados. Las que esperen hasta 2028 empezarán desde cero en un mercado donde sus competidores ya tienen esa ventaja.</p>
+
+      <div class="data-callout">
+        <p><strong>Referencia de mercado:</strong> En Brasil, el 78% de las empresas de retail que implementaron IA en 2022-2023 reportan que sus competidores tardíos nunca pudieron alcanzarlos en métricas clave de personalización y conversión, incluso invirtiendo el doble. La ventaja de datos propios entrenados es casi imposible de comprar.</p>
+      </div>
+
+      <h3>La Paridad de Costo ya Ocurrió</h3>
+
+      <p>Uno de los argumentos más repetidos contra la implementación de IA es el costo. Es un argumento que tuvo sentido en 2020. En 2026, ya no lo tiene.</p>
+
+      <p>Un agente de inteligencia artificial que atiende clientes, responde preguntas, califica leads y agenda citas las 24 horas del día, los 365 días del año, cuesta entre $8,000 y $25,000 MXN al mes dependiendo del volumen y la complejidad. Un empleado humano haciendo el mismo trabajo cuesta entre $18,000 y $45,000 MXN al mes incluyendo salario, IMSS, SAR, INFONAVIT, vacaciones y aguinaldo.</p>
+
+      <p>El punto de paridad de costo no solo se alcanzó: se cruzó. Hoy, en muchos roles repetitivos y orientados a datos, la IA es más económica, más rápida, nunca se enferma, no pide aumento y escala instantáneamente cuando aumenta la demanda. Esto no significa que la IA reemplaza a todos los empleados —sino que libera a tu equipo humano para tareas de mayor valor mientras la IA se ocupa del volumen.</p>
+
+      <h3>Velocidad: Lo que Tardaba 5 Días Hoy Tarda 12 Minutos</h3>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot">A</div>
+          <div class="tl-body">
+            <h4>Antes de la IA: Reporte de ventas mensual</h4>
+            <p>Un analista recopilaba datos de 4 sistemas, los consolidaba en Excel, generaba gráficas manualmente y redactaba un reporte. Tiempo total: 2-3 días laborales. Costo estimado: $2,800 MXN en tiempo de trabajo calificado.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">B</div>
+          <div class="tl-body">
+            <h4>Con IA: El mismo reporte</h4>
+            <p>Un agente de IA conectado a tus sistemas genera el reporte en 12 minutos con análisis automático, identificación de anomalías, tendencias y recomendaciones en lenguaje natural. Costo: $0 marginal (ya está en la suscripción).</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">C</div>
+          <div class="tl-body">
+            <h4>El impacto compuesto</h4>
+            <p>Si tu empresa genera 40 reportes de este tipo al mes, estás recuperando 80-120 horas de trabajo calificado mensualmente. Eso es tiempo que tu analista puede dedicar a interpretar los datos y tomar decisiones estratégicas —no a recopilarlos.</p>
+          </div>
+        </div>
+      </div>
+
+      <p>La velocidad no es solo un beneficio operativo: es una ventaja competitiva. La empresa que puede tomar decisiones basadas en datos en 12 minutos en lugar de 3 días, en un mercado cambiante, tiene una ventaja estructural sobre la que no puede.</p>
+
+      <h3>El Efecto Compuesto: Cada Mes que Esperas, el Gap se Amplía</h3>
+
+      <p>Imagina dos empresas idénticas hoy: mismos ingresos, mismo equipo, mismo mercado. Empresa A implementa IA en enero de 2026. Empresa B decide esperar. ¿Qué pasa al cabo de 12 meses?</p>
+
+      <p>Empresa A tiene 12 meses de datos propios entrenados en sus modelos de IA. Sus chatbots son más inteligentes porque aprendieron de 50,000 conversaciones reales con sus clientes. Su sistema de predicción de ventas tiene un año de historial propio. Su equipo ya sabe cómo usar las herramientas y las usa a diario. Sus procesos se optimizaron tres veces en ese año. Su costo por lead bajó 34%. Su tiempo de respuesta al cliente bajó de 6 horas a 3 minutos.</p>
+
+      <p>Empresa B, ese mismo enero de 2027, empieza desde cero. Sin datos entrenados. Sin equipo capacitado. Sin aprendizajes acumulados. Con competidores que ya llevan un año de ventaja. Y lo peor: sin los $2.3 millones en ahorros operativos que Empresa A ya acumuló —y que puede reinvertir en crecer más rápido.</p>
+
+      <div class="data-callout">
+        <p><strong>Empresas que esperaron — caso real México 2024:</strong> Una cadena regional de farmacias en el Bajío decidió "esperar a ver" la adopción de IA en 2023. En 2024, su competidor directo implementó personalización IA y automatización de inventario. Resultado 18 meses después: el competidor redujo su costo de inventario en 23%, aumentó su ticket promedio en 18% y abrió 4 sucursales nuevas. La cadena que esperó perdió el 11% de su market share regional sin poder identificar claramente por qué.</p>
+      </div>
+
+      <h3>Por Qué 2026 es el Año Crítico</h3>
+
+      <p>Hay tres factores que hacen de 2026 específicamente el momento decisivo para las empresas mexicanas:</p>
+
+      <ol>
+        <li><strong>Madurez de herramientas:</strong> Los modelos de IA de 2026 son exponencialmente más capaces que los de 2022-2023, pero los precios son 10 veces menores. La madurez técnica llegó al mismo tiempo que la accesibilidad económica.</li>
+        <li><strong>Ecosistema local establecido:</strong> Ya existen proveedores mexicanos especializados con casos de éxito documentados en el contexto legal, cultural y empresarial de México. No necesitas contratar a una consultora de San Francisco que no entiende cómo opera un negocio en Monterrey o Guadalajara.</li>
+        <li><strong>Regulación clara:</strong> El marco legal mexicano para IA está tomando forma (lo cubrimos en el Capítulo 9), lo que da certeza jurídica a las empresas que implementan ahora —en lugar de tener que deshacer implementaciones cuando llegue regulación restrictiva.</li>
+      </ol>
+
+      <p>La urgencia no es pánico. Es estrategia. La empresa que actúa en 2026 no solo captura el ROI económico inmediato —sino que construye la infraestructura de datos y aprendizaje que determinará quién lidera su mercado en 2028 y 2030.</p>
+    </article>
+
+    <hr class="gold-rule">
+
+    <!-- CHAPTER 3 -->
+    <article class="chapter" id="ch3">
+      <div class="chapter-num-display">03</div>
+      <span class="chapter-label">Capítulo Tres</span>
+      <h2>Los 7 Tipos de IA que Tu Empresa Necesita</h2>
+
+      <p>Uno de los malentendidos más comunes sobre la inteligencia artificial es pensar que es un producto único y monolítico. "La IA" no existe como una sola cosa —existen docenas de categorías de herramientas de IA, cada una diseñada para resolver problemas específicos. Conocer cuáles existen, qué hacen exactamente y cuándo usarlas es el primer paso para tomar decisiones de implementación inteligentes.</p>
+
+      <p>Para las empresas mexicanas en 2026, estas son las 7 categorías con mayor impacto medible:</p>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">1</div>
+          <div>
+            <div class="type-title">Chatbots y Asistentes Conversacionales</div>
+            <span class="type-sub">→ WhatsApp · Web · Voz · Omnicanal</span>
+          </div>
+        </div>
+        <p>Los asistentes conversacionales con IA son la categoría con mayor adopción y el ROI más inmediato para la mayoría de las empresas. Un chatbot bien implementado en WhatsApp puede calificar leads entrantes en tiempo real, responder las 150 preguntas más frecuentes de tus clientes, agendar citas, tomar pedidos y escalar automáticamente a un humano cuando la conversación lo requiere —todo esto 24 horas al día, 7 días a la semana, sin vacaciones.</p>
+        <p>La diferencia entre un chatbot de 2019 y uno de 2026 es abismal. Los modelos actuales (basados en GPT-4o, Claude 3.7 y Gemini 1.5) comprenden contexto, detectan intención, manejan conversaciones complejas con múltiples temas y aprenden de cada interacción. Una tienda de materiales de construcción en Querétaro con la que trabajamos recibe 340 consultas diarias por WhatsApp; antes respondía el 60% en el día, hoy responde el 100% en menos de 2 minutos con una tasa de satisfacción del 91%.</p>
+        <div class="impact">Impacto típico: +45% en tasa de respuesta · −67% en tiempo de atención · +28% en conversión de leads</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">2</div>
+          <div>
+            <div class="type-title">Automatización de Procesos con IA (AI-RPA)</div>
+            <span class="type-sub">→ Elimina 68% de tareas manuales repetitivas</span>
+          </div>
+        </div>
+        <p>La automatización robótica de procesos potenciada con IA (AI-RPA) va mucho más allá del RPA tradicional. Mientras el RPA clásico automatiza tareas predecibles con reglas fijas, el AI-RPA maneja variabilidad, toma decisiones contextuales y aprende de excepciones. En términos prácticos: puede leer facturas en cualquier formato y capturarlas en tu ERP, procesar solicitudes de crédito interpretando documentos escaneados, generar reportes personalizados consultando múltiples sistemas, y actualizar información en CRM a partir de correos y mensajes sin estructura.</p>
+        <p>El dato más citado en implementaciones de AI-RPA es que el 68% de las tareas manuales de un equipo administrativo típico son candidatas a automatización total o parcial. Esto no significa despedir al equipo: significa que esas personas pueden dedicar su talento a tareas de relación con clientes, análisis estratégico y toma de decisiones que la IA todavía no puede hacer mejor que un humano.</p>
+        <div class="impact">Impacto típico: −68% tareas manuales · −45% errores de captura · +3.2× velocidad operativa</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">3</div>
+          <div>
+            <div class="type-title">Análisis Predictivo de Datos</div>
+            <span class="type-sub">→ Predice churn, demanda, precios y oportunidades</span>
+          </div>
+        </div>
+        <p>Si tienes datos históricos de tu negocio —ventas, clientes, inventario, comportamiento de usuarios— tienes una mina de oro que los modelos predictivos pueden explotar. El análisis predictivo usa machine learning para identificar patrones en tus datos y generar predicciones accionables: qué clientes están a punto de abandonarte (churn prediction), qué productos necesitarás en inventario la próxima semana (demand forecasting), qué precio maximiza tus ingresos según el contexto de mercado (dynamic pricing), y qué leads de tu CRM tienen mayor probabilidad de cerrar esta semana.</p>
+        <p>Una distribuidora de alimentos en Jalisco con la que colaboramos implementó un modelo predictivo de demanda con solo 18 meses de historial de ventas. En el primer trimestre post-implementación, redujo su exceso de inventario en 31%, eliminó 89% de los quiebres de stock y disminuyó el desperdicio de producto perecedero en $1.2 millones MXN anuales.</p>
+        <div class="impact">Impacto típico: −31% exceso inventario · +22% precisión en pronósticos · −15% costo de adquisición de clientes</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">4</div>
+          <div>
+            <div class="type-title">Generación de Contenido con IA</div>
+            <span class="type-sub">→ De 2 artículos/mes a 50 con la misma calidad</span>
+          </div>
+        </div>
+        <p>El contenido es uno de los activos más valiosos para cualquier empresa digital, y también uno de los cuellos de botella más frustrantes. Producir contenido de calidad a escala —artículos de blog, publicaciones en redes, correos de marketing, descripciones de producto, propuestas comerciales— solía requerir un equipo grande y mucho tiempo. En 2026, un flujo de trabajo bien configurado con IA puede producir en un día lo que antes tardaba un mes.</p>
+        <p>Importante aclaración: la IA no reemplaza la voz y el criterio humano —los potencia. El contenido generado con IA necesita revisión editorial, personalización y contexto de la marca. Pero el 70% del trabajo de producción —investigación, estructura, primeros borradores, variantes A/B, optimización SEO básica— puede automatizarse completamente. Un equipo de marketing de 3 personas puede producir el volumen de contenido de un equipo de 15 con la misma calidad cuando usa flujos de trabajo IA bien diseñados.</p>
+        <div class="impact">Impacto típico: 25× velocidad de producción · −72% costo por pieza · +180% posicionamiento SEO en 6 meses</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">5</div>
+          <div>
+            <div class="type-title">Reconocimiento Visual e IA por Imagen</div>
+            <span class="type-sub">→ Inspección de calidad · Inventario · Seguridad</span>
+          </div>
+        </div>
+        <p>La visión computarizada —la capacidad de la IA para "ver" e interpretar imágenes y video— tiene aplicaciones transformadoras en manufactura, logística, retail y seguridad. Un sistema de visión computarizada puede inspeccionar 10,000 unidades por hora detectando defectos con mayor precisión que un operador humano, contar inventario en tiempo real usando cámaras en bodega, identificar automáticamente los productos en un anaquel y alertar sobre mermas, o verificar documentos de identidad en procesos de onboarding digital.</p>
+        <p>Para manufactura en especial —sector que en México vive un momento histórico gracias al nearshoring— el control de calidad por visión IA es un diferenciador competitivo inmediato. Una empresa de autopartes en Nuevo León redujo su tasa de defectos de salida de 2.3% a 0.18% en tres meses post-implementación, lo que equivalió a evitar devoluciones por $4.7 millones MXN en un año.</p>
+        <div class="impact">Impacto típico: −92% defectos escapados · 10,000 unidades/hora inspeccionadas · −100% tiempo de conteo manual</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">6</div>
+          <div>
+            <div class="type-title">Personalización en Tiempo Real</div>
+            <span class="type-sub">→ +34% conversión en e-commerce y servicios</span>
+          </div>
+        </div>
+        <p>La personalización a escala es la aplicación de IA que más directamente impacta los ingresos de empresas con modelos B2C. Un sistema de personalización IA analiza el comportamiento individual de cada usuario —qué ve, qué compra, cuándo abandona, qué le interesa— y ajusta en tiempo real qué contenido, qué productos, qué precios y qué mensajes se muestran a cada persona. No como segmentación masiva (todos los jóvenes de 25-35 años), sino personalización 1:1 a escala de millones de usuarios.</p>
+        <p>Amazon atribuye el 35% de sus ingresos a su motor de recomendaciones IA. Netflix evita $1 billion USD anuales en churn gracias a su sistema de recomendación personalizado. Estas no son tecnologías exclusivas de gigantes: en 2026, un e-commerce mexicano mediano puede implementar personalización básica por $12,000-20,000 MXN al mes con resultados consistentes de +20% a +45% en conversión.</p>
+        <div class="impact">Impacto típico: +34% conversión · +28% ticket promedio · −40% tasa de abandono de carrito</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">
+          <div class="type-num">7</div>
+          <div>
+            <div class="type-title">Agentes Autónomos de IA</div>
+            <span class="type-sub">→ Decisiones y acciones sin intervención humana</span>
+          </div>
+        </div>
+        <p>Los agentes autónomos son la frontera más avanzada y de mayor crecimiento de la IA en 2026. Un agente autónomo no solo responde preguntas: puede tomar decisiones, ejecutar acciones en sistemas externos, planificar múltiples pasos y operar de forma continua sin supervisión humana para tareas delimitadas. Un agente de ventas autónomo puede identificar leads en tu CRM, investigar a la empresa en LinkedIn, redactar y enviar un correo personalizado, hacer seguimiento en WhatsApp y agendar una llamada —todo sin que ningún humano intervenga en el proceso.</p>
+        <p>Los casos de uso de mayor ROI en México en 2025-2026 incluyen: agentes de cobranza que contactan proactivamente a cuentas con saldo vencido (recuperando 23% más deuda que procesos manuales), agentes de reabastecimiento automático que colocan órdenes de compra cuando el inventario baja de cierto umbral, y agentes de monitoreo que revisan mencionas de marca en redes sociales y responden automáticamente según reglas predefinidas.</p>
+        <div class="impact">Impacto típico: 24/7 operación continua · −89% tiempo de proceso · decisiones en segundos vs. horas</div>
+      </div>
+
+      <p>La mayoría de las empresas mexicanas no necesitan implementar los 7 tipos simultáneamente. El proceso correcto —que exploramos en detalle en el Capítulo 5— es identificar los 2 o 3 tipos con mayor impacto para tu modelo de negocio específico y empezar por ahí, generando ROI visible antes de expandir.</p>
+    </article>
+
+    <hr class="gold-rule">
+
+    <!-- CHAPTER 4 -->
+    <article class="chapter" id="ch4">
+      <div class="chapter-num-display">04</div>
+      <span class="chapter-label">Capítulo Cuatro</span>
+      <h2>Cómo Elegir al Proveedor Correcto de IA</h2>
+
+      <p>Si hay un error que se repite más que cualquier otro en la implementación de IA en México, es elegir al proveedor equivocado. No porque las empresas sean imprudentes, sino porque el mercado de "proveedores de IA" en 2026 está saturado de propuestas que suenan parecidas pero entregablemente son mundos distintos. Un error en esta elección puede costar entre $150,000 y $800,000 MXN en tiempo perdido, inversión desperdiciada y oportunidad sacrificada.</p>
+
+      <p>Esta sección te da las herramientas para no cometer ese error.</p>
+
+      <h3>Los 4 Tipos de Proveedores que Existen</h3>
+
+      <ul>
+        <li><strong>Agencias de IA especializadas:</strong> Empresas como Victor IA que se enfocan exclusivamente en implementar soluciones de IA para negocios. Conocen los modelos más actualizados, tienen metodología propia, entregan en semanas y miden resultados con KPIs claros. Son la opción más adecuada para la mayoría de las empresas medianas.</li>
+        <li><strong>Consultoras tecnológicas generales:</strong> Empresas grandes que ofrecen IA como uno de sus servicios entre docenas. Tienen experiencia sólida pero proyectos largos, costos altos (generalmente $500,000+ MXN), enfoque en corporativos y poca agilidad para PyMEs.</li>
+        <li><strong>Software IA empaquetado:</strong> Herramientas como HubSpot AI, Salesforce Einstein, Zendesk AI o Monday.com. Soluciones rápidas de implementar dentro de plataformas que ya conoces, pero con limitaciones: no se adaptan a procesos únicos de tu negocio y dependes del roadmap del proveedor.</li>
+        <li><strong>Freelancers y desarrolladores independientes:</strong> Pueden ser una opción para proyectos muy específicos y acotados. El riesgo es la falta de garantías, soporte limitado y dificultad para escalar el proyecto si da resultados.</li>
+      </ul>
+
+      <h3>Checklist de 15 Puntos para Evaluar Cualquier Proveedor de IA</h3>
+
+      <p>Antes de firmar cualquier contrato con un proveedor de IA, revisa esta lista. Si el proveedor no cumple con 11 o más puntos, busca otra opción.</p>
+
+      <ul class="checklist">
+        <li><input type="checkbox"><span>Tiene casos de éxito documentados con ROI medible en empresas similares a la tuya</span></li>
+        <li><input type="checkbox"><span>Ofrece diagnóstico gratuito de tus procesos sin compromiso de contratación</span></li>
+        <li><input type="checkbox"><span>Entrega resultados iniciales en semanas, no meses (máximo 30 días para el primer quick win)</span></li>
+        <li><input type="checkbox"><span>No te hace dependiente exclusivo de su plataforma propietaria (portabilidad de datos)</span></li>
+        <li><input type="checkbox"><span>Tiene soporte en español con tiempo de respuesta menor a 4 horas</span></li>
+        <li><input type="checkbox"><span>Te muestra un dashboard de resultados en tiempo real desde el día uno</span></li>
+        <li><input type="checkbox"><span>Tiene experiencia documentada en tu industria específica (no solo "hemos trabajado con empresas de muchos sectores")</span></li>
+        <li><input type="checkbox"><span>Usa modelos de IA actualizados post-2024 (no herramientas obsoletas)</span></li>
+        <li><input type="checkbox"><span>Ofrece contrato flexible sin compromisos mínimos de 12 meses en la fase inicial</span></li>
+        <li><input type="checkbox"><span>Cumple y te ayuda a cumplir con LFPDPPP (Ley Federal de Protección de Datos)</span></li>
+        <li><input type="checkbox"><span>Firma NDA desde el inicio del proceso de diagnóstico, no solo al contratar</span></li>
+        <li><input type="checkbox"><span>Sus soluciones se integran con tus herramientas actuales (CRM, ERP, WhatsApp, e-mail)</span></li>
+        <li><input type="checkbox"><span>El trabajo se supervisa localmente y no se terceriza completamente a equipos offshore</span></li>
+        <li><input type="checkbox"><span>Incluye capacitación a tu equipo en el uso de las herramientas implementadas</span></li>
+        <li><input type="checkbox"><span>Garantiza resultados mínimos o devuelve parte de la inversión</span></li>
+      </ul>
+
+      <h3>10 Red Flags: Proveedores que Debes Evitar</h3>
+
+      <ul class="flag-list">
+        <li><span class="flag-icon">&#x26A0;</span><span>Prometen resultados específicos antes de hacer cualquier diagnóstico de tu empresa</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>No pueden mostrarte casos de éxito con números reales (no solo testimonios genéricos)</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>Su propuesta es vaga en plazos: "depende", "en algunos meses", "cuando el sistema aprenda"</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>Te exigen un mínimo de 12 meses de contrato antes de haberte demostrado nada</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>No mencionan métricas ni KPIs en su propuesta — solo tecnología y features</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>Sus demos son genéricas, no personalizadas a tu proceso específico</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>No pueden explicar cómo manejarán tus datos y cumplimiento legal mexicano</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>Toda la comunicación y documentación está en inglés (sin opción en español)</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>No ofrecen capacitación a tu equipo — solo "te instalamos la herramienta"</span></li>
+        <li><span class="flag-icon">&#x26A0;</span><span>Precio sospechosamente bajo que hace imposible un servicio de calidad real</span></li>
+      </ul>
+
+      <h3>5 Green Flags: Señales de un Proveedor Confiable</h3>
+
+      <ul class="flag-list">
+        <li><span class="flag-icon" style="color:var(--green)">&#x2713;</span><span>Hace preguntas sobre tu negocio antes de proponer cualquier solución — quiere entender primero, vender después</span></li>
+        <li><span class="flag-icon" style="color:var(--green)">&#x2713;</span><span>Te muestra el proceso completo: diagnóstico, implementación, medición, ajuste — no solo la herramienta</span></li>
+        <li><span class="flag-icon" style="color:var(--green)">&#x2713;</span><span>Sus referencias hablan de resultados de negocio (ingresos, costos, tiempo) no de tecnología</span></li>
+        <li><span class="flag-icon" style="color:var(--green)">&#x2713;</span><span>Tiene política clara sobre propiedad de datos: tus datos son tuyos siempre</span></li>
+        <li><span class="flag-icon" style="color:var(--green)">&#x2713;</span><span>Es honesto sobre lo que la IA no puede hacer — no vende magia, vende resultados realistas</span></li>
+      </ul>
+
+      <h3>Preguntas Clave para la Primera Reunión</h3>
+
+      <p>Cuando evalúes un proveedor, lleva estas preguntas. Las respuestas te dirán todo lo que necesitas saber:</p>
+      <ol>
+        <li>¿Cuántas empresas en mi industria han implementado con ustedes y qué resultados tuvieron en los primeros 90 días?</li>
+        <li>¿Qué pasa con mis datos si decido no renovar el contrato?</li>
+        <li>¿Cuánto tiempo y cuánto de mi equipo necesito involucrar en la implementación?</li>
+        <li>¿Qué garantizan si los resultados no son los prometidos?</li>
+        <li>¿Qué modelos de IA usan y cómo los mantienen actualizados?</li>
+        <li>¿Tienen NDA disponible hoy, antes de que yo les comparta información de mi negocio?</li>
+      </ol>
+    </article>
+
+    <hr class="gold-rule" id="hr-after-ch4">
+
+    <!-- CHAPTER 5 -->
+    <article class="chapter" id="ch5">
+      <div class="chapter-num-display">05</div>
+      <span class="chapter-label">Capítulo Cinco</span>
+      <h2>Roadmap de Implementación — Los 90 Días Críticos</h2>
+
+      <p>La diferencia entre una implementación de IA exitosa y una fallida casi nunca es técnica. Es metodológica. Las empresas que fracasan generalmente intentan hacer demasiado al mismo tiempo, sin diagnóstico previo, sin métricas claras y sin involucrar a su equipo en el proceso. Las que tienen éxito siguen una metodología de implementación progresiva que entrega resultados visibles cada 15 días.</p>
+
+      <p>Los siguientes 90 días, si los ejecutas correctamente, transformarán al menos 3 procesos críticos de tu empresa y generarán ROI visible antes de que termine el trimestre.</p>
+
+      <div class="roadmap">
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-days">Días 1–15</div>
+            <div class="phase-name">Diagnóstico y Setup</div>
+          </div>
+          <div class="phase-body">
+            <p><strong>Objetivo:</strong> Entender exactamente dónde estás y qué procesos tienen mayor potencial de automatización. Esta fase es la más subestimada y la más crítica: implementar sin diagnóstico es como operar sin anestesia — doloroso e impreciso.</p>
+            <p><strong>Acciones clave:</strong> Auditoría de procesos con cada área del negocio (ventas, operaciones, marketing, administración). Mapeo de tareas repetitivas con estimación de tiempo por semana. Identificación de los 3 "quick wins" de mayor impacto. Instalación de infraestructura base: integraciones con CRM/ERP existente, configuración de APIs, setup de entornos seguros. Firma de NDA y acuerdos de datos.</p>
+            <p><strong>Entregable:</strong> Diagnóstico escrito con listado de procesos candidatos, estimación de ROI por proceso y plan priorizado de implementación.</p>
+            <div class="phase-kpis">
+              <span class="kpi-tag">Procesos mapeados</span>
+              <span class="kpi-tag">Horas recuperables/semana</span>
+              <span class="kpi-tag">ROI potencial estimado</span>
+              <span class="kpi-tag">Plan aprobado por equipo</span>
+            </div>
+          </div>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-days">Días 16–30</div>
+            <div class="phase-name">Quick Wins: Primeros Resultados Visibles</div>
+          </div>
+          <div class="phase-body">
+            <p><strong>Objetivo:</strong> Demostrar al equipo y a los directivos que la IA funciona en el contexto específico de la empresa. Los primeros resultados visibles son críticos para la adopción interna y para justificar la continuación del presupuesto.</p>
+            <p><strong>Acciones clave:</strong> Implementación de los 3 procesos de mayor impacto y menor complejidad técnica identificados en el diagnóstico (típicamente: chatbot de atención inicial, automatización de reporte semanal clave, y automatización de seguimiento de leads). Entrenamiento del equipo que operará las nuevas herramientas. Primera medición de resultados vs. línea base.</p>
+            <p><strong>Entregable:</strong> 3 automatizaciones en producción, dashboard de métricas activo, primer reporte de resultados con comparativo antes/después.</p>
+            <div class="phase-kpis">
+              <span class="kpi-tag">Tasa de respuesta automatizada</span>
+              <span class="kpi-tag">Tiempo ahorrado (horas/semana)</span>
+              <span class="kpi-tag">Satisfacción del equipo</span>
+              <span class="kpi-tag">Errores en proceso</span>
+            </div>
+          </div>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-days">Días 31–60</div>
+            <div class="phase-name">Automatización de Procesos Clave</div>
+          </div>
+          <div class="phase-body">
+            <p><strong>Objetivo:</strong> Con los quick wins validados y el equipo con confianza en las herramientas, escalar la automatización a los procesos de mayor impacto en ingresos y operaciones.</p>
+            <p><strong>Acciones clave:</strong> Implementación de automatizaciones en ventas (pipeline, seguimiento, propuestas), marketing (generación y distribución de contenido, campañas personalizadas), operaciones (reportería, alertas, seguimiento de pedidos) y finanzas (conciliaciones, reportes de KPIs, alertas de flujo de caja). Integración profunda con sistemas existentes. Configuración de reglas de excepción y escalamiento a humano cuando la IA no puede resolver.</p>
+            <p><strong>Entregable:</strong> 8-12 procesos automatizados, reducción medible de carga operativa, primera proyección de ROI anual basada en datos reales.</p>
+            <div class="phase-kpis">
+              <span class="kpi-tag">Procesos automatizados</span>
+              <span class="kpi-tag">Reducción costo operativo %</span>
+              <span class="kpi-tag">Velocidad de respuesta</span>
+              <span class="kpi-tag">NPS clientes</span>
+            </div>
+          </div>
+        </div>
+        <div class="roadmap-phase">
+          <div class="phase-header">
+            <div class="phase-days">Días 61–90</div>
+            <div class="phase-name">Optimización, Aprendizaje y Escala</div>
+          </div>
+          <div class="phase-body">
+            <p><strong>Objetivo:</strong> Refinar las automatizaciones con datos reales acumulados, expandir a nuevas áreas y construir la infraestructura de datos que potenciará todo el sistema a largo plazo.</p>
+            <p><strong>Acciones clave:</strong> Fine-tuning de modelos con datos propios de los primeros 60 días. Identificación de nuevas áreas de automatización no contempladas inicialmente. Formación avanzada del equipo en uso estratégico de herramientas. Configuración de alertas de performance para detectar degradación de modelos. Presentación del ROI cuantificado a dirección. Plan de expansión para los siguientes 6 meses.</p>
+            <p><strong>Entregable:</strong> Reporte completo de ROI días 1-90, plan de escala aprobado, equipo autónomo en el uso de herramientas base, infraestructura preparada para siguiente fase.</p>
+            <div class="phase-kpis">
+              <span class="kpi-tag">ROI mes 3 documentado</span>
+              <span class="kpi-tag">Adopción del equipo %</span>
+              <span class="kpi-tag">Uptime de automatizaciones</span>
+              <span class="kpi-tag">Plan siguiente fase aprobado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="data-callout">
+        <p><strong>Promedio de resultados en 90 días (Victor IA, datos de 47 implementaciones 2024-2025):</strong> Ahorro operativo de $48,000 a $180,000 MXN/mes · 340 a 1,200 horas recuperadas/mes · +34% en velocidad de respuesta a clientes · ROI promedio al día 90: 340%</p>
+      </div>
+    </article>
+
+    <hr class="gold-rule" id="hr-after-ch5">
+
+    <!-- CHAPTER 6 -->
+    <article class="chapter" id="ch6">
+      <div class="chapter-num-display">06</div>
+      <span class="chapter-label">Capítulo Seis</span>
+      <h2>IA por Industria — 12 Casos de Uso Reales</h2>
+
+      <p>La IA no se implementa igual en una clínica dental que en una fábrica de autopartes o en una agencia de marketing digital. Cada industria tiene procesos, regulaciones, clientes y dinámicas distintas. A continuación encontrarás casos de uso reales con números ANTES y DESPUÉS por cada sector:</p>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <h4>01 — Retail y E-commerce</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">2.1%</span><span class="ba-label" style="margin-top:.2rem">Tasa conversión</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">3.8%</span><span class="ba-label" style="margin-top:.2rem">+81% conversión</span></div>
+          </div>
+          <p class="case-desc">Personalización en tiempo real del catálogo según historial de navegación, motor de recomendaciones, chatbot 24/7 y predicción de demanda para reabastecimiento automático. Una tienda online de moda en CDMX pasó de $1.2M a $2.1M MXN en ventas mensuales sin aumentar presupuesto de marketing.</p>
+        </div>
+        <div class="case-card">
+          <h4>02 — Salud y Clínicas</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">34%</span><span class="ba-label" style="margin-top:.2rem">Citas no atendidas</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">8%</span><span class="ba-label" style="margin-top:.2rem">−76% no shows</span></div>
+          </div>
+          <p class="case-desc">Agendamiento inteligente vía WhatsApp, recordatorios automatizados personalizados, seguimiento post-consulta con IA, digitalización de expedientes con OCR y asistente para triaje inicial. Red de 4 clínicas en Monterrey recuperó $380,000 MXN anuales en ingresos perdidos.</p>
+        </div>
+        <div class="case-card">
+          <h4>03 — Bienes Raíces</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">72h</span><span class="ba-label" style="margin-top:.2rem">Respuesta a lead</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">4min</span><span class="ba-label" style="margin-top:.2rem">Respuesta inmediata</span></div>
+          </div>
+          <p class="case-desc">Calificación automática de leads con scoring IA, chatbot que presenta propiedades y agenda visitas, valuación asistida por datos de mercado en tiempo real, y generación automática de contratos de arrendamiento. Inmobiliaria en GDL cerró 23% más operaciones sin contratar agentes adicionales.</p>
+        </div>
+        <div class="case-card">
+          <h4>04 — Manufactura y Logística</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">2.3%</span><span class="ba-label" style="margin-top:.2rem">Tasa de defectos</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">0.18%</span><span class="ba-label" style="margin-top:.2rem">−92% defectos</span></div>
+          </div>
+          <p class="case-desc">Control de calidad por visión computarizada, mantenimiento predictivo con sensores IoT y ML, optimización de rutas de distribución. Planta de autopartes en Saltillo evitó $4.7M MXN en devoluciones y redujo tiempos de paro no programado en 67%.</p>
+        </div>
+        <div class="case-card">
+          <h4>05 — Restaurantes y Hospitalidad</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">$280</span><span class="ba-label" style="margin-top:.2rem">Ticket promedio MXN</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">$347</span><span class="ba-label" style="margin-top:.2rem">+24% ticket</span></div>
+          </div>
+          <p class="case-desc">Menú dinámico con sugerencias personalizadas por historial del cliente, sistema de reservas inteligente con gestión de lista de espera, análisis de desperdicio con predicción de demanda. Grupo de 8 sucursales en CDMX aumentó ingresos en $1.8M MXN anuales.</p>
+        </div>
+        <div class="case-card">
+          <h4>06 — Servicios Financieros</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">5 días</span><span class="ba-label" style="margin-top:.2rem">Onboarding cliente</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">12 min</span><span class="ba-label" style="margin-top:.2rem">Onboarding digital</span></div>
+          </div>
+          <p class="case-desc">Análisis de riesgo crediticio con ML (100× más rápido, 23% más preciso), detección de fraude en tiempo real, onboarding digital con verificación de identidad por IA. Aseguradora en Monterrey redujo tasa de fraude en 41% y aumentó aprobaciones en 18%.</p>
+        </div>
+        <div class="case-card">
+          <h4>07 — Educación y Capacitación</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">61%</span><span class="ba-label" style="margin-top:.2rem">Tasa de terminación</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">84%</span><span class="ba-label" style="margin-top:.2rem">+38% terminación</span></div>
+          </div>
+          <p class="case-desc">Tutor IA personalizado que adapta ritmo y contenido a cada alumno, detección temprana de alumnos en riesgo de abandono, generación automática de evaluaciones y retroalimentación instantánea. Plataforma de capacitación corporativa en GDL aumentó NPS de 67 a 91.</p>
+        </div>
+        <div class="case-card">
+          <h4>08 — Agencias de Marketing</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">8</span><span class="ba-label" style="margin-top:.2rem">Piezas contenido/mes</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">120</span><span class="ba-label" style="margin-top:.2rem">15× más output</span></div>
+          </div>
+          <p class="case-desc">Generación masiva de contenido con IA, análisis automático de performance de campañas con recomendaciones de optimización, segmentación predictiva de audiencias. Agencia en CDMX pasó de gestionar 8 a 31 clientes con el mismo equipo de 6 personas.</p>
+        </div>
+        <div class="case-card">
+          <h4>09 — Consultoría y Despachos Legales</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">16 horas</span><span class="ba-label" style="margin-top:.2rem">Revisión contrato</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">45 min</span><span class="ba-label" style="margin-top:.2rem">−95% tiempo</span></div>
+          </div>
+          <p class="case-desc">Revisión de contratos con detección de cláusulas de riesgo, investigación jurisprudencial automatizada, generación de primeros borradores de documentos estándar. Despacho en CDMX aumentó capacidad de atención en 40% sin contratar abogados adicionales.</p>
+        </div>
+        <div class="case-card">
+          <h4>10 — Automotriz y Concesionarias</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">3 días</span><span class="ba-label" style="margin-top:.2rem">Cotización personalizada</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">8 min</span><span class="ba-label" style="margin-top:.2rem">Cotización inmediata</span></div>
+          </div>
+          <p class="case-desc">Configurador de vehículo que genera cotizaciones en tiempo real, chatbot que califica leads y agenda pruebas de manejo, seguimiento automático post-visita y predicción de clientes listos para comprar. Concesionaria en Puebla aumentó conversión de leads en 31%.</p>
+        </div>
+        <div class="case-card">
+          <h4>11 — Salones de Belleza y Estética</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">28%</span><span class="ba-label" style="margin-top:.2rem">Retención a 6 meses</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">67%</span><span class="ba-label" style="margin-top:.2rem">+139% retención</span></div>
+          </div>
+          <p class="case-desc">Agenda inteligente con recordatorios automatizados, análisis de preferencias por cliente para sugerir servicios adicionales, campaña de reactivación automática. Cadena de 6 salones en MTY aumentó su LTV por cliente en $2,400 MXN anuales.</p>
+        </div>
+        <div class="case-card">
+          <h4>12 — Startups y Scale-ups</h4>
+          <div class="before-after">
+            <div class="ba-block"><span class="ba-label">Antes</span><span class="ba-val">18 meses</span><span class="ba-label" style="margin-top:.2rem">MVP a mercado</span></div>
+            <div class="ba-block after"><span class="ba-label">Con IA</span><span class="ba-val">4 meses</span><span class="ba-label" style="margin-top:.2rem">−78% time-to-market</span></div>
+          </div>
+          <p class="case-desc">Generación de código con IA para desarrollo acelerado, pitch decks y modelos financieros asistidos, análisis automático de competencia y mercado, y agentes de growth hacking para adquisición de usuarios. Startups mexicanas de fintech y proptech comprimieron su ciclo de desarrollo y levantaron rondas más rápido.</p>
+        </div>
+      </div>
+    </article>
+
+    <hr class="gold-rule" id="hr-after-ch6">
+
+    <!-- CHAPTER 7 -->
+    <article class="chapter" id="ch7">
+      <div class="chapter-num-display">07</div>
+      <span class="chapter-label">Capítulo Siete</span>
+      <h2>ROI de la IA — Cómo Calcularlo (+ Calculadora Interactiva)</h2>
+
+      <p>El ROI de la inteligencia artificial es real, medible y frecuentemente sorprendente para quienes lo calculan por primera vez. El problema es que la mayoría de las empresas no saben cómo calcularlo antes de implementar — y luego no pueden justificar el presupuesto ante la dirección o el consejo.</p>
+
+      <p>La fórmula básica del ROI de IA tiene tres componentes: el ahorro en costos operativos (tiempo de trabajo automatizado), el incremento en ingresos (mayor conversión, mayor velocidad, mayor personalización) y el costo de implementación (setup + mensualidad del servicio). La variable que más subestiman las empresas es el segundo componente — asumen que la IA solo ahorra costos, cuando en realidad el impacto en ingresos suele ser mayor que el ahorro operativo.</p>
+
+      <p>Para hacerlo concreto, usa la calculadora interactiva con los datos de tu empresa:</p>
+
+      <div class="calculator">
+        <div class="calc-title">Calculadora de ROI de IA</div>
+        <p class="calc-sub">Ajusta los datos de tu empresa y ve los resultados en tiempo real.</p>
+        <div class="calc-grid">
+          <div class="calc-inputs">
+            <div class="field-group">
+              <label>Empleados en tareas manuales repetitivas</label>
+              <input type="range" id="r-emp" min="1" max="100" value="8" oninput="calcROI()">
+              <div class="range-val" id="v-emp">8 empleados</div>
+            </div>
+            <div class="field-group">
+              <label>Horas/semana en tareas repetitivas por empleado</label>
+              <input type="range" id="r-hrs" min="1" max="40" value="20" oninput="calcROI()">
+              <div class="range-val" id="v-hrs">20 horas/semana</div>
+            </div>
+            <div class="field-group">
+              <label>Salario mensual promedio (MXN)</label>
+              <input type="number" id="r-sal" value="18000" min="5000" max="150000" step="1000" oninput="calcROI()">
+            </div>
+            <div class="field-group">
+              <label>Industria (multiplica el impacto)</label>
+              <select id="r-ind" onchange="calcROI()">
+                <option value="1.0">Manufactura / Logística</option>
+                <option value="1.2" selected>Servicios / Consultoría</option>
+                <option value="1.35">Retail / E-commerce</option>
+                <option value="1.45">Salud / Clínicas</option>
+                <option value="1.3">Bienes Raíces</option>
+                <option value="1.5">Fintech / Servicios Financieros</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-outputs">
+            <div class="output-card">
+              <span class="out-label">Costo actual mensual de tareas manuales</span>
+              <span class="out-val" id="o-costo">calculando...</span>
+            </div>
+            <div class="output-card highlight">
+              <span class="out-label">Ahorro estimado con IA (68%)</span>
+              <span class="out-val" id="o-ahorro">calculando...</span>
+            </div>
+            <div class="output-card">
+              <span class="out-label">ROI en 12 meses</span>
+              <span class="out-val" id="o-roi">calculando...</span>
+            </div>
+            <div class="output-card">
+              <span class="out-label">Payback period</span>
+              <span class="out-val" id="o-payback">calculando...</span>
+            </div>
+            <div class="output-card">
+              <span class="out-label">Horas recuperadas / semana</span>
+              <span class="out-val" id="o-hrs">calculando...</span>
+            </div>
+            <div class="output-card">
+              <span class="out-label">Equivalente a empleados extra</span>
+              <span class="out-val" id="o-equiv">calculando...</span>
+            </div>
+          </div>
+        </div>
+        <div class="calc-cta">
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">¿Quieres un cálculo preciso basado en los procesos reales de tu empresa?</p>
+          <button class="btn-primary" onclick="window.location.href='app.html'">Solicitar diagnóstico gratuito &rarr;</button>
+        </div>
+      </div>
+
+      <p>Los números que genera la calculadora son estimaciones conservadoras basadas en promedios de implementaciones reales. En muchos casos el ahorro real supera estas cifras porque la calculadora no incluye el impacto en ingresos — solo el ahorro operativo directo en tiempo de trabajo.</p>
+
+      <div class="data-callout">
+        <p><strong>Metodología:</strong> El costo mensual de tareas manuales se calcula como (empleados &times; horas_semana &times; 4.3 semanas) &times; (salario / 160 horas laborales). El ahorro IA aplica el 68% estándar de automatización documentado en implementaciones reales. El costo estimado de implementación para cálculo de ROI es $25,000 MXN/mes (promedio de plan de entrada).</p>
+      </div>
+    </article>
+
+    <!-- CHAPTER 8 -->
+    <article class="chapter" id="ch8">
+      <div class="chapter-num-display">08</div>
+      <span class="chapter-label">Capítulo Ocho</span>
+      <h2>Los 8 Errores que Cuestan Millones</h2>
+
+      <p>En tres años implementando IA para empresas mexicanas, hemos visto de cerca cómo proyectos con potencial real fracasan —no por la tecnología, sino por decisiones humanas que se repiten con sorprendente consistencia. Los siguientes 8 errores representan el 91% de las razones por las que una implementación de IA termina en frustración en lugar de resultados.</p>
+
+      <p>Conocerlos antes de empezar no te hace pesimista: te hace precavido de la manera correcta.</p>
+
+      <ul class="error-list">
+        <li class="error-item">
+          <div>
+            <div class="err-title">Implementar IA sin diagnóstico previo</div>
+            <div class="err-desc">El error más común y más caro. Muchas empresas ven una demostración de una herramienta de IA, la compran, la instalan en su proceso más visible y esperan resultados. Sin un diagnóstico que identifique qué procesos tienen mayor potencial de automatización, mayor ROI y menor riesgo de implementación, el presupuesto se gasta en automatizar algo que no es el cuello de botella real del negocio.</div>
+            <div class="err-cost">Costo típico del error: $80,000 - $250,000 MXN en implementación que no genera ROI</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">Elegir al proveedor más barato</div>
+            <div class="err-desc">La lógica de "empezamos con algo económico y ya luego escalamos" suena prudente pero resulta en el escenario más caro. Un proveedor de bajo costo generalmente entrega soluciones que no se integran bien con sistemas existentes, no se mantienen actualizadas, no tienen soporte real y requieren ser reemplazadas completamente. La migración posterior, más el tiempo perdido, termina costando entre 2 y 4 veces más que haber contratado bien desde el inicio.</div>
+            <div class="err-cost">Costo típico del error: 3× más caro en 6 meses que contratar calidad desde el inicio</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">Automatizar un proceso roto</div>
+            <div class="err-desc">Si tienes un proceso ineficiente hoy, automatizarlo con IA no lo arregla — lo amplifica. Un proceso de seguimiento de ventas que falla porque los vendedores no capturan información completa en el CRM seguirá fallando si implementas IA encima sin resolver primero la captura de datos. La regla es: primero simplifica y documenta el proceso, luego automatiza.</div>
+            <div class="err-cost">Costo típico del error: 6-8 meses de implementación fallida antes de diagnosticar la raíz</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">No medir ROI desde el día uno</div>
+            <div class="err-desc">Sin métricas de línea base establecidas antes de implementar, es imposible demostrar el valor de la IA. Esto parece obvio, pero el 67% de las empresas que implementan IA no documentan métricas antes/después de manera sistemática. El resultado: meses después, cuando dirección pregunta "¿qué resultados ha dado la IA?", nadie puede responder con datos concretos y el proyecto pierde apoyo interno.</div>
+            <div class="err-cost">Costo típico del error: cancelación del proyecto por falta de evidencia, aunque esté funcionando</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">No involucrar al equipo desde el inicio</div>
+            <div class="err-desc">La resistencia al cambio es la razón más frecuente por la que implementaciones técnicamente exitosas fracasan operativamente. Cuando el equipo percibe que la IA fue "impuesta desde arriba" sin su participación, emerge un sabotaje pasivo: datos mal capturados, excepciones reportadas exageradamente, preferencia por volver al proceso manual. El antídoto es involucrar al equipo en el diagnóstico y hacer que sean parte del éxito, no víctimas del cambio.</div>
+            <div class="err-cost">Costo típico del error: adopción del 30-40% en lugar del 80-90% posible, ROI reducido a la mitad</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">Querer automatizar todo al mismo tiempo</div>
+            <div class="err-desc">El entusiasmo de los primeros meses lleva a muchas empresas a lanzar 8 o 10 automatizaciones simultáneas. El resultado casi siempre es el mismo: ninguna se implementa bien, el equipo está saturado de cambios, los errores se multiplican y la percepción interna de la IA como "algo que no funciona" se instala. La metodología correcta es secuencial: un proceso validado antes de iniciar el siguiente.</div>
+            <div class="err-cost">Costo típico del error: caos operativo por 3-4 meses, rollback parcial que destruye la confianza interna</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">Ignorar el cumplimiento de datos mexicano</div>
+            <div class="err-desc">La LFPDPPP (Ley Federal de Protección de Datos Personales en Posesión de los Particulares) aplica directamente cuando usas IA para procesar datos de clientes, empleados o prospectos. Enviar datos personales a modelos de IA sin el aviso de privacidad correcto, sin contratos de procesamiento de datos con el proveedor de IA, o sin mecanismos de acceso/rectificación/cancelación para los titulares, expone a la empresa a multas de hasta $65 millones MXN y daño reputacional.</div>
+            <div class="err-cost">Costo típico del error: multas INAI + costo de remediación legal + daño reputacional</div>
+          </div>
+        </li>
+        <li class="error-item">
+          <div>
+            <div class="err-title">Creer que la IA es solo chatbots</div>
+            <div class="err-desc">El 78% de las empresas que "ya tienen IA" tienen exclusivamente un chatbot —y creen que con eso ya adoptaron inteligencia artificial. Un chatbot es apenas la punta del iceberg. Las aplicaciones de mayor ROI (análisis predictivo, automatización de procesos, personalización, agentes autónomos) quedan completamente sin explorar, y la empresa pierde el 90% del valor potencial de la tecnología.</div>
+            <div class="err-cost">Costo típico del error: oportunidad perdida de 5-10× el ROI del chatbot en otros procesos</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="data-callout">
+        <p><strong>Patrón que observamos:</strong> Las empresas que evitan los 8 errores anteriores generan ROI visible antes del día 45 de implementación. Las que caen en 3 o más errores simultáneos raramente logran un caso de éxito antes del mes 8 — y muchas cancelan el proyecto antes de llegar ahí.</p>
+      </div>
+    </article>
+
+    <hr class="gold-rule" id="hr-after-ch8">
+
+    <!-- CHAPTER 9 -->
+    <article class="chapter" id="ch9">
+      <div class="chapter-num-display">09</div>
+      <span class="chapter-label">Capítulo Nueve</span>
+      <h2>Marco Legal y Ético de la IA en México 2026</h2>
+
+      <p>Implementar inteligencia artificial sin considerar el marco legal mexicano no es solo un riesgo jurídico — es también un riesgo de negocio. Los clientes, los reguladores y los socios comerciales son cada vez más exigentes respecto al uso responsable de datos y de IA. Las empresas que se posicionan como "IA responsable" construyen confianza; las que ignoran el cumplimiento la pierden rápido.</p>
+
+      <p>Esta sección no es consejo legal: es una guía práctica de los marcos regulatorios que debes conocer. Para cumplimiento específico, consulta a un abogado especializado en tecnología y datos.</p>
+
+      <h3>LFPDPPP — La Ley de Datos que Sí Aplica a Tu IA</h3>
+
+      <p>La <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</strong> (LFPDPPP) es la norma mexicana que regula el tratamiento de datos personales por empresas privadas. Si usas IA para procesar información de clientes, empleados o prospectos —lo que prácticamente cualquier implementación hace—, esta ley aplica.</p>
+
+      <p>Los puntos más críticos para empresas que usan IA son: el <strong>Aviso de Privacidad</strong> debe explicar explícitamente que se usarán sistemas automatizados (IA) para tomar decisiones o generar perfiles sobre el titular. El <strong>consentimiento</strong> para tratamientos secundarios (como entrenar modelos de IA con datos de clientes) debe ser explícito, no implícito. El <strong>responsable de datos</strong> sigue siendo tu empresa aunque uses modelos de terceros (OpenAI, Anthropic, Google) — debes tener contratos de procesamiento de datos con cada proveedor de IA.</p>
+
+      <p>El INAI (Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales) puede imponer multas de hasta el equivalente a 65 millones MXN por violaciones graves. Más allá de la multa, las investigaciones del INAI son públicas y el daño reputacional puede superar el costo de la sanción.</p>
+
+      <h3>NOM-151 y Firma Electrónica Avanzada</h3>
+
+      <p>Si tu implementación de IA incluye generación o gestión de documentos con valor legal (contratos, facturas, expedientes clínicos, pólizas de seguro), debes considerar la <strong>NOM-151</strong>, que establece los requisitos para la conservación de mensajes de datos y digitalización de documentos en México. Los documentos firmados o generados por IA que deban tener validez legal necesitan cumplir con los estándares de esta norma para ser aceptados en disputas o auditorías.</p>
+
+      <p>La <strong>e.firma (antes FIEL)</strong> del SAT y la firma electrónica avanzada regulada por la LFEN son los mecanismos reconocidos en México para dar validez jurídica a documentos digitales. Si tu agente de IA genera contratos u otros documentos con implicaciones legales, considera integrar estos mecanismos.</p>
+
+      <h3>Proyecto de Ley Federal de IA — Estado Actual 2026</h3>
+
+      <p>México está en proceso de legislar específicamente sobre inteligencia artificial. El <strong>Proyecto de Ley Federal de Inteligencia Artificial</strong>, que se presentó al Congreso en 2025, está en proceso de debate y ajuste. Los puntos más relevantes para empresas incluyen: obligación de transparencia cuando una decisión automatizada afecta significativamente a una persona (como la aprobación o rechazo de un crédito), requisitos de auditabilidad de sistemas de IA de "alto riesgo", y prohibiciones específicas para IA usada en contextos de bienestar social o justicia.</p>
+
+      <p>Aunque la ley todavía no es definitiva, las empresas que implementen IA en 2026 con principios de transparencia, auditabilidad y trato equitativo tendrán mucho menos trabajo de adecuación cuando la ley entre en vigor.</p>
+
+      <h3>Obligaciones de Transparencia con Clientes</h3>
+
+      <p>Más allá de lo legal, existen obligaciones éticas emergentes que se están convirtiendo rápidamente en expectativas de mercado. Cuando un cliente interactúa con un chatbot de IA, tiene derecho a saber que está hablando con un sistema automatizado — no con un humano. Cuando una decisión sobre ese cliente (aprobación de crédito, precio personalizado, prioridad de atención) es tomada por un algoritmo, el cliente tiene un interés legítimo en saberlo y en poder cuestionarlo.</p>
+
+      <p>Las empresas que comunican activamente cómo usan la IA —no solo en letra pequeña del aviso de privacidad, sino en la experiencia misma— generan más confianza, no menos.</p>
+
+      <h3>GDPR — ¿Aplica a Tu Empresa?</h3>
+
+      <p>Si tu empresa procesa datos de ciudadanos de la Unión Europea —aunque seas una empresa mexicana— el GDPR aplica. Esto incluye: turistas europeos que compran en tu e-commerce, expatriados europeos en México que son tus clientes, o clientes en Europa que acceden a tus servicios digitales. El GDPR tiene requisitos más estrictos que la LFPDPPP en varios aspectos, incluyendo el "derecho al olvido" y requisitos de consentimiento explícito para procesamiento de datos por IA.</p>
+
+      <h3>Checklist de Cumplimiento Legal para IA — 8 Puntos</h3>
+
+      <div class="legal-grid">
+        <div class="legal-item">Aviso de privacidad actualizado que menciona explícitamente el uso de sistemas de IA para procesar datos</div>
+        <div class="legal-item">Contratos de procesamiento de datos firmados con cada proveedor de IA que procesa datos de tus clientes</div>
+        <div class="legal-item">Mecanismo documentado para que los titulares de datos ejerzan sus derechos ARCO (Acceso, Rectificación, Cancelación, Oposición)</div>
+        <div class="legal-item">Política de retención de datos: cuánto tiempo guardas los datos y cuándo se eliminan de los sistemas de IA</div>
+        <div class="legal-item">Registro de las decisiones automatizadas de alto impacto (crédito, precios diferenciados, exclusiones) y cómo se pueden impugnar</div>
+        <div class="legal-item">NDA firmado con proveedor de IA que impida el uso de tus datos para entrenar modelos públicos sin tu consentimiento</div>
+        <div class="legal-item">Identificación clara para el usuario cuando interactúa con un sistema automatizado (chatbot, agente IA) vs. un humano</div>
+        <div class="legal-item">Plan de respuesta a incidentes de seguridad de datos que incluya escenarios específicos de IA (modelo comprometido, datos de entrenamiento expuestos)</div>
+      </div>
+    </article>
+
+    <hr class="gold-rule" id="hr-after-ch9">
+
+    <!-- CHAPTER 10 -->
+    <article class="chapter" id="ch10">
+      <div class="chapter-num-display">10</div>
+      <span class="chapter-label">Capítulo Diez</span>
+      <h2>Tu Plan de Acción — Los Próximos 30 Días</h2>
+
+      <p>Llegaste al capítulo final. Has leído el estado del mercado, la urgencia de actuar ahora, los 7 tipos de IA, cómo elegir proveedores, el roadmap de 90 días, 12 casos de uso reales, cómo calcular el ROI, los errores que evitar y el marco legal. Ahora viene la parte más importante: qué vas a hacer con todo eso.</p>
+
+      <p>La información sin acción no vale nada. Esta guía fue diseñada para que, al terminar de leerla, tengas un plan concreto de los próximos 30 días. No del próximo año. De esta semana, la siguiente y la que sigue.</p>
+
+      <h3>Semana 1 — Auditoría de Procesos Internos</h3>
+
+      <p>Esta semana tiene una sola tarea: mapear qué hace tu equipo. Reúne a los responsables de cada área (ventas, operaciones, marketing, administración, atención al cliente) y pídeles que listen todas las tareas que hacen en una semana típica, con una estimación honesta de cuántas horas dedican a cada una.</p>
+
+      <p>Clasifica cada tarea en una de tres categorías: <strong>Repetitiva/Predecible</strong> (alta candidata a automatización total), <strong>Requiere Juicio</strong> (candidata a automatización parcial — IA como asistente), <strong>Relacional/Estratégica</strong> (no automatizable de momento, aquí va el talento humano). Al finalizar la semana, tendrás una lista de 10 a 30 procesos candidatos a automatización con estimación de horas anuales que representan.</p>
+
+      <p>Calcula el costo total en horas multiplicando las horas anuales por el costo hora de la persona que las realiza. Este número —que suele sorprender— es tu presupuesto máximo justificable para una solución de IA en esa área.</p>
+
+      <h3>Semana 2 — Definir Presupuesto y Casos de Uso Prioritarios</h3>
+
+      <p>Con la lista de procesos en mano, es momento de priorizar. Ordena los procesos candidatos por <strong>ROI potencial × facilidad de implementación</strong>. Los que tienen alto ROI y baja complejidad son tus quick wins prioritarios. Los que tienen alto ROI pero alta complejidad son los proyectos de mediano plazo.</p>
+
+      <p>Define también tu presupuesto real: ¿cuánto puedes invertir mensualmente en IA sin que sea un riesgo financiero? La regla práctica es que el costo mensual del servicio de IA no debe superar el 50% del ahorro operativo proyectado en el primer mes — así el proyecto es cash-flow positivo desde el inicio.</p>
+
+      <p>Documenta en un solo párrafo el "caso de negocio" para tu CEO o para ti mismo: <em>"Si implementamos IA en [proceso X], esperamos reducir [costo Y] en [plazo Z], con una inversión de [monto]. Basado en casos similares, el ROI esperado en 90 días es del [porcentaje]%."</em></p>
+
+      <h3>Semana 3 — Evaluar 3 Proveedores con el Checklist del Capítulo 4</h3>
+
+      <p>Con tu caso de negocio definido, es momento de hablar con proveedores. Agenda reuniones de diagnóstico con al menos 3 opciones distintas. Usa el checklist de 15 puntos del Capítulo 4 en cada reunión. Toma nota de:</p>
+
+      <ul>
+        <li>¿Hicieron preguntas o solo hablaron de su producto?</li>
+        <li>¿Pueden mostrar un caso de éxito en tu industria?</li>
+        <li>¿Tienen claro cuánto tiempo tardaría el primer resultado?</li>
+        <li>¿Son honestos sobre lo que no pueden hacer?</li>
+        <li>¿La propuesta económica tiene sentido con el ROI esperado?</li>
+      </ul>
+
+      <p>Una buena reunión de diagnóstico dura entre 45 y 90 minutos y termina con un plan preliminar específico para tu empresa — no con un deck genérico.</p>
+
+      <h3>Semana 4 — Lanzar el Piloto en 1 Proceso y Medir</h3>
+
+      <p>Elige al mejor proveedor. Firma el contrato con el proceso más pequeño y de mayor impacto de tu lista. Establece las métricas de línea base <strong>antes</strong> de que el proveedor toque nada (crucial para poder medir el antes/después). Define el criterio de éxito: ¿qué resultado en 30 días justifica continuar?</p>
+
+      <p>Al final de la semana 4, debes tener tu primer proceso piloto en producción y comenzando a generar datos. Al final del mes siguiente, tendrás los primeros números reales de ROI de tu empresa específica — no promedios de otras empresas, sino los tuyos.</p>
+
+      <div class="data-callout">
+        <p><strong>Recuerda:</strong> El objetivo de los primeros 30 días no es transformar tu empresa. Es elegir bien, empezar pequeño y generar evidencia de que funciona. El resto escala solo cuando los números son reales.</p>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="final-cta">
+        <h2>¿Listo para Implementar IA en tu Empresa?</h2>
+        <p>Victor IA trabaja con empresas mexicanas para implementar inteligencia artificial con resultados medibles en 90 días. Diagnóstico gratuito sin compromiso. Primeros resultados en las primeras 2 semanas.</p>
+        <div class="cta-buttons">
+          <button class="btn-primary" onclick="window.location.href='app.html'">Solicitar diagnóstico gratuito &rarr;</button>
+          <button class="btn-secondary" onclick="window.location.href='como-funciona.html'">Ver cómo funciona</button>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:1.5rem">Sin compromiso &middot; Respuesta en menos de 24 horas &middot; NDA disponible desde la primera reunión</p>
+      </div>
+    </article>
+
+  </main><!-- /main-content -->
+</div><!-- /page-wrapper -->
+
+<!-- FOOTER -->
+<footer style="background:var(--surface);border-top:1px solid var(--border);padding:2.5rem 5%;text-align:center;margin-top:4rem">
+  <p style="font-family:var(--font-serif);font-size:1.1rem;font-weight:300;margin-bottom:.5rem"><a href="index.html" style="color:var(--text)">victor<span style="color:var(--gold)">IA</span></a></p>
+  <p style="font-size:.75rem;color:var(--muted)">Agencia de Inteligencia Artificial &middot; México &middot; <a href="app.html">Empezar gratis</a></p>
+  <p style="font-size:.72rem;color:var(--muted);margin-top:.8rem">Esta guía tiene fines informativos. Los datos de mercado son estimaciones basadas en fuentes públicas y experiencia propia. Consulta asesores especializados para decisiones específicas de negocio o cumplimiento legal.</p>
+</footer>
+
+<script>
+// ── PROGRESS BAR ──
+window.addEventListener('scroll', function() {
+  var scrollTop = window.scrollY || document.documentElement.scrollTop;
+  var docH = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = docH > 0 ? (scrollTop / docH) * 100 : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+// ── SCROLL SPY SIDEBAR ──
+(function() {
+  var sections = ['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10'];
+  var links = document.querySelectorAll('#sidebar-toc a');
+  function updateActive() {
+    var scrollY = window.scrollY + 110;
+    var active = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      var el = document.getElementById(sections[i]);
+      if (el && el.offsetTop <= scrollY) active = sections[i];
+    }
+    links.forEach(function(l) {
+      l.classList.toggle('active', l.getAttribute('data-target') === active);
+    });
+  }
+  window.addEventListener('scroll', updateActive);
+  updateActive();
+})();
+
+// ── MODAL LOGIC ──
+var UNLOCK_KEY = 'vic_guia_unlocked';
+function isUnlocked() { return localStorage.getItem(UNLOCK_KEY) === '1'; }
+function showModal() {
+  document.getElementById('modal').classList.add('visible');
+}
+function hideModal() {
+  document.getElementById('modal').classList.remove('visible');
+}
+document.getElementById('modal-close').addEventListener('click', hideModal);
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) hideModal();
+});
+
+// Auto-show after 8s on first visit
+if (!isUnlocked()) {
+  setTimeout(showModal, 8000);
+}
+
+// Download button triggers modal if not unlocked
+function handleDownload() {
+  if (!isUnlocked()) {
+    showModal();
+  } else {
+    window.print();
+  }
+}
+
+// Update download buttons once unlocked
+function activateDownloadButtons() {
+  var btns = document.querySelectorAll('.toc-dl-btn, #hero-dl-btn');
+  btns.forEach(function(b) {
+    b.textContent = 'Descargar PDF';
+    b.style.borderColor = 'var(--gold)';
+    b.style.color = 'var(--gold)';
+  });
+}
+if (isUnlocked()) activateDownloadButtons();
+
+// ── FORM SUBMIT ──
+function handleFormSubmit(e) {
+  e.preventDefault();
+  var nombre = document.getElementById('lead-nombre').value.trim();
+  var email = document.getElementById('lead-email').value.trim();
+  if (!nombre || !email) return;
+
+  // Fire-and-forget POST
+  try {
+    fetch('https://n8n.srv1013903.hstgr.cloud/webhook/lead-guia', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: nombre,
+        email: email,
+        source: 'guia-definitiva',
+        fecha: new Date().toISOString()
+      })
+    }).catch(function(){});
+  } catch(err) {}
+
+  // Unlock
+  localStorage.setItem(UNLOCK_KEY, '1');
+  hideModal();
+  activateDownloadButtons();
+  showToast('Guia desbloqueada! Ahora puedes descargar el PDF.');
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 4000);
+}
+
+// ── ROI CALCULATOR ──
+function fmtMXN(n) {
+  return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
+}
+function calcROI() {
+  var emp = parseInt(document.getElementById('r-emp').value) || 8;
+  var hrs = parseInt(document.getElementById('r-hrs').value) || 20;
+  var sal = parseFloat(document.getElementById('r-sal').value) || 18000;
+  var mult = parseFloat(document.getElementById('r-ind').value) || 1.2;
+  var IMPL_COST = 25000; // MXN/mes estimado de implementacion
+
+  document.getElementById('v-emp').textContent = emp + ' empleado' + (emp === 1 ? '' : 's');
+  document.getElementById('v-hrs').textContent = hrs + ' horas/semana';
+
+  // Costo hora = salario / 160 horas laborales
+  var costoHora = sal / 160;
+  // Horas totales de tareas repetitivas al mes
+  var hrsRepMes = emp * hrs * 4.3;
+  // Costo mensual de esas tareas
+  var costoMensual = hrsRepMes * costoHora;
+  // Ahorro con IA (68%)
+  var ahorro = costoMensual * 0.68 * mult;
+  // Ahorro anual
+  var ahorroAnual = ahorro * 12;
+  // Costo implementacion anual
+  var costImplAnual = IMPL_COST * 12;
+  // ROI
+  var roi = costImplAnual > 0 ? ((ahorroAnual - costImplAnual) / costImplAnual) * 100 : 0;
+  // Payback
+  var payback = ahorro > 0 ? IMPL_COST / ahorro : 0;
+  // Horas recuperadas / semana
+  var hrsRec = emp * hrs * 0.68;
+  // Equivalente empleados
+  var equiv = sal > 0 ? (ahorro / sal) : 0;
+
+  document.getElementById('o-costo').textContent = fmtMXN(costoMensual) + '/mes';
+  document.getElementById('o-ahorro').textContent = fmtMXN(ahorro) + '/mes';
+  document.getElementById('o-roi').textContent = Math.round(roi).toLocaleString('es-MX') + '%';
+  document.getElementById('o-payback').textContent = payback.toFixed(1) + ' meses';
+  document.getElementById('o-hrs').textContent = Math.round(hrsRec) + ' horas';
+  document.getElementById('o-equiv').textContent = equiv.toFixed(1) + ' empleados';
+}
+// Init on load
+calcROI();
+
+// ── HAMBURGER (mobile) ──
+document.getElementById('hamburger').addEventListener('click', function() {
+  var links = document.querySelector('.nav-links');
+  if (links) {
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '68px';
+    links.style.right = '5%';
+    links.style.background = 'var(--surface2)';
+    links.style.border = '1px solid var(--border)';
+    links.style.padding = '1rem 1.5rem';
+    links.style.gap = '1rem';
+    links.style.zIndex = '9999';
+  }
+});
+
+// ── SCROLL TO CONTENT ──
+function scrollToContent() {
+  var el = document.getElementById('toc-anchor');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 <meta name="description" content="Monitoreo inteligente para edificios, hoteles, flotillas, renta de autos y transportadoras. Visibilidad total de tus operaciones, alertas en tiempo real y análisis predictivo."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/styles-global.css"/>
 <style>
 /* ── Utilidades estáticas (subset Tailwind usado) — sin CDN ── */
@@ -29,7 +29,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-font-smoothing:antialiased;scroll-behavior:auto}
-body{background:#FFFFFF;color:#000000;font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;font-weight:300}
+body{background:#FFFFFF;color:#000000;font-family:'Inter',sans-serif;overflow-x:hidden;font-weight:300}
 @media(pointer:fine){*{cursor:none!important}}
 #cur-d{position:fixed;width:5px;height:5px;background:#1A1A1A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:opacity .3s}
 #cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(0,0,0,.18);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s cubic-bezier(.16,1,.3,1),height .4s,border-color .4s,opacity .4s}
@@ -52,10 +52,10 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
 .mag{display:inline-block}
 .card{background:#FAFAFA;border:1px solid rgba(0,0,0,.08);border-radius:12px;transition:border-color .45s}
 .card:hover{border-color:rgba(0,0,0,.2)}
-.eyec{font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#666666;display:flex;align-items:center;justify-content:center;gap:10px}
+.eyec{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#666666;display:flex;align-items:center;justify-content:center;gap:10px}
 .eyec::before,.eyec::after{content:'';display:block;width:0;height:1px;background:rgba(0,0,0,.3);transition:width 1.3s cubic-bezier(.16,1,.3,1)}
 .eyec.on::before,.eyec.on::after{width:18px}
-.eye{display:inline-flex;align-items:center;gap:13px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#1A1A1A}
+.eye{display:inline-flex;align-items:center;gap:13px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#1A1A1A}
 .eye::before{content:'';display:block;width:0;height:1px;background:#1A1A1A;transition:width 1.3s cubic-bezier(.16,1,.3,1)}
 .eye.on::before{width:26px}
 .rv{opacity:0;transform:translateY(30px)}
@@ -113,7 +113,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
 
       <div class="rv">
         <div class="eye" style="margin-bottom:32px" data-eye>Eficiencia e IoT</div>
-        <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:clamp(46px,6.5vw,84px);line-height:1.02;letter-spacing:-.025em;color:#000000;margin-bottom:28px">
+        <h1 style="font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(46px,6.5vw,84px);line-height:1.02;letter-spacing:-.025em;color:#000000;margin-bottom:28px">
           Tus operaciones,<br/><span style="font-style:italic;color:#1A1A1A">visibles en tiempo<br/>real.</span>
         </h1>
         <p style="font-size:17px;line-height:1.8;font-weight:300;color:#666666;margin-bottom:44px;max-width:440px">
@@ -142,17 +142,17 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
           <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(0,0,0,.05)">
             <div style="padding:22px 20px;border-right:1px solid rgba(0,0,0,.06)">
               <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:8px">Alertas activas</p>
-              <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">3</p>
+              <p style="font-family:'Inter',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">3</p>
               <p style="font-size:11px;color:rgba(0,0,0,.45);margin-top:4px">↓ 68% vs ayer</p>
             </div>
             <div style="padding:22px 20px;border-right:1px solid rgba(0,0,0,.06)">
               <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:8px">Eficiencia flotilla</p>
-              <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">94<span style="font-size:18px;color:#666666">%</span></p>
+              <p style="font-family:'Inter',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">94<span style="font-size:18px;color:#666666">%</span></p>
               <p style="font-size:11px;color:rgba(0,0,0,.45);margin-top:4px">↑ 11% este mes</p>
             </div>
             <div style="padding:22px 20px">
               <p style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:8px">Ahorro energético</p>
-              <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">23<span style="font-size:18px;color:#666666">%</span></p>
+              <p style="font-family:'Inter',sans-serif;font-size:32px;font-weight:300;color:#000000;line-height:1">23<span style="font-size:18px;color:#666666">%</span></p>
               <p style="font-size:11px;color:rgba(0,0,0,.45);margin-top:4px">Último trimestre</p>
             </div>
           </div>
@@ -211,7 +211,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
   <div class="max-w-[1200px] mx-auto px-6 md:px-16">
     <div class="rv" style="text-align:center;margin-bottom:80px">
       <p class="eyec" style="margin-bottom:22px" data-eyec>Verticales B2B</p>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:clamp(38px,5vw,66px);line-height:1.04;letter-spacing:-.025em">
+      <h2 style="font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(38px,5vw,66px);line-height:1.04;letter-spacing:-.025em">
         Diseñado para<br/><span style="font-style:italic;color:#666666">cada industria.</span>
       </h2>
     </div>
@@ -223,7 +223,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
         <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="3" y="2" width="16" height="18" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><path d="M7 6h2M7 10h2M7 14h2M13 6h2M13 10h2M13 14h2" stroke="#1A1A1A" stroke-width="1.1" stroke-linecap="round"/><path d="M9 20v-4h4v4" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/></svg>
         </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Edificios corporativos</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Edificios corporativos</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666;margin-bottom:20px">Control total de climatización, accesos, iluminación y consumo energético. Detecta anomalías antes de que se conviertan en problemas costosos.</p>
         <ul style="display:flex;flex-direction:column;gap:9px">
           <li style="display:flex;gap:9px;align-items:center"><span style="color:#1A1A1A;font-size:16px;line-height:1">·</span><span style="font-size:13px;color:#666666">Monitoreo HVAC y energía</span></li>
@@ -237,7 +237,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
         <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="2" y="4" width="18" height="15" rx="1.5" stroke="#1A1A1A" stroke-width="1.2"/><path d="M2 9h18" stroke="#1A1A1A" stroke-width="1.1"/><path d="M7 9v10M15 9v10" stroke="#1A1A1A" stroke-width="1" stroke-dasharray="2 2"/><circle cx="11" cy="6.5" r="1.2" fill="#1A1A1A" opacity=".35"/></svg>
         </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Hoteles y resorts</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Hoteles y resorts</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666;margin-bottom:20px">Visibilidad en tiempo real del estado de habitaciones, amenidades y servicios. Mejora la experiencia del huésped y reduce costos operativos.</p>
         <ul style="display:flex;flex-direction:column;gap:9px">
           <li style="display:flex;gap:9px;align-items:center"><span style="color:#1A1A1A;font-size:16px;line-height:1">·</span><span style="font-size:13px;color:#666666">Estado de habitaciones en vivo</span></li>
@@ -251,7 +251,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
         <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="1" y="7" width="16" height="9" rx="2" stroke="#1A1A1A" stroke-width="1.2"/><path d="M17 11h3l1 2v3h-4" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><circle cx="14.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><path d="M1 11h16" stroke="#1A1A1A" stroke-width="1" opacity=".4"/></svg>
         </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Flotillas corporativas</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Flotillas corporativas</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666;margin-bottom:20px">Geolocalización, consumo de combustible, comportamiento del conductor y alertas de mantenimiento preventivo para toda tu flota desde un solo panel.</p>
         <ul style="display:flex;flex-direction:column;gap:9px">
           <li style="display:flex;gap:9px;align-items:center"><span style="color:#1A1A1A;font-size:16px;line-height:1">·</span><span style="font-size:13px;color:#666666">Rastreo GPS en tiempo real</span></li>
@@ -265,7 +265,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
         <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M3 13l2-5h12l2 5" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><rect x="2" y="13" width="18" height="5" rx="1.5" stroke="#1A1A1A" stroke-width="1.2"/><circle cx="6.5" cy="18.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><circle cx="15.5" cy="18.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><path d="M9 10h4" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"/></svg>
         </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Renta de autos</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Renta de autos</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666;margin-bottom:20px">Conoce en todo momento dónde está cada unidad, su estado de servicio, kilometraje y condición. Reduce pérdidas y optimiza la disponibilidad de tu inventario.</p>
         <ul style="display:flex;flex-direction:column;gap:9px">
           <li style="display:flex;gap:9px;align-items:center"><span style="color:#1A1A1A;font-size:16px;line-height:1">·</span><span style="font-size:13px;color:#666666">Disponibilidad en tiempo real</span></li>
@@ -279,7 +279,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
         <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><path d="M2 8h13v8H2z" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><path d="M15 10l4 2v4h-4V10z" stroke="#1A1A1A" stroke-width="1.2" stroke-linejoin="round"/><circle cx="5.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><circle cx="16.5" cy="17.5" r="1.5" stroke="#1A1A1A" stroke-width="1.1"/><path d="M2 5h9" stroke="#1A1A1A" stroke-width="1.1" stroke-linecap="round"/></svg>
         </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Transportadoras</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Transportadoras</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666;margin-bottom:20px">Monitoreo de rutas, tiempos de entrega, temperatura de carga refrigerada y cumplimiento de recorridos. Más entregas, menos incidentes.</p>
         <ul style="display:flex;flex-direction:column;gap:9px">
           <li style="display:flex;gap:9px;align-items:center"><span style="color:#1A1A1A;font-size:16px;line-height:1">·</span><span style="font-size:13px;color:#666666">Control de cadena de frío</span></li>
@@ -293,7 +293,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
         <div style="width:52px;height:52px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:24px">
           <svg width="22" height="22" fill="none" viewBox="0 0 22 22"><rect x="3" y="3" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><rect x="12" y="3" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><rect x="3" y="12" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/><rect x="12" y="12" width="7" height="7" rx="1" stroke="#1A1A1A" stroke-width="1.2"/></svg>
         </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Empresas e industria</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Empresas e industria</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666;margin-bottom:20px">Cualquier operación que dependa de activos físicos se beneficia de visibilidad continua. Desde maquinaria industrial hasta inventarios, ubicaciones y condiciones ambientales.</p>
         <ul style="display:flex;flex-direction:column;gap:9px">
           <li style="display:flex;gap:9px;align-items:center"><span style="color:#1A1A1A;font-size:16px;line-height:1">·</span><span style="font-size:13px;color:#666666">Monitoreo de activos fijos</span></li>
@@ -316,7 +316,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:100px">
       <div class="rv">
         <p class="eye" style="margin-bottom:28px" data-eye>Alertas Inteligentes</p>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:clamp(34px,4vw,54px);line-height:1.06;letter-spacing:-.022em;margin-bottom:24px">
+        <h2 style="font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(34px,4vw,54px);line-height:1.06;letter-spacing:-.022em;margin-bottom:24px">
           No más llamadas<br/><span style="font-style:italic;color:#1A1A1A">de emergencia.</span>
         </h2>
         <p style="font-size:16px;line-height:1.82;font-weight:300;color:#666666;margin-bottom:28px">El sistema detecta anomalías antes de que escalen. Si una unidad se desvía de ruta, si el consumo energético sube fuera de parámetros o si un activo requiere mantenimiento, recibes la alerta antes de que lo notes.</p>
@@ -384,7 +384,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
       <div class="rv" style="order:2">
         <p class="eye" style="margin-bottom:28px" data-eye>Análisis Predictivo</p>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:clamp(34px,4vw,54px);line-height:1.06;letter-spacing:-.022em;margin-bottom:24px">
+        <h2 style="font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(34px,4vw,54px);line-height:1.06;letter-spacing:-.022em;margin-bottom:24px">
           Corrige antes de<br/><span style="font-style:italic;color:#1A1A1A">que falle.</span>
         </h2>
         <p style="font-size:16px;line-height:1.82;font-weight:300;color:#666666;margin-bottom:28px">La IA aprende los patrones normales de cada activo y detecta cuando algo empieza a desviarse. Un compresor que consume 8% más, un vehículo que frena diferente, una habitación con tiempo de limpieza inusualmente alto — todo queda registrado y analizado.</p>
@@ -452,19 +452,19 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
   <div class="max-w-[1200px] mx-auto px-6 md:px-16">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.06)">
       <div class="rv" style="background:#F5F5F5;padding:40px 32px;text-align:center">
-        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">23<span style="font-size:28px;color:#1A1A1A">%</span></p>
+        <p style="font-family:'Inter',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">23<span style="font-size:28px;color:#1A1A1A">%</span></p>
         <p style="font-size:13px;color:#666666;line-height:1.6">reducción promedio<br/>en consumo energético</p>
       </div>
       <div class="rv" style="background:#F5F5F5;padding:40px 32px;text-align:center">
-        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">68<span style="font-size:28px;color:#1A1A1A">%</span></p>
+        <p style="font-family:'Inter',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">68<span style="font-size:28px;color:#1A1A1A">%</span></p>
         <p style="font-size:13px;color:#666666;line-height:1.6">menos incidentes<br/>en flotillas monitoreadas</p>
       </div>
       <div class="rv" style="background:#F5F5F5;padding:40px 32px;text-align:center">
-        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">4.1<span style="font-size:28px;color:#1A1A1A">×</span></p>
+        <p style="font-family:'Inter',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">4.1<span style="font-size:28px;color:#1A1A1A">×</span></p>
         <p style="font-size:13px;color:#666666;line-height:1.6">retorno sobre inversión<br/>en el primer año</p>
       </div>
       <div class="rv" style="background:#F5F5F5;padding:40px 32px;text-align:center">
-        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">24<span style="font-size:22px;color:#1A1A1A">/7</span></p>
+        <p style="font-family:'Inter',sans-serif;font-weight:200;font-size:54px;line-height:1;color:#000000;margin-bottom:10px">24<span style="font-size:22px;color:#1A1A1A">/7</span></p>
         <p style="font-size:13px;color:#666666;line-height:1.6">monitoreo sin<br/>interrupciones</p>
       </div>
     </div>
@@ -478,24 +478,24 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
   <div class="max-w-[1200px] mx-auto px-6 md:px-16">
     <div class="rv" style="text-align:center;margin-bottom:80px">
       <p class="eyec" style="margin-bottom:22px" data-eyec>Implementación</p>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:clamp(38px,5vw,64px);line-height:1.04;letter-spacing:-.025em">
+      <h2 style="font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(38px,5vw,64px);line-height:1.04;letter-spacing:-.025em">
         Operativo en<br/><span style="font-style:italic;color:#666666">menos de una semana.</span>
       </h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px">
       <div class="rv card" style="padding:44px 36px">
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:72px;font-weight:200;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px">01</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Diagnóstico de operación</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:72px;font-weight:200;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px">01</div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Diagnóstico de operación</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666">Entendemos tus operaciones, qué activos tienes, qué métricas importan y cuáles son tus puntos de dolor principales. Sin tecnicismos.</p>
       </div>
       <div class="rv card" style="padding:44px 36px">
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:72px;font-weight:200;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px">02</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Configuración y conexión</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:72px;font-weight:200;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px">02</div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Configuración y conexión</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666">Configuramos el panel, los alertas y los reportes según tu operación. Nos adaptamos a tus sistemas actuales — no al revés.</p>
       </div>
       <div class="rv card" style="padding:44px 36px">
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:72px;font-weight:200;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px">03</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Visibilidad total desde el día uno</h3>
+        <div style="font-family:'Inter',sans-serif;font-size:72px;font-weight:200;color:rgba(0,0,0,.04);line-height:1;margin-bottom:20px">03</div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:24px;font-weight:300;color:#000000;margin-bottom:12px">Visibilidad total desde el día uno</h3>
         <p style="font-size:14px;line-height:1.8;color:#666666">Desde la primera semana tienes datos reales, alertas activas y acceso al panel. Tu equipo puede operar desde cualquier dispositivo.</p>
       </div>
     </div>
@@ -507,7 +507,7 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
   <div style="max-width:1200px;margin:0 auto;padding:0 40px">
     <div class="card rv" style="padding:80px 64px;text-align:center">
       <p class="eyec" style="margin-bottom:28px" data-eyec>Agenda una demo</p>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:200;font-size:clamp(42px,5.5vw,78px);line-height:1.04;letter-spacing:-.03em;margin-bottom:20px">
+      <h2 style="font-family:'Inter',sans-serif;font-weight:200;font-size:clamp(42px,5.5vw,78px);line-height:1.04;letter-spacing:-.03em;margin-bottom:20px">
         Ve tus operaciones<br/><span style="font-style:italic;color:#666666">en tiempo real.</span>
       </h2>
       <p style="font-size:16px;line-height:1.8;color:#666666;max-width:440px;margin:0 auto 44px">Cuéntanos qué tienes que monitorear. En 30 minutos te mostramos cómo se vería con tus datos reales.</p>

@@ -1,0 +1,365 @@
+<!DOCTYPE html><html lang="es"><head>
+<link rel="icon" href="/favicon.ico" sizes="any"/><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"/><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Agendar Diagnóstico Gratuito | Victor IA</title>
+<meta name="description" content="Agenda tu diagnóstico gratuito de 30 minutos con el equipo de Victor IA. Sin presión de venta. Claridad absoluta sobre qué puede hacer la IA por tu empresa hoy.">
+<link rel="canonical" href="https://victor-ia.xyz/agenda">
+<meta property="og:title" content="Agendar Diagnóstico Gratuito | Victor IA">
+<meta property="og:description" content="30 minutos. Sin costo. Sin presión. Claridad absoluta sobre la IA para tu empresa.">
+<meta property="og:locale" content="es_MX">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Diagnóstico Gratuito 30 Minutos","provider":{"@type":"Organization","name":"INFLUENCE IA S.A. DE C.V.","url":"https://victor-ia.xyz","email":"info@victor-ia.com.mx"},"offers":{"@type":"Offer","price":"0","priceCurrency":"MXN"},"areaServed":"MX"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400;1,500&family=Inter:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{background:#070708;color:#EAE6DF;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;min-height:100vh}
+@media(pointer:fine){*{cursor:none!important}}
+#cur-d{position:fixed;width:5px;height:5px;background:#B89A6A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
+#cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(184,154,106,.42);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .35s}
+#noise{position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(7,7,8,.94);border-bottom-color:rgba(255,255,255,.06);backdrop-filter:blur(20px)}
+.nav-a{color:#706C66;font-size:13px;letter-spacing:.07em;font-weight:300;transition:color .3s;text-decoration:none}
+.nav-a:hover{color:#EAE6DF}
+.btn-back{display:inline-flex;align-items:center;gap:8px;color:#706C66;font-size:13px;letter-spacing:.06em;text-decoration:none;transition:color .3s}
+.btn-back:hover{color:#EAE6DF}
+.hero{padding:112px 0 72px;border-bottom:1px solid rgba(255,255,255,.05)}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B89A6A;margin-bottom:24px}
+.eyebrow::before{content:'';width:28px;height:1px;background:#B89A6A}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,76px);font-weight:300;line-height:1.08;color:#EAE6DF;margin-bottom:24px}
+.hero h1 em{font-style:italic;color:rgba(234,230,223,.5)}
+.hero p{font-size:16px;line-height:1.78;color:#706C66;max-width:500px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.09em;color:rgba(184,154,106,.75);border:1px solid rgba(184,154,106,.18);border-radius:100px;padding:6px 14px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+.agenda-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:0;padding:72px 0 100px}
+@media(max-width:800px){.agenda-grid{grid-template-columns:1fr;padding:48px 0 80px}}
+.form-col{padding-right:72px;border-right:1px solid rgba(255,255,255,.055)}
+@media(max-width:800px){.form-col{padding-right:0;border-right:none;border-bottom:1px solid rgba(255,255,255,.055);padding-bottom:56px}}
+.cal-col{padding-left:72px}
+@media(max-width:800px){.cal-col{padding-left:0;padding-top:56px}}
+.col-title{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(112,108,102,.45);margin-bottom:36px}
+.fg{margin-bottom:28px}
+.fl{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(112,108,102,.55);margin-bottom:10px}
+.fi{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.09);color:#EAE6DF;font-family:'Inter',sans-serif;font-size:15px;font-weight:300;padding:10px 0 12px;outline:none;transition:border-color .3s}
+.fi:focus{border-bottom-color:rgba(184,154,106,.7)}
+.fi::placeholder{color:rgba(112,108,102,.4)}
+.fs{width:100%;background:#0c0b10;border:1px solid rgba(255,255,255,.07);border-radius:7px;color:#EAE6DF;font-family:'Inter',sans-serif;font-size:14px;font-weight:300;padding:13px 16px;outline:none;transition:border-color .3s;-webkit-appearance:none;cursor:pointer}
+.fs:focus{border-color:rgba(184,154,106,.5)}
+.fs option{background:#0c0b10}
+.fta{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.09);color:#EAE6DF;font-family:'Inter',sans-serif;font-size:15px;font-weight:300;padding:10px 0 12px;outline:none;transition:border-color .3s;resize:none}
+.fta:focus{border-bottom-color:rgba(184,154,106,.7)}
+.fta::placeholder{color:rgba(112,108,102,.4)}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.btn-s{width:100%;padding:19px 0;background:#B89A6A;color:#070708;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;border:none;border-radius:7px;cursor:pointer;transition:background .25s,transform .2s,opacity .25s;margin-top:36px}
+.btn-s:hover:not(:disabled){background:#cda878;transform:translateY(-2px)}
+.btn-s:disabled{opacity:.28;cursor:not-allowed}
+/* Calendar */
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.cal-month{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF}
+.cal-arr{background:none;border:1px solid rgba(255,255,255,.08);color:#706C66;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:border-color .25s,color .25s}
+.cal-arr:hover{border-color:rgba(184,154,106,.5);color:#B89A6A}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.dh{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(112,108,102,.35);text-align:center;padding-bottom:12px}
+.dc{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:7px;font-size:13px;color:#706C66;cursor:pointer;transition:all .18s;border:1px solid transparent;user-select:none}
+.dc:not(.dis):not(.emp):hover{background:rgba(184,154,106,.07);color:#EAE6DF;border-color:rgba(184,154,106,.18)}
+.dc.tod{color:rgba(184,154,106,.85)}
+.dc.sel{background:rgba(184,154,106,.13);color:#B89A6A;border-color:rgba(184,154,106,.32)!important}
+.dc.dis{opacity:.18;cursor:default}
+.dc.emp{cursor:default}
+/* Slots */
+.sl-lbl{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(112,108,102,.4);margin:32px 0 14px;display:none}
+.sl-g{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.sl{padding:10px 0;border:1px solid rgba(255,255,255,.065);border-radius:6px;text-align:center;font-size:12px;letter-spacing:.04em;color:#706C66;cursor:pointer;transition:all .18s;background:#0c0b10}
+.sl:hover{border-color:rgba(184,154,106,.28);color:#EAE6DF}
+.sl.on{border-color:#B89A6A;color:#B89A6A;background:rgba(184,154,106,.07)}
+/* Summary */
+.sum{margin-top:28px;padding:20px 22px;background:#0c0b10;border:1px solid rgba(255,255,255,.055);border-radius:10px;display:none;flex-direction:column;gap:12px}
+.sum.show{display:flex}
+.sr{display:flex;align-items:center;gap:10px;font-size:13px;color:#706C66}
+/* Confirmation */
+#ovl{position:fixed;inset:0;z-index:2000;background:#070708;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .7s cubic-bezier(.16,1,.3,1)}
+#ovl.show{opacity:1;pointer-events:all}
+.ci{text-align:center;max-width:500px;padding:0 32px}
+.cr{width:80px;height:80px;border-radius:50%;border:1.5px solid rgba(184,154,106,.6);display:flex;align-items:center;justify-content:center;margin:0 auto 36px;animation:pg 2.2s ease-in-out infinite}
+@keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(184,154,106,.25)}55%{box-shadow:0 0 0 20px rgba(184,154,106,0)}}
+.ct{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,56px);font-weight:300;color:#EAE6DF;line-height:1.1;margin-bottom:16px}
+.cs{font-size:15px;line-height:1.78;color:#706C66;margin-bottom:36px}
+.cc{background:#0c0b10;border:1px solid rgba(255,255,255,.055);border-radius:12px;padding:24px 28px;text-align:left;margin-bottom:36px}
+.crow{display:flex;gap:14px;font-size:13px}
+.crow+.crow{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.045)}
+.ck{color:#706C66;min-width:80px;font-size:12px}
+.cv{color:#EAE6DF}
+.cb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:rgba(112,108,102,.6);text-decoration:none;transition:color .3s}
+.cb:hover{color:#EAE6DF}
+.fi.err,.fta.err{border-bottom-color:rgba(200,65,65,.4)!important}
+.fi.err:focus,.fta.err:focus{border-bottom-color:rgba(200,65,65,.65)!important}
+</style>
+<script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
+</head>
+<body class="dark">
+<div id="noise"></div>
+<div id="cur-d"></div><div id="cur-r"></div>
+
+<header id="hdr">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;height:68px">
+    <a href="index.html" style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#EAE6DF;text-decoration:none">Victor <span style="color:#B89A6A">IA</span></a>
+    <nav style="display:flex;gap:36px;align-items:center">
+      <a class="nav-a" href="agentes.html" style="display:none" id="nd">Agentes</a>
+      <a class="nav-a" href="precios.html" style="display:none" id="nd2">Precios</a>
+      <a class="btn-back" href="javascript:history.back()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3L4 7l4.5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        Volver
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Diagnóstico Gratuito · 30 Minutos</div>
+      <h1>Agenda tu llamada.<br><em>Sin costo. Sin presión.</em></h1>
+      <p>Claridad absoluta sobre qué puede hacer la IA por tu empresa hoy — en 30 minutos de conversación directa con nuestro equipo.</p>
+      <div class="pills">
+        <span class="pill">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="#B89A6A" stroke-width="1"/><path d="M6 3.5v2.5l1.5 1" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"/></svg>
+          30 minutos exactos
+        </span>
+        <span class="pill">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 3h8M2 6h8M2 9h5" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"/></svg>
+          Sin PowerPoints de relleno
+        </span>
+        <span class="pill">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8.5" rx="1.5" stroke="#B89A6A" stroke-width="1"/><path d="M4 2V.5M8 2V.5" stroke="#B89A6A" stroke-width="1" stroke-linecap="round"/></svg>
+          Videollamada · Google Meet
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="agenda-grid">
+
+        <!-- FORM -->
+        <div class="form-col">
+          <div class="col-title">Tus datos</div>
+          <div class="fg2">
+            <div class="fg">
+              <label class="fl" for="fn">Nombre completo *</label>
+              <input class="fi" id="fn" type="text" placeholder="Tu nombre completo" autocomplete="name" required>
+            </div>
+            <div class="fg">
+              <label class="fl" for="fe">Empresa *</label>
+              <input class="fi" id="fe" type="text" placeholder="Nombre de tu empresa" required>
+            </div>
+          </div>
+          <div class="fg2">
+            <div class="fg">
+              <label class="fl" for="fem">Correo electrónico *</label>
+              <input class="fi" id="fem" type="email" placeholder="correo@empresa.com" autocomplete="email" required>
+            </div>
+            <div class="fg">
+              <label class="fl" for="fw">WhatsApp</label>
+              <input class="fi" id="fw" type="tel" placeholder="+52 984 000 0000" autocomplete="tel">
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl" for="fi2">Industria</label>
+            <select class="fs" id="fi2">
+              <option value="">Selecciona tu industria</option>
+              <option>Hospitalidad y Turismo</option><option>Inmobiliario</option>
+              <option>Manufactura e Industria</option><option>Retail y Comercio</option>
+              <option>Servicios Profesionales</option><option>Salud y Bienestar</option>
+              <option>Logística y Transporte</option><option>Educación</option>
+              <option>Tecnología</option><option>Construcción e Infraestructura</option><option>Otra</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl" for="ft">¿Qué quieres resolver? *</label>
+            <textarea class="fta" id="ft" placeholder="Ej: Queremos automatizar el seguimiento de clientes y generar reportes sin intervención manual..." rows="3" required></textarea>
+          </div>
+          <div class="fg">
+            <label class="fl" for="ffu">¿Cómo nos encontraste?</label>
+            <select class="fs" id="ffu">
+              <option value="">Selecciona una opción</option>
+              <option>Google</option><option>LinkedIn</option>
+              <option>Recomendación de un colega</option><option>Redes sociales</option>
+              <option>Evento o conferencia</option><option>Otro</option>
+            </select>
+          </div>
+          <button class="btn-s" id="bts" disabled>Selecciona fecha y hora →</button>
+        </div>
+
+        <!-- CALENDAR -->
+        <div class="cal-col">
+          <div class="col-title">Elige fecha y hora</div>
+          <div class="cal-nav">
+            <button class="cal-arr" id="cp">‹</button>
+            <span class="cal-month" id="clbl"></span>
+            <button class="cal-arr" id="cn">›</button>
+          </div>
+          <div class="cal-g" style="margin-bottom:4px">
+            <div class="dh">Lu</div><div class="dh">Ma</div><div class="dh">Mi</div>
+            <div class="dh">Ju</div><div class="dh">Vi</div><div class="dh">Sa</div><div class="dh">Do</div>
+          </div>
+          <div class="cal-g" id="cg"></div>
+          <div class="sl-lbl" id="slbl">Horarios disponibles (hora CDT)</div>
+          <div class="sl-g" id="sg"></div>
+          <div class="sum" id="smr">
+            <div class="sr">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="2" width="11" height="11" rx="1.5" stroke="#B89A6A" stroke-width="1.1"/><path d="M1.5 5.5h11" stroke="#B89A6A" stroke-width="1.1"/><path d="M4.5 1v2M9.5 1v2" stroke="#B89A6A" stroke-width="1.1" stroke-linecap="round"/></svg>
+              <span id="sfd" style="color:#EAE6DF"></span>
+            </div>
+            <div class="sr">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#B89A6A" stroke-width="1.1"/><path d="M7 4v3.2l2 1.5" stroke="#B89A6A" stroke-width="1.1" stroke-linecap="round"/></svg>
+              <span id="shr" style="color:#B89A6A"></span><span style="color:rgba(112,108,102,.5);margin-left:4px">· 30 minutos</span>
+            </div>
+            <div class="sr">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="3" width="12" height="9" rx="1.5" stroke="#B89A6A" stroke-width="1.1"/><path d="M1 6.5h12" stroke="#B89A6A" stroke-width="1.1"/></svg>
+              <span>Videollamada · Google Meet</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- CONFIRMATION -->
+<div id="ovl">
+  <div class="ci">
+    <div class="cr">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <path d="M7 15l6 6 10-12" stroke="#B89A6A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2 class="ct">Cita confirmada</h2>
+    <p class="cs">Revisaremos tu solicitud y te enviaremos el link de Google Meet por correo en menos de 2 horas.</p>
+    <div class="cc" id="cdt"></div>
+    <a href="index.html" class="cb">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3L4 7l4.5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Volver al inicio
+    </a>
+  </div>
+</div>
+
+<script>
+(()=>{
+const dot=document.getElementById('cur-d'),ring=document.getElementById('cur-r');
+let cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;});
+document.querySelectorAll('a,button,.dc,.sl,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.cssText+='width:52px;height:52px;border-color:rgba(184,154,106,.65)';});
+  el.addEventListener('mouseleave',()=>{ring.style.width='';ring.style.height='';ring.style.borderColor='';});
+});
+(function A(){rx+=(cx-rx)*.1;ry+=(cy-ry)*.1;dot.style.left=cx+'px';dot.style.top=cy+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(A);})();
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>40));
+if(window.innerWidth>900){document.getElementById('nd').style.display='block';document.getElementById('nd2').style.display='block';}
+
+const MN=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const DL=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const SL=['9:00','9:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30'];
+const now=new Date();
+let vy=now.getFullYear(),vm=now.getMonth(),sd=null,ss=null;
+
+function buildCal(){
+  document.getElementById('clbl').textContent=MN[vm]+' '+vy;
+  const g=document.getElementById('cg');g.innerHTML='';
+  const first=new Date(vy,vm,1),last=new Date(vy,vm+1,0);
+  const start=(first.getDay()+6)%7;
+  const today=new Date();today.setHours(0,0,0,0);
+  for(let i=0;i<start;i++){const c=document.createElement('div');c.className='dc emp';g.appendChild(c);}
+  for(let d=1;d<=last.getDate();d++){
+    const dt=new Date(vy,vm,d);
+    const c=document.createElement('div');c.className='dc';c.textContent=d;
+    const dow=dt.getDay();
+    if(dt<today||dow===0||dow===6){c.classList.add('dis');}
+    else{
+      if(dt.toDateString()===today.toDateString())c.classList.add('tod');
+      if(sd&&dt.toDateString()===sd.toDateString())c.classList.add('sel');
+      c.addEventListener('click',()=>pick(dt));
+    }
+    g.appendChild(c);
+  }
+}
+
+function buildSlots(){
+  const lbl=document.getElementById('slbl'),g=document.getElementById('sg');
+  g.innerHTML='';
+  if(!sd){lbl.style.display='none';return;}
+  lbl.style.display='block';
+  SL.forEach(s=>{
+    const el=document.createElement('div');
+    el.className='sl'+(ss===s?' on':'');
+    el.textContent=s;
+    el.addEventListener('click',()=>{ss=s;buildSlots();updSum();chk();});
+    g.appendChild(el);
+  });
+}
+
+function pick(dt){sd=dt;ss=null;buildCal();buildSlots();updSum();chk();}
+
+function updSum(){
+  const bar=document.getElementById('smr');
+  if(!sd){bar.classList.remove('show');return;}
+  document.getElementById('sfd').textContent=DL[sd.getDay()]+', '+sd.getDate()+' de '+MN[sd.getMonth()]+' '+sd.getFullYear();
+  document.getElementById('shr').textContent=ss||'—';
+  bar.classList.add('show');
+}
+
+function chk(){
+  const v=id=>document.getElementById(id).value.trim();
+  const fn=v('fn'),fe=v('fe'),fem=v('fem'),ft=v('ft');
+  const fields=fn&&fe&&fem&&ft;
+  const ok=fields&&sd&&ss;
+  const btn=document.getElementById('bts');
+  btn.disabled=!ok;
+  if(ok) btn.textContent='Confirmar cita →';
+  else if(!fields) btn.textContent='Completa todos los campos →';
+  else if(!sd) btn.textContent='Selecciona una fecha →';
+  else btn.textContent='Elige un horario →';
+}
+
+document.getElementById('cp').addEventListener('click',()=>{vm--;if(vm<0){vm=11;vy--;}buildCal();});
+document.getElementById('cn').addEventListener('click',()=>{vm++;if(vm>11){vm=0;vy++;}buildCal();});
+['fn','fe','fem','ft'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener('blur',()=>{if(!el.value.trim())el.classList.add('err');});
+  el.addEventListener('input',()=>{if(el.value.trim())el.classList.remove('err');chk();});
+});
+document.getElementById('fw').addEventListener('input',chk);
+
+document.getElementById('bts').addEventListener('click',async()=>{
+  const g=id=>document.getElementById(id).value.trim();
+  const nombre=g('fn'),empresa=g('fe'),email=g('fem'),wa=g('fw');
+  const industria=g('fi2')||'No especificada',tema=g('ft'),fuente=g('ffu')||'—';
+  const fecha=DL[sd.getDay()]+', '+sd.getDate()+' de '+MN[sd.getMonth()]+' '+sd.getFullYear();
+  const btn=document.getElementById('bts');
+  btn.textContent='Enviando...';btn.disabled=true;
+  let ok=false;
+  try{
+    const r=await fetch('/api/agenda',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,empresa,email,wa,industria,tema,fuente,fecha,hora:ss})});
+    ok=r.ok;
+  }catch(e){}
+  if(!ok){
+    const b=encodeURIComponent('Nombre: '+nombre+'\nEmpresa: '+empresa+'\nEmail: '+email+'\nWhatsApp: '+wa+'\nIndustria: '+industria+'\nFecha: '+fecha+'\nHora: '+ss+' hrs\nTema: '+tema);
+    window.open('mailto:info@victor-ia.com.mx?subject=Diagnóstico Victor IA — '+encodeURIComponent(empresa)+'&body='+b,'_blank');
+    ok=true;
+  }
+  if(ok){
+    document.getElementById('cdt').innerHTML='<div class="crow"><span class="ck">Nombre</span><span class="cv">'+nombre+'</span></div><div class="crow"><span class="ck">Empresa</span><span class="cv">'+empresa+'</span></div><div class="crow"><span class="ck">Fecha</span><span class="cv">'+fecha+'</span></div><div class="crow"><span class="ck">Hora</span><span class="cv" style="color:#B89A6A">'+ss+' hrs (CDT)</span></div><div class="crow"><span class="ck">Formato</span><span class="cv">Videollamada · Google Meet · 30 min</span></div>';
+    document.getElementById('ovl').classList.add('show');
+  }
+});
+
+buildCal();
+})();
+</script>
+</body></html>
