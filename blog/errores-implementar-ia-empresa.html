@@ -89,7 +89,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-font-smoothing:antialiased;scroll-behavior:auto}
 body{background:#FFFFFF;color:#000000;font-family:'Inter',sans-serif;overflow-x:hidden;font-weight:300}
-@media(pointer:fine){*{cursor:auto!important}}#cur-d,#cur-r{display:none!important}
+#cur-d,#cur-r{display:block!important;opacity:1!important;visibility:visible!important;z-index:99999!important}@media(hover:none) and (pointer:coarse){#cur-d,#cur-r{display:none!important}}
 #cur-d{position:fixed;width:5px;height:5px;background:#1A1A1A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
 #cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(26,26,26,.42);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s,height .4s}
 #pbar{position:fixed;top:0;left:0;height:1px;background:#1A1A1A;z-index:100000;width:0}
@@ -162,6 +162,8 @@ header.scrolled{background:rgba(255,255,255,.92);border-bottom-color:rgba(0,0,0,
 }</script>
 </head>
 <body>
+<div id="cur-d"></div>
+<div id="cur-r"></div>
 
 <header id="hdr">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-16 h-full relative z-10">

@@ -41,7 +41,7 @@ header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(18px)}
 .related-articles a:hover{border-color:#1A1A1A}
 #cur-d{position:fixed;width:5px;height:5px;background:#1A1A1A;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
 #cur-r{position:fixed;width:36px;height:36px;border:1px solid rgba(26,26,26,.42);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .4s,height .4s}
-@media(pointer:fine){*{cursor:auto!important}}#cur-d,#cur-r{display:none!important}
+#cur-d,#cur-r{display:block!important;opacity:1!important;visibility:visible!important;z-index:99999!important}@media(hover:none) and (pointer:coarse){#cur-d,#cur-r{display:none!important}}
 @media(max-width:767px){
   header nav{display:none!important}
   .ham-btn{display:flex!important;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:6px;z-index:600;position:relative;flex-shrink:0}
