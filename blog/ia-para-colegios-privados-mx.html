@@ -792,4 +792,35 @@ header.scrolled{background:rgba(255,255,255,.92);border-bottom-color:rgba(0,0,0,
 }
 </style>
 <script src="/blog/js/converter.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+/* Lenis Apple-style smooth scroll (GSAP coexistence) — auto-injected */
+(function(){
+  if(typeof Lenis==='undefined'){return;}
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){return;}
+  if(window.innerWidth<=768){return;} /* smoothTouch:false -> native scroll on mobile */
+  try{
+    var lenis=new Lenis({
+      duration:1.2,
+      easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},
+      orientation:'vertical',
+      gestureOrientation:'vertical',
+      smoothWheel:true,
+      smoothTouch:false,
+      wheelMultiplier:1,
+      touchMultiplier:2,
+      infinite:false
+    });
+    if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+      lenis.on('scroll',ScrollTrigger.update);
+      gsap.ticker.add(function(t){lenis.raf(t*1000);});
+      gsap.ticker.lagSmoothing(0);
+    }else{
+      (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
+    }
+    window.__lenis=lenis;
+  }catch(e){}
+})();
+</script>
 </body></html>

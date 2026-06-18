@@ -599,4 +599,35 @@ header.scrolled{background:rgba(255,255,255,.92);border-bottom-color:rgba(0,0,0,
 <script>(()=>{gsap.registerPlugin(ScrollTrigger);const dot=document.getElementById('cur-d'),ring=document.getElementById('cur-r');let cx=0,cy=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;});(function animC(){rx+=(cx-rx)*.10;ry+=(cy-ry)*.10;dot.style.left=cx+'px';dot.style.top=cy+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animC);})();window.addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('pbar').style.width=((d.scrollTop)/(d.scrollHeight-d.clientHeight)*100)+'%';document.getElementById('hdr').classList.toggle('scrolled',window.scrollY>40);});requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll('.rv').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.95){el.classList.add('on');}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});}));})();</script>
 <script src="/blog/blog-premium.js?v=3" defer></script>
 <script src="/blog/js/converter.js"><\/script>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+/* Lenis Apple-style smooth scroll (GSAP coexistence) — auto-injected */
+(function(){
+  if(typeof Lenis==='undefined'){return;}
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){return;}
+  if(window.innerWidth<=768){return;} /* smoothTouch:false -> native scroll on mobile */
+  try{
+    var lenis=new Lenis({
+      duration:1.2,
+      easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},
+      orientation:'vertical',
+      gestureOrientation:'vertical',
+      smoothWheel:true,
+      smoothTouch:false,
+      wheelMultiplier:1,
+      touchMultiplier:2,
+      infinite:false
+    });
+    if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+      lenis.on('scroll',ScrollTrigger.update);
+      gsap.ticker.add(function(t){lenis.raf(t*1000);});
+      gsap.ticker.lagSmoothing(0);
+    }else{
+      (function raf(t){lenis.raf(t);requestAnimationFrame(raf);})(0);
+    }
+    window.__lenis=lenis;
+  }catch(e){}
+})();
+</script>
 </body></html>
