@@ -522,22 +522,41 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
 </main>
 
 <footer style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,.05);padding:64px 0 40px;position:relative;z-index:10">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
+  <div id="footer-grid" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
     <div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#000000;margin-bottom:14px">Victor <span style="color:#1A1A1A">IA</span></div>
-      <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#666666;max-width:260px">El primer supercerebro de IA en LATAM.</p>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#000000;margin-bottom:18px">Victor <span style="color:#1A1A1A">IA</span></div>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Servicios</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px">
+        <li><a class="nav-a" href="/agencia-ia-mexico">Agencia de IA</a></li>
+        <li><a class="nav-a" href="/automatizacion-procesos-empresas">Automatización</a></li>
+        <li><a class="nav-a" href="/onboarding-ia-empresas">Onboarding IA</a></li>
+        <li><a class="nav-a" href="/desarrollo-software-ia">Software con IA</a></li>
+        <li><a class="nav-a" href="/software-ia-timeshare-salas-de-ventas">Software Timeshare</a></li>
+        <li><a class="nav-a" href="/eficiencia-energetica-iot-hoteles-resorts">Eficiencia Energética IoT</a></li>
+        <li><a class="nav-a" href="/ia-para-inmobiliarias-riviera-maya">IA Inmobiliaria</a></li>
+        <li><a class="nav-a" href="/ia-para-agencias-tours-experiencias">IA para Tours</a></li>
+        <li><a class="nav-a" href="/ia-para-restaurantes-riviera-maya">IA Restaurantes</a></li>
+        <li><a class="nav-a" href="/ia-para-wellness-yoga-holistico">IA Wellness</a></li>
+        <li><a class="nav-a" href="/ia-para-educacion-escuelas-capacitacion">IA Educación</a></li>
+        <li><a class="nav-a" href="/ia-para-empresas-cancun-riviera-maya-yucatan">IA en Cancún</a></li>
+      </ul>
+      <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#666666;max-width:260px;margin-bottom:14px">El primer supercerebro de IA en LATAM. Redefiniendo la productividad empresarial.</p>
+      <p style="font-size:11px;letter-spacing:.10em;color:rgba(102,102,102,.3)">México · victor-ia.xyz</p>
     </div>
     <div>
-      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:18px">Producto</h4>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Producto</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
         <li><a class="nav-a" href="agentes.html">Agentes IA</a></li>
         <li><a class="nav-a" href="como-funciona.html">Cómo funciona</a></li>
         <li><a class="nav-a" href="precios.html">Precios</a></li>
-        <li><a class="nav-a" href="telemetria.html" style="color:#000000">Eficiencia e IoT</a></li>
+        <li><a class="nav-a" href="app.html">App</a></li>
+        <li><a class="nav-a" href="telemetria.html">Eficiencia e IoT</a></li>
+        <li><a class="nav-a" href="time-tracker-agencias.html">Time Tracker Agencias</a></li>
+        <li><a class="nav-a" href="agentes-ia-agencias.html">Agentes para Agencias</a></li>
       </ul>
     </div>
     <div>
-      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:18px">Legal</h4>
+      <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Legal</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
         <li><a class="nav-a" href="aviso-privacidad.html">Aviso de Privacidad</a></li>
         <li><a class="nav-a" href="terminos-condiciones.html">Términos y Condiciones</a></li>
@@ -546,8 +565,16 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
       </ul>
     </div>
   </div>
-  <div style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(0,0,0,.05)">
+  <div id="footer-bottom" style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(0,0,0,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
     <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(102,102,102,.28)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
+    <div style="display:flex;gap:18px">
+      <a class="nav-a" href="#" aria-label="Web" style="color:rgba(102,102,102,.28)">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="6" stroke="currentColor"/><ellipse cx="7.5" cy="7.5" rx="2.5" ry="6" stroke="currentColor"/><path d="M1.5 7.5h12" stroke="currentColor"/></svg>
+      </a>
+      <a class="nav-a" href="#" aria-label="Email" style="color:rgba(102,102,102,.28)">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="1.5" y="3" width="12" height="9" rx="1.5" stroke="currentColor"/><path d="M1.5 5l6 4 6-4" stroke="currentColor"/></svg>
+      </a>
+    </div>
   </div>
 </footer>
 
