@@ -11,7 +11,7 @@
     function resize() {
       W = canvas.width = canvas.offsetWidth;
       H = canvas.height = canvas.offsetHeight;
-      ctx.fillStyle = '#0a0a0a';
+      ctx.fillStyle = 'rgba(248,247,245,1)';
       ctx.fillRect(0, 0, W, H);
     }
     resize();
@@ -25,9 +25,9 @@
 
     function loop() {
       requestAnimationFrame(loop);
-      // redraw dark overlay
+      // redraw light overlay
       ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(10,10,10,0.04)';
+      ctx.fillStyle = 'rgba(248,247,245,0.04)';
       ctx.fillRect(0, 0, W, H);
 
       ctx.globalCompositeOperation = 'destination-out';
