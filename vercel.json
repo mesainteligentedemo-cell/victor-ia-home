@@ -187,6 +187,22 @@
       "destination": "/guia-definitiva.html"
     },
     {
+      "source": "/agentes",
+      "destination": "/agentes.html"
+    },
+    {
+      "source": "/como-funciona",
+      "destination": "/como-funciona.html"
+    },
+    {
+      "source": "/precios",
+      "destination": "/precios.html"
+    },
+    {
+      "source": "/telemetria",
+      "destination": "/telemetria.html"
+    },
+    {
       "source": "/brain-tracker",
       "destination": "/"
     },
