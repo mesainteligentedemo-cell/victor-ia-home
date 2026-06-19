@@ -260,6 +260,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;b
 .nav-section,.stat-card .label,.card-title,.data-table th,.form-section h3,.field label{font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
 </style>
 <script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
+  <link rel="stylesheet" href="/assets/animations.css?v=1">
 </head>
 <body>
 <div id="app">
@@ -937,7 +938,8 @@ function renderEmailBlocks(){
   el.innerHTML=emailBlocks.length?emailBlocks.map((b,i)=>`<div class="email-block"><button class="eb-del" onclick="emailBlocks.splice(${i},1);renderEmailBlocks()">✕</button><div contenteditable="true" onblur="emailBlocks[${i}].html=this.innerHTML">${b.html}</div></div>`).join(''):'<div style="text-align:center;padding:30px;color:var(--muted);font-size:.73rem">Añade bloques abajo</div>';
 }
 
-function previewEmail(){const html=`<html><body style="font-family:Arial;max-width:600px;margin:0 auto;padding:20px">${emailBlocks.map(b=>b.html).join('')}</body></html>`;const w=window.open('','_blank');w.document.write(html);}
+function previewEmail(){const html=`<html><body style="font-family:Arial;max-width:600px;margin:0 auto;padding:20px">${emailBlocks.map(b=>b.html).join('')}  <script src="/assets/animations.js?v=1" defer></script>
+</body></html>`;const w=window.open('','_blank');w.document.write(html);}
 
 function sendEmailModal(){
   openModal('Enviar email',`<label>Para</label><input id="em-to" type="email" placeholder="destinatario@email.com"><label>Lista</label><select id="em-list"><option value="">Sin lista</option>${contacts.filter(c=>c.email).slice(0,5).map(c=>`<option value="${c.email}">${c.name}</option>`).join('')}</select>`,()=>{

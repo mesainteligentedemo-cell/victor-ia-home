@@ -241,6 +241,7 @@ html,body{height:100%;overflow:hidden;font-family:var(--sans);background:var(--i
 #loading p{font-size:.78rem;color:var(--muted)}
 </style>
 <script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
+  <link rel="stylesheet" href="/assets/animations.css?v=1">
 </head>
 <body>
 
@@ -436,7 +437,8 @@ ${linkTags}
 }
 html,body{background:#060609 !important}
 </style>
-</head><body>${body}</body></html>`;
+</head><body>${body}  <script src="/assets/animations.js?v=1" defer></script>
+</body></html>`;
 
   frame.srcdoc = doc;
   frame.onload = () => {
