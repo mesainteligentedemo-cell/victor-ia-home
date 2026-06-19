@@ -1,0 +1,262 @@
+/* ════════════════════════════════════════════════════════════════
+   VICTOR IA — EFFECTS & ANIMATIONS  (victor-ia.xyz)
+   14 categorías · adaptado al design system real (Cormorant + Inter,
+   paleta oro #B89A6A sobre marble/warm). Aditivo y seguro: hookea
+   tanto las clases del brief (.cta/.stat-value/.hero-char/.svc-home-item)
+   como las clases reales del sitio (.btn-p/.btn-g/.stat-n/.svc-card).
+   ════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* Alias del brief mapeados al sistema real (warm/marble) */
+  --ink:#0E0F12;
+  --warm:#F8F7F5;
+  --anim-gold:#B89A6A;
+  --anim-gold-soft:rgba(184,154,106,.45);
+  --anim-ease:cubic-bezier(.16,1,.3,1);   /* timing principal */
+  --anim-spring:cubic-bezier(.34,1.56,.64,1); /* overshoot mobile */
+}
+
+/* ════════════ @KEYFRAMES ════════════ */
+
+/* 1 · Stat value glow */
+@keyframes statGlow{
+  0%,100%{text-shadow:0 0 80px rgba(26,26,26,.22)}
+  50%{text-shadow:0 0 26px var(--anim-gold-soft),0 0 90px rgba(184,154,106,.30)}
+}
+
+/* 5 · Gold shimmer (em / italics) */
+@keyframes goldShimmer{
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
+
+/* 6 · CTA shimmer sweep */
+@keyframes ctaShimmer{
+  0%{transform:translateX(-120%) skewX(-18deg)}
+  60%,100%{transform:translateX(220%) skewX(-18deg)}
+}
+
+/* 8 · Ambient — orb drift */
+@keyframes heroOrb{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(3%,-4%) scale(1.06)}
+  100%{transform:translate(0,0) scale(1)}
+}
+/* 8 · Levitate A / B */
+@keyframes levA{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+@keyframes levB{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+/* 8 · Pulse */
+@keyframes pulse{
+  0%,100%{opacity:.55;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.12)}
+}
+/* 8 · Grain shift */
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}
+  10%{transform:translate(-3%,-2%)}
+  30%{transform:translate(2%,-4%)}
+  50%{transform:translate(-2%,3%)}
+  70%{transform:translate(3%,2%)}
+  90%{transform:translate(-3%,1%)}
+}
+
+/* 4 · Hero character reveal */
+@keyframes heroCharIn{
+  0%{opacity:0;transform:translateY(.5em) scale(.96);filter:blur(6px)}
+  100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+
+/* 11 · Voice wave */
+@keyframes voiceWave{
+  0%,100%{transform:scaleY(.35)}
+  50%{transform:scaleY(1)}
+}
+
+
+/* ════════════ 1+2 · STATS ════════════ */
+.stat-n,.stat-value{transition:transform .45s var(--anim-ease),
+                                color .45s var(--anim-ease)}
+/* glow activado por IntersectionObserver (.glow) */
+.stat-n.glow,.stat-value.glow{animation:statGlow 1.6s var(--anim-ease) infinite}
+
+/* 2 · stat card hover elevation */
+.stat-card,[data-animatable="stat"]{transition:transform .35s var(--anim-ease),
+                                               box-shadow .35s var(--anim-ease)}
+.stat-card:hover,[data-animatable="stat"]:hover{
+  transform:translateY(-3px);
+  box-shadow:0 18px 48px rgba(184,154,106,.14);
+}
+
+
+/* ════════════ 3 · NAV / PORTFOLIO / LINK HOVERS ════════════ */
+a,.nav-link,.portfolio-item,.link-anim{
+  transition:color .25s var(--anim-ease),
+             opacity .25s var(--anim-ease),
+             transform .3s var(--anim-ease);
+}
+.nav-link:hover,.link-anim:hover{opacity:.72}
+.portfolio-item:hover{transform:translateY(-4px)}
+
+
+/* ════════════ 4 · HERO CHARACTER SPLIT ════════════ */
+.hero-char{
+  display:inline-block;
+  opacity:0;
+  transform:translateY(.5em) scale(.96);
+  filter:blur(6px);
+  will-change:opacity,transform,filter;
+}
+.hero-char.is-in{
+  animation:heroCharIn .8s var(--anim-ease) forwards;
+}
+.hero-char--space{width:.28em}
+
+
+/* ════════════ 5 · GOLD SHIMMER (em / italics) ════════════ */
+.hero-headline em,.hero-headline i,.gold-shimmer,
+h1 .si[style*="italic"]{
+  background:linear-gradient(100deg,
+      #1A1A1A 0%,#1A1A1A 35%,
+      var(--anim-gold) 50%,
+      #1A1A1A 65%,#1A1A1A 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  animation:goldShimmer 5s linear infinite;
+}
+
+
+/* ════════════ 6 · CTA BUTTON EFFECTS ════════════ */
+.cta,.btn-p,.btn-g{
+  position:relative;overflow:hidden;
+  transition:gap .3s var(--anim-ease),
+             letter-spacing .3s var(--anim-ease),
+             transform .3s var(--anim-ease),
+             box-shadow .3s var(--anim-ease);
+}
+.cta:hover,.btn-p:hover,.btn-g:hover{
+  gap:14px;letter-spacing:.11em;transform:translateY(-2px);
+}
+/* aura */
+.cta::before,.btn-p::before{
+  content:"";position:absolute;inset:-1px;border-radius:inherit;
+  background:radial-gradient(120% 120% at 50% 0%,var(--anim-gold-soft),transparent 60%);
+  opacity:0;transition:opacity .3s var(--anim-ease);pointer-events:none;z-index:0;
+}
+.cta:hover::before,.btn-p:hover::before{opacity:.8}
+/* shimmer sweep */
+.cta::after,.btn-p::after{
+  content:"";position:absolute;top:0;left:0;width:55%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:translateX(-120%) skewX(-18deg);pointer-events:none;z-index:1;
+}
+.cta:hover::after,.btn-p:hover::after{animation:ctaShimmer .9s var(--anim-ease)}
+.cta>*,.btn-p>*,.btn-g>*{position:relative;z-index:2}
+
+
+/* ════════════ 7 · GLASSMORPHISM CARDS ════════════ */
+.svc-card,.svc-home-item,.stat-card,.glass-card{
+  -webkit-backdrop-filter:blur(14px) saturate(1.1);
+  backdrop-filter:blur(14px) saturate(1.1);
+  transition:transform .4s var(--anim-ease),
+             box-shadow .4s var(--anim-ease),
+             border-color .4s var(--anim-ease);
+}
+.svc-card:hover,.svc-home-item:hover{
+  transform:translateY(-5px);
+  box-shadow:0 22px 60px rgba(0,0,0,.10),0 4px 18px rgba(184,154,106,.12);
+}
+
+
+/* ════════════ 8 · AMBIENT EFFECTS ════════════ */
+.amb-orb{animation:heroOrb 14s var(--anim-ease) infinite}
+.amb-lev-a{animation:levA 5s var(--anim-ease) infinite}
+.amb-lev-b{animation:levB 6s var(--anim-ease) infinite}
+.amb-pulse{animation:pulse 2.5s var(--anim-ease) infinite}
+.amb-grain{
+  position:fixed;inset:-50%;pointer-events:none;z-index:1;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 8s steps(6) infinite;mix-blend-mode:multiply;
+}
+
+
+/* ════════════ 9 · WORK REEL ZOOM ════════════ */
+.work-reel,.reel-item{overflow:hidden}
+.work-reel video,.work-reel img,.reel-item video,.reel-item img{
+  transition:transform .6s var(--anim-ease);
+}
+.work-reel:hover video,.work-reel:hover img,
+.reel-item:hover video,.reel-item:hover img{transform:scale(1.06)}
+
+
+/* ════════════ 10 · A11Y PANEL POP-UP & SWITCHES ════════════ */
+.a11y-panel{
+  opacity:0;transform:translateY(12px) scale(.97);
+  pointer-events:none;
+  transition:opacity .3s var(--anim-ease),transform .3s var(--anim-spring);
+}
+.a11y-panel.is-open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.a11y-switch{
+  --on:0;width:42px;height:24px;border-radius:999px;position:relative;
+  background:rgba(0,0,0,.18);transition:background .3s var(--anim-ease);cursor:pointer;
+  border:none;flex:none;
+}
+.a11y-switch[aria-checked="true"]{background:var(--anim-gold)}
+.a11y-switch::after{
+  content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;
+  border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);
+  transition:transform .3s var(--anim-spring);
+}
+.a11y-switch[aria-checked="true"]::after{transform:translateX(18px)}
+
+
+/* ════════════ 11 · VOICE WAVE ════════════ */
+.voice-wave{display:inline-flex;align-items:center;gap:3px;height:20px}
+.voice-wave span{
+  display:block;width:3px;height:100%;border-radius:2px;
+  background:var(--anim-gold);transform-origin:center;
+  animation:voiceWave 1s var(--anim-ease) infinite;
+}
+.voice-wave span:nth-child(1){animation-delay:0s}
+.voice-wave span:nth-child(2){animation-delay:.12s}
+.voice-wave span:nth-child(3){animation-delay:.24s}
+.voice-wave span:nth-child(4){animation-delay:.36s}
+.voice-wave span:nth-child(5){animation-delay:.48s}
+
+
+/* ════════════ 12 · MOBILE ACTIVE STATES ════════════ */
+@media (hover:none),(pointer:coarse){
+  .cta:active,.btn-p:active,.btn-g:active,
+  .svc-card:active,.svc-home-item:active,.stat-card:active{
+    transform:scale(.97);
+    transition:transform .25s var(--anim-spring);
+  }
+}
+@media (max-width:640px){
+  .hero-char{filter:none}             /* perf en móvil */
+  .amb-grain{opacity:.025}
+  .stat-card:hover,.svc-card:hover{transform:none} /* sin hover en touch */
+}
+
+
+/* ════════════ 13 · REDUCED MOTION OVERRIDES ════════════ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+  .stat-n.glow,.stat-value.glow{animation:none}
+  .hero-headline em,.hero-headline i,.gold-shimmer,h1 .si[style*="italic"]{
+    animation:none;-webkit-text-fill-color:#1A1A1A;color:#1A1A1A;
+  }
+  .hero-char{opacity:1;transform:none;filter:none;animation:none}
+  .amb-orb,.amb-lev-a,.amb-lev-b,.amb-pulse,.amb-grain,.voice-wave span{animation:none}
+}
