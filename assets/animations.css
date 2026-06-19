@@ -103,6 +103,37 @@ a,.nav-link,.portfolio-item,.link-anim{
 .nav-link:hover,.link-anim:hover{opacity:.72}
 .portfolio-item:hover{transform:translateY(-4px)}
 
+/* ── 3b · COBERTURA REAL DEL SITIO (clases que existen en el HTML) ──
+   Hovers aditivos para elementos que no tenían interacción propia.
+   No pisan los sistemas nativos (.nav-a, .btn-p, .svc-card, .mag,
+   .card-tilt, .card-g) que ya están animados inline/GSAP. */
+
+/* Tarjetas planas dentro del panel del hero */
+.card-flat{
+  transition:transform .35s var(--anim-ease),
+             border-color .35s var(--anim-ease),
+             box-shadow .35s var(--anim-ease);
+}
+.card-flat:hover{
+  transform:translateY(-2px);
+  border-color:rgba(184,154,106,.45);
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+/* Icon-wrap standalone (los de dentro de .svc-card ya reaccionan al hover
+   de la card; este cubre cualquier .ic-wrap suelto) */
+.ic-wrap{transition:transform .45s var(--anim-ease),
+                    background .45s var(--anim-ease),
+                    border-color .45s var(--anim-ease)}
+
+/* Footer + enlaces de texto genéricos: subrayado suave al hover */
+footer a:not(.nav-a):not(.btn-p):not(.btn-g),
+.footer-text a,.link-u{
+  transition:color .25s var(--anim-ease),opacity .25s var(--anim-ease);
+}
+footer a:not(.nav-a):not(.btn-p):not(.btn-g):hover,
+.footer-text a:hover,.link-u:hover{opacity:.62}
+
 
 /* ════════════ 4 · HERO CHARACTER SPLIT ════════════ */
 .hero-char{
@@ -119,8 +150,9 @@ a,.nav-link,.portfolio-item,.link-anim{
 
 
 /* ════════════ 5 · GOLD SHIMMER (em / italics) ════════════ */
-.hero-headline em,.hero-headline i,.gold-shimmer,
-h1 .si[style*="italic"]{
+/* NOTA: NO incluir `h1 .si` aquí — GSAP anima su opacity y el clip de texto
+   lo volvería transparente durante la entrada del hero. */
+.hero-headline em,.hero-headline i,.gold-shimmer{
   background:linear-gradient(100deg,
       #1A1A1A 0%,#1A1A1A 35%,
       var(--anim-gold) 50%,
@@ -254,7 +286,7 @@ h1 .si[style*="italic"]{
     scroll-behavior:auto!important;
   }
   .stat-n.glow,.stat-value.glow{animation:none}
-  .hero-headline em,.hero-headline i,.gold-shimmer,h1 .si[style*="italic"]{
+  .hero-headline em,.hero-headline i,.gold-shimmer{
     animation:none;-webkit-text-fill-color:#1A1A1A;color:#1A1A1A;
   }
   .hero-char{opacity:1;transform:none;filter:none;animation:none}

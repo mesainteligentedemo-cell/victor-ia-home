@@ -61,9 +61,12 @@
   }
 
   function initHeroChars() {
-    // Targets explícitos del brief + el headline real (h1 .si dentro del hero)
+    // IMPORTANTE: NO tocar `.si`. El hero headline ya está animado por la
+    // timeline nativa de GSAP (heroTL en index.html). Splittear `h1 .si`
+    // rompía ese sistema y dejaba el título en conflicto (invisible/saltos).
+    // Solo actuamos sobre targets EXPLÍCITOS que el sitio aún no anima.
     var targets = document.querySelectorAll(
-      '.hero-char-target, [data-char], h1 .si'
+      '.hero-char-target, [data-char]'
     );
     if (!targets.length) return;
 
@@ -99,10 +102,11 @@
 
   /* ── 5 · GOLD SHIMMER (auto-tag em/italics en headline) ──────── */
   function initGoldShimmer() {
-    // El CSS ya cubre .hero-headline em/i y h1 .si[italic].
-    // Aquí solo aseguramos la clase en italics dentro de h1 hero.
+    // NO aplicar a `h1 .si`: GSAP anima su opacity y -webkit-background-clip:text
+    // dejaría el texto transparente durante la entrada (parpadeo/invisible).
+    // Solo italics explícitos fuera del hero headline animado.
     var italics = document.querySelectorAll(
-      'h1 .si[style*="italic"], .hero-headline em, .hero-headline i'
+      '.hero-headline em, .hero-headline i, [data-gold-shimmer]'
     );
     italics.forEach(function (el) { el.classList.add('gold-shimmer'); });
   }
@@ -120,8 +124,11 @@
       }, { passive: true });
     });
 
-    // Marca enlaces de nav/portfolio si no están marcados
+    // NO tagear `.nav-a` con `.nav-link`: `.nav-a` ya tiene su propio hover
+    // nativo (color + subrayado animado). Añadir opacity:.72 lo apagaba.
+    // Solo marcamos enlaces que NO tengan ya estilo de nav propio.
     document.querySelectorAll('nav a, header a').forEach(function (a) {
+      if (a.classList.contains('nav-a')) return;
       a.classList.add('nav-link');
     });
   }
