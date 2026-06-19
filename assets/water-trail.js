@@ -9,9 +9,12 @@
     let W, H;
 
     function resize() {
-      W = canvas.width = canvas.offsetWidth;
-      H = canvas.height = canvas.offsetHeight;
-      ctx.fillStyle = 'rgba(255,255,255,1)';
+      // offsetWidth/Height can be 0 before layout; fallback to window dimensions
+      W = canvas.width  = canvas.offsetWidth  || window.innerWidth;
+      H = canvas.height = canvas.offsetHeight || window.innerHeight;
+      // Paint solid white immediately so marble is hidden
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = '#FFFFFF';
       ctx.fillRect(0, 0, W, H);
     }
     resize();
@@ -25,12 +28,13 @@
 
     function loop() {
       requestAnimationFrame(loop);
-      // repaint canvas COMPLETELY white opaque every frame
+      // Repaint canvas COMPLETELY white opaque every frame
       ctx.globalCompositeOperation = 'source-over';
       ctx.clearRect(0, 0, W, H);
-      ctx.fillStyle = 'rgba(255,255,255,1)';
+      ctx.fillStyle = '#FFFFFF';
       ctx.fillRect(0, 0, W, H);
 
+      // Erase holes where drops are (reveals marble below)
       ctx.globalCompositeOperation = 'destination-out';
       const now = Date.now();
       for (let i = drops.length - 1; i >= 0; i--) {
