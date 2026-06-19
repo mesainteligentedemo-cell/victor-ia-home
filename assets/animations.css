@@ -89,9 +89,12 @@
 .stat-card,[data-animatable="stat"]{transition:transform .35s var(--anim-ease),
                                                box-shadow .35s var(--anim-ease)}
 .stat-card:hover,[data-animatable="stat"]:hover{
-  transform:translateY(-3px);
-  box-shadow:0 18px 48px rgba(184,154,106,.14);
+  transform:translateY(-4px);
+  box-shadow:0 22px 56px rgba(184,154,106,.20);
 }
+/* 2b · stat number cluster — el número crece/oro al pasar por su contenedor */
+.stat-n{transition:transform .4s var(--anim-ease),color .4s var(--anim-ease)}
+.stat-card:hover .stat-n,.stat-item:hover .stat-n{color:var(--anim-gold);transform:translateY(-2px)}
 
 
 /* ════════════ 3 · NAV / PORTFOLIO / LINK HOVERS ════════════ */
@@ -102,6 +105,10 @@ a,.nav-link,.portfolio-item,.link-anim{
 }
 .nav-link:hover,.link-anim:hover{opacity:.72}
 .portfolio-item:hover{transform:translateY(-4px)}
+
+/* 3a-bis · NAV refuerzo — color a oro + leve subida (sobre el subrayado inline) */
+.nav-a:hover{color:var(--anim-gold)!important}
+.nav-a{transition:color .3s var(--anim-ease),transform .3s var(--anim-ease)}
 
 /* ── 3b · COBERTURA REAL DEL SITIO (clases que existen en el HTML) ──
    Hovers aditivos para elementos que no tenían interacción propia.
@@ -115,16 +122,30 @@ a,.nav-link,.portfolio-item,.link-anim{
              box-shadow .35s var(--anim-ease);
 }
 .card-flat:hover{
-  transform:translateY(-2px);
-  border-color:rgba(184,154,106,.45);
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transform:translateY(-3px);
+  border-color:rgba(184,154,106,.55);
+  box-shadow:0 14px 38px rgba(0,0,0,.08);
 }
 
-/* Icon-wrap standalone (los de dentro de .svc-card ya reaccionan al hover
-   de la card; este cubre cualquier .ic-wrap suelto) */
+/* Tarjetas genéricas .card / .card-g (refuerzo visible: borde oro + elevación) */
+.card,.card-g{transition:transform .4s var(--anim-ease),
+                         border-color .4s var(--anim-ease),
+                         box-shadow .4s var(--anim-ease)}
+.card:hover,.card-g:hover{
+  transform:translateY(-3px);
+  border-color:rgba(184,154,106,.45);
+  box-shadow:0 16px 40px rgba(0,0,0,.07);
+}
+
+/* Icon-wrap standalone + reacción dentro de la card (más notoria) */
 .ic-wrap{transition:transform .45s var(--anim-ease),
                     background .45s var(--anim-ease),
                     border-color .45s var(--anim-ease)}
+.svc-card:hover .ic-wrap{
+  background:rgba(184,154,106,.12);
+  border-color:rgba(184,154,106,.4);
+  transform:translateY(-3px) scale(1.04);
+}
 
 /* Footer + enlaces de texto genéricos: subrayado suave al hover */
 footer a:not(.nav-a):not(.btn-p):not(.btn-g),
@@ -201,8 +222,9 @@ footer a:not(.nav-a):not(.btn-p):not(.btn-g):hover,
              border-color .4s var(--anim-ease);
 }
 .svc-card:hover,.svc-home-item:hover{
-  transform:translateY(-5px);
-  box-shadow:0 22px 60px rgba(0,0,0,.10),0 4px 18px rgba(184,154,106,.12);
+  transform:translateY(-6px);
+  box-shadow:0 26px 70px rgba(0,0,0,.13),0 6px 22px rgba(184,154,106,.18);
+  border-color:rgba(184,154,106,.4);
 }
 
 
