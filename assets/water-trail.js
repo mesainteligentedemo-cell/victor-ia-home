@@ -1,8 +1,8 @@
 // water-trail.js — marble reveal on mousemove/touch
-// D_BASE=30 D_HOLD=1400 D_FADE=1200
+// D_BASE=60 D_HOLD=300 D_FADE=1000
 (function () {
   'use strict';
-  const D_BASE = 30, D_HOLD = 1400, D_FADE = 1200;
+  const D_BASE = 60, D_HOLD = 300, D_FADE = 1000;
 
   function initReveal(canvas) {
     const ctx = canvas.getContext('2d');
