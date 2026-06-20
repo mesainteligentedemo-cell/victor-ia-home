@@ -143,6 +143,10 @@
       "destination": "/eficiencia-energetica-iot-hoteles-resorts.html"
     },
     {
+      "source": "/agendar-videollamada",
+      "destination": "/agendar-videollamada.html"
+    },
+    {
       "source": "/ia-para-inmobiliarias-riviera-maya",
       "destination": "/ia-para-inmobiliarias-riviera-maya.html"
     },
@@ -207,7 +211,7 @@
       "destination": "/"
     },
     {
-      "source": "/:slug((?!blog|img|assets|login|privacidad|seguridad|telemetria|telemetria|terminos|terminos-condiciones|aviso-privacidad|politica-cookies|app|crm-agencias|crm|brain-tracker|brain-tracker-slides|auditoria-seo|og-image|favicon|robots|sitemap|logos|logo-tracker|get_adobe|update_home|agenda|api|__|agentes|agentes-ia-agencias|como-funciona|precios|pricing|admin|dashboard|panel|studio|studio-cms|cms|propuesta-aldo|propuesta-rosa-laura|manual-identidad|guia-definitiva|one-pager|presentacion|plan|firma-email|email-preview|contadores|image-lab|alianza-fiscal|video-studio|404|googleede7d050a05a0237|manifest|service|index-old|rebrand-preview|time-tracker-agencias|alma-inclusivo|bahari-inclusivo|cadu-inclusivo|cimamedica-inclusivo|copal-inclusivo|galenia-inclusivo|kaan-inclusivo|laparrilla-inclusivo|palace-inclusivo|xcaret-inclusivo|propuesta-jimena|onboarding-ia-empresas|agencia-ia-mexico|automatizacion-procesos-empresas|desarrollo-software-ia|software-ia-timeshare-salas-de-ventas|eficiencia-energetica-iot-hoteles-resorts|ia-para-inmobiliarias-riviera-maya|ia-para-agencias-tours-experiencias|ia-para-restaurantes-riviera-maya|ia-para-wellness-yoga-holistico|ia-para-educacion-escuelas-capacitacion|ia-para-empresas-cancun-riviera-maya-yucatan|ia-para-empresas-cancun).+)",
+      "source": "/:slug((?!blog|img|assets|login|privacidad|seguridad|telemetria|telemetria|terminos|terminos-condiciones|aviso-privacidad|politica-cookies|app|crm-agencias|crm|brain-tracker|brain-tracker-slides|auditoria-seo|og-image|favicon|robots|sitemap|logos|logo-tracker|get_adobe|update_home|agenda|agendar-videollamada|api|__|agentes|agentes-ia-agencias|como-funciona|precios|pricing|admin|dashboard|panel|studio|studio-cms|cms|propuesta-aldo|propuesta-rosa-laura|manual-identidad|guia-definitiva|one-pager|presentacion|plan|firma-email|email-preview|contadores|image-lab|alianza-fiscal|video-studio|404|googleede7d050a05a0237|manifest|service|index-old|rebrand-preview|time-tracker-agencias|alma-inclusivo|bahari-inclusivo|cadu-inclusivo|cimamedica-inclusivo|copal-inclusivo|galenia-inclusivo|kaan-inclusivo|laparrilla-inclusivo|palace-inclusivo|xcaret-inclusivo|propuesta-jimena|onboarding-ia-empresas|agencia-ia-mexico|automatizacion-procesos-empresas|desarrollo-software-ia|software-ia-timeshare-salas-de-ventas|eficiencia-energetica-iot-hoteles-resorts|ia-para-inmobiliarias-riviera-maya|ia-para-agencias-tours-experiencias|ia-para-restaurantes-riviera-maya|ia-para-wellness-yoga-holistico|ia-para-educacion-escuelas-capacitacion|ia-para-empresas-cancun-riviera-maya-yucatan|ia-para-empresas-cancun).+)",
       "destination": "/blog/:slug"
     },
     {
