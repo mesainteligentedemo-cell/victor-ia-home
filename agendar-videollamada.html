@@ -908,19 +908,18 @@ document.getElementById('bts').addEventListener('click',async()=>{
   };
 
   let ok=false;
-  // 1) n8n webhook (notificación equipo + Telegram + confirmación al cliente)
+  // 0) n8n webhook EN PARALELO (Telegram equipo + alerta interna + CRM/pipeline).
+  //    Fire-and-forget: no bloquea la confirmación al cliente.
   try{
-    const rN=await fetch('https://n8n.srv1013903.hstgr.cloud/webhook/conversion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    ok=rN.ok;
+    fetch('https://n8n.srv1013903.hstgr.cloud/webhook/conversion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(()=>{});
   }catch(e){}
-  // 2) Fallback: /api/agenda (Resend) si el webhook falla
-  if(!ok){
-    try{
-      const r=await fetch('/api/agenda',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,empresa,email,wa,industria,tema,fuente,fecha,hora:ss})});
-      ok=r.ok;
-    }catch(e){}
-  }
-  // 3) Último recurso: mailto
+  // 1) /api/agenda (Resend) — RUTA PRINCIPAL: envía el correo profesional de
+  //    confirmación al cliente CON los detalles de la cita (fecha, hora, formato).
+  try{
+    const r=await fetch('/api/agenda',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,empresa,email,wa,industria,tema,fuente,fecha,hora:ss})});
+    ok=r.ok;
+  }catch(e){}
+  // 2) Último recurso: mailto (solo si el endpoint principal falla por completo)
   if(!ok){
     const b=encodeURIComponent('Nombre: '+nombre+'\nEmpresa: '+empresa+'\nEmail: '+email+'\nWhatsApp: '+wa+'\nIndustria: '+industria+'\nFecha: '+fecha+'\nHora: '+ss+' hrs\nTema: '+tema);
     window.open('mailto:info@victor-ia.com.mx?subject=Diagnóstico Victor IA — '+encodeURIComponent(empresa)+'&body='+b,'_blank');

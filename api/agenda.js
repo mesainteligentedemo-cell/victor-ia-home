@@ -4,23 +4,43 @@
 // CC siempre: mesainteligentedemo@gmail.com
 // ─────────────────────────────────────────────────────────────────────────────
 
-const CC_ALWAYS = 'mesainteligentedemo@gmail.com';
-const FROM      = 'Victor IA <info@victor-ia.com.mx>';
+const CC_ALWAYS = ['mesainteligentedemo@gmail.com', 'chrisoria16@gmail.com'];
+const FROM_PRIMARY  = 'Victor IA <info@victor-ia.com.mx>';
+// Fallback sender: Resend's always-verified domain. Guarantees delivery even if
+// the custom domain (victor-ia.com.mx) is not yet verified in Resend.
+const FROM_FALLBACK = 'Victor IA <onboarding@resend.dev>';
 const TO_TEAM   = 'info@victor-ia.com.mx';
 
-const send = (apiKey, { to, cc, subject, html, replyTo }) =>
-  fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      from: FROM,
-      to: Array.isArray(to) ? to : [to],
-      cc: [CC_ALWAYS, ...(cc || [])],
-      ...(replyTo ? { reply_to: replyTo } : {}),
-      subject,
-      html,
-    }),
-  });
+// Sends via Resend. If the primary (custom domain) sender is rejected
+// (e.g. domain not verified → 403/422), automatically retries with the
+// verified onboarding@resend.dev sender so the email ALWAYS goes out.
+async function send(apiKey, { to, cc, subject, html, replyTo }) {
+  const post = (from) =>
+    fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from,
+        to: Array.isArray(to) ? to : [to],
+        cc: [...CC_ALWAYS, ...(cc || [])],
+        ...(replyTo ? { reply_to: replyTo } : {}),
+        subject,
+        html,
+      }),
+    });
+
+  let r = await post(FROM_PRIMARY);
+  if (!r.ok) {
+    const errTxt = await r.clone().text().catch(() => '');
+    console.error('Resend primary send failed:', r.status, errTxt);
+    // Retry with the verified fallback sender (domain-agnostic).
+    r = await post(FROM_FALLBACK);
+    if (!r.ok) {
+      console.error('Resend fallback send failed:', r.status, await r.text().catch(() => ''));
+    }
+  }
+  return r;
+}
 
 // ─── Email shell ───────────────────────────────────────────────────────────
 const shell = (content) => `<!DOCTYPE html>
@@ -276,26 +296,30 @@ module.exports = async (req, res) => {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) return res.status(503).json({ error: 'RESEND_API_KEY not configured' });
 
-  // 1. Team notification
-  const r1 = await send(apiKey, {
+  // 1. Prospect confirmation — THE CRITICAL EMAIL (professional, with full cita details).
+  //    Awaited so we know it was accepted by Resend before responding 200.
+  let prospectOk = false;
+  try {
+    const rProspect = await send(apiKey, {
+      to: email,
+      subject: `Tu diagnóstico gratuito está confirmado — ${fecha} · ${hora} hrs`,
+      html: prospectEmail(data),
+    });
+    prospectOk = rProspect.ok;
+  } catch (e) {
+    console.error('Prospect email error:', e);
+  }
+
+  // 2. Team notification (non-blocking — must never break the prospect flow).
+  send(apiKey, {
     to: TO_TEAM,
     subject: `📅 Nueva cita: ${empresa} — ${fecha} · ${hora} hrs`,
     html: teamEmail(data),
     replyTo: email,
-  });
+  }).catch(e => console.error('Team email failed:', e));
 
-  if (!r1.ok) {
-    const err = await r1.json().catch(() => ({}));
-    console.error('Team email failed:', err);
-    return res.status(500).json({ error: 'Failed to send team notification' });
+  if (!prospectOk) {
+    return res.status(502).json({ error: 'Confirmation email could not be sent' });
   }
-
-  // 2. Prospect confirmation (non-critical)
-  send(apiKey, {
-    to: email,
-    subject: `Tu diagnóstico gratuito está confirmado — ${fecha} · ${hora} hrs`,
-    html: prospectEmail(data),
-  }).catch(e => console.error('Prospect email failed:', e));
-
   return res.status(200).json({ success: true });
 };
