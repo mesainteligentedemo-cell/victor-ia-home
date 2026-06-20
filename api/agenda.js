@@ -318,8 +318,9 @@ module.exports = async (req, res) => {
     replyTo: email,
   }).catch(e => console.error('Team email failed:', e));
 
-  if (!prospectOk) {
-    return res.status(502).json({ error: 'Confirmation email could not be sent' });
-  }
-  return res.status(200).json({ success: true });
+  // Always 200 to the browser so the user sees the on-screen confirmation and the
+  // n8n channel (Telegram + SMTP) still processes the booking. `emailed` reflects
+  // whether the Resend confirmation actually went out (false while the Resend
+  // domain victor-ia.com.mx is pending verification — see DEPLOY note below).
+  return res.status(200).json({ success: true, emailed: prospectOk });
 };
