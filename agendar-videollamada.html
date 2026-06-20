@@ -529,6 +529,73 @@ main{padding-top:68px;position:relative;z-index:10}
 .fi.err,.fta.err{border-bottom-color:rgba(200,65,65,.5)!important}
 .fi.err:focus,.fta.err:focus{border-bottom-color:rgba(200,65,65,.7)!important}
 
+/* ══════════════════════════════════════════════════════════════════
+   FIX — CONVERTIDOR Y CALENDARIO SIEMPRE VISIBLES Y LEGIBLES
+   El reveal-canvas (water-trail) y la marble-bg quedan DETRÁS.
+   El formulario + calendario van sobre una superficie opaca propia,
+   con z-index alto y texto oscuro garantizado (WCAG AA).
+   Los hovers globales (animations.css) NO deben tocar estas zonas.
+══════════════════════════════════════════════════════════════════ */
+
+/* 1 · Superficie opaca para form + calendario (el booking nunca queda
+       sobre el marble/reveal transparente → texto siempre legible) */
+.agenda-grid{
+  position:relative;
+  z-index:50;
+  background:#FFFFFF;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:16px;
+  box-shadow:0 24px 70px rgba(0,0,0,.06);
+  padding:56px 56px 64px!important;
+  margin-bottom:64px;
+}
+@media(max-width:800px){
+  .agenda-grid{padding:32px 22px 40px!important;border-radius:14px}
+}
+
+/* 2 · Columnas y todos sus elementos por encima del canvas/marble */
+.form-col,.cal-col{position:relative;z-index:60}
+.fg,.cal-nav,.cal-g,.sl-g,.sum{position:relative;z-index:60}
+
+/* 3 · Inputs / selects / textarea — fondo propio, texto oscuro,
+       el hover global jamás los desvanece (opacity bloqueada) */
+.fi,.fta,.fs,.dc,.sl,.cal-arr{
+  position:relative;
+  z-index:70;
+  opacity:1!important;            /* el water-trail/animations no los apaga */
+}
+.fi,.fta{background:rgba(255,255,255,.96)!important;color:#1A1A1A!important;
+  padding-left:12px;padding-right:12px;border-radius:6px;
+  border:1px solid rgba(0,0,0,.12)!important;border-bottom:1px solid rgba(0,0,0,.12)!important}
+.fi:focus,.fta:focus{border-color:rgba(26,26,26,.7)!important}
+.fi::placeholder,.fta::placeholder,.fs option{color:rgba(60,60,60,.55)!important}
+.fs{background-color:#FFFFFF!important;color:#1A1A1A!important;opacity:1!important;z-index:70;position:relative}
+.fl{color:rgba(40,40,40,.78)!important}     /* labels legibles */
+.col-title{color:rgba(40,40,40,.7)!important}
+
+/* 4 · Calendario (el "convertidor") — celdas siempre visibles y legibles */
+.cal-month{color:#1A1A1A!important}
+.dc{color:#1A1A1A!important;opacity:1!important}
+.dc.dis{opacity:.34!important;color:#777!important}
+.dc:not(.dis):not(.emp):hover{background:#F0EEE9!important;color:#000!important;opacity:1!important}
+.dc.sel{background:#000000!important;color:#FFFFFF!important;opacity:1!important}
+.cal-arr{color:#1A1A1A!important;background:#FFFFFF!important;opacity:1!important}
+.cal-arr:hover{color:#FFFFFF!important;background:#000!important;opacity:1!important}
+
+/* 5 · Slots de horario — siempre legibles, hover sutil (no opacity) */
+.sl{color:#1A1A1A!important;background:#FFFFFF!important;opacity:1!important}
+.sl:hover{border-color:#1A1A1A!important;color:#000!important;opacity:1!important}
+.sl.on{background:#000!important;color:#FFFFFF!important;opacity:1!important}
+
+/* 6 · Resumen de cita — texto oscuro legible */
+.sum{background:#FFFFFF!important;opacity:1!important}
+.sr,.sr span{color:#1A1A1A!important}
+
+/* 7 · Blindaje contra hovers globales de animations.css:
+       ningún <a>/elemento dentro del booking debe bajar opacity */
+.agenda-grid a:hover,.agenda-grid .fi,.agenda-grid .fta,
+.agenda-grid .fs,.agenda-grid .dc,.agenda-grid .sl{opacity:1!important}
+
 </style>
 <script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
 <script src="/assets/water-trail.js?v=dbase60" defer></script>
