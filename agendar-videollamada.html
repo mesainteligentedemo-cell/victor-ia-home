@@ -347,11 +347,42 @@ document.getElementById('bts').addEventListener('click',async()=>{
   const fecha=DL[sd.getDay()]+', '+sd.getDate()+' de '+MN[sd.getMonth()]+' '+sd.getFullYear();
   const btn=document.getElementById('bts');
   btn.textContent='Enviando...';btn.disabled=true;
+
+  // Google Calendar link (para el lead y el correo)
+  const _y=sd.getFullYear(),_m=String(sd.getMonth()+1).padStart(2,'0'),_d=String(sd.getDate()).padStart(2,'0');
+  const _hh=parseInt((ss||'0').split(':')[0],10),_mi=((ss||'0:0').split(':')[1]||'00');
+  const _start=_y+''+_m+''+_d+'T'+String(_hh).padStart(2,'0')+_mi+'00';
+  const _end=_y+''+_m+''+_d+'T'+String(_hh+1).padStart(2,'0')+_mi+'00';
+  const gcalUrl='https://www.google.com/calendar/render?action=TEMPLATE&text=Videollamada+con+VICTOR+IA&dates='+_start+'/'+_end+'&ctz=America/Cancun&details='+encodeURIComponent('Diagnóstico gratuito con VICTOR IA. Tema: '+tema)+'&location=Videollamada';
+
+  // Payload compatible con el webhook n8n "conversion" (Telegram + email equipo + confirmación al lead)
+  const payload={
+    tipo:'agenda_booking',
+    source:'agendar-videollamada · victor-ia.xyz',
+    nombre, empresa, email, whatsapp:wa, wa,
+    industria, tema, fuente, descripcion:tema,
+    mensaje:'Reserva de videollamada — '+fecha+' · '+ss+' hrs (CDT). Industria: '+industria+'. Tema: '+tema,
+    fecha, hora:ss,
+    fecha_display:fecha, hora_display:ss+' hrs (CDT)',
+    gcal_url:gcalUrl,
+    ts:new Date().toISOString(),
+    source_url:location.href
+  };
+
   let ok=false;
+  // 1) n8n webhook (notificación equipo + Telegram + confirmación al cliente)
   try{
-    const r=await fetch('/api/agenda',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,empresa,email,wa,industria,tema,fuente,fecha,hora:ss})});
-    ok=r.ok;
+    const rN=await fetch('https://n8n.srv1013903.hstgr.cloud/webhook/conversion',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    ok=rN.ok;
   }catch(e){}
+  // 2) Fallback: /api/agenda (Resend) si el webhook falla
+  if(!ok){
+    try{
+      const r=await fetch('/api/agenda',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nombre,empresa,email,wa,industria,tema,fuente,fecha,hora:ss})});
+      ok=r.ok;
+    }catch(e){}
+  }
+  // 3) Último recurso: mailto
   if(!ok){
     const b=encodeURIComponent('Nombre: '+nombre+'\nEmpresa: '+empresa+'\nEmail: '+email+'\nWhatsApp: '+wa+'\nIndustria: '+industria+'\nFecha: '+fecha+'\nHora: '+ss+' hrs\nTema: '+tema);
     window.open('mailto:info@victor-ia.com.mx?subject=Diagnóstico Victor IA — '+encodeURIComponent(empresa)+'&body='+b,'_blank');
