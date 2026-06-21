@@ -5,11 +5,15 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 const CC_ALWAYS = ['mesainteligentedemo@gmail.com', 'chrisoria16@gmail.com'];
-const FROM_PRIMARY  = 'Victor IA <info@victor-ia.com.mx>';
-// Fallback sender: Resend's always-verified domain. Guarantees delivery even if
-// the custom domain (victor-ia.com.mx) is not yet verified in Resend.
+// PRIMARY sender uses the domain ACTUALLY verified in Resend: victor-ia.xyz.
+// (victor-ia.com.mx is NOT verified → Resend returns 403, so it must never be
+//  used as the From address. Confirmed via GET /domains 2026-06-21.)
+const FROM_PRIMARY  = 'Victor IA <info@victor-ia.xyz>';
+// Fallback sender: Resend's always-verified shared domain. Last resort only —
+// onboarding@resend.dev has weak deliverability and often lands in spam, so the
+// primary (verified custom domain) is what actually reaches the prospect.
 const FROM_FALLBACK = 'Victor IA <onboarding@resend.dev>';
-const TO_TEAM   = 'info@victor-ia.com.mx';
+const TO_TEAM   = 'info@victor-ia.xyz';
 
 // Sends via Resend. If the primary (custom domain) sender is rejected
 // (e.g. domain not verified → 403/422), automatically retries with the
