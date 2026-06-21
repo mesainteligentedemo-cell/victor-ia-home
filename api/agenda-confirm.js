@@ -137,15 +137,26 @@ module.exports = async (req, res) => {
 
   const labels = checkedItems.map((k) => ITEM_LABELS[k] || k).filter(Boolean);
 
-  // Notificación al equipo (no bloquea la confirmación al usuario)
+  // Notificación al equipo. DEBE ser awaited: en Vercel serverless la ejecución se
+  // congela al devolver la respuesta, así que un fetch fire-and-forget (sin await)
+  // se mata antes de llegar a Resend y el correo NUNCA se envía. (bug 2026-06-21)
   const apiKey = process.env.RESEND_API_KEY;
+  let emailed = false;
   if (apiKey) {
-    send(apiKey, {
-      to: TO_TEAM,
-      subject: `✅ Preparación lista: ${empresa || email || 'prospecto'} — ${labels.length}/5 puntos`,
-      html: confirmEmail({ nombre, empresa, email, fecha, hora, labels }),
-      replyTo: email && isEmail(email) ? email : undefined,
-    }).catch((e) => console.error('confirm team email failed:', e));
+    try {
+      const r = await send(apiKey, {
+        to: TO_TEAM,
+        subject: `✅ Preparación lista: ${empresa || email || 'prospecto'} — ${labels.length}/5 puntos`,
+        html: confirmEmail({ nombre, empresa, email, fecha, hora, labels }),
+        replyTo: email && isEmail(email) ? email : undefined,
+      });
+      emailed = r.ok;
+      if (!r.ok) console.error('confirm team email failed:', r.status, await r.text().catch(() => ''));
+    } catch (e) {
+      console.error('confirm team email error:', e);
+    }
+  } else {
+    console.error('[agenda-confirm] RESEND_API_KEY missing');
   }
 
   console.log('[agenda-confirm]', { email: email || '—', empresa: empresa || '—', items: checkedItems.length, ts: new Date().toISOString() });
@@ -154,5 +165,6 @@ module.exports = async (req, res) => {
     success: true,
     mensaje: 'Gracias, confirmamos tu preparación',
     items_confirmados: checkedItems.length,
+    emailed,
   });
 };
