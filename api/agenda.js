@@ -76,7 +76,7 @@ const shell = (content) => `<!DOCTYPE html>
       &nbsp;·&nbsp;
       <a href="https://victor-ia.xyz/aviso-privacidad" style="color:rgba(112,108,102,.3);text-decoration:none">Aviso de privacidad</a>
       &nbsp;·&nbsp;
-      <a href="mailto:info@victor-ia.com.mx" style="color:rgba(112,108,102,.3);text-decoration:none">info@victor-ia.com.mx</a>
+      <a href="mailto:info@victor-ia.xyz" style="color:rgba(112,108,102,.3);text-decoration:none">info@victor-ia.xyz</a>
     </p>
   </td></tr>
 
@@ -101,7 +101,7 @@ const checkItem = (text) =>
   `<tr><td style="padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04)">
     <table cellpadding="0" cellspacing="0"><tr>
       <td style="width:24px;vertical-align:top;padding-top:1px">
-        <div style="width:15px;height:15px;border-radius:4px;border:1.5px solid rgba(184,154,106,.28)"></div>
+        <div style="width:15px;height:15px;border-radius:4px;background:#B89A6A;display:flex;align-items:center;justify-content:center;font-size:10px;color:#070708;font-weight:bold">✓</div>
       </td>
       <td style="font-size:13px;color:rgba(234,230,223,.65);line-height:1.55;padding-left:8px">${text}</td>
     </tr></table>
