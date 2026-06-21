@@ -266,6 +266,12 @@ function prospectEmail({ nombre, empresa, email, fecha, hora, industria, tema })
       ${checkItem('Acceso a quien toma decisiones de tecnología o presupuesto')}
       ${checkItem('Cualquier intento previo de automatización y por qué no funcionó')}
     </table>
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:18px">
+      <tr><td style="background:#101015;border:1px solid rgba(205,178,140,.18);border-radius:12px;padding:20px 22px">
+        <p style="margin:0 0 12px;font-size:13px;color:rgba(234,230,223,.7);line-height:1.5">Revisa tu lista de preparación en una página interactiva — marca cada punto a tu ritmo:</p>
+        <a href="https://victor-ia.xyz/preparacion-diagnostico?email=${encodeURIComponent(email || '')}&fecha=${encodeURIComponent(fecha || '')}&hora=${encodeURIComponent(hora || '')}&empresa=${encodeURIComponent(empresa || '')}&nombre=${encodeURIComponent(nombre || '')}" style="display:inline-block;background:#B89A6A;color:#070708;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.03em;padding:13px 28px;border-radius:8px">Revisa tu lista de preparación →</a>
+      </td></tr>
+    </table>
   </td></tr>
 
   <!-- CONTACT CTA -->
