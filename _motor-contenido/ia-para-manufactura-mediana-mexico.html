@@ -1,0 +1,60 @@
+<section class="blog-section">
+<h2>Cuánto Cuesta Meter IA a tu Línea de Producción</h2>
+<p>Antes de hablar de algoritmos o modelos de visión artificial, el gerente de planta pregunta una sola cosa: cuánto va a costar y en cuánto tiempo se paga solo. La respuesta depende de tres componentes que casi nunca se presupuestan juntos: el hardware de captura (cámaras industriales, iluminación y montajes), el software que procesa las imágenes y aprende a distinguir defectos, y los sensores IoT que alimentan el mantenimiento predictivo.</p>
+<p>Una estación de inspección visual con cámara industrial de alta resolución, lente adecuado al tamaño de la pieza e iluminación controlada (necesaria para que el modelo no confunda un reflejo con un defecto) suele requerir una inversión inicial de entre $45,000 y $120,000 MXN por punto de inspección, dependiendo de si la línea ya tiene estructura para montar el equipo o si hay que fabricar un gabinete a la medida.</p>
+<p>El software de visión artificial casi nunca se compra: se renta. Los esquemas más comunes en plantas medianas mexicanas van de $8,000 a $25,000 MXN mensuales por línea, con variaciones según si el procesamiento corre en la nube o en un servidor local (edge), y según cuántos tipos de defecto distintos debe reconocer el modelo. Entre más variantes de producto corran por la misma línea, más alto el costo, porque cada variante necesita su propio set de entrenamiento.</p>
+<p>Para mantenimiento predictivo, los sensores de vibración y temperatura por máquina rondan entre $3,500 y $9,000 MXN cada uno, más una plataforma de análisis que suele cobrarse por número de activos monitoreados, entre $2,000 y $6,000 MXN mensuales por máquina conectada.</p>
+<p>La comparación que realmente le importa a finanzas es contra el costo de un inspector adicional: salario, prestaciones de ley, capacitación y rotación de personal fácilmente superan los $18,000 MXN mensuales por turno, y un humano no puede sostener el mismo nivel de atención después de la hora tres de turno. Un sistema de visión no se cansa, no rota y trabaja los tres turnos sin variación en el criterio.</p>
+<table>
+<thead><tr><th>Concepto</th><th>Inversión inicial</th><th>Costo mensual recurrente</th></tr></thead>
+<tbody>
+<tr><td>Estación de visión artificial (por punto)</td><td>$45,000–$120,000 MXN</td><td>$8,000–$25,000 MXN (licencia/soporte)</td></tr>
+<tr><td>Sensores IoT para mantenimiento predictivo (por máquina)</td><td>$3,500–$9,000 MXN</td><td>$2,000–$6,000 MXN (plataforma de análisis)</td></tr>
+<tr><td>Inspector de calidad adicional por turno</td><td>Capacitación inicial variable</td><td>$18,000+ MXN (salario + prestaciones)</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="blog-section">
+<h2>De la Prueba Piloto a la Planta Completa: Ruta de Implementación por Fases</h2>
+<p>Ninguna planta mediana debería intentar instalar IA en las diez líneas al mismo tiempo. El camino que funciona, una y otra vez, empieza en una sola línea y se expande solo cuando esa línea demuestra números sólidos.</p>
+<p>Fase 1 (semanas 1 a 4): selección de la línea piloto. El criterio no es "la línea más fácil", sino la que genera el mayor costo por defecto no detectado: la que produce la pieza más cara, la que tiene el cliente más exigente, o la que históricamente concentra más devoluciones. Durante estas semanas se recolectan miles de imágenes de piezas buenas y defectuosas, incluyendo defectos raros, porque un modelo entrenado solo con defectos comunes falla exactamente donde más duele.</p>
+<p>Fase 2 (semanas 5 a 8): calibración y validación en paralelo. El sistema corre junto al inspector humano, sin reemplazarlo todavía, comparando veredictos pieza por pieza. Aquí se ajustan los umbrales de sensibilidad: demasiado estrictos y la línea se detiene por falsos positivos; demasiado laxos y se escapan defectos reales.</p>
+<p>Fase 3 (mes 3 a 4): expansión a las líneas restantes del área piloto, con integración directa al PLC de cada máquina y al sistema SCADA de la planta, para que el rechazo de una pieza detone una acción física (desviarla del flujo) en tiempo real, no minutos después en un reporte.</p>
+<p>Fase 4 (mes 5 en adelante): integración con el ERP, típicamente SAP Business One en plantas medianas mexicanas, para que cada defecto detectado se registre como dato de calidad ligado al lote, al proveedor de materia prima y al turno responsable. Esto es lo que convierte una cámara inteligente en un sistema de trazabilidad completo, útil para auditorías de clientes automotrices o de exportación.</p>
+<p>El cronograma completo, de la primera cámara instalada a la integración total con el ERP, toma entre cuatro y seis meses en una planta mediana bien organizada. Intentar comprimirlo suele terminar en modelos mal calibrados y líneas que se detienen más de lo que deberían.</p>
+</section>
+
+<section class="blog-section">
+<h2>¿Tu Planta Tiene 1 Línea o 10? La Estrategia Cambia por Completo</h2>
+<p>El tamaño de tu operación determina no solo el presupuesto, sino la arquitectura misma del sistema. Tratar una planta de una línea con la misma lógica que una de diez turnos es la razón más común detrás de proyectos de IA que se estancan.</p>
+<p>Con una sola línea de producción, el objetivo es simple: un piloto acotado, procesamiento local (edge) para no depender de conectividad, y un solo punto de inspección crítico bien calibrado antes que varios puntos mediocres. La inversión suele mantenerse por debajo de los $150,000 MXN totales y el retorno se mide en semanas, no meses.</p>
+<p>Con tres a cinco líneas, el reto cambia: ya no basta con un modelo por línea, se necesita una capa central que consolide los datos de todas las líneas para detectar patrones que ninguna línea ve por separado, como un proveedor de materia prima que causa defectos en dos líneas distintas semanas antes de que el equipo de compras lo note. Aquí conviene un servidor local dedicado y un responsable interno de datos de calidad, aunque sea de medio tiempo.</p>
+<p>Con más de diez líneas y varios turnos, el proyecto deja de ser una instalación técnica y se vuelve un proyecto de cambio organizacional: se necesita gobernanza de datos entre turnos (el turno nocturno no puede tener criterios distintos al matutino), integración robusta con SCADA y ERP desde el inicio, y un plan de capacitación para supervisores de cada turno, porque el sistema es tan bueno como la disciplina con la que se usan sus alertas.</p>
+<table>
+<thead><tr><th>Tamaño de planta</th><th>Enfoque recomendado</th><th>Inversión típica inicial</th></tr></thead>
+<tbody>
+<tr><td>1 línea de producción</td><td>Piloto acotado, procesamiento local, un punto crítico</td><td>Hasta $150,000 MXN</td></tr>
+<tr><td>3 a 5 líneas</td><td>Capa central de datos + responsable de calidad de datos</td><td>$300,000–$700,000 MXN</td></tr>
+<tr><td>10+ líneas, varios turnos</td><td>Gobernanza de datos, integración SCADA/ERP total, capacitación por turno</td><td>$900,000 MXN en adelante</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="blog-section">
+<h2>Lo que Cuesta Caro Ignorar: Errores de Piso y las Métricas que sí Debes Vigilar</h2>
+<p>La mayoría de los proyectos de IA en manufactura que fracasan no fallan por el algoritmo, fallan por decisiones humanas alrededor del algoritmo. Tres errores se repiten con más frecuencia en plantas medianas mexicanas.</p>
+<p>El primero es calibrar el modelo con pocas muestras de defectos reales. Un modelo entrenado con un puñado de imágenes de un defecto raro pero costoso simplemente no lo aprende bien; se necesita un banco de imágenes que represente la variedad real de fallas, incluyendo las que ocurren una vez al mes, no solo las diarias.</p>
+<p>El segundo es ignorar la resistencia del personal de piso. Si el operador siente que la cámara existe para vigilarlo o reemplazarlo, encuentra maneras de esquivarla: tapar el lente, colocar la pieza fuera de ángulo, o simplemente desconfiar del sistema y reinspeccionar todo manualmente, anulando la ganancia de eficiencia. La comunicación previa —explicar que el sistema libera al inspector de las piezas obvias para que se enfoque en los casos ambiguos— reduce esta fricción de forma medible.</p>
+<p>El tercero es no integrar las alertas al flujo de trabajo real del supervisor de turno. Un sistema que manda notificaciones a un dashboard que nadie revisa en tiempo real es tan útil como no tener el sistema. La alerta debe llegar donde el supervisor ya está mirando: radio, aplicación móvil o el mismo tablero de control de la línea.</p>
+<p>Las tres métricas que un gerente de planta debe revisar cada semana, sin excepción, son la tasa de defectos detectados contra defectos escapados (los que el cliente encuentra después), el tiempo medio entre fallas (MTBF) de cada máquina crítica, y la eficiencia general del equipo (OEE), que combina disponibilidad, rendimiento y calidad en un solo número.</p>
+<table>
+<thead><tr><th>Métrica</th><th>Qué mide</th><th>Rango sano de referencia</th></tr></thead>
+<tbody>
+<tr><td>Defectos detectados vs. escapados</td><td>Efectividad real de la inspección</td><td>Menos de 2% de defectos escapados al cliente</td></tr>
+<tr><td>MTBF (tiempo medio entre fallas)</td><td>Confiabilidad del equipo crítico</td><td>Incremento sostenido mes a mes tras mantenimiento predictivo</td></tr>
+<tr><td>OEE (eficiencia general del equipo)</td><td>Disponibilidad × rendimiento × calidad</td><td>Plantas de clase mundial: arriba de 85%; la mayoría de plantas medianas mexicanas parte de 50–60%</td></tr>
+</tbody>
+</table>
+<p>Si tu planta ya usa un ERP y un sistema SCADA, la pregunta no es si conviene sumar IA, sino en qué orden hacerlo sin duplicar inversión. Puedes revisar cómo estructurar ese roadmap completo en <a href="/blog/implementar-ia-empresa-mexico">implementar IA en tu empresa en México</a>.</p>
+</section>

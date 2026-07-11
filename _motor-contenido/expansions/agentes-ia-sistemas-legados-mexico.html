@@ -1,0 +1,109 @@
+<section class="blog-section">
+<h2>Cuánto cuesta realmente: inversión inicial vs. gasto mensual</h2>
+<p>La mayoría de las propuestas que te van a llegar para poner un agente de IA a operar sobre tu ERP muestran nada más el precio de la suscripción mensual. Es la parte más fácil de cotizar y, casi siempre, la que menos refleja lo que en realidad vas a pagar. El costo verdadero se divide en dos bloques que rara vez aparecen juntos en la misma hoja de cotización: la inversión de arranque, que se paga una sola vez o en dos o tres pagos durante el primer trimestre, y el gasto operativo recurrente, que sigue corriendo mes con mes mientras el agente trabaja sobre tu Aspel, tu Contpaqi o tu SAP Business One.</p>
+<p>La inversión inicial cubre el diagnóstico de procesos, el mapeo de las pantallas y flujos que el agente va a operar, el desarrollo de los conectores o scripts de automatización, y las pruebas controladas antes de soltarlo en producción. Para una PyME con un solo proceso bien acotado — por ejemplo, conciliar pagos de clientes contra facturas emitidas en Contpaqi — este bloque suele moverse entre $35,000 y $90,000 MXN. Si el alcance crece a varios procesos o sistemas distintos, es común ver cotizaciones entre $120,000 y $250,000 MXN.</p>
+<p>El gasto mensual recurrente incluye la infraestructura donde corre el agente, el monitoreo de sus acciones, los ajustes cuando el sistema legado cambia de versión o de interfaz, y, en varios modelos comerciales, el costo del modelo de lenguaje por cada tarea ejecutada. Este rango suele ir de $15,000 a $60,000 MXN mensuales, dependiendo del volumen de transacciones y de cuántos procesos tenga corriendo el agente en paralelo.</p>
+<p>Lo que empuja el costo hacia arriba casi siempre son los mismos tres factores: la calidad de tus datos de origen — un catálogo de clientes o productos mal capturado en Aspel obliga a construir reglas extra de validación —, el número de sistemas distintos que el agente tiene que puentear (no es lo mismo automatizar dentro de un solo ERP que mover información entre Excel, tu punto de venta y el portal del SAT), y el nivel de supervisión humana que exiges antes de dejarlo actuar sin revisión.</p>
+<p>Para ubicar tu presupuesto, la siguiente tabla muestra rangos ilustrativos según el tamaño de la operación. Son escenarios de referencia, no cotizaciones cerradas: el precio final depende del estado real de tus sistemas y de cuántas excepciones tenga tu proceso.</p>
+<table>
+<thead>
+<tr><th>Tamaño de empresa</th><th>Inversión inicial (única)</th><th>Gasto mensual recurrente</th><th>Retorno aproximado</th></tr>
+</thead>
+<tbody>
+<tr><td>Micro (1-2 procesos, un solo sistema)</td><td>$35,000 – $70,000 MXN</td><td>$10,000 – $25,000 MXN</td><td>4 a 6 meses</td></tr>
+<tr><td>PyME pequeña (2-4 procesos, 1-2 sistemas)</td><td>$80,000 – $150,000 MXN</td><td>$20,000 – $40,000 MXN</td><td>5 a 8 meses</td></tr>
+<tr><td>PyME mediana (varios departamentos)</td><td>$150,000 – $300,000 MXN</td><td>$35,000 – $70,000 MXN</td><td>6 a 10 meses</td></tr>
+<tr><td>Empresa en crecimiento con varias sedes</td><td>$250,000 – $500,000 MXN</td><td>$60,000 – $120,000 MXN</td><td>8 a 14 meses</td></tr>
+</tbody>
+</table>
+<p>Estos números solo tienen sentido si los comparas contra lo que hoy te cuesta no automatizar: horas de una persona capturando datos dos veces, conciliaciones manuales de fin de mes, errores que se detectan hasta que el cliente reclama. Si quieres entender cómo traducir ese ahorro en un número defendible frente a dirección general, conviene revisar cómo se calcula el <a href="/blog/roi-inteligencia-artificial">retorno de inversión en proyectos de inteligencia artificial</a> antes de comprometerte con una cifra mensual fija.</p>
+<p>Antes de firmar cualquier propuesta, pide que te desglosen ambos bloques por separado. Si un proveedor solo te da un número mensual "todo incluido" sin explicar qué cubre la parte de arranque, es una señal de que el alcance real todavía no está bien definido, y ese tipo de ambigüedad tiende a traducirse en cambios de precio a mitad de proyecto.</p>
+</section>
+
+<section class="blog-section">
+<h2>Cronograma realista: qué pasa en cada fase de implementación</h2>
+<p>Si un proveedor te promete un agente de IA operando de forma autónoma sobre tu ERP en dos semanas, desconfía. No porque la tecnología no pueda moverse rápido, sino porque dos semanas alcanzan para una demo, no para que el agente conozca las excepciones reales de tu operación: los clientes que pagan en dos partes, los productos que cambian de código a mitad de año, o el mes en que el corte de caja no cuadró por un error de captura que nadie corrigió.</p>
+<p>Fase 0, diagnóstico, toma entre dos y tres semanas. Aquí no se toca el ERP todavía. Se documenta el proceso tal como ocurre hoy, con sus atajos y excepciones, y se decide cuál es el primer proceso candidato: debe ser de alto volumen, con reglas relativamente claras, y de bajo riesgo si algo sale mal en las primeras semanas. Conciliar pagos o clasificar correos entrantes suelen ser mejores candidatos que timbrar facturas o pagar nómina.</p>
+<p>Fase 1, piloto acotado, dura entre cuatro y ocho semanas. El agente opera sobre un solo proceso, con una persona revisando cada acción antes de que se confirme en el sistema. El objetivo de esta fase no es ahorrar tiempo todavía, sino medir qué tan seguido el agente acierta y en qué situaciones se equivoca o se detiene a pedir ayuda.</p>
+<p>Fase 2, expansión controlada, se extiende entre dos y cuatro meses. Si el piloto muestra una tasa de acierto consistente, se reduce la supervisión humana a revisión por muestreo — no de cada acción — y se suma un segundo proceso. Aquí es donde muchas empresas cometen el error de agregar demasiados procesos al mismo tiempo; lo recomendable es sumar de uno en uno, dejando que cada proceso nuevo corra al menos tres o cuatro semanas antes de agregar el siguiente.</p>
+<p>Fase 3, operación con supervisión decreciente, no tiene fecha de cierre. El agente corre con revisión humana solo sobre las excepciones marcadas automáticamente como de riesgo: montos fuera de rango, clientes nuevos, discrepancias con el CFDI correspondiente. Esta fase es el estado permanente de la operación y requiere una revisión periódica, mensual o trimestral, para ajustar reglas conforme cambian tus procesos o tu ERP saca una actualización.</p>
+<p>Súmale entre dos y cuatro semanas de colchón entre cada fase para imprevistos: una actualización de Aspel que cambia la interfaz que el agente estaba leyendo, un cierre fiscal que absorbe el tiempo del equipo que debía dar seguimiento, o simplemente la curva de aprendizaje de tu gente para confiar en el sistema. Un cronograma sin ese colchón subestima la realidad de operar en México, donde un cambio normativo del SAT puede mover la meta a mitad de proyecto sin previo aviso.</p>
+<table>
+<thead>
+<tr><th>Fase</th><th>Duración estimada</th><th>Nivel de supervisión</th><th>Qué evitar en esta fase</th></tr>
+</thead>
+<tbody>
+<tr><td>Fase 0 – Diagnóstico</td><td>2 a 3 semanas</td><td>No aplica (sin ejecución)</td><td>Elegir un proceso complejo como primer piloto</td></tr>
+<tr><td>Fase 1 – Piloto acotado</td><td>4 a 8 semanas</td><td>Revisión de cada acción</td><td>Ampliar a más de un proceso</td></tr>
+<tr><td>Fase 2 – Expansión controlada</td><td>2 a 4 meses</td><td>Revisión por muestreo</td><td>Sumar varios procesos al mismo tiempo</td></tr>
+<tr><td>Fase 3 – Operación continua</td><td>Permanente</td><td>Solo sobre excepciones marcadas</td><td>Dejar de auditar reglas tras una actualización del ERP</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="blog-section">
+<h2>Cómo entra el agente en Aspel, Contpaqi, Excel o SAP Business One</h2>
+<p>La mayoría de las PyMEs mexicanas no operan sobre un solo sistema limpio: operan sobre un mosaico. Aspel para facturación, Contpaqi para contabilidad, un Excel compartido para inventarios, y quizás un módulo de SAP Business One heredado de cuando la empresa era más pequeña. Entender <a href="/blog/que-son-agentes-ia">qué son y cómo funcionan los agentes de inteligencia artificial</a> ayuda a ver por qué esta arquitectura de "computer use" resuelve algo que la integración tradicional no resolvía: no necesitas que los cuatro sistemas hablen entre sí por API, porque el agente puede operar la interfaz de cada uno como lo haría una persona.</p>
+<p>En Aspel, particularmente en las versiones SAE, COI y NOI instaladas de forma local, muchas instalaciones no tienen expuesta una API moderna o su documentación es limitada para automatización externa. Ahí el agente lee la pantalla, navega los menús y captura datos igual que un usuario, lo que permite automatizar sin depender de que Aspel publique un endpoint nuevo. La contraparte es que el agente depende de que la interfaz se mantenga estable: un cambio de versión puede requerir ajustar la automatización.</p>
+<p>Contpaqi presenta un reto adicional por su cercanía con el timbrado fiscal. Aquí la recomendación es clara: empieza dándole al agente acceso de solo lectura — extraer pólizas, generar reportes de conciliación, detectar discrepancias — antes de permitirle crear o modificar comprobantes fiscales. El timbrado de CFDI ante el PAC correspondiente es una de las últimas acciones que debería automatizarse sin supervisión, no la primera.</p>
+<p>SAP Business One, en cambio, suele tener expuesta la Service Layer, una API basada en REST que permite que el agente interactúe con los datos directamente en lugar de leer la pantalla. Esto hace la integración más robusta y menos frágil frente a actualizaciones de interfaz, pero no elimina la necesidad de puntos de control humano en las acciones de mayor impacto, como cancelaciones o ajustes contables.</p>
+<p>El Excel o Google Sheets compartido que muchas PyMEs siguen usando como "pegamento" entre sistemas también es terreno fértil para un agente: puede monitorear una carpeta compartida, detectar filas con datos inconsistentes antes de que lleguen al ERP, y avisar al equipo en lugar de dejar que el error se propague. Es, de hecho, uno de los puntos de entrada más baratos y de menor riesgo para empezar.</p>
+<p>Odoo, cada vez más común entre medianas empresas mexicanas que migraron desde hojas de cálculo, también expone API, lo que permite un enfoque híbrido: llamadas directas a la API donde existan, y automatización de interfaz donde no. La decisión de qué método usar depende sistema por sistema, no de una regla única para toda la empresa.</p>
+<p>La guía práctica, independientemente del sistema, es la misma: empieza por procesos de lectura y clasificación — extraer, comparar, alertar — antes de darle al agente permisos de escritura para crear, modificar o cancelar registros. Un agente que lleva semanas leyendo correctamente tu Contpaqi genera mucha más confianza para darle permisos de escritura que uno que apenas terminó su primera semana de pruebas.</p>
+</section>
+
+<section class="blog-section">
+<h2>Los errores más caros al automatizar sobre un sistema legado</h2>
+<p>Cuando el sistema que automatizas maneja dinero, clientes y obligaciones fiscales, un error de automatización no se queda contenido: se propaga. Una conciliación mal hecha en Contpaqi puede tardar semanas en detectarse si nadie está revisando por muestreo, y para entonces ya afectó varios cierres mensuales. Los errores más costosos no suelen ser técnicos — el modelo de IA rara vez "alucina" un monto —; son errores de proceso y de gobernanza sobre cómo se implementó el agente.</p>
+<ul>
+<li><strong>Dar acceso de escritura sobre documentos fiscales antes de validar el proceso en modo lectura.</strong> Timbrar, cancelar o modificar un CFDI sin que el agente haya demostrado semanas de lectura correcta expone a la empresa a discrepancias frente al SAT que son mucho más caras de corregir que de prevenir.</li>
+<li><strong>No mapear las excepciones reales del proceso, solo el camino "feliz".</strong> Un agente entrenado únicamente sobre el flujo ideal se detiene, o peor, improvisa, en cuanto aparece un caso que no estaba documentado — el cliente que pagó con dos referencias distintas, el producto descontinuado que sigue apareciendo en pedidos viejos.</li>
+<li><strong>Escalar a varios procesos al mismo tiempo sin dejar correr el primero suficientes semanas.</strong> La tentación de aprovechar el momentum del piloto exitoso lleva a sumar procesos antes de tener evidencia sólida de que el primero es estable, lo que dificulta identificar de dónde viene un error cuando aparece.</li>
+<li><strong>No definir un plan de reversa antes de poner al agente a ejecutar acciones.</strong> Si una acción incorrecta ya se registró en Aspel o en SAP Business One, necesitas un procedimiento claro y probado para revertirla, no improvisarlo la primera vez que ocurre.</li>
+<li><strong>Ignorar que una actualización de versión del ERP puede romper la automatización basada en lectura de pantalla.</strong> Si tu integración depende de que un botón esté en cierta posición o un campo tenga cierto nombre, una actualización de Aspel o Contpaqi puede dejar al agente operando sobre información incorrecta sin que nadie lo note de inmediato.</li>
+<li><strong>Tratar el éxito del piloto como garantía de éxito a escala completa.</strong> Un proceso que funcionó bien con 50 transacciones diarias puede comportarse distinto con 500, sobre todo si el volumen expone casos raros que en el piloto simplemente no alcanzaron a aparecer.</li>
+<li><strong>No dejar un canal claro para que una persona intervenga cuando el agente se topa con un caso fuera de lo previsto.</strong> Si el único resultado posible cuando el agente "no sabe qué hacer" es que se detenga sin avisar a nadie, terminas con procesos atorados que nadie detecta hasta que un cliente o un área interna reclama.</li>
+</ul>
+<p>Ninguno de estos errores es exclusivo de sistemas legados mexicanos, pero se vuelven más caros aquí por dos razones concretas: la obligación fiscal (un error de timbrado no se corrige con un simple "deshacer", requiere cancelación formal ante el SAT) y la dependencia de sistemas on-premise que muchas PyMEs no actualizan con frecuencia, lo que hace que las interfaces cambien de forma menos predecible que en software nativo en la nube.</p>
+<p>La forma más barata de evitarlos no es tecnología adicional, es disciplina de proceso: checklist de arranque para cada fase, revisión de excepciones documentada, y un responsable humano con autoridad clara para pausar al agente si algo no cuadra. Esa disciplina cuesta horas de planeación, no software, y es la diferencia entre un piloto que se vuelve operación estable y uno que se abandona a los tres meses.</p>
+</section>
+
+<section class="blog-section">
+<h2>Qué métricas operativas monitorear para saber si el agente jala</h2>
+<p>Contratar un agente de IA y suscribirte a un plan mensual no es una estrategia de monitoreo, es solo el primer paso. Sin un tablero mínimo de métricas, es común descubrir hasta el tercer o cuarto mes que el agente lleva semanas fallando en silencio en un porcentaje de casos que nadie estaba midiendo.</p>
+<p>La métrica más básica es la tasa de éxito por tarea: qué porcentaje de las acciones que el agente ejecuta se completan sin que una persona tenga que corregirlas después. Durante el piloto es normal ver tasas de 70% a 85%; una operación madura, con reglas ya afinadas, suele moverse entre 90% y 97%, dependiendo de qué tan estandarizado sea el proceso.</p>
+<p>La tasa de escalamiento — cuántas veces el agente detecta que un caso está fuera de lo que sabe manejar y lo turna a una persona — es igual de importante, y a menudo se ignora. Una tasa de escalamiento que baja de forma sostenida es buena señal; una que sube de golpe suele indicar que algo cambió aguas arriba, como una actualización del ERP o un nuevo tipo de cliente que el agente no había visto.</p>
+<p>El tiempo ahorrado real, medido con cronómetro durante las primeras semanas y no solo estimado en la propuesta comercial del proveedor, es la métrica que casi siempre se sobreestima antes de arrancar. Comparar horas-persona liberadas contra la promesa original te da una base honesta para decidir si vale la pena escalar el proyecto a más procesos.</p>
+<p>El costo por transacción procesada — el gasto mensual total del agente entre el número de transacciones que efectivamente manejó — es la métrica que mejor te dice si conviene escalar o pausar. Si ese costo por transacción no baja conforme el volumen crece, algo en la arquitectura de la automatización necesita revisión antes de invertir en más procesos.</p>
+<p>Los errores evitados o detectados antes de llegar al cliente o al SAT — discrepancias de montos, facturas duplicadas, catálogos desactualizados — son más difíciles de cuantificar en dinero exacto, pero vale la pena registrarlos como bitácora: son el argumento más sólido frente a dirección general cuando llega el momento de decidir si el proyecto se mantiene o se amplía.</p>
+<table>
+<thead>
+<tr><th>Métrica</th><th>Qué mide</th><th>Frecuencia sugerida</th></tr>
+</thead>
+<tbody>
+<tr><td>Tasa de éxito por tarea</td><td>% de tareas completadas sin corrección humana</td><td>Semanal en el piloto, mensual después</td></tr>
+<tr><td>Tasa de escalamiento</td><td>Casos enviados a revisión humana</td><td>Semanal</td></tr>
+<tr><td>Tiempo ahorrado real</td><td>Horas-persona liberadas vs. estimado original</td><td>Mensual</td></tr>
+<tr><td>Costo por transacción</td><td>Gasto mensual del agente entre transacciones procesadas</td><td>Mensual</td></tr>
+<tr><td>Errores evitados</td><td>Discrepancias detectadas antes de llegar al cliente o al SAT</td><td>Mensual</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="blog-section">
+<h2>Antes de firmar: build vs. buy y las preguntas que debes hacerle al proveedor</h2>
+<p>Llega un punto en toda evaluación de agentes de IA sobre sistemas legados donde hay que decidir si construyes la automatización con tu propio equipo o contratas a un proveedor especializado. La decisión no es filosófica, es de recursos: depende de si ya tienes desarrolladores internos, de cuánto tiempo puedes dedicar a mantenimiento, y de qué tan específico o repetible es el proceso que quieres automatizar.</p>
+<p>Construir internamente rara vez tiene sentido para una PyME mexicana típica, salvo que ya cuentes con un equipo de desarrollo propio y el proceso a automatizar sea tan particular de tu operación que ningún proveedor externo lo haya resuelto antes. Incluso en ese caso, construir implica mantener tú mismo la automatización cada vez que Aspel, Contpaqi o SAP Business One saquen una actualización, lo cual es un costo recurrente que muchas empresas no dimensionan al inicio.</p>
+<p>Contratar a un proveedor especializado es el camino más común, y tiene sentido sobre todo cuando el proceso que quieres automatizar es parecido al de otras empresas de tu sector — conciliaciones, clasificación de correos, generación de reportes recurrentes — porque el proveedor ya trae experiencia resolviendo ese tipo de caso y puede mantener la integración cuando cambien tus sistemas. Si además tu equipo interno no tiene capacidad de desarrollo, contratar deja de ser una opción y se vuelve la única ruta razonable. Para entender qué tanto debe involucrarse tu equipo interno en el proceso de adopción, conviene revisar antes una guía general para <a href="/blog/implementar-ia-empresa-mexico">implementar inteligencia artificial en una empresa mexicana</a>.</p>
+<p>Independientemente de si construyes o contratas, hay preguntas que deberías tener respondidas antes de firmar cualquier contrato o autorizar cualquier presupuesto:</p>
+<ul>
+<li>¿Qué pasa si tu ERP saca una actualización de versión? ¿Quién ajusta la automatización y en cuánto tiempo queda operando de nuevo?</li>
+<li>¿El agente puede operar en modo solo lectura durante un periodo de prueba antes de recibir permisos de escritura sobre tus sistemas?</li>
+<li>¿Dónde se almacenan los datos que el agente procesa, y ese almacenamiento cumple con la LFPDPPP en cuanto a datos de clientes y proveedores?</li>
+<li>¿Quién supervisa específicamente las acciones relacionadas con CFDI y timbrado fiscal, y qué pasa si una de esas acciones resulta incorrecta?</li>
+<li>¿Cómo se revierte una acción del agente si se detecta un error después de que ya se ejecutó en producción?</li>
+<li>¿Qué nivel de soporte hay cuando el agente se detiene por un caso no previsto — hay una persona disponible en horario laboral mexicano, o el soporte depende de otro huso horario?</li>
+<li>¿El contrato te permite exportar o portar la configuración de la automatización si en el futuro decides cambiar de proveedor?</li>
+</ul>
+<p>Si un proveedor no puede responder con claridad la pregunta sobre reversión de acciones o sobre quién supervisa el timbrado fiscal, esa es la señal más clara de que su solución todavía no está lista para operar sobre el ERP de tu empresa en producción, sin importar qué tan bien se vea la demo.</p>
+</section>

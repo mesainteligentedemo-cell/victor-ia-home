@@ -1,0 +1,68 @@
+<section class="blog-section">
+<h2>El Costo Real de Armar un Stack de Reclutamiento con IA: Sourcing, Screening y Agendamiento</h2>
+<p>Cuando una empresa tech mexicana decide meterle IA a su proceso de contratación, rara vez es una sola herramienta — es un stack de al menos tres piezas que normalmente vienen de proveedores distintos: sourcing (encontrar candidatos pasivos y activos), screening técnico (evaluar sin que un ingeniero senior tenga que revisar cada CV) y agendamiento (coordinar entrevistas sin cadenas interminables de correos).</p>
+<p>El sourcing con IA — herramientas que buscan en LinkedIn, GitHub y bases propias, y priorizan candidatos por ajuste al puesto — suele cobrarse por asiento de reclutador o por número de búsquedas activas, con rangos entre $1,800 y $6,000 MXN mensuales por reclutador, dependiendo de la plataforma y de si incluye enriquecimiento de datos de contacto.</p>
+<p>El screening técnico automatizado — pruebas de código con evaluación asistida por IA, entrevistas técnicas grabadas con transcripción y resumen automático — tiende a cobrarse por candidato evaluado o por plan mensual con un tope de evaluaciones, con rangos entre $3,000 y $15,000 MXN mensuales según el volumen de vacantes abiertas y la profundidad de la evaluación, desde pruebas de opción múltiple hasta retos de código en vivo con revisión híbrida humano-IA.</p>
+<p>El agendamiento inteligente — asistentes que proponen horarios, confirman con candidatos y reprograman automáticamente — es la pieza más barata del stack, normalmente entre $500 y $2,500 MXN mensuales, pero también la que menos justifica una decisión de compra por sí sola: casi siempre se adopta como complemento de las otras dos, no como punto de entrada.</p>
+<p>Sumando las tres piezas, una empresa tech mediana con un equipo de dos o tres reclutadores y un flujo constante de 10 a 20 vacantes técnicas abiertas suele terminar pagando entre $15,000 y $45,000 MXN mensuales por el stack completo — antes de contar el tiempo de implementación y capacitación del equipo, que en la práctica toma entre tres y seis semanas si se hace bien.</p>
+</section>
+
+<section class="blog-section">
+<h2>Integración con el ATS que Ya Usa tu Empresa</h2>
+<p>Casi ninguna empresa tech en México empieza de cero con su sistema de seguimiento de candidatos (ATS, por sus siglas en inglés). Ya hay un Greenhouse, un Lever, un Workable, o — muy común en scaleups mexicanas que crecieron rápido — una combinación de Notion, hojas de cálculo y un CRM improvisado que nadie quiere migrar.</p>
+<p>La pregunta que de verdad importa antes de contratar cualquier herramienta de IA de reclutamiento no es "qué tan inteligente es", sino "qué tan bien se conecta con lo que ya tengo". Las plataformas serias ofrecen integraciones nativas con los ATS más usados y APIs documentadas para el resto; las que no, obligan a doble captura, que es exactamente el tipo de fricción operativa que la IA debería eliminar, no agregar.</p>
+<p>Cuando el ATS es un sistema propio o poco común, migrar datos históricos de candidatos — evaluaciones previas, notas de entrevistadores, motivos de rechazo — suele ser la parte más tardada del proyecto, no la configuración de la IA en sí. Vale la pena presupuestar ese trabajo de migración por separado y no asumir que viene incluido en el precio del software.</p>
+<p>Un patrón que funciona bien en la práctica: empezar la integración por el módulo de screening técnico, que es el que genera más valor inmediato, y dejar el sourcing y el agendamiento para una segunda fase, una vez que el equipo ya confía en los resultados de la evaluación automatizada. Ir por partes reduce el riesgo de que un mal ajuste inicial contamine la percepción de toda la herramienta.</p>
+<p>Antes de firmar, pide al proveedor un ambiente de prueba con datos reales (anonimizados) de tu ATS actual — no una demo con datos de ejemplo — para confirmar que los campos, los flujos de aprobación y las etapas del pipeline se mapean correctamente. Esta guía sobre <a href="/blog/implementar-ia-empresa-mexico">cómo implementar IA en una empresa mexicana</a> cubre a detalle los pasos previos a cualquier integración de este tipo.</p>
+</section>
+
+<section class="blog-section">
+<h2>Sesgo Algorítmico en el Screening Técnico: De Dónde Viene y Cómo Mitigarlo</h2>
+<p>El sesgo en herramientas de screening técnico no suele venir de una intención discriminatoria explícita — viene de los datos con los que se entrenó o calibró el modelo, y de las variables que usa como proxy de "buen candidato".</p>
+<p>Un ejemplo común: si el modelo se calibra con el historial de contrataciones exitosas de una empresa que durante años solo contrató egresados de un puñado de universidades, va a aprender a preferir ese perfil, aunque nadie le haya pedido explícitamente que filtre por universidad. Lo mismo pasa con huecos en el historial laboral, que pueden penalizar injustamente a candidatas que tomaron licencia de maternidad o a personas que cuidaron a un familiar.</p>
+<h3>Señales de alerta al evaluar un proveedor</h3>
+<p>Cuando evalúes un proveedor de screening técnico, pregunta específicamente qué variables usa el modelo para puntuar a un candidato y si esas variables han sido auditadas por sesgo demográfico. Un proveedor serio debe poder explicarte, aunque sea en términos generales, qué pesa más en su rúbrica: la solución técnica al problema, el tiempo, la claridad del código, o factores que no deberían influir en absoluto, como el acento en una entrevista grabada o la universidad de origen.</p>
+<p>La mitigación más efectiva sigue siendo simple: mantener un humano en el ciclo de revisión final. La IA puede filtrar y priorizar, pero la decisión de avanzar o descartar a un candidato en las etapas donde hay ambigüedad debe pasar por una persona que pueda cuestionar el resultado del modelo, no solo confirmarlo.</p>
+<p>También conviene auditar periódicamente los resultados agregados del proceso — qué porcentaje de candidatos de distintos perfiles demográficos avanza en cada etapa — para detectar patrones que ni el proveedor ni tu equipo interno hayan anticipado. Esto no requiere una auditoría externa costosa; puede empezar como un reporte trimestral interno que compare tasas de avance por etapa.</p>
+</section>
+
+<section class="blog-section">
+<h2>La Experiencia del Candidato Cuando Hay IA de Por Medio</h2>
+<p>Un candidato técnico senior en México hoy tiene opciones — y sabe distinguir entre un proceso de contratación que respeta su tiempo y uno que lo trata como un número más en un embudo automatizado. La experiencia del candidato (candidate experience) es, para perfiles escasos, tan decisiva como la oferta económica.</p>
+<p>El error más común es la falta de transparencia: el candidato no sabe si está hablando con un chatbot o con una persona, no sabe si su prueba de código fue evaluada por un humano o solo por un modelo, y no recibe retroalimentación cuando es rechazado. Esa opacidad, más que la automatización en sí, es lo que genera la percepción de un proceso "frío" o "robótico".</p>
+<p>Declarar abiertamente dónde interviene la IA en el proceso — "esta primera entrevista la conduce un asistente automatizado y dura 15 minutos", por ejemplo — reduce la fricción, porque el candidato ajusta sus expectativas en lugar de sentirse engañado después.</p>
+<p>El otro punto de fricción frecuente es el ghosting posterior a una evaluación automatizada: el candidato invierte una o dos horas en una prueba técnica y nunca recibe respuesta, ni siquiera un rechazo genérico. Configurar el sistema para que siempre envíe una notificación de cierre — aprobado o no — cuesta prácticamente nada de implementar y tiene un efecto desproporcionado en cómo se percibe la marca empleadora en el gremio tech mexicano, que es un mundo relativamente pequeño y conectado.</p>
+<p>Finalmente, dejar una vía de escalación humana visible — un correo o contacto directo para dudas sobre el proceso — evita que un error del sistema (una prueba que no cargó, una entrevista mal agendada) se convierta en la razón por la que un candidato calificado se retira del proceso sin decir nada.</p>
+</section>
+
+<section class="blog-section">
+<h2>Cuánto Automatizar Según el Tamaño de tu Empresa: Startup, Scaleup y Corporativo</h2>
+<p>El nivel de automatización que tiene sentido no es el mismo para una startup de doce personas que para un corporativo con un equipo de talento de cuarenta reclutadores. La tabla siguiente resume el punto de partida razonable para cada etapa.</p>
+<table>
+<thead><tr><th>Etapa</th><th>Volumen típico de vacantes tech</th><th>Qué automatizar primero</th><th>Qué mantener manual</th></tr></thead>
+<tbody>
+<tr><td>Startup (menos de 30 empleados)</td><td>1-3 vacantes simultáneas</td><td>Agendamiento y una prueba técnica estándar</td><td>Sourcing y entrevistas — el founder o el líder técnico deben seguir involucrados directamente</td></tr>
+<tr><td>Scaleup (30-200 empleados)</td><td>5-15 vacantes simultáneas</td><td>Screening técnico completo + sourcing asistido</td><td>Entrevista final y decisión de oferta</td></tr>
+<tr><td>Corporativo (200+ empleados)</td><td>15+ vacantes simultáneas, múltiples equipos</td><td>Stack completo integrado al ATS corporativo</td><td>Auditoría de sesgo y revisión de casos límite por RH</td></tr>
+</tbody>
+</table>
+<p>En una startup, automatizar de más antes de tener un proceso de contratación maduro suele salir caro: se paga por herramientas que un equipo de una o dos personas de RH — a veces ni eso, es el propio founder — no tiene tiempo de configurar bien, y terminan subutilizadas.</p>
+<p>En una scaleup es donde el retorno de automatizar screening técnico se nota más rápido, porque el volumen de candidatos ya es demasiado alto para que un ingeniero senior revise cada perfil manualmente, pero la empresa todavía no tiene el presupuesto de un corporativo para un equipo de talent acquisition grande.</p>
+<p>En un corporativo, el reto ya no es si automatizar, sino cómo gobernar la automatización entre múltiples equipos y vacantes: ahí es donde cobra sentido invertir en auditorías de sesgo formales y en un equipo dedicado a supervisar cómo se comporta el sistema, no solo a operarlo.</p>
+</section>
+
+<section class="blog-section">
+<h2>Las Preguntas que Todo Director de RH Debe Hacerle a un Proveedor de IA de Reclutamiento</h2>
+<p>Antes de firmar un contrato con cualquier proveedor de IA para reclutamiento tech, hay un conjunto de preguntas que separan a un proveedor serio de uno que solo vende una capa de marketing sobre un modelo genérico.</p>
+<ul>
+<li>¿Qué datos usaron para entrenar o calibrar el modelo de screening, y con qué frecuencia lo auditan por sesgo demográfico?</li>
+<li>¿Cómo manejan los datos personales de los candidatos conforme a la LFPDPPP — dónde se almacenan, quién tiene acceso y por cuánto tiempo se conservan tras el proceso?</li>
+<li>¿El modelo puede explicar, aunque sea en términos generales, por qué calificó de cierta manera a un candidato, o es una caja negra?</li>
+<li>¿Qué tan bien se integra con nuestro ATS actual, y quién es responsable si la integración falla — el proveedor o nuestro equipo interno?</li>
+<li>¿Cuál es la tasa de falsos negativos conocida — candidatos calificados que el sistema descarta por error — y cómo se mide?</li>
+<li>¿Qué opciones de supervisión humana existen en cada etapa, y se pueden desactivar si decidimos que cierta etapa debe ser cien por ciento manual?</li>
+<li>¿Cómo cambia el precio si el volumen de vacantes crece o baja de forma estacional, algo común en muchas empresas tech mexicanas?</li>
+</ul>
+<p>Un proveedor que responde estas preguntas con evasivas — "eso es propiedad intelectual", "confía en el algoritmo" — es una señal de alerta tan importante como una demo que se ve impecable. La calidad real de una herramienta de este tipo se mide en cómo se comporta con tus datos, tus vacantes y tus candidatos, no en la presentación de ventas.</p>
+<p>Para entender mejor el panorama general de qué son y cómo operan estas herramientas antes de evaluar proveedores específicos, este artículo sobre <a href="/blog/que-son-agentes-ia">qué son los agentes de IA</a> ayuda a distinguir entre automatización simple basada en reglas y sistemas que realmente toman decisiones de forma autónoma durante el proceso de reclutamiento.</p>
+</section>

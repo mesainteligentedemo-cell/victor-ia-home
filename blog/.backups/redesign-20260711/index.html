@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog | Inteligencia Artificial para Empresas — Victor IA</title>
+<meta name="description" content="147 artículos sobre inteligencia artificial para empresas en México: agentes IA, ROI, automatización por industria y casos de uso reales. Actualizado 2026."/>
+<link rel="canonical" href="https://victor-ia.xyz/blog/"/>
+<meta name="robots" content="index, follow"/>
+<meta http-equiv="content-language" content="es-MX"/>
+<meta name="geo.region" content="MX"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Blog | Inteligencia Artificial para Empresas — Victor IA"/>
+<meta property="og:description" content="147 artículos sobre IA para empresas en México: agentes, ROI, automatización por industria y casos reales."/>
+<meta property="og:locale" content="es_MX"/>
+<meta property="og:url" content="https://victor-ia.xyz/blog/"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">{{
+  "@context":"https://schema.org","@type":"CollectionPage",
+  "name":"Blog Victor IA — Inteligencia Artificial para Empresas",
+  "description":"147 artículos sobre inteligencia artificial para empresas en México.",
+  "url":"https://victor-ia.xyz/blog/",
+  "publisher":{{"@type":"Organization","name":"INFLUENCE IA S.A. DE C.V.","url":"https://victor-ia.xyz"}},
+  "inLanguage":"es-MX"
+}}</script>
+<style>
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+:root{{--ink:#0A0A0A;--paper:#FFFFFF;--muted:#6B6B6B;--line:rgba(10,10,10,.08);--gold:#8A6D3B}}
+html{{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}}
+body{{background:var(--paper);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}}
+a{{color:inherit;text-decoration:none}}
+.wrap{{max-width:1200px;margin:0 auto;padding:0 32px}}
+h1,h2,h3{{font-weight:300;letter-spacing:-.01em}}
+
+/* ---- Spotlight Marble ---- */
+#spotlight-marble{{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url('/assets/pieza-06.webp');
+  background-size:cover;background-position:center;
+  opacity:0;
+  -webkit-mask-image:radial-gradient(200px circle at var(--mx,-500px) var(--my,-500px), rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,0) 70%);
+  mask-image:radial-gradient(200px circle at var(--mx,-500px) var(--my,-500px), rgba(0,0,0,.95) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,0) 70%);
+  transition:opacity 2.4s cubic-bezier(.22,1,.36,1);
+}}
+#spotlight-marble.on{{opacity:.16}}
+
+/* ---- Header ---- */
+header{{position:fixed;top:0;left:0;right:0;z-index:600;height:70px;transition:background .5s,border-color .5s;border-bottom:1px solid transparent;background:rgba(255,255,255,.7);backdrop-filter:blur(6px)}}
+header.scrolled{{background:rgba(255,255,255,.96);border-bottom-color:var(--line);backdrop-filter:blur(18px)}}
+.hd-in{{max-width:1200px;margin:0 auto;height:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}}
+.brand{{display:flex;align-items:center;gap:11px;font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500;letter-spacing:.02em}}
+.brand .dot{{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#111,#3a3a3a);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:600;font-family:'Plus Jakarta Sans'}}
+nav.main{{display:flex;align-items:center;gap:30px}}
+.nav-a{{position:relative;color:var(--muted);font-size:13.5px;letter-spacing:.04em;transition:color .3s}}
+.nav-a::after{{content:'';position:absolute;bottom:-6px;left:0;width:0;height:1px;background:var(--ink);transition:width .45s cubic-bezier(.16,1,.3,1)}}
+.nav-a:hover{{color:var(--ink)}} .nav-a:hover::after{{width:100%}}
+.nav-a.active{{color:var(--ink)}} .nav-a.active::after{{width:100%}}
+.hd-cta{{display:flex;align-items:center;gap:18px}}
+.link-login{{font-size:13.5px;color:var(--muted);transition:color .3s}} .link-login:hover{{color:var(--ink)}}
+.btn-p{{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;border-radius:6px;font-size:13px;letter-spacing:.05em;font-weight:500;padding:11px 22px;transition:transform .2s,background .25s}}
+.btn-p:hover{{background:#000;transform:translateY(-2px)}}
+.burger{{display:none;flex-direction:column;gap:5px;width:26px;background:none;border:0;cursor:pointer;padding:4px}}
+.burger span{{display:block;height:1.5px;background:var(--ink);transition:.3s;border-radius:2px}}
+.mobile-menu{{position:fixed;inset:70px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);z-index:590;padding:22px 32px;display:none;flex-direction:column;gap:18px}}
+.mobile-menu.open{{display:flex}}
+.mobile-menu a{{font-size:16px;color:var(--ink)}}
+
+/* ---- Hero ---- */
+.hero{{position:relative;z-index:2;padding:150px 0 60px;text-align:center}}
+.hero .eyebrow{{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}}
+.hero h1{{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6.5vw,78px);line-height:1.02;font-weight:400;margin-bottom:24px}}
+.hero h1 em{{font-style:italic;color:var(--gold)}}
+.hero p.lead{{max-width:620px;margin:0 auto 42px;font-size:clamp(16px,2vw,19px);color:var(--muted);line-height:1.7}}
+.stats{{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;margin-top:8px}}
+.stat .num{{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;line-height:1;color:var(--ink)}}
+.stat .lbl{{font-size:12.5px;letter-spacing:.06em;color:var(--muted);margin-top:8px}}
+.stat .div{{}}
+
+/* ---- Sections & Cards ---- */
+main{{position:relative;z-index:2}}
+.cat-block{{padding:60px 0 10px;border-top:1px solid var(--line)}}
+.cat-block:first-of-type{{border-top:0}}
+.cat-head{{display:flex;flex-direction:column;gap:8px;margin-bottom:36px;position:relative}}
+.cat-title{{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.4vw,40px);font-weight:500}}
+.cat-sub{{color:var(--muted);font-size:15px;max-width:640px}}
+.cat-count{{position:absolute;top:4px;right:0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:6px 14px;border-radius:20px}}
+.bc-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}}
+.bc{{display:flex;flex-direction:column;background:#FCFCFC;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .4s,transform .35s,box-shadow .4s}}
+.bc:hover{{border-color:rgba(10,10,10,.22);transform:translateY(-5px);box-shadow:0 22px 50px -30px rgba(0,0,0,.35)}}
+.bc-thumb{{aspect-ratio:16/9;overflow:hidden;background:#EFEDE9}}
+.bc-img{{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}}
+.bc:hover .bc-img{{transform:scale(1.05)}}
+.bc-noimg{{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:52px;color:#B8B2A8;background:linear-gradient(135deg,#EFEDE9,#E2DED6)}}
+.bc-body{{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}}
+.bc-cat{{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}}
+.bc-title{{font-size:18px;font-weight:400;line-height:1.32;color:var(--ink);margin-bottom:10px}}
+.bc-desc{{font-size:13.5px;color:var(--muted);line-height:1.6;flex:1}}
+.bc-more{{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:12.5px;letter-spacing:.05em;color:var(--ink);opacity:.7;transition:gap .3s,opacity .3s}}
+.bc:hover .bc-more{{opacity:1;gap:11px}}
+
+/* ---- CTA + Footer ---- */
+.cta{{position:relative;z-index:2;text-align:center;padding:110px 0;border-top:1px solid var(--line);margin-top:70px}}
+.cta h2{{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,52px);font-weight:400;line-height:1.15;margin-bottom:16px}}
+.cta h2 em{{font-style:italic;color:var(--gold)}}
+.cta p{{color:var(--muted);max-width:520px;margin:0 auto 34px;font-size:16px}}
+footer{{position:relative;z-index:2;background:#0A0A0A;color:#EDEDED;padding:74px 0 34px}}
+.ft-grid{{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:52px}}
+.ft-brand .brand{{color:#fff}} .ft-brand .brand .dot{{background:#fff;color:#0A0A0A}}
+.ft-brand p{{color:#9A9A9A;font-size:14px;max-width:280px;margin-top:16px;line-height:1.7}}
+.ft-col h4{{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A;margin-bottom:18px;font-weight:500}}
+.ft-col a{{display:block;color:#C8C8C8;font-size:14px;margin-bottom:12px;transition:color .3s}}
+.ft-col a:hover{{color:#fff}}
+.ft-loc{{color:#9A9A9A;font-size:14px;margin-bottom:10px}}
+.ft-bottom{{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:#7A7A7A;font-size:13px}}
+.ft-social{{display:flex;gap:18px}}
+.ft-social a{{color:#9A9A9A;transition:color .3s}} .ft-social a:hover{{color:#fff}}
+
+/* ---- Reveal ---- */
+.rv{{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}}
+.rv.on{{opacity:1;transform:none}}
+
+/* ---- Responsive ---- */
+@media (max-width:960px){{
+  .bc-grid{{grid-template-columns:repeat(2,1fr);gap:22px}}
+  nav.main,.hd-cta .link-login{{display:none}}
+  .burger{{display:flex}}
+  .stats{{gap:38px}}
+  .cat-count{{position:static;align-self:flex-start;margin-top:4px}}
+  .ft-grid{{grid-template-columns:1fr 1fr;gap:32px}}
+}}
+@media (max-width:900px){{
+  .hero{{padding:130px 0 40px}}
+  .cat-block{{padding:48px 0 8px}}
+}}
+@media (max-width:600px){{
+  .wrap,.hd-in{{padding-left:20px;padding-right:20px}}
+  .bc-grid{{grid-template-columns:1fr;gap:20px}}
+  .hero h1{{font-size:40px}}
+  .stats{{gap:26px}}
+  .stat .num{{font-size:34px}}
+  .ft-grid{{grid-template-columns:1fr;gap:28px}}
+  .ft-bottom{{flex-direction:column;align-items:flex-start}}
+}}
+</style>
+</head>
+<body>
+
+<div id="spotlight-marble" aria-hidden="true"></div>
+
+<header id="hdr">
+  <div class="hd-in">
+    <a class="brand" href="/">
+      <span class="dot">V</span> Victor <span style="font-style:italic;color:var(--gold)">IA</span>
+    </a>
+    <nav class="main">
+      <a class="nav-a" href="/agentes.html">Agentes</a>
+      <a class="nav-a" href="/como-funciona.html">Cómo Funciona</a>
+      <a class="nav-a" href="/precios.html">Precios</a>
+      <a class="nav-a active" href="/blog/">Blog</a>
+      <a class="nav-a" href="/telemetria.html">Eficiencia IoT</a>
+    </nav>
+    <div class="hd-cta">
+      <a class="link-login" href="/login/">Iniciar sesión</a>
+      <a class="btn-p" href="/agendar-videollamada.html">Empezar gratis</a>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/agentes.html">Agentes</a>
+  <a href="/como-funciona.html">Cómo Funciona</a>
+  <a href="/precios.html">Precios</a>
+  <a href="/blog/">Blog</a>
+  <a href="/telemetria.html">Eficiencia IoT</a>
+  <a href="/login/">Iniciar sesión</a>
+  <a class="btn-p" href="/agendar-videollamada.html" style="align-self:flex-start">Empezar gratis</a>
+</div>
+
+<section class="hero wrap">
+  <p class="eyebrow">Blog · Victor IA</p>
+  <h1>Inteligencia artificial<br/>para <em>empresas reales</em></h1>
+  <p class="lead">Insights, guías y casos de uso de IA para México. Aprende cómo los agentes inteligentes transforman industrias, reducen costos y aceleran el crecimiento.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">147</div><div class="lbl">Artículos</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Categorías</div></div>
+    <div class="stat"><div class="num">2026</div><div class="lbl">Actualizado</div></div>
+  </div>
+</section>
+
+<main class="wrap">
+
+    <section class="cat-block rv" id="cat-gu-as-pilares">
+      <div class="cat-head">
+        <h2 class="cat-title">Guías &amp; Pilares</h2>
+        <p class="cat-sub">Fundamentos de IA para empresas: qué son los agentes, cómo elegir y por dónde empezar.</p>
+        <span class="cat-count">11 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/inteligencia-artificial-para-empresas-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/inteligencia-artificial-para-empresas-mexico.webp" alt="Inteligencia Artificial para Empresas en México: La Guía Definitiva 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Inteligencia Artificial para Empresas en México: La Guía Definitiva 2026</h3>
+          <p class="bc-desc">Guía completa sobre inteligencia artificial para empresas en México 2026: qué son los agentes IA, tipos, beneficios, casos de uso por industria, cómo im…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/que-son-agentes-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/que-son-agentes-ia.webp" alt="¿Qué son los Agentes de IA y Cómo Trabajan en 2026?" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">¿Qué son los Agentes de IA y Cómo Trabajan en 2026?</h3>
+          <p class="bc-desc">Descubre qué son los agentes de IA, cómo toman decisiones autónomas, los diferentes tipos y cómo pueden transformar tu empresa en 2026.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-multiagente-que-es.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-multiagente-que-es.webp" alt="Sistemas Multi-Agente de IA: Qué Son y Por Qué Transformarán tu Empresa" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Sistemas Multi-Agente de IA: Qué Son y Por Qué Transformarán tu Empresa</h3>
+          <p class="bc-desc">Explicación práctica de cómo los sistemas con múltiples agentes IA colaborando pueden automatizar procesos complejos</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-multiagente-empresa-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-multiagente-empresa-mexico.webp" alt="Sistemas Multi-Agente de IA: Cuándo Usar Más de un Agente en tu Empresa" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Sistemas Multi-Agente de IA: Cuándo Usar Más de un Agente en tu Empresa</h3>
+          <p class="bc-desc">Qué son los sistemas multi-agente de IA, cómo funcionan y en qué casos un ecosistema de agentes supera a uno solo en empresas mexicanas.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/diferencia-chatbot-agente-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/diferencia-chatbot-agente-ia.webp" alt="Chatbot vs Agente IA: ¿Cuál Necesita tu Empresa en 2026?" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Chatbot vs Agente IA: ¿Cuál Necesita tu Empresa en 2026?</h3>
+          <p class="bc-desc">Explicación clara de las diferencias entre chatbots simples y agentes IA autónomos, y cuándo usar cada uno</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/como-elegir-agente-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/como-elegir-agente-ia.webp" alt="Cómo Elegir el Agente IA Correcto para tu Empresa: Guía de Comparación" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Cómo Elegir el Agente IA Correcto para tu Empresa: Guía de Comparación</h3>
+          <p class="bc-desc">Comparativa honesta de los principales agentes IA del mercado: cuál conviene según tu industria y presupuesto</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/como-elegir-proveedor-ia-mx.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/como-elegir-proveedor-ia-mx.webp" alt="Cómo Elegir al Proveedor Correcto de IA para tu Empresa Mexicana" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Cómo Elegir al Proveedor Correcto de IA para tu Empresa Mexicana</h3>
+          <p class="bc-desc">8 criterios para elegir proveedor de IA en México: soporte local, integración, costos reales y las preguntas clave que debes hacerle antes de firmar.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/errores-implementar-ia-empresa.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/errores-implementar-ia-empresa.webp" alt="Los 7 Errores que Destrozan el ROI de la IA (y Cómo Evitarlos)" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Los 7 Errores que Destrozan el ROI de la IA (y Cómo Evitarlos)</h3>
+          <p class="bc-desc">Los 7 errores más costosos al implementar IA en empresas mexicanas: causas reales, datos duros y soluciones concretas desde el día 1.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/futuro-trabajo-ia-mexico-2030.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/futuro-trabajo-ia-mexico-2030.webp" alt="El Futuro del Trabajo en México con IA: Qué Empleos Sobreviven al 2030" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">El Futuro del Trabajo en México con IA: Qué Empleos Sobreviven al 2030</h3>
+          <p class="bc-desc">Qué trabajos se automatizan, cuáles evolucionan y cómo prepararte hoy. Análisis con datos reales de México para llegar al 2030 con ventaja competitiva.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/tendencias-ia-latam-2026.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/tendencias-ia-latam-2026.webp" alt="Las 10 Tendencias de IA más Importantes para LATAM en 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Las 10 Tendencias de IA más Importantes para LATAM en 2026</h3>
+          <p class="bc-desc">Análisis de las tendencias de inteligencia artificial que más impactarán a las empresas latinoamericanas este año</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/guia-prompts-empresas-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/guia-prompts-empresas-mexico.webp" alt="Guía de Prompts para Empresas Mexicanas: Los 50 Prompts Más Útiles" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Guías &amp; Pilares</span>
+          <h3 class="bc-title">Guía de Prompts para Empresas Mexicanas: Los 50 Prompts Más Útiles</h3>
+          <p class="bc-desc">Colección curada de los mejores prompts de IA para ventas, marketing, operaciones y atención al cliente</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-estrategia-roi-operaciones">
+      <div class="cat-head">
+        <h2 class="cat-title">Estrategia, ROI &amp; Operaciones</h2>
+        <p class="cat-sub">Cómo calcular el retorno, reducir costos y escalar la IA con seguridad y privacidad.</p>
+        <span class="cat-count">15 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/roi-inteligencia-artificial.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/roi-inteligencia-artificial.webp" alt="ROI de la Inteligencia Artificial: Cómo Medir el Retorno de tu Inversión en IA" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">ROI de la Inteligencia Artificial: Cómo Medir el Retorno de tu Inversión en IA</h3>
+          <p class="bc-desc">Framework completo para medir el ROI de la IA en tu empresa. Los 3 tipos de valor, 5 dimensiones de medición, benchmarks por industria en México y timef…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/calcular-roi-ia-antes-invertir.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/calcular-roi-ia-antes-invertir.webp" alt="Cómo Calcular el ROI de la IA Antes de Invertir: Plantilla Gratuita" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Cómo Calcular el ROI de la IA Antes de Invertir: Plantilla Gratuita</h3>
+          <p class="bc-desc">Fórmula paso a paso para calcular el ROI esperado de implementar IA en tu empresa antes de invertir. Plantilla gratuita con ejemplos reales de PyMEs mex…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/medir-roi-proyecto-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/medir-roi-proyecto-ia.webp" alt="Cómo Medir el ROI de tu Proyecto de IA: Métricas Clave para Directivos" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Cómo Medir el ROI de tu Proyecto de IA: Métricas Clave para Directivos</h3>
+          <p class="bc-desc">Framework práctico para directores y dueños de negocio para evaluar el retorno real de su inversión en IA</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/medir-impacto-ia-kpis.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/medir-impacto-ia-kpis.webp" alt="5 KPIs para Medir el Impacto Real de la IA en tu Empresa" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">5 KPIs para Medir el Impacto Real de la IA en tu Empresa</h3>
+          <p class="bc-desc">Los 5 indicadores clave que realmente importan para evaluar si tu implementación de IA genera valor medible en tu empresa mexicana.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/reducir-costos-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/reducir-costos-ia.webp" alt="Cómo la IA Reduce Costos Operativos hasta un 40%: Análisis por Área de Negocio" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Cómo la IA Reduce Costos Operativos hasta un 40%: Análisis por Área de Negocio</h3>
+          <p class="bc-desc">Análisis detallado de las 8 áreas donde la inteligencia artificial genera mayor ahorro en empresas mexicanas. ROI por área, metodología y casos tipo.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/agentes-ia-vs-empleados.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/agentes-ia-vs-empleados.webp" alt="Agentes IA vs Empleados: No es Sustitución, es Multiplicación" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Agentes IA vs Empleados: No es Sustitución, es Multiplicación</h3>
+          <p class="bc-desc">El miedo a que la IA reemplace empleos es comprensible, pero la realidad es más interesante: los agentes de IA multiplican lo que tu equipo puede lograr…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/implementar-ia-empresa-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/implementar-ia-empresa-mexico.webp" alt="Cómo Implementar IA en tu Empresa Mexicana en 90 Días" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Cómo Implementar IA en tu Empresa Mexicana en 90 Días</h3>
+          <p class="bc-desc">El 67% de las implementaciones de IA fallan por falta de metodología. Guía paso a paso para implementar IA en tu empresa mexicana en 90 días con ROI rea…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/escalar-ia-piloto-a-produccion-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/escalar-ia-piloto-a-produccion-mexico.webp" alt="De Piloto a Producción: Cómo Escalar un Proyecto de IA en tu Empresa sin que Fracase" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">De Piloto a Producción: Cómo Escalar un Proyecto de IA en tu Empresa sin que Fracase</h3>
+          <p class="bc-desc">El 61% de las empresas con pilotos de IA no logran escalarlo. Esta guía explica por qué ocurre y qué hacer diferente para pasar de experimento a operaci…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/agentes-ia-sistemas-legados-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/agentes-ia-sistemas-legados-mexico.webp" alt="Agentes de IA sobre Sistemas Viejos: Automatiza sin Cambiar tu ERP" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Agentes de IA sobre Sistemas Viejos: Automatiza sin Cambiar tu ERP</h3>
+          <p class="bc-desc">Cómo los agentes de IA “computer use” automatizan tu software actual sin reemplazarlo. La estrategia no rip-and-replace para PyMEs mexicanas en 2026.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/seguridad-datos-ia-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/seguridad-datos-ia-mexico.webp" alt="Seguridad y Privacidad de Datos al Implementar IA en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Seguridad y Privacidad de Datos al Implementar IA en México</h3>
+          <p class="bc-desc">LFPDPPP, GDPR y mejores prácticas de seguridad antes de implementar IA en tu empresa mexicana. Guía práctica con datos reales y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/privacidad-ia-lfpdppp-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/privacidad-ia-lfpdppp-mexico.webp" alt="LFPDPPP e Inteligencia Artificial: Cumplimiento Legal para Empresas México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">LFPDPPP e Inteligencia Artificial: Cumplimiento Legal para Empresas México</h3>
+          <p class="bc-desc">Guía práctica para implementar IA en tu empresa mexicana cumpliendo la LFPDPPP. Obligaciones, riesgos y pasos concretos para directivos y dueños de PyMEs.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/privacidad-vs-personalizacion-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/privacidad-vs-personalizacion-ia.webp" alt="Privacidad vs Personalización con IA: El Equilibrio que Necesitan las Empresas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Privacidad vs Personalización con IA: El Equilibrio que Necesitan las Empresas</h3>
+          <p class="bc-desc">Cómo usar los datos de tus clientes para personalizar su experiencia con IA sin comprometer su privacidad. Guía práctica para PyMEs mexicanas.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/privacidad-datos-ia-empresas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/privacidad-datos-ia-empresas.webp" alt="Privacidad y Datos en IA: Lo Que Toda Empresa Mexicana Debe Saber" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Privacidad y Datos en IA: Lo Que Toda Empresa Mexicana Debe Saber</h3>
+          <p class="bc-desc">Guía práctica sobre LFPDPPP, GDPR y mejores prácticas para usar IA respetando la privacidad de clientes</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/como-vender-servicios-ia-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/como-vender-servicios-ia-mexico.webp" alt="Cómo Vender Servicios de IA en México: Guía para Consultores y Agencias" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Cómo Vender Servicios de IA en México: Guía para Consultores y Agencias</h3>
+          <p class="bc-desc">Estrategia completa para posicionar, cotizar y cerrar proyectos de IA con empresas mexicanas en 2026</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/analisis-competencia-ia-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/analisis-competencia-ia-mexico.webp" alt="Análisis de Competencia con IA: Monitoreo Automático 24/7" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Estrategia, ROI &amp; Operaciones</span>
+          <h3 class="bc-title">Análisis de Competencia con IA: Monitoreo Automático 24/7</h3>
+          <p class="bc-desc">Cómo usar IA para monitorear a tus competidores en tiempo real: precios, contenido y estrategias. Guía práctica para PyMEs mexicanas.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-marketing-ventas-contenido">
+      <div class="cat-head">
+        <h2 class="cat-title">Marketing, Ventas &amp; Contenido</h2>
+        <p class="cat-sub">IA generativa aplicada a marketing, ventas B2B y producción de contenido.</p>
+        <span class="cat-count">14 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/automatizar-marketing-ia-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-marketing-ia-mexico.webp" alt="Automatización de Marketing con IA: Cómo las Empresas Mexicanas Están Ganando" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">Automatización de Marketing con IA: Cómo las Empresas Mexicanas Están Ganando</h3>
+          <p class="bc-desc">Descubre cómo la automatización de marketing con IA está triplicando leads y reduciendo costos de adquisición 45% en empresas mexicanas. Ejemplos por se…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-agencias-marketing-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-agencias-marketing-mexico.webp" alt="IA para Agencias de Marketing Digital en México: Escala sin Contratar" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA para Agencias de Marketing Digital en México: Escala sin Contratar</h3>
+          <p class="bc-desc">Cómo las agencias mexicanas producen 8× más contenido y mejores resultados con IA integrada en su pipeline de marketing digital.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-publicistas-agencias-creativas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-publicistas-agencias-creativas.webp" alt="IA para Agencias Creativas y Publicistas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA para Agencias Creativas y Publicistas en México</h3>
+          <p class="bc-desc">Cómo las agencias de publicidad mexicanas usan IA para briefs automáticos, concepto creativo y producción. Datos, ejemplos por sector y herramientas con…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-agencias-publicitarias.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-agencias-publicitarias.webp" alt="IA para Agencias Publicitarias y de Marketing en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA para Agencias Publicitarias y de Marketing en México</h3>
+          <p class="bc-desc">Cómo las agencias mexicanas usan IA para creatividad, reportes, segmentación y producción de campañas en escala</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/automatizar-email-marketing-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-email-marketing-ia.webp" alt="Automatizar Email Marketing con IA: Más Apertura, Menos Esfuerzo" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">Automatizar Email Marketing con IA: Más Apertura, Menos Esfuerzo</h3>
+          <p class="bc-desc">Cómo generar, enviar y optimizar campañas de email marketing automáticamente con IA en empresas mexicanas. Datos reales, ejemplos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-generativa-para-marketing.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-generativa-para-marketing.webp" alt="IA Generativa para Marketing: Contenido, Imágenes y Campañas en Escala" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA Generativa para Marketing: Contenido, Imágenes y Campañas en Escala</h3>
+          <p class="bc-desc">Cómo usar ChatGPT, Claude, Midjourney y otras IAs generativas para producir marketing de alta calidad en menos tiempo</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/produccion-contenido-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/produccion-contenido-ia.webp" alt="Producción de Contenido con IA: 10× más Rápido sin Perder la Voz de tu Marca" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">Producción de Contenido con IA: 10× más Rápido sin Perder la Voz de tu Marca</h3>
+          <p class="bc-desc">Cómo usar inteligencia artificial para producir contenido a escala sin sacrificar la identidad de tu marca. Workflow, métricas y errores a evitar.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-influencers-creadores-contenido.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-influencers-creadores-contenido.webp" alt="IA para Influencers y Creadores de Contenido: Escala sin Burnout" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA para Influencers y Creadores de Contenido: Escala sin Burnout</h3>
+          <p class="bc-desc">Cómo los creadores de contenido mexicanos usan IA para producir más, responder fans y monetizar mejor sin quemarse en el intento.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-creadores-podcasts.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-creadores-podcasts.webp" alt="IA para Podcasters y Creadores de Audio en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA para Podcasters y Creadores de Audio en México</h3>
+          <p class="bc-desc">Cómo los podcasters mexicanos usan IA para transcripciones automáticas, clips virales, distribución multicanal y monetización sin contratar más equipo.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/generative-ai-diseno-grafico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/generative-ai-diseno-grafico.webp" alt="Generative AI para Diseño Gráfico y Creatividad Empresarial" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">Generative AI para Diseño Gráfico y Creatividad Empresarial</h3>
+          <p class="bc-desc">Cómo empresas mexicanas usan IA generativa para logos, publicidad y branding sin agencia. DALL-E, Midjourney y más herramientas con resultados reales.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/agente-ia-ventas-b2b.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/agente-ia-ventas-b2b.webp" alt="Agente IA de Ventas B2B: Cierra Más sin Contratar Más" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">Agente IA de Ventas B2B: Cierra Más sin Contratar Más</h3>
+          <p class="bc-desc">Cómo un agente de IA califica leads B2B, agenda demos y hace seguimiento automático 24/7 para PyMEs mexicanas. Promedios del sector, ejemplos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-vendedores-independientes.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-vendedores-independientes.webp" alt="IA para Vendedores Independientes y Freelancers en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA para Vendedores Independientes y Freelancers en México</h3>
+          <p class="bc-desc">Cómo los vendedores independientes y trabajadores por cuenta propia usan IA para conseguir más clientes y trabajar menos horas</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-empleo-mexico-2026-que-hacer.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-empleo-mexico-2026-que-hacer.webp" alt="IA y Empleo en México 2026: Lo que los Despidos de Oracle Significan para tu Empresa" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">IA y Empleo en México 2026: Lo que los Despidos de Oracle Significan para tu Empresa</h3>
+          <p class="bc-desc">Oracle elimina 30,000 empleos para financiar IA. Wikipedia entra en huelga. El debate ya llegó a México. Esta guía explica qué hacer como empresa ante l…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/article.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/article.webp" alt="Seedance 2.0: el modelo que está reemplazando equipos de producción completos" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Marketing, Ventas &amp; Contenido</span>
+          <h3 class="bc-title">Seedance 2.0: el modelo que está reemplazando equipos de producción completos</h3>
+          <p class="bc-desc">Cómo Seedance 2.0 genera video cinématico multi-shot con coherencia de personaje, y por qué cambia el modelo económico de la producción audiovisual para…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-salud-bienestar">
+      <div class="cat-head">
+        <h2 class="cat-title">Salud &amp; Bienestar</h2>
+        <p class="cat-sub">Aplicaciones de IA en clínicas, consultorios, farmacias y wellness.</p>
+        <span class="cat-count">12 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-para-clinicas-medicas-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-clinicas-medicas-mexico.webp" alt="IA para Clínicas Médicas Privadas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Clínicas Médicas Privadas en México</h3>
+          <p class="bc-desc">Cómo las clínicas mexicanas reducen tiempos de espera, automatizan citas y mejoran el seguimiento con IA. Ejemplos por sector, patrones y herramientas.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-dentistas-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-dentistas-mexico.webp" alt="IA para Dentistas y Clínicas Dentales en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Dentistas y Clínicas Dentales en México</h3>
+          <p class="bc-desc">Cómo los dentistas mexicanos usan IA para automatizar agendas, seguimiento de pacientes y marketing. Ejemplos por sector y datos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-medicos-especialistas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-medicos-especialistas.webp" alt="IA para Médicos Especialistas y Consultorios Privados" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Médicos Especialistas y Consultorios Privados</h3>
+          <p class="bc-desc">Cómo los médicos especialistas usan IA para agendas, expedientes, seguimiento de pacientes y marketing</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-hospitales-clinicas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-hospitales-clinicas.webp" alt="IA para Hospitales y Clínicas Privadas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Hospitales y Clínicas Privadas en México</h3>
+          <p class="bc-desc">Cómo los hospitales privados usan IA para agendas, diagnóstico asistido, cobranza y experiencia del paciente</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-psicologos-terapeutas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-psicologos-terapeutas.webp" alt="IA para Psicólogos y Terapeutas en Práctica Privada México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Psicólogos y Terapeutas en Práctica Privada México</h3>
+          <p class="bc-desc">Cómo psicólogos y terapeutas en México usan IA para agenda, recordatorios, facturación y comunicación con pacientes. Guía práctica con datos reales.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-terapeutas-coaches.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-terapeutas-coaches.webp" alt="IA para Coaches y Terapeutas de Negocio en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Coaches y Terapeutas de Negocio en México</h3>
+          <p class="bc-desc">Cómo coaches y consultores de desarrollo personal en México usan IA para atender más clientes, automatizar seguimientos y escalar su negocio.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-nutriologos-fitness.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-nutriologos-fitness.webp" alt="IA para Nutriólogos, Coaches y Profesionales del Fitness" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Nutriólogos, Coaches y Profesionales del Fitness</h3>
+          <p class="bc-desc">Cómo nutriólogos y coaches fitness mexicanos usan IA para planes personalizados, seguimiento y captación de clientes</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-farmacias-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-farmacias-mexico.webp" alt="IA para Farmacias y Cadenas Farmacéuticas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Farmacias y Cadenas Farmacéuticas en México</h3>
+          <p class="bc-desc">Cómo las farmacias mexicanas usan IA para inventario inteligente, atención farmacéutica virtual y marketing local que sí vende. Datos, ejemplos y pasos…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-spas-wellness-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-spas-wellness-mexico.webp" alt="IA para Spas y Centros de Wellness en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Spas y Centros de Wellness en México</h3>
+          <p class="bc-desc">Cómo spas y centros de bienestar en México usan IA para automatizar reservas, personalizar tratamientos y disparar ventas con marketing inteligente.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-gimnasios-fitness.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-gimnasios-fitness.webp" alt="IA para Gimnasios y Centros de Fitness en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Gimnasios y Centros de Fitness en México</h3>
+          <p class="bc-desc">Cómo los gimnasios mexicanos usan IA para retener socios, personalizar clases y automatizar marketing. Datos, ejemplos por sector y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-gimnasios-spas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-gimnasios-spas.webp" alt="IA para Gimnasios, Spas y Centros de Bienestar en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Gimnasios, Spas y Centros de Bienestar en México</h3>
+          <p class="bc-desc">Cómo los centros de bienestar usan IA para membresías, clases, retención de socios y marketing automatizado</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-salones-belleza-estetica.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-salones-belleza-estetica.webp" alt="IA para Salones de Belleza y Estéticas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Salud &amp; Bienestar</span>
+          <h3 class="bc-title">IA para Salones de Belleza y Estéticas en México</h3>
+          <p class="bc-desc">Cómo salones y estéticas mexicanas usan IA para reservas automáticas, recordatorios y marketing personalizado. Resultados reales, pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-legal-finanzas-seguros">
+      <div class="cat-head">
+        <h2 class="cat-title">Legal, Finanzas &amp; Seguros</h2>
+        <p class="cat-sub">Automatización para despachos, contadores, bancos, fintech y aseguradoras.</p>
+        <span class="cat-count">15 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-para-abogados-despachos-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-abogados-despachos-mexico.webp" alt="IA para Despachos de Abogados en México: Automatiza sin Perder el Control" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Despachos de Abogados en México: Automatiza sin Perder el Control</h3>
+          <p class="bc-desc">Cómo los despachos jurídicos mexicanos usan IA para contratos, expedientes y atención al cliente sin perder el control de su práctica legal.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-abogados-litigio.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-abogados-litigio.webp" alt="IA para Abogados Litigantes y Práctica Legal en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Abogados Litigantes y Práctica Legal en México</h3>
+          <p class="bc-desc">Cómo los abogados litigantes usan IA para investigación jurisprudencial, redacción de escritos y gestión de juicios</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-bufetes-juridicos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-bufetes-juridicos.webp" alt="IA para Bufetes Jurídicos y Despachos de Abogados en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Bufetes Jurídicos y Despachos de Abogados en México</h3>
+          <p class="bc-desc">Cómo los despachos legales mexicanos usan IA para contratos, investigación jurídica y gestión de casos</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-notarias-registro-publico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-notarias-registro-publico.webp" alt="IA para Notarías y Registro Público en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Notarías y Registro Público en México</h3>
+          <p class="bc-desc">Cómo las notarías mexicanas usan IA para gestión documental, atención a clientes y validación automática. Ejemplos por sector y datos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-despachos-contables.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-despachos-contables.webp" alt="IA para Despachos Contables en México: Cierra Más Rápido, Cobra Más" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Despachos Contables en México: Cierra Más Rápido, Cobra Más</h3>
+          <p class="bc-desc">Cómo los contadores públicos mexicanos usan IA para automatizar reportes, declaraciones y análisis financiero. Guía práctica por sector con resultados e…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-contadores-despachos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-contadores-despachos.webp" alt="IA para Contadores y Despachos Contables en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Contadores y Despachos Contables en México</h3>
+          <p class="bc-desc">Cómo los contadores mexicanos usan IA para declaraciones, conciliaciones, CFDI y asesoría fiscal automatizada</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/automatizar-facturacion-cfdi-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-facturacion-cfdi-ia.webp" alt="Automatizar Facturación CFDI con IA: El Fin del Trabajo Manual" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">Automatizar Facturación CFDI con IA: El Fin del Trabajo Manual</h3>
+          <p class="bc-desc">Cómo automatizar emisión de CFDI, conciliación y reportes fiscales con IA en PyMEs mexicanas. Ejemplos por sector, datos y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/automatizar-reportes-financieros-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-reportes-financieros-ia.webp" alt="Automatizar Reportes Financieros con IA: Del CFO al CEO en 5 Minutos" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">Automatizar Reportes Financieros con IA: Del CFO al CEO en 5 Minutos</h3>
+          <p class="bc-desc">Genera reportes P&amp;L, dashboards y análisis financieros automáticamente con IA. Guía práctica para CFOs y directivos de empresas medianas en México.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-asesores-financieros.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-asesores-financieros.webp" alt="IA para Asesores Financieros y Wealth Managers en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Asesores Financieros y Wealth Managers en México</h3>
+          <p class="bc-desc">Cómo los asesores financieros mexicanos usan IA para análisis de portafolio, compliance con CNBV y atención al cliente. Guía práctica con datos reales.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-bancos-fintech-mx.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-bancos-fintech-mx.webp" alt="IA en Fintech y Servicios Financieros Digitales en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA en Fintech y Servicios Financieros Digitales en México</h3>
+          <p class="bc-desc">Cómo las fintechs y servicios financieros digitales mexicanos usan IA para detectar fraude, evaluar riesgo y mejorar experiencia de usuario. Datos y eje…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-plataformas-credito.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-plataformas-credito.webp" alt="IA para Plataformas de Crédito y Fintech en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Plataformas de Crédito y Fintech en México</h3>
+          <p class="bc-desc">Cómo las fintech y plataformas de crédito usan IA para scoring, originación de créditos y prevención de fraude</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-corredores-bolsa.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-corredores-bolsa.webp" alt="IA para Corredores de Bolsa y Gestoras de Patrimonio en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Corredores de Bolsa y Gestoras de Patrimonio en México</h3>
+          <p class="bc-desc">Cómo los asesores financieros usan IA para análisis de cartera, alertas de mercado y comunicación con clientes</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-aseguradoras-seguros.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-aseguradoras-seguros.webp" alt="IA para Aseguradoras y Agentes de Seguros en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Aseguradoras y Agentes de Seguros en México</h3>
+          <p class="bc-desc">Cómo aseguradoras y agentes independientes en México usan IA para cotizaciones, siniestros y renovaciones automáticas. Datos, casos y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-seguros-vida-salud.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-seguros-vida-salud.webp" alt="IA para Agentes de Seguros de Vida y Salud en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">IA para Agentes de Seguros de Vida y Salud en México</h3>
+          <p class="bc-desc">Cómo los agentes de seguros de vida en México usan IA para prospectar, cotizar, dar seguimiento y renovar pólizas. Resultados reales, pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/automatizar-cobranza-cuentas-por-cobrar.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-cobranza-cuentas-por-cobrar.webp" alt="Automatizar Cobranza con IA: Reduce Cartera Vencida 60%" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Legal, Finanzas &amp; Seguros</span>
+          <h3 class="bc-title">Automatizar Cobranza con IA: Reduce Cartera Vencida 60%</h3>
+          <p class="bc-desc">Cómo la IA automatiza seguimiento de cuentas por cobrar, recordatorios y negociación de pagos en México. Reduce cartera vencida hasta 60%.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-hoteler-a-turismo">
+      <div class="cat-head">
+        <h2 class="cat-title">Hotelería &amp; Turismo</h2>
+        <p class="cat-sub">IA para hoteles, agencias de viajes, eventos y restaurantes.</p>
+        <span class="cat-count">9 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-hoteles-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-hoteles-mexico.webp" alt="IA en Hoteles Mexicanos: Del Revenue Management a la Experiencia Total del Huésped" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA en Hoteles Mexicanos: Del Revenue Management a la Experiencia Total del Huésped</h3>
+          <p class="bc-desc">Descubre cómo la inteligencia artificial está transformando la hotelería en México y el Caribe: revenue management dinámico, personalización y más.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-hoteles-boutique-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-hoteles-boutique-mexico.webp" alt="IA para Hoteles Boutique: Personalización que Compite con Grandes Cadenas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Hoteles Boutique: Personalización que Compite con Grandes Cadenas</h3>
+          <p class="bc-desc">Cómo los hoteles boutique mexicanos usan IA para personalizar experiencias y competir con Hyatt y Marriott sin su presupuesto.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-hoteles-cancun-riviera-maya.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-hoteles-cancun-riviera-maya.webp" alt="IA para Hoteles en Cancún y la Riviera Maya: Guía 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Hoteles en Cancún y la Riviera Maya: Guía 2026</h3>
+          <p class="bc-desc">Cómo los hoteles de Cancún, Playa del Carmen y Tulum usan inteligencia artificial para reservas, atención al huésped 24/7, revenue management y reputaci…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-sector-turismo-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-sector-turismo-mexico.webp" alt="IA en el Sector Turismo de México: Cómo el Caribe Mexicano Está Liderando la Revolución" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA en el Sector Turismo de México: Cómo el Caribe Mexicano Está Liderando la Revolución</h3>
+          <p class="bc-desc">Cancún, Riviera Maya y Los Cabos están transformando la experiencia del viajero con inteligencia artificial. Descubre cómo la IA está redefiniendo el tu…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-viajes-agencias-turismo.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-viajes-agencias-turismo.webp" alt="IA para Agencias de Viajes en México: Cotiza, Vende y Fideliza Automáticamente" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Agencias de Viajes en México: Cotiza, Vende y Fideliza Automáticamente</h3>
+          <p class="bc-desc">Cómo las agencias de viajes mexicanas usan IA para cotizaciones instantáneas, seguimiento automatizado y recomendaciones personalizadas que disparan ven…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-agencias-viajes-paquetes.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-agencias-viajes-paquetes.webp" alt="IA para Agencias de Viajes: Arma Paquetes en Segundos y Vende 24/7" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Agencias de Viajes: Arma Paquetes en Segundos y Vende 24/7</h3>
+          <p class="bc-desc">Cómo las agencias de viajes mexicanas usan IA para armar cotizaciones personalizadas y cerrar ventas automáticamente. Guía práctica con ejemplos por sec…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-eventos-empresariales.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-eventos-empresariales.webp" alt="IA para Organización de Eventos Empresariales en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Organización de Eventos Empresariales en México</h3>
+          <p class="bc-desc">Cómo los organizadores de eventos en México usan IA para registro, logística, comunicación y seguimiento post-evento. Ejemplos por sector y datos concre…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-eventos-bodas-catering.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-eventos-bodas-catering.webp" alt="IA para Empresas de Eventos, Bodas y Catering en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Empresas de Eventos, Bodas y Catering en México</h3>
+          <p class="bc-desc">Cómo los organizadores de eventos usan IA para cotizaciones, proveedores, coordinación y marketing de bodas</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-restaurantes-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-restaurantes-mexico.webp" alt="IA para Restaurantes en México: Más Mesas, Menos Desperdicio" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Hotelería &amp; Turismo</span>
+          <h3 class="bc-title">IA para Restaurantes en México: Más Mesas, Menos Desperdicio</h3>
+          <p class="bc-desc">Cómo los restaurantes mexicanos usan IA para reservas, inventario y marketing automatizado. Datos reales, casos PyME y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-retail-log-stica-manufactura">
+      <div class="cat-head">
+        <h2 class="cat-title">Retail, Logística &amp; Manufactura</h2>
+        <p class="cat-sub">Predicción de demanda, inventario, cadena de suministro y planta.</p>
+        <span class="cat-count">15 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-pymes-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-pymes-mexico.webp" alt="IA para PYMEs Mexicanas: Cómo Competir con las Grandes Empresas en 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para PYMEs Mexicanas: Cómo Competir con las Grandes Empresas en 2026</h3>
+          <p class="bc-desc">Guía práctica de inteligencia artificial para PYMEs mexicanas. Los 5 procesos que debes automatizar primero, costos reales y ROI 4.1× en 6 meses.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/automatizar-inventario-ia-retail.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-inventario-ia-retail.webp" alt="Automatizar Inventario con IA en Retail Mexicano" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">Automatizar Inventario con IA en Retail Mexicano</h3>
+          <p class="bc-desc">Cómo el retail mexicano usa IA para predicción de demanda, reordenes automáticos y reducción de merma. Ejemplos por sector, datos y guía práctica.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-prediccion-demanda-retail.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-prediccion-demanda-retail.webp" alt="Predicción de Demanda con IA: Nunca Más Stockouts ni Sobreinventario" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">Predicción de Demanda con IA: Nunca Más Stockouts ni Sobreinventario</h3>
+          <p class="bc-desc">La IA predice qué vas a vender esta semana con 94% de precisión. Optimiza tu inventario automáticamente y elimina stockouts en tu PyME mexicana.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-tiendas-fisicas-retail.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-tiendas-fisicas-retail.webp" alt="IA para Tiendas Físicas de Retail en México: Más Ventas, Menos Pérdidas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Tiendas Físicas de Retail en México: Más Ventas, Menos Pérdidas</h3>
+          <p class="bc-desc">Cómo las tiendas físicas mexicanas usan IA para análisis de tráfico, inventario inteligente y experiencia del cliente. Ejemplos por sector y datos concr…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-ecommerce-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-ecommerce-mexico.webp" alt="IA para E-commerce Mexicano: Más Ventas, Menos Abandono" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para E-commerce Mexicano: Más Ventas, Menos Abandono</h3>
+          <p class="bc-desc">Cómo las tiendas online mexicanas usan IA para personalización, recuperación de carritos y atención automática. Datos reales, casos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-marketplaces-plataformas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-marketplaces-plataformas.webp" alt="IA para Marketplaces y Plataformas Digitales en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Marketplaces y Plataformas Digitales en México</h3>
+          <p class="bc-desc">Cómo los marketplaces mexicanos usan IA para matching, detección de fraude y personalización. Datos, ejemplos por sector y estrategias aplicables hoy.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-logistica-cadena-suministro.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-logistica-cadena-suministro.webp" alt="IA en Logística y Cadena de Suministro: Guía para Empresas Mexicanas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA en Logística y Cadena de Suministro: Guía para Empresas Mexicanas</h3>
+          <p class="bc-desc">Cómo empresas de logística mexicanas reducen costos con IA: rutas óptimas, predicción de demanda y automatización de almacén. Guía práctica 2026.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-empresas-transporte.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-empresas-transporte.webp" alt="IA para Empresas de Transporte y Logística en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Empresas de Transporte y Logística en México</h3>
+          <p class="bc-desc">Cómo transportistas y operadores logísticos usan IA para rutas, rastreo y reducción de costos operativos</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-delivery-ultima-milla.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-delivery-ultima-milla.webp" alt="IA para Delivery y Logística de Última Milla en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Delivery y Logística de Última Milla en México</h3>
+          <p class="bc-desc">Cómo los servicios de delivery y última milla en México optimizan rutas, reducen tiempos de entrega y mejoran la satisfacción del cliente con inteligenc…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-bodegas-almacenes.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-bodegas-almacenes.webp" alt="IA para Bodegas y Almacenes en México: Menos Errores, Más Velocidad" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Bodegas y Almacenes en México: Menos Errores, Más Velocidad</h3>
+          <p class="bc-desc">Cómo bodegas y almacenes mexicanos usan IA para picking, inventario y optimización de espacio. Datos reales, ejemplos PyME y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-distribuidoras-alimentos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-distribuidoras-alimentos.webp" alt="IA para Distribuidoras de Alimentos y Bebidas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Distribuidoras de Alimentos y Bebidas en México</h3>
+          <p class="bc-desc">Cómo las distribuidoras de alimentos en México optimizan rutas, predicen demanda y reducen merma hasta 34% con inteligencia artificial. Guía práctica.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-mayoristas-distribuidores.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-mayoristas-distribuidores.webp" alt="IA para Mayoristas y Distribuidores en México: Escala tu Red" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Mayoristas y Distribuidores en México: Escala tu Red</h3>
+          <p class="bc-desc">Cómo los mayoristas y distribuidores mexicanos usan IA para gestión de pedidos, crédito y red de distribución. Ejemplos por sector y datos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-manufactura-mediana-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-manufactura-mediana-mexico.webp" alt="IA en Manufactura Mediana Mexicana: Control de Calidad y Eficiencia" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA en Manufactura Mediana Mexicana: Control de Calidad y Eficiencia</h3>
+          <p class="bc-desc">Cómo plantas industriales medianas en México usan IA para control de calidad, mantenimiento predictivo y optimización de líneas. Datos, casos y herramie…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-manufactura-industrial.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-manufactura-industrial.webp" alt="IA para Manufactura e Industria en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA para Manufactura e Industria en México</h3>
+          <p class="bc-desc">Cómo las plantas manufactureras mexicanas usan IA para control de calidad, mantenimiento predictivo y eficiencia</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-auto-partes-industria.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-auto-partes-industria.webp" alt="IA en la Industria de Auto Partes y Manufactura Automotriz México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Retail, Logística &amp; Manufactura</span>
+          <h3 class="bc-title">IA en la Industria de Auto Partes y Manufactura Automotriz México</h3>
+          <p class="bc-desc">Cómo las empresas del sector automotriz mexicano usan IA para control de calidad, logística y operaciones. Casos reales, datos y resultados.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-inmobiliario-construcci-n-energ-a">
+      <div class="cat-head">
+        <h2 class="cat-title">Inmobiliario, Construcción &amp; Energía</h2>
+        <p class="cat-sub">IA para inmobiliarias, constructoras, arquitectos y monitoreo IoT.</p>
+        <span class="cat-count">8 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-para-inmobiliarias-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-inmobiliarias-mexico.webp" alt="IA para Inmobiliarias en México: Más Cierres, Menos Tiempo" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">IA para Inmobiliarias en México: Más Cierres, Menos Tiempo</h3>
+          <p class="bc-desc">Cómo las inmobiliarias mexicanas usan IA para calificar prospectos, dar seguimiento automático y cerrar más ventas en menos tiempo. Datos y ejemplos por…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-constructoras-obra.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-constructoras-obra.webp" alt="IA en Construcción y Obra Inmobiliaria en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">IA en Construcción y Obra Inmobiliaria en México</h3>
+          <p class="bc-desc">Cómo las constructoras mexicanas usan IA para presupuestos, control de obra, gestión de proveedores y ventas. Ejemplos por sector y datos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-administracion-propiedades.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-administracion-propiedades.webp" alt="IA para Administración de Propiedades y Condominios en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">IA para Administración de Propiedades y Condominios en México</h3>
+          <p class="bc-desc">Cómo administradores de propiedades y condominios en México usan IA para cobranza, mantenimiento y comunicación con residentes. Casos reales y ROI compr…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-arquitectos-diseno.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-arquitectos-diseno.webp" alt="IA para Arquitectos y Despachos de Diseño en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">IA para Arquitectos y Despachos de Diseño en México</h3>
+          <p class="bc-desc">Cómo los despachos de arquitectura y diseño en México usan IA para propuestas, renderizado y gestión de proyectos. Ejemplos por sector y herramientas co…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-despachos-arquitectura.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-despachos-arquitectura.webp" alt="IA para Despachos de Arquitectura y Diseño en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">IA para Despachos de Arquitectura y Diseño en México</h3>
+          <p class="bc-desc">Cómo los arquitectos y diseñadores mexicanos usan IA para renders, presupuestos, coordinación y propuestas</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-sector-energia-mx.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-sector-energia-mx.webp" alt="IA en el Sector Energético Mexicano: Eficiencia y Predicción" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">IA en el Sector Energético Mexicano: Eficiencia y Predicción</h3>
+          <p class="bc-desc">Cómo las empresas del sector energético mexicano usan IA para predicción de demanda, mantenimiento predictivo y optimización de redes. Datos y ejemplos…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/monitoreo-edificios-iot-ia.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/monitoreo-edificios-iot-ia.webp" alt="Monitoreo Inteligente de Edificios con IoT e IA: Eficiencia Total y Cero Sorpresas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">Monitoreo Inteligente de Edificios con IoT e IA: Eficiencia Total y Cero Sorpresas</h3>
+          <p class="bc-desc">En 2026, los edificios inteligentes con IoT e IA ahorran hasta 23% en energía, reducen fallas no planeadas un 68% y logran ROI de 4.1× en 2 años. Descub…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/telemetria-iot-flotillas-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/telemetria-iot-flotillas-mexico.webp" alt="Telemetría IoT para Flotillas en México: Reducción de Costos del 30% en 6 Meses" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Inmobiliario, Construcción &amp; Energía</span>
+          <h3 class="bc-title">Telemetría IoT para Flotillas en México: Reducción de Costos del 30% en 6 Meses</h3>
+          <p class="bc-desc">Cómo la telemetría IoT e IA reduce costos de flotillas en México: 23% ahorro en combustible, 68% menos incidentes, ROI 4.1× en 6 meses. Guía práctica de…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-educaci-n-rr-hh-tecnolog-a">
+      <div class="cat-head">
+        <h2 class="cat-title">Educación, RR.HH. &amp; Tecnología</h2>
+        <p class="cat-sub">IA para escuelas, reclutamiento, atención al cliente y startups.</p>
+        <span class="cat-count">17 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-para-escuelas-academias-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-escuelas-academias-mexico.webp" alt="IA para Escuelas y Academias Privadas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Escuelas y Academias Privadas en México</h3>
+          <p class="bc-desc">Cómo las academias mexicanas usan IA para automatizar inscripciones, dar seguimiento a alumnos y ejecutar marketing sin contratar más personal.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-colegios-privados-mx.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-colegios-privados-mx.webp" alt="IA para Colegios Privados en México: Más Inscritos, Mejor Experiencia" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Colegios Privados en México: Más Inscritos, Mejor Experiencia</h3>
+          <p class="bc-desc">Cómo los colegios privados mexicanos usan IA para captación, comunicación con padres y gestión académica. Datos, ejemplos y guía práctica.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-escuelas-instituciones.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-escuelas-instituciones.webp" alt="IA para Escuelas e Instituciones Educativas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Escuelas e Instituciones Educativas en México</h3>
+          <p class="bc-desc">Cómo las instituciones educativas mexicanas usan IA para admisiones, tutoría personalizada y administración</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-educacion-ejecutiva-MBA.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-educacion-ejecutiva-MBA.webp" alt="IA para Programas de Educación Ejecutiva y MBA en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Programas de Educación Ejecutiva y MBA en México</h3>
+          <p class="bc-desc">Cómo las escuelas de negocios y programas ejecutivos en México usan IA para captación, engagement y mejores resultados de aprendizaje. Datos y ejemplos…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-academias-idiomas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-academias-idiomas.webp" alt="IA para Academias de Idiomas en México: Más Alumnos, Menos Operación" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Academias de Idiomas en México: Más Alumnos, Menos Operación</h3>
+          <p class="bc-desc">Cómo las academias de idiomas en México usan IA para automatizar inscripciones, seguimiento de progreso y marketing. Guía práctica con datos reales.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/automatizar-reclutamiento-ia-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/automatizar-reclutamiento-ia-mexico.webp" alt="Automatizar Reclutamiento con IA: Contrata 3× Más Rápido" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">Automatizar Reclutamiento con IA: Contrata 3× Más Rápido</h3>
+          <p class="bc-desc">Cómo las PyMEs mexicanas usan IA para screening, entrevistas iniciales y onboarding automático. Contrata 3 veces más rápido con menos costo.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-rrhh-recursos-humanos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-rrhh-recursos-humanos.webp" alt="IA para Recursos Humanos en Empresas Mexicanas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Recursos Humanos en Empresas Mexicanas</h3>
+          <p class="bc-desc">Cómo los departamentos de RH usan IA para reclutamiento, onboarding, evaluaciones y retención de talento</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-reclutas-headhunters.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-reclutas-headhunters.webp" alt="IA para Headhunters y Reclutadoras Especializadas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Headhunters y Reclutadoras Especializadas en México</h3>
+          <p class="bc-desc">Cómo las firmas de headhunting en México usan IA para búsqueda de talento ejecutivo, screening automatizado y mejor candidate experience.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-reclutas-tech-it.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-reclutas-tech-it.webp" alt="IA para Reclutamiento Tech: Cómo Contratar Talento Escaso Más Rápido" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Reclutamiento Tech: Cómo Contratar Talento Escaso Más Rápido</h3>
+          <p class="bc-desc">Cómo las empresas tech mexicanas usan IA para evaluar candidatos técnicos y reducir time-to-hire en hasta 60%. Guía práctica con datos reales de México.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/agente-ia-onboarding-clientes.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/agente-ia-onboarding-clientes.webp" alt="Agente IA para Onboarding de Clientes: De Lead a Cliente en 24 Horas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">Agente IA para Onboarding de Clientes: De Lead a Cliente en 24 Horas</h3>
+          <p class="bc-desc">Automatiza el onboarding de clientes con IA: bienvenida, verificación y activación en menos de 24 horas. Casos reales de PyMEs mexicanas que ya lo hacen.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/agente-ia-servicio-cliente-24-7.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/agente-ia-servicio-cliente-24-7.webp" alt="Agente de IA para Servicio al Cliente 24/7: Implementación Paso a Paso" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">Agente de IA para Servicio al Cliente 24/7: Implementación Paso a Paso</h3>
+          <p class="bc-desc">Implementa un agente de IA que atiende clientes 365 días sin vacaciones ni rotación. Guía paso a paso para PyMEs mexicanas con costos, herramientas y re…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-customer-success-retencion.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-customer-success-retencion.webp" alt="IA para Customer Success y Retención de Clientes: Cero Churns" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Customer Success y Retención de Clientes: Cero Churns</h3>
+          <p class="bc-desc">Cómo usar IA para predecir qué clientes van a cancelar, intervenir antes y mejorar la retención automáticamente en empresas mexicanas.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/chatbot-whatsapp-empresas-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/chatbot-whatsapp-empresas-mexico.webp" alt="Chatbot de WhatsApp para Empresas Mexicanas: Guía Completa 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">Chatbot de WhatsApp para Empresas Mexicanas: Guía Completa 2026</h3>
+          <p class="bc-desc">Cómo implementar un chatbot de WhatsApp que responde clientes, cierra ventas y agenda citas automáticamente en tu empresa mexicana.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/voice-ai-atencion-clientes-espanol.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/voice-ai-atencion-clientes-espanol.webp" alt="IA de Voz para Atención al Cliente en Español: Implementación 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA de Voz para Atención al Cliente en Español: Implementación 2026</h3>
+          <p class="bc-desc">Cómo implementar agentes de voz IA en español que atienden llamadas, agendan citas y resuelven problemas automáticamente en PyMEs mexicanas.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-startups-mexico-2026.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-startups-mexico-2026.webp" alt="IA para Startups Mexicanas en 2026: Ventaja Injusta desde Día 1" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Startups Mexicanas en 2026: Ventaja Injusta desde Día 1</h3>
+          <p class="bc-desc">Cómo las startups mexicanas implementan IA desde el principio para crecer 5× más rápido con el mismo equipo. Ejemplos por sector, datos y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-laboratorios-quimicos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-laboratorios-quimicos.webp" alt="IA para Laboratorios y Empresas del Sector Químico en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA para Laboratorios y Empresas del Sector Químico en México</h3>
+          <p class="bc-desc">Cómo los laboratorios y empresas químicas en México pueden usar IA para control de calidad, formulación y cumplimiento normativo. Ejemplos por sector.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-sector-publico-gobierno.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-sector-publico-gobierno.webp" alt="IA en el Sector Público y Gobierno Municipal en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Educación, RR.HH. &amp; Tecnología</span>
+          <h3 class="bc-title">IA en el Sector Público y Gobierno Municipal en México</h3>
+          <p class="bc-desc">Cómo gobiernos municipales y estatales mexicanos usan IA para trámites, atención ciudadana y eficiencia. Ejemplos por sector, datos y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-otros-verticales">
+      <div class="cat-head">
+        <h2 class="cat-title">Otros Verticales</h2>
+        <p class="cat-sub">Veterinarias, talleres, automotriz, agrotech, moda, medios y más.</p>
+        <span class="cat-count">15 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-para-veterinarias-mascotas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-veterinarias-mascotas.webp" alt="IA para Veterinarias y Clínicas de Mascotas en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Veterinarias y Clínicas de Mascotas en México</h3>
+          <p class="bc-desc">Cómo las clínicas veterinarias mexicanas usan IA para citas, seguimiento médico y marketing con dueños de mascotas. Ejemplos por sector y datos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-talleres-mecanicos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-talleres-mecanicos.webp" alt="IA para Talleres Mecánicos y Refaccionarias en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Talleres Mecánicos y Refaccionarias en México</h3>
+          <p class="bc-desc">Cómo los talleres mexicanos usan IA para diagnóstico automático, cotizaciones y gestión de inventario de refacciones. Ejemplos por sector y datos concre…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-concesionarias-autos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-concesionarias-autos.webp" alt="IA para Concesionarias de Autos en México: Cierra Más, Prospecta Mejor" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Concesionarias de Autos en México: Cierra Más, Prospecta Mejor</h3>
+          <p class="bc-desc">Cómo las concesionarias automotrices mexicanas usan IA para calificar leads, dar seguimiento y cerrar ventas más rápido. Guía práctica por sector.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-sector-automotriz.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-sector-automotriz.webp" alt="IA para el Sector Automotriz y Distribuidoras de Autos en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para el Sector Automotriz y Distribuidoras de Autos en México</h3>
+          <p class="bc-desc">Cómo las distribuidoras de autos y talleres automotrices usan IA para ventas, servicio y marketing personalizado</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-agrotech-campo-mexico.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-agrotech-campo-mexico.webp" alt="IA en el Campo Mexicano: Agricultura de Precisión para PyMEs Agrícolas" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA en el Campo Mexicano: Agricultura de Precisión para PyMEs Agrícolas</h3>
+          <p class="bc-desc">Cómo productores agrícolas medianos en México usan IA para mejorar rendimiento, detectar plagas y optimizar logística de exportación. Ejemplos por sector.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-productores-agricolas.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-productores-agricolas.webp" alt="IA para Productores Agrícolas y Agroindustria en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Productores Agrícolas y Agroindustria en México</h3>
+          <p class="bc-desc">Cómo los productores del campo mexicano usan IA para riego inteligente, predicción de cosechas y comercialización</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-moda-textil-confeccion.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-moda-textil-confeccion.webp" alt="IA para la Industria de Moda y Textil en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para la Industria de Moda y Textil en México</h3>
+          <p class="bc-desc">Cómo marcas de moda y empresas textiles mexicanas usan IA para diseño, producción, inventario y ventas. Ejemplos por sector, datos y pasos concretos.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-productoras-medios.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-productoras-medios.webp" alt="IA para Productoras de Contenido y Medios de Comunicación México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Productoras de Contenido y Medios de Comunicación México</h3>
+          <p class="bc-desc">Cómo productoras y medios mexicanos usan IA para research, guiones, edición y distribución automática. Datos reales, ejemplos concretos y pasos de imple…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-periodismo-prensa-mx.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-periodismo-prensa-mx.webp" alt="IA para Periodistas y Medios Digitales en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Periodistas y Medios Digitales en México</h3>
+          <p class="bc-desc">Cómo el periodismo digital mexicano usa IA para research, fact-checking, redacción y distribución. Datos, herramientas y ejemplos por sector para medios…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-empresas-seguridad-privada.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-empresas-seguridad-privada.webp" alt="IA para Empresas de Seguridad Privada en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Empresas de Seguridad Privada en México</h3>
+          <p class="bc-desc">Cómo las empresas de seguridad usan IA para monitoreo inteligente, despacho de unidades y gestión de clientes</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-empresas-limpieza.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-empresas-limpieza.webp" alt="IA para Empresas de Limpieza y Mantenimiento Corporativo" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Empresas de Limpieza y Mantenimiento Corporativo</h3>
+          <p class="bc-desc">Cómo las empresas de limpieza usan IA para cotizaciones, gestión de personal, rutas y satisfacción del cliente</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-servicios-tecnicos.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-servicios-tecnicos.webp" alt="IA para Empresas de Servicios Técnicos y Mantenimiento" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Empresas de Servicios Técnicos y Mantenimiento</h3>
+          <p class="bc-desc">Cómo las empresas de servicios técnicos en México usan IA para agendas, cotizaciones y seguimiento de órdenes de trabajo. Guía práctica con datos reales.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-consultores-independientes.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-consultores-independientes.webp" alt="IA para Consultores Independientes en México: Multiplica tu Capacidad" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Consultores Independientes en México: Multiplica tu Capacidad</h3>
+          <p class="bc-desc">Cómo los consultores freelance y agencias pequeñas en México usan IA para atender más clientes sin trabajar más horas. Guía práctica con datos reales.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-transporte-publico-movilidad.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-transporte-publico-movilidad.webp" alt="IA en Transporte y Movilidad Urbana México 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA en Transporte y Movilidad Urbana México 2026</h3>
+          <p class="bc-desc">Operadores de transporte en México usan IA para optimizar rutas, predecir demanda y reducir accidentes. Ejemplos por sector, datos duros y guía práctica…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-para-organizaciones-sin-fines-lucro.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-para-organizaciones-sin-fines-lucro.webp" alt="IA para Organizaciones sin Fines de Lucro en México" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Otros Verticales</span>
+          <h3 class="bc-title">IA para Organizaciones sin Fines de Lucro en México</h3>
+          <p class="bc-desc">Cómo ONG y fundaciones mexicanas usan IA para recaudación, gestión de voluntarios y operaciones más eficientes. Casos reales y estrategias aplicables.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+    <section class="cat-block rv" id="cat-noticias-res-menes">
+      <div class="cat-head">
+        <h2 class="cat-title">Noticias &amp; Resúmenes</h2>
+        <p class="cat-sub">Digests semanales y noticias del ecosistema de IA en 2026.</p>
+        <span class="cat-count">5 artículos</span>
+      </div>
+      <div class="bc-grid">
+      <a class="bc" href="/blog/ia-news-2026-05-28.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-news-2026-05-28.webp" alt="IA Today 2026-05-28: Los 5 avances de Inteligencia Artificial más importantes" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Noticias &amp; Resúmenes</span>
+          <h3 class="bc-title">IA Today 2026-05-28: Los 5 avances de Inteligencia Artificial más importantes</h3>
+          <p class="bc-desc">Resumen diario de los avances más relevantes en inteligencia artificial para empresas — 28 de May de 2026. Por Victor IA.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-news-2026-05-30.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-news-2026-05-30.webp" alt="IA Today 2026-05-30: Los 5 avances de Inteligencia Artificial más importantes" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Noticias &amp; Resúmenes</span>
+          <h3 class="bc-title">IA Today 2026-05-30: Los 5 avances de Inteligencia Artificial más importantes</h3>
+          <p class="bc-desc">Resumen diario de los avances más relevantes en inteligencia artificial para empresas — 30 de May de 2026. Por Victor IA.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-news-2026-05-31.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-news-2026-05-31.webp" alt="IA Hoy 31/05: Agentes en producción, Alpura adopta Gemini y la brecha México–OCDE" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Noticias &amp; Resúmenes</span>
+          <h3 class="bc-title">IA Hoy 31/05: Agentes en producción, Alpura adopta Gemini y la brecha México–OCDE</h3>
+          <p class="bc-desc">Las 5 noticias de inteligencia artificial más relevantes para empresas en México y LatAm este domingo 31 de mayo de 2026.</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/ia-news-2026-06-01.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/ia-news-2026-06-01.webp" alt="IA Hoy 01/06: Google I/O Gemini, Oracle elimina 30k empleos y DeepSeek baja 75%" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Noticias &amp; Resúmenes</span>
+          <h3 class="bc-title">IA Hoy 01/06: Google I/O Gemini, Oracle elimina 30k empleos y DeepSeek baja 75%</h3>
+          <p class="bc-desc">Las 5 noticias de inteligencia artificial más relevantes para empresas en México este lunes 1 de junio de 2026: Google I/O, Oracle, DeepSeek, Anthropic…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="bc" href="/blog/resumen-ia-semana-mayo-2026.html">
+        <div class="bc-thumb"><img class="bc-img" src="/blog/covers/resumen-ia-semana-mayo-2026.webp" alt="Resumen IA: Las 10 Noticias que Movieron el Mundo Empresarial la Semana del 25 al 31 de Mayo 2026" loading="lazy" width="640" height="360"/></div>
+        <div class="bc-body">
+          <span class="bc-cat">Noticias &amp; Resúmenes</span>
+          <h3 class="bc-title">Resumen IA: Las 10 Noticias que Movieron el Mundo Empresarial la Semana del 25 al 31 de Mayo 2026</h3>
+          <p class="bc-desc">El resumen semanal de inteligencia artificial para empresas: Google I/O, Oracle, DeepSeek, Anthropic, Capgemini, la brecha IA en México y más — todo lo…</p>
+          <span class="bc-more">Leer artículo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      </div>
+    </section>
+
+</main>
+
+<section class="cta wrap">
+  <h2>Deja de leer sobre IA.<br/><em>Empieza a usarla.</em></h2>
+  <p>Agenda una videollamada y descubre qué agentes de IA pueden trabajar por tu empresa desde hoy.</p>
+  <a class="btn-p" href="/agendar-videollamada.html" style="padding:14px 30px;font-size:14px">Agendar videollamada</a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <a class="brand" href="/"><span class="dot">V</span> Victor <span style="font-style:italic">IA</span></a>
+        <p>Agentes de inteligencia artificial que trabajan por tu empresa. Automatización, atención y análisis 24/7 para México y LATAM.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Producto</h4>
+        <a href="/agentes.html">Agentes</a>
+        <a href="/como-funciona.html">Cómo Funciona</a>
+        <a href="/precios.html">Precios</a>
+        <a href="/telemetria.html">Eficiencia IoT</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="ft-col">
+        <h4>Empresa</h4>
+        <a href="/agendar-videollamada.html">Contacto</a>
+        <a href="/aviso-privacidad.html">Aviso de Privacidad</a>
+        <a href="/terminos-condiciones.html">Términos</a>
+        <a href="/politica-cookies.html">Cookies</a>
+      </div>
+      <div class="ft-col">
+        <h4>Ubicaciones</h4>
+        <p class="ft-loc">Ciudad de México</p>
+        <p class="ft-loc">Cancún · Riviera Maya</p>
+        <p class="ft-loc">Mérida, Yucatán</p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 INFLUENCE IA S.A. DE C.V. · Todos los derechos reservados.</span>
+      <div class="ft-social">
+        <a href="https://www.linkedin.com/company/victor-ia" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://www.instagram.com/victor.ia" aria-label="Instagram">Instagram</a>
+        <a href="https://x.com/victor_ia" aria-label="X">X</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){{
+  // Header scroll state
+  var hdr=document.getElementById('hdr');
+  function onScroll(){{ if(window.scrollY>20) hdr.classList.add('scrolled'); else hdr.classList.remove('scrolled'); }}
+  window.addEventListener('scroll',onScroll,{{passive:true}}); onScroll();
+
+  // Mobile menu
+  var burger=document.getElementById('burger'), mm=document.getElementById('mobileMenu');
+  burger.addEventListener('click',function(){{ mm.classList.toggle('open'); }});
+  mm.querySelectorAll('a').forEach(function(a){{ a.addEventListener('click',function(){{ mm.classList.remove('open'); }}); }});
+
+  // Spotlight marble follow + fade-out
+  var sm=document.getElementById('spotlight-marble');
+  var raf=null, tx=-500, ty=-500, cx=-500, cy=-500, hideT=null;
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){{
+    document.addEventListener('mousemove',function(e){{
+      tx=e.clientX; ty=e.clientY;
+      sm.classList.add('on');
+      if(hideT) clearTimeout(hideT);
+      hideT=setTimeout(function(){{ sm.classList.remove('on'); }}, 120);
+      if(!raf) raf=requestAnimationFrame(loop);
+    }},{{passive:true}});
+    document.addEventListener('mouseleave',function(){{ sm.classList.remove('on'); }});
+  }}
+  function loop(){{
+    cx+=(tx-cx)*0.18; cy+=(ty-cy)*0.18;
+    sm.style.setProperty('--mx', cx+'px');
+    sm.style.setProperty('--my', cy+'px');
+    if(Math.abs(tx-cx)>0.5||Math.abs(ty-cy)>0.5){{ raf=requestAnimationFrame(loop); }} else {{ raf=null; }}
+  }}
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(es){{
+    es.forEach(function(en){{ if(en.isIntersecting){{ en.target.classList.add('on'); io.unobserve(en.target); }} }});
+  }},{{threshold:.08,rootMargin:'0px 0px -40px 0px'}});
+  document.querySelectorAll('.rv').forEach(function(el){{ io.observe(el); }});
+}})();
+</script>
+</body>
+</html>

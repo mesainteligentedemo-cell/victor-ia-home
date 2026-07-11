@@ -1,0 +1,216 @@
+<section class="blog-section">
+<h2>Cuánto cuesta realmente escalar: el desglose que nadie te da antes de empezar</h2>
+
+<p>Casi todas las empresas que corren un piloto de IA calculan bien el costo del piloto y calculan mal —o de plano no calculan— el costo de lo que viene después. Es una trampa fácil de caer: el piloto suele correr con horas de un equipo que ya tenías, con una versión gratuita o con descuento de la herramienta, y con un alcance tan acotado que el gasto real queda escondido. Cuando decides escalar, aparecen partidas que nadie mencionó en la junta donde se aprobó el piloto: infraestructura que soporte más volumen, integración con los sistemas que ya usa tu empresa, ajuste fino del modelo o de los prompts para casos reales (no los casos de prueba que elegiste para lucir bien), capacitación de equipos completos en vez de dos o tres usuarios entusiastas, gobierno de datos, y monitoreo continuo que alguien tiene que hacer todos los días.</p>
+
+<p>Conviene separar el presupuesto en dos bloques: la inversión inicial de puesta en producción (un gasto que se paga una vez) y el costo recurrente mensual de operar el sistema ya escalado. Mezclar ambos es la razón por la que tantos proyectos de IA se quedan sin presupuesto a mitad del camino: el director de finanzas aprobó un número que solo cubría el arranque, no la operación sostenida.</p>
+
+<p>Como referencia prudente —y aquí la palabra clave es <em>prudente</em>, porque cada industria y cada proceso cambian el número final— una PyME mexicana que escala un piloto de atención al cliente con IA generativa, por ejemplo, suele requerir entre $50,000 y $180,000 MXN para la fase de puesta en producción (integración con el CRM, ajustes de flujo, pruebas de carga, capacitación), más una cuota mensual de entre $8,000 y $35,000 MXN que cubre licencias, cómputo y soporte. Una empresa mediana que escala un piloto más complejo —por ejemplo, clasificación automática de documentos o un asistente interno conectado a varios sistemas— puede moverse en un rango de $180,000 a $600,000 MXN de inversión inicial, con costos mensuales de $25,000 a $90,000 MXN dependiendo del volumen de transacciones. Son rangos de referencia, no cotizaciones: el número real depende de cuántos sistemas hay que tocar, cuántos usuarios habrá y qué tan crítico es el proceso.</p>
+
+<p>Hay costos ocultos que casi nunca entran en la primera estimación. El más común es el retrabajo: si el piloto se construyó con atajos (datos de prueba cargados a mano, un flujo que solo funciona para un tipo de cliente, integraciones simuladas), escalarlo no es "encender el interruptor para todos", es reconstruir buena parte de lo que ya se había hecho, pero ahora con los estándares de un sistema en producción. Otro costo oculto es la migración de datos históricos hacia el formato que el sistema en producción necesita, algo que en el piloto casi nunca se hizo porque se trabajó con una muestra pequeña. Y un tercero, casi siempre subestimado, es la capacitación repetida: la que se hizo para el equipo del piloto no sirve para el resto de la organización, que necesita su propio proceso de adopción.</p>
+
+<p>La siguiente tabla resume cómo cambian las categorías de costo entre la fase de piloto y la fase de producción, con montos de referencia para una empresa mexicana de tamaño pyme o mediana:</p>
+
+<table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Fase piloto (costo único)</th>
+<th>Fase producción (costo único)</th>
+<th>Costo mensual recurrente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Infraestructura y cómputo</td>
+<td>$0 – $15,000 MXN</td>
+<td>$20,000 – $120,000 MXN</td>
+<td>$5,000 – $40,000 MXN</td>
+</tr>
+<tr>
+<td>Integración con ERP/CRM existentes</td>
+<td>Simulada o parcial</td>
+<td>$40,000 – $250,000 MXN</td>
+<td>$2,000 – $15,000 MXN (mantenimiento)</td>
+</tr>
+<tr>
+<td>Ajuste y reentrenamiento del modelo</td>
+<td>$0 – $10,000 MXN</td>
+<td>$15,000 – $80,000 MXN</td>
+<td>$3,000 – $12,000 MXN</td>
+</tr>
+<tr>
+<td>Capacitación de equipos</td>
+<td>$5,000 – $15,000 MXN</td>
+<td>$20,000 – $70,000 MXN</td>
+<td>$1,000 – $5,000 MXN</td>
+</tr>
+<tr>
+<td>Gobierno de datos y cumplimiento</td>
+<td>Generalmente omitido</td>
+<td>$15,000 – $60,000 MXN</td>
+<td>$2,000 – $10,000 MXN</td>
+</tr>
+<tr>
+<td>Soporte y monitoreo continuo</td>
+<td>Ad hoc</td>
+<td>$10,000 – $30,000 MXN</td>
+<td>$4,000 – $20,000 MXN</td>
+</tr>
+</tbody>
+</table>
+
+<p>Este desglose importa porque el retorno de una inversión de IA se mide en la operación, no en el piloto: si quieres entender cómo calcular el retorno real una vez que el sistema ya está en producción, conviene revisar <a href="/blog/roi-inteligencia-artificial">cómo medir el ROI de la inteligencia artificial</a> antes de comprometer el presupuesto de escalamiento.</p>
+</section>
+
+<section class="blog-section">
+<h2>El cronograma real: de piloto a operación en cuatro fases</h2>
+
+<p>Uno de los errores de calendario más comunes es pensar que escalar significa "apagar el piloto un viernes y encender la versión completa el lunes". Ese salto es exactamente lo que produce fallas visibles, usuarios frustrados y, en el peor de los casos, la cancelación del proyecto completo después de una mala primera semana en producción. Un cronograma realista tiene cuatro fases distintas, cada una con su propio objetivo y su propia forma de medir si es momento de avanzar a la siguiente.</p>
+
+<p>La primera fase es el piloto controlado, que normalmente dura entre 4 y 8 semanas. Aquí el objetivo no es demostrar que la IA "funciona" en abstracto, sino generar evidencia concreta sobre un proceso específico, con un grupo reducido de usuarios y con métricas definidas desde el primer día. La segunda fase es la validación, de 4 a 6 semanas adicionales, en la que el sistema se expone a un grupo más amplio —pero todavía acotado— para confirmar que los resultados del piloto se sostienen fuera del entorno controlado. Es en esta fase donde suelen aparecer los primeros problemas de integración real, de volumen de datos y de casos límite que el piloto nunca vio.</p>
+
+<p>La tercera fase es el escalamiento gradual, que suele tomar entre 2 y 4 meses dependiendo del tamaño de la organización. Aquí el despliegue se hace por oleadas: una sucursal, un departamento o una región a la vez, nunca toda la empresa de golpe. Cada oleada deja aprendizajes que se incorporan antes de la siguiente, lo cual reduce drásticamente el riesgo de que un problema no detectado se propague a toda la operación. La cuarta fase es la operación estable, que ya no tiene fecha de cierre: es el estado permanente en el que el sistema de IA es parte de cómo la empresa trabaja, con su propio ciclo de mantenimiento, mejora continua y revisión periódica.</p>
+
+<p>Saltarse fases —pasar directo del piloto al escalamiento completo, o tratar la validación como un trámite— es la causa más frecuente de que un proyecto que funcionaba bien en pequeño se perciba como un fracaso en grande. No es que la tecnología haya empeorado; es que nunca se probó en las condiciones intermedias que habrían revelado los problemas antes de que afectaran a toda la operación.</p>
+
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Duración típica</th>
+<th>Objetivo principal</th>
+<th>Riesgo de saltarla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Piloto controlado</td>
+<td>4 – 8 semanas</td>
+<td>Evidencia inicial con grupo reducido</td>
+<td>Decisiones basadas en datos insuficientes</td>
+</tr>
+<tr>
+<td>Validación</td>
+<td>4 – 6 semanas</td>
+<td>Confirmar resultados fuera del entorno controlado</td>
+<td>Problemas de integración descubiertos tarde</td>
+</tr>
+<tr>
+<td>Escalamiento gradual</td>
+<td>2 – 4 meses</td>
+<td>Despliegue por oleadas con aprendizaje entre cada una</td>
+<td>Un fallo se propaga a toda la operación</td>
+</tr>
+<tr>
+<td>Operación estable</td>
+<td>Permanente</td>
+<td>Mantenimiento, mejora continua, revisión periódica</td>
+<td>El sistema se degrada sin que nadie lo note</td>
+</tr>
+</tbody>
+</table>
+
+<p>Un cronograma así no es más lento por capricho: es más lento porque cada fase está diseñada para detectar un tipo distinto de problema antes de que se vuelva costoso. Una empresa de logística del centro del país, por ejemplo, podría descubrir en la fase de validación que su sistema de IA para clasificar pedidos funciona perfecto con los productos más vendidos pero falla con las combinaciones poco frecuentes que representan el 15% del volumen; ese tipo de hallazgo es exactamente lo que la fase de validación existe para capturar antes del escalamiento completo.</p>
+</section>
+
+<section class="blog-section">
+<h2>Cuando la IA tiene que hablarle a tu ERP viejo: el reto de la integración con sistemas heredados</h2>
+
+<p>Una parte considerable de las empresas mexicanas medianas opera sobre sistemas que llevan diez, quince o más años en funcionamiento: ERPs configurados hace más de una década, sistemas contables como Contpaq o Aspel adaptados con módulos hechos a la medida, bases de datos on-premise que nunca se migraron a la nube, y hojas de Excel que —aunque nadie lo admita en la junta directiva— siguen siendo el sistema de registro real de más de un proceso crítico. El piloto de IA casi nunca tiene que lidiar con esto: se prueba con datos exportados manualmente o con una copia limpia de la información. La producción sí tiene que lidiar con esto, todos los días.</p>
+
+<p>El problema no es solo técnico, es también de disponibilidad de conocimiento: los sistemas heredados suelen tener documentación incompleta o inexistente, y la persona que entiende de verdad cómo funciona la integración con el sistema contable puede ser un solo empleado que lleva años en la empresa. Antes de comprometerte a escalar, vale la pena mapear con esa persona —o esas personas— exactamente qué datos entran y salen del sistema legado, en qué formato, y con qué frecuencia, porque ese mapeo determina si la integración es un proyecto de semanas o de meses.</p>
+
+<p>Existen tres estrategias comunes para conectar un sistema de IA nuevo con infraestructura vieja. La primera es construir una capa de middleware que traduzca entre el formato del sistema legado y el formato que necesita el sistema de IA; es la opción más robusta a largo plazo, pero también la que más tiempo de desarrollo consume. La segunda es usar automatización robótica de procesos (RPA) como puente temporal, simulando lo que haría una persona al capturar o extraer datos manualmente de la pantalla del sistema viejo; es rápida de implementar pero frágil ante cualquier cambio en la interfaz del sistema heredado. La tercera es trabajar con exportaciones e importaciones por lotes (batch), sincronizando la información en intervalos definidos en vez de en tiempo real; es la opción más simple, pero introduce un retraso que no siempre es aceptable según el proceso.</p>
+
+<p>Cuando la información que fluye entre el sistema legado, el proveedor de IA y la nube incluye datos personales de clientes, empleados o prospectos —nombres, teléfonos, historiales de compra, datos de crédito— entra en juego la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP). Esto implica revisar si el aviso de privacidad vigente de tu empresa contempla el tratamiento automatizado de esos datos por un tercero, si existe un contrato o cláusula de encargado de tratamiento con el proveedor de IA, y si los datos se almacenan o procesan fuera de México, lo cual añade una capa adicional de responsabilidad sobre transferencias internacionales de datos.</p>
+
+<p>Una manufacturera del Bajío que decide escalar un piloto de mantenimiento predictivo, por ejemplo, puede encontrarse con que su sistema de planta —instalado hace más de una década— simplemente no tiene una API para conectarse con nada. En un caso así, la ruta más viable suele ser una combinación: middleware para los datos críticos de producción y batch para los reportes históricos, aceptando que la integración completa en tiempo real quizá no sea viable en la primera versión de producción, sino una meta para una segunda etapa.</p>
+
+<p>El equipo de TI interno —cuando existe, porque en muchas PyMEs esa función recae en una sola persona con múltiples responsabilidades— necesita estar involucrado desde el diseño de la integración, no solo al final para "conectar los cables". Excluirlo del diseño inicial es una de las razones más frecuentes por las que una integración que funcionaba en las pruebas se cae en cuanto toca el sistema real de la empresa.</p>
+</section>
+
+<section class="blog-section">
+<h2>Los tres errores que convierten un piloto exitoso en un problema de producción</h2>
+
+<p>Hay errores específicos, no genéricos, que aparecen una y otra vez cuando una empresa mexicana intenta llevar un piloto de IA a producción. No son errores de estrategia general ni de falta de visión; son errores concretos de ejecución que se pueden nombrar, anticipar y evitar si se conocen de antemano.</p>
+
+<ul>
+<li><strong>Deuda técnica acumulada durante el piloto.</strong> Un piloto se construye para demostrar valor rápido, no para durar. Eso significa prompts hardcodeados para casos específicos, ausencia de manejo de errores cuando el sistema recibe una entrada inesperada, y flujos de datos alimentados a mano por alguien del equipo. Cuando ese mismo piloto se escala sin reconstruir esas partes, el sistema se rompe en cuanto enfrenta el volumen y la variedad real de un entorno de producción. La deuda técnica no desaparece al escalar: se multiplica por el número de usuarios nuevos.</li>
+<li><strong>Falta de un dueño claro del proceso.</strong> Durante el piloto, es común que el proyecto lo "empuje" alguien de innovación, de TI o incluso un consultor externo, sin que ningún área operativa lo reclame como suyo. En producción esa ambigüedad se vuelve insostenible: cuando el sistema falla un martes a las 10 de la mañana, alguien concreto tiene que poder decidir si se pausa, se corrige o se escala el problema, y ese alguien necesita autoridad real sobre el proceso, no solo interés en la tecnología.</li>
+<li><strong>KPIs definidos para impresionar, no para operar.</strong> Es habitual que un piloto se juzgue por métricas como "el equipo quedó convencido" o "generó buena impresión en la demo". Esas métricas no sirven para producción. Ahí se necesitan indicadores operativos: tiempo ahorrado por transacción, tasa de error antes y después, costo por interacción, tiempo de resolución. Si esos KPIs no se definieron desde el piloto, escalar se convierte en un ejercicio de fe en lugar de una decisión basada en datos.</li>
+</ul>
+
+<p>Estos tres errores comparten una raíz común: todos ocurren porque el piloto se trató como un experimento aislado en vez de como la primera versión de un sistema que algún día tendría que sostener la operación real de la empresa. La corrección no es complicada en concepto —reconstruir con estándares de producción, asignar un dueño con autoridad, definir KPIs operativos desde el inicio— pero sí requiere decidirlo antes de escalar, no después de que el sistema ya falló frente a toda la organización.</p>
+
+<p>Un equipo de recursos humanos que probó un piloto de preselección de candidatos con IA generativa, por ejemplo, puede tener resultados excelentes en la demo porque el conjunto de currículums de prueba era limpio y homogéneo. Al escalar a todas las vacantes de la empresa, el sistema empieza a recibir formatos de currículum muy distintos entre sí, algunos en PDF escaneado, otros con estructuras poco convencionales; sin manejo de errores robusto —la deuda técnica del punto anterior— el sistema simplemente descarta o clasifica mal una proporción alta de candidatos válidos, y nadie lo detecta a tiempo porque no había un KPI de tasa de error definido desde el piloto.</p>
+</section>
+
+<section class="blog-section">
+<h2>Build vs. buy: el marco de decisión para la fase de producción</h2>
+
+<p>Una vez que el piloto demostró valor, aparece una decisión que muchas empresas postergan hasta que ya es tarde: ¿construir una solución propia (con equipo interno o una agencia) o adoptar una plataforma existente que ya resuelve ese problema? Esta decisión debería tomarse antes de invertir en el escalamiento, no después, porque cambiar de dirección a mitad del camino cuesta más que decidir bien desde el principio.</p>
+
+<p>No existe una respuesta universal: depende de qué tan único es tu proceso, de cuánto presupuesto y talento técnico interno tienes disponible, de qué tan urgente es el resultado, y de qué tan sensibles son los datos que vas a manejar. Una empresa con un proceso genérico —atención al cliente estándar, clasificación de correos, generación de reportes— casi siempre sale ganando al adoptar una plataforma ya construida, porque el proveedor ya resolvió problemas que a la empresa le tomaría meses descubrir por su cuenta. Una empresa con un proceso verdaderamente diferenciador —algo que le da ventaja competitiva real frente a sus competidores— tiene un argumento más fuerte para construir algo propio, porque una plataforma genérica probablemente no capture esa diferenciación.</p>
+
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Conviene construir (build)</th>
+<th>Conviene adoptar (buy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unicidad del proceso</td>
+<td>Proceso diferenciador, ventaja competitiva</td>
+<td>Proceso estándar de la industria</td>
+</tr>
+<tr>
+<td>Presupuesto disponible</td>
+<td>Presupuesto amplio y sostenido en el tiempo</td>
+<td>Presupuesto limitado o incierto</td>
+</tr>
+<tr>
+<td>Capacidad de TI interna</td>
+<td>Equipo técnico propio disponible</td>
+<td>Equipo técnico reducido o inexistente</td>
+</tr>
+<tr>
+<td>Urgencia del resultado</td>
+<td>Hay margen de meses para desarrollar</td>
+<td>Se necesita operar en semanas</td>
+</tr>
+<tr>
+<td>Sensibilidad de los datos</td>
+<td>Control total requerido por regulación o riesgo</td>
+<td>Proveedor cumple estándares aceptables</td>
+</tr>
+</tbody>
+</table>
+
+<p>Hay una tercera opción, cada vez más común entre empresas mexicanas medianas, que es un híbrido: adoptar una plataforma base para lo genérico (el motor de lenguaje, la infraestructura de cómputo) y construir solo la capa de integración y lógica de negocio que sí es específica de la empresa. Esta ruta suele reducir el riesgo de ambos extremos —ni dependes 100% de un proveedor para tu ventaja competitiva, ni tienes que reinventar infraestructura que ya existe y funciona bien en el mercado.</p>
+
+<p>La decisión de build vs. buy también tiene una dimensión de largo plazo que rara vez se discute en la fase de piloto: el costo de cambiar de opinión después. Migrar de una plataforma comprada hacia una solución propia —o viceversa— una vez que el sistema ya está en producción y la empresa depende de él todos los días es considerablemente más caro y riesgoso que tomar la decisión correcta desde el principio, con toda la información sobre la mesa.</p>
+</section>
+
+<section class="blog-section">
+<h2>Las preguntas que debes hacerle a tu proveedor antes de comprometerte a escalar</h2>
+
+<p>Antes de firmar cualquier contrato de escalamiento con un proveedor o integrador de IA, hay un conjunto de preguntas que deberían responderse por escrito, no de palabra en una llamada de ventas. La razón es simple: las respuestas de palabra desaparecen cuando surge un problema; las respuestas por escrito son las que sostienen una negociación si algo sale mal en producción.</p>
+
+<ol>
+<li><strong>¿Qué pasa con mis datos si cancelo el contrato?</strong> Necesitas claridad sobre si tus datos se eliminan, se te entregan en un formato usable, o quedan retenidos por el proveedor bajo algún argumento contractual.</li>
+<li><strong>¿Cómo garantizan el cumplimiento de la LFPDPPP si mi empresa procesa datos personales de clientes o empleados a través de su plataforma?</strong> Pide ver el contrato de encargado de tratamiento de datos, no solo una afirmación genérica de "cumplimos con la ley".</li>
+<li><strong>¿Cuál es el nivel de servicio (SLA) una vez en producción, y no el que ofrecieron durante el piloto?</strong> Muchos proveedores dan atención prioritaria durante el piloto para cerrar la venta, y ese nivel de atención baja considerablemente una vez firmado el contrato de largo plazo.</li>
+<li><strong>Si el sistema falla o entrega una respuesta incorrecta en producción, ¿quién es responsable frente al cliente final?</strong> Esta pregunta rara vez se hace y es de las más importantes: si la IA le da información equivocada a un cliente tuyo, necesitas saber de antemano si esa responsabilidad recae en tu empresa, en el proveedor, o se comparte, y bajo qué términos.</li>
+<li><strong>¿Cómo escala el costo si el volumen de uso se triplica?</strong> Muchos contratos tienen un precio atractivo a bajo volumen que se vuelve prohibitivo apenas la adopción interna crece, algo que conviene modelar antes de firmar, no después de recibir la primera factura sorpresiva.</li>
+<li><strong>¿Qué tan dependiente queda mi operación de su infraestructura?</strong> Pregunta directamente por el riesgo de vendor lock-in: si el proveedor sube precios, cambia condiciones o simplemente cierra operaciones, ¿qué tan rápido podrías migrar a otra opción sin detener tu operación?</li>
+<li><strong>¿Puedo llevarme la configuración, los prompts ajustados y el conocimiento acumulado si decido cambiar de proveedor en el futuro?</strong> Esto determina si la inversión que haces durante el ajuste fino del sistema es un activo tuyo o queda atrapado dentro de la plataforma del proveedor.</li>
+</ol>
+
+<p>Ninguna de estas preguntas busca desconfiar del proveedor por principio; buscan que la relación comercial esté clara antes de que tu operación dependa de ella todos los días. Un proveedor serio no debería incomodarse por responderlas por escrito —de hecho, la disposición a hacerlo con claridad es en sí misma una señal útil sobre qué tan preparado está para acompañarte en la fase de producción, y no solo en la fase de piloto donde todo suele verse bien.</p>
+
+<p>Si tu empresa todavía está definiendo por dónde empezar con inteligencia artificial antes incluso de llegar a la etapa de escalamiento, conviene revisar primero qué opciones existen para adoptar IA de forma ordenada en el contexto de <a href="/blog/ia-pymes-mexico">una PyME mexicana</a>, de modo que el piloto que elijas ya nazca con una ruta clara hacia la producción, en vez de convertirse en uno más de los proyectos que se quedan atorados a la mitad.</p>
+</section>

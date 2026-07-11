@@ -1,0 +1,61 @@
+<section class="blog-section">
+<h2>Arquitecturas de orquestación: agente supervisor contra red de agentes entre pares</h2>
+<p>Cuando una empresa decide construir un sistema multi-agente, la primera decisión de diseño —y la que más determina el costo y la complejidad de todo lo que viene después— es cómo se van a coordinar los agentes entre sí. Existen dos familias de arquitectura, y elegir la equivocada para tu caso de uso suele ser la razón por la que un proyecto se estanca a mitad de camino.</p>
+<p>La primera es la arquitectura de agente supervisor u orquestador: un agente central recibe la tarea, la descompone en subtareas, decide a qué agente especializado enviar cada una, y consolida las respuestas antes de entregar un resultado final. Es el modelo más fácil de auditar porque hay un único punto donde se puede ver la lógica de decisión completa, y es el que recomendamos como punto de partida para la mayoría de empresas mexicanas que apenas están adoptando esta tecnología, porque facilita depurar errores y calcular costos por tarea.</p>
+<p>La segunda es la arquitectura peer-to-peer, donde los agentes se comunican directamente entre sí sin un coordinador central, negociando quién resuelve qué parte del trabajo según su especialización declarada. Esta arquitectura escala mejor cuando el número de agentes crece más allá de ocho o diez, porque evita que el agente supervisor se convierta en un cuello de botella, pero es notablemente más difícil de depurar: cuando algo sale mal, rastrear qué agente tomó qué decisión y por qué requiere trazabilidad completa de cada mensaje entre agentes, algo que muchas plataformas todavía no ofrecen de forma madura.</p>
+<p>En la práctica, la mayoría de despliegues exitosos en empresas mexicanas usan un modelo híbrido: un orquestador central para las decisiones que requieren visibilidad y cumplimiento normativo (por ejemplo, todo lo relacionado con datos fiscales o información personal bajo la LFPDPPP), y clusters de agentes peer-to-peer para tareas operativas de bajo riesgo donde la velocidad importa más que la trazabilidad exhaustiva, como la clasificación inicial de correos entrantes o la extracción de datos de documentos.</p>
+<p>La elección de arquitectura también afecta directamente la forma en que se recupera el sistema ante un fallo: en un modelo supervisor, basta con reiniciar el agente orquestador para retomar el control; en un modelo peer-to-peer, un fallo puede dejar una tarea "colgada" entre dos agentes que esperan respuesta uno del otro, lo cual requiere mecanismos explícitos de tiempo límite y reintento que deben diseñarse desde el inicio, no agregarse después.</p>
+</section>
+
+<section class="blog-section">
+<h2>El costo real de operar un sistema multi-agente: cómputo y tokens, no solo desarrollo</h2>
+<p>Uno de los malentendidos más costosos para una empresa mexicana que evalúa esta tecnología es pensar en el costo únicamente como el desarrollo inicial. En un sistema multi-agente, cada vez que un agente se comunica con otro, o consulta a un modelo de lenguaje para tomar una decisión, se consume un volumen de tokens que se traduce directamente en costo de cómputo recurrente, y este costo puede multiplicarse rápido: una tarea que un solo agente resolvería en una llamada puede requerir cinco o seis intercambios entre agentes distintos.</p>
+<p>Como referencia prudente para una empresa mediana en México, el costo mensual de cómputo (tokens de los modelos de lenguaje) de un sistema multi-agente en producción moderada suele ubicarse entre $8,000 y $30,000 MXN mensuales, dependiendo del volumen de tareas procesadas y de cuántos agentes intervienen por tarea. A esto hay que sumar el costo de la infraestructura de orquestación (el software o plataforma que coordina a los agentes), que suele agregar entre $3,000 y $12,000 MXN mensuales adicionales si se usa una plataforma gestionada.</p>
+<p>Un factor que muchas empresas no anticipan es el costo de las llamadas "fallidas" o repetidas: cuando un agente no logra completar su parte de la tarea al primer intento y el sistema reintenta automáticamente, ese reintento también consume tokens. Un sistema mal diseñado, sin límites claros de reintento, puede generar facturas de cómputo varias veces mayores a lo presupuestado en el primer mes de operación real, razón por la cual establecer topes de gasto por tarea desde el diseño inicial es una práctica que toda empresa debería exigir a su proveedor o a su equipo de desarrollo.</p>
+<p>Para dimensionar correctamente esta inversión frente al beneficio esperado, conviene revisar de forma paralela cómo se mide el retorno de este tipo de proyectos, tema que se aborda con más detalle en <a href="/blog/roi-inteligencia-artificial">el artículo dedicado al cálculo de ROI en proyectos de inteligencia artificial</a>, aplicando ese marco específicamente al costo por tarea resuelta en lugar de al costo por usuario o por licencia.</p>
+</section>
+
+<section class="blog-section">
+<h2>Cronograma realista de implementación por fases para una empresa mexicana mediana</h2>
+<p>Un sistema multi-agente no se implementa de golpe, y las empresas que intentan lanzarlo completo desde el primer mes son, casi sin excepción, las que terminan abandonando el proyecto. El cronograma que mejor funciona en la práctica para una empresa mediana en México divide el trabajo en cuatro fases con entregables claros en cada una.</p>
+<p>En la fase uno, de la semana uno a la cuatro, se define el caso de uso piloto (idealmente uno solo, no varios en paralelo) y se construye un único agente especializado que resuelve una parte acotada del proceso, sin orquestación todavía. El objetivo de esta fase es validar que el agente individual funciona de forma confiable antes de sumar complejidad.</p>
+<p>En la fase dos, de la semana cinco a la ocho, se introduce el segundo agente especializado y el orquestador que coordina a ambos, normalmente para un flujo que ya requiere dos capacidades distintas trabajando en conjunto, como leer un documento y luego clasificarlo según reglas de negocio.</p>
+<p>En la fase tres, del mes tres al mes cinco, se amplía el sistema a tres o más agentes y se endurecen los mecanismos de manejo de errores, límites de gasto y trazabilidad, preparando el sistema para un volumen de producción real en lugar de un piloto controlado.</p>
+<p>En la fase cuatro, a partir del mes seis, el sistema entra en operación estable con monitoreo continuo, y es el momento de evaluar si conviene sumar nuevos casos de uso reutilizando la infraestructura de orquestación ya construida, lo cual suele ser considerablemente más rápido que el proyecto inicial.</p>
+<p>Las empresas que se saltan las fases uno y dos, e intentan construir directamente un sistema de cinco o seis agentes coordinados desde el inicio, reportan con más frecuencia problemas de depuración imposibles de rastrear, simplemente porque no tienen una línea base de cómo se comporta un agente individual antes de sumarle la complejidad de la coordinación.</p>
+</section>
+
+<section class="blog-section">
+<h2>Build vs. buy: framework open source, plataforma gestionada o proveedor especializado</h2>
+<p>Antes de comprometer presupuesto, toda empresa mexicana debe decidir entre tres caminos distintos para construir su sistema multi-agente, y cada uno tiene un perfil de costo, control y riesgo diferente. No hay una respuesta universal; la decisión correcta depende del tamaño del equipo técnico interno y de qué tan crítico es el caso de uso para el negocio.</p>
+<p>La primera opción es adoptar un framework de orquestación open source y construir sobre él con un equipo de desarrollo propio o contratado por proyecto. Esta ruta ofrece el mayor control y, a largo plazo, el menor costo recurrente de licenciamiento, pero exige tener o contratar talento técnico capaz de mantener el sistema, y el tiempo de puesta en marcha suele ser mayor.</p>
+<p>La segunda opción es contratar una plataforma gestionada de orquestación multi-agente, donde el proveedor mantiene la infraestructura y la empresa se enfoca en definir la lógica de negocio de cada agente. Esta ruta reduce el tiempo de lanzamiento y la necesidad de personal técnico especializado interno, a cambio de un costo mensual de licenciamiento más alto y menos flexibilidad para personalizaciones muy específicas.</p>
+<p>La tercera opción es contratar a un proveedor especializado que entregue el sistema completo como servicio, incluyendo diseño de arquitectura, desarrollo y mantenimiento continuo. Es la ruta más rápida de implementar y la que menos carga técnica pone sobre el equipo interno, pero también la que menos control directo deja en manos de la empresa sobre decisiones de arquitectura futuras.</p>
+<p>La siguiente tabla resume, de forma orientativa, cómo comparan estas tres rutas en los factores que más pesan al decidir:</p>
+<table>
+<thead>
+<tr><th>Ruta</th><th>Tiempo de lanzamiento</th><th>Costo mensual orientativo</th><th>Control técnico</th></tr>
+</thead>
+<tbody>
+<tr><td>Framework open source + equipo propio</td><td>3 a 6 meses</td><td>$15,000 – $40,000 MXN (nómina/honorarios)</td><td>Alto</td></tr>
+<tr><td>Plataforma gestionada</td><td>4 a 8 semanas</td><td>$10,000 – $30,000 MXN</td><td>Medio</td></tr>
+<tr><td>Proveedor especializado (llave en mano)</td><td>4 a 10 semanas</td><td>$18,000 – $50,000 MXN</td><td>Bajo a medio</td></tr>
+</tbody>
+</table>
+<p>Una empresa mediana sin equipo de desarrollo interno consolidado suele obtener mejor resultado con la segunda o tercera ruta, reservando la primera para organizaciones donde el sistema multi-agente toca un proceso tan central del negocio que justifica construir capacidad técnica propia a largo plazo.</p>
+</section>
+
+<section class="blog-section">
+<h2>Preguntas clave que hacerle a un proveedor de sistemas multi-agente antes de contratar</h2>
+<p>Contratar un sistema multi-agente sin hacer las preguntas correctas es la forma más común en que una empresa mexicana termina pagando por una solución que no puede mantener, auditar o escalar. Antes de firmar cualquier contrato, conviene exigir respuestas claras a un conjunto específico de preguntas.</p>
+<p>Antes de firmar, conviene también pedir que el proveedor demuestre el sistema resolviendo un caso de prueba con datos reales (o anonimizados) de tu propia empresa, en lugar de aceptar únicamente una demostración genérica preparada de antemano. Esto revela con rapidez si las respuestas a las preguntas siguientes se sostienen en la práctica o solo en el discurso comercial.</p>
+<ul>
+<li>¿Qué arquitectura de orquestación usa el sistema (supervisor central, peer-to-peer o híbrida), y quién tiene visibilidad completa de las decisiones que toma cada agente?</li>
+<li>¿Cómo se factura el consumo de cómputo: por tarea resuelta, por token consumido o por licencia fija mensual, y qué pasa cuando un agente reintenta una tarea fallida repetidamente?</li>
+<li>¿Qué sucede con los datos que procesan los agentes, dónde se almacenan, y cómo se garantiza el cumplimiento de la LFPDPPP si el sistema maneja datos personales de clientes o empleados?</li>
+<li>¿Qué tan fácil es sacar el sistema de esa plataforma en el futuro si la empresa decide cambiar de proveedor, y qué tan portable es la lógica de cada agente hacia otra infraestructura?</li>
+<li>¿Cómo se comporta el sistema cuando un agente falla a mitad de una tarea: hay reintento automático, escalamiento a un humano, o simplemente se pierde el progreso parcial?</li>
+<li>¿Qué nivel de trazabilidad ofrece el proveedor para auditar, después de los hechos, exactamente qué decisión tomó cada agente y con qué información contaba en ese momento?</li>
+</ul>
+<p>Un proveedor serio no debería tener problema en responder cada una de estas preguntas con ejemplos concretos, idealmente mostrando un registro real de una tarea procesada por el sistema. Si las respuestas son vagas, especialmente en torno al manejo de datos personales o al comportamiento ante fallos, es una señal de que el sistema todavía no está listo para un entorno de producción real, sin importar qué tan impresionante se vea la demostración inicial.</p>
+</section>

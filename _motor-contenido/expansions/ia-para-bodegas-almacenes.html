@@ -1,0 +1,96 @@
+<section class="blog-section">
+<h2>Pronóstico de demanda e inventario predictivo: el fin de las corazonadas del encargado</h2>
+<p>En la mayoría de las bodegas mexicanas medianas, la decisión de cuánto pedir y cuándo pedirlo todavía descansa en la experiencia del encargado de compras: revisa el histórico en una hoja de cálculo, aplica una regla empírica ("pedimos lo mismo que el año pasado más 10%") y cruza los dedos. El resultado es previsible: faltantes en los productos de alta rotación justo cuando más se necesitan, y estantes llenos de mercancía que no se mueve y que amarra capital de trabajo durante meses.</p>
+<p>Un modelo de inventario predictivo hace algo distinto: analiza el historial de ventas o salidas de almacén, identifica patrones estacionales (quincenas, Buen Fin, Hot Sale, regreso a clases, campañas del cliente final) y los cruza con los tiempos de entrega reales de cada proveedor, no con el tiempo de entrega "oficial" que casi nunca se cumple. A partir de ahí calcula un punto de reorden dinámico por SKU, que se ajusta solo cuando cambia el comportamiento de venta.</p>
+<p>Piensa en una ferretera mediana del Bajío que maneja cerca de 3,000 SKUs entre tornillería, herramienta eléctrica y materiales de construcción. Antes de aplicar un modelo predictivo, la rotación se decidía por intuición y el inventario muerto representaba una porción considerable del capital inmovilizado. Al introducir pronóstico de demanda por familia de producto, el objetivo típico que se persigue en casos así es reducir a la vez los quiebres de stock en los productos estrella y el sobre-inventario en las líneas de baja rotación, liberando espacio físico y flujo de caja.</p>
+<p>La integración con la orden de compra automatizada es lo que convierte el pronóstico en ahorro real y no solo en un reporte bonito. En lugar de que el sistema solo "avise" que un producto está por agotarse, genera una sugerencia de orden de compra con cantidad y proveedor recomendado, que el comprador aprueba o ajusta en segundos en vez de construirla desde cero cada semana.</p>
+<p>Ningún modelo predictivo es magia si el histórico está sucio. Para que el pronóstico sea confiable necesitas al menos 12 a 18 meses de historial de salidas relativamente limpio, con SKUs consistentes y sin cambios constantes de clave de producto. En sectores con demanda errática -moda, temporada, productos de campaña- el modelo debe ajustarse con reglas de negocio adicionales, porque la IA sola tiende a subestimar picos que no tienen precedente claro en el historial.</p>
+</section>
+
+<section class="blog-section">
+<h2>Slotting inteligente: la IA que reacomoda tu bodega mientras tú duermes</h2>
+<p>El slotting -la decisión de qué producto va en qué ubicación dentro de la bodega- casi siempre se define una sola vez, cuando se diseña o se muda el almacén, y después nadie vuelve a tocarlo aunque el mix de productos cambie por completo con el tiempo. El resultado son pickers caminando de un extremo a otro del almacén para surtir los productos que más se venden, simplemente porque quedaron ubicados donde sobraba espacio hace tres años.</p>
+<p>Un sistema de slotting con IA analiza continuamente la velocidad de rotación de cada SKU, la afinidad entre productos que suelen pedirse juntos en el mismo pedido, y variables físicas como peso, volumen y fragilidad, para proponer un mapa de ubicaciones que minimice el recorrido total de picking. No reemplaza al montacarguista ni al encargado de piso: les entrega una propuesta de reacomodo que ellos ejecutan y validan.</p>
+<p>En un centro de distribución que reorganiza sus ubicaciones bajo esta lógica -moviendo los productos de clase A, los más vendidos, a las posiciones más cercanas a los andenes de salida- es común que el recorrido promedio de cada picker se reduzca de forma notable, sin invertir un peso en racks nuevos ni en metros cuadrados adicionales.</p>
+<h3>Frecuencia del reacomodo</h3>
+<p>Lo importante aquí es la frecuencia: un re-slotting manual completo es costoso y disruptivo, así que la mayoría de las bodegas lo hacían una vez cada varios años. Con IA, el análisis se puede correr mensual o trimestralmente y el reacomodo se ejecuta solo en las posiciones que realmente lo justifican, no en toda la bodega de golpe.</p>
+<p>En bodegas mexicanas hay restricciones físicas que ningún algoritmo puede ignorar: pasillos angostos heredados de construcciones antiguas, montacargas rentados con radios de giro específicos y racks que deben cumplir la NOM-006-STPS-2014 en materia de manejo y almacenamiento de materiales. Cualquier propuesta de slotting debe validarse contra estas restricciones físicas y normativas antes de ejecutarse, no después de que el montacarguista se quede atorado en un pasillo que el algoritmo nunca midió en persona.</p>
+</section>
+
+<section class="blog-section">
+<h2>Integrar la IA con el WMS o ERP que ya usas (y cuánto cuesta en pesos)</h2>
+<p>Casi ninguna bodega mexicana parte de cero. La mayoría ya opera con algún sistema de gestión de almacén (WMS) o un ERP que incluye módulo de inventarios -SAP Business One, NetSuite, Aspel SAE, Odoo, o incluso una combinación de Excel avanzado con reportes de un sistema contable. La pregunta correcta no es "¿reemplazo mi sistema por uno con IA?", sino "¿cómo conecto una capa de IA a lo que ya tengo funcionando sin parar la operación?".</p>
+<p>Existen tres formas típicas de integración. La primera es un módulo nativo de IA dentro del mismo WMS, cuando el proveedor ya lo ofrece como complemento. La segunda es una capa intermedia que se conecta vía API al ERP para leer y escribir datos de inventario en tiempo real. La tercera, más económica pero también más limitada, es una IA que analiza reportes exportados periódicamente -por ejemplo cada noche- sin conexión directa al sistema transaccional.</p>
+<p>Los rangos de inversión varían mucho según el camino elegido. Una integración vía API con desarrollo a la medida suele requerir una inversión inicial de entre $60,000 y $220,000 MXN, dependiendo de qué tan documentada esté la API del ERP existente, más una cuota mensual de operación de la plataforma de IA. El camino de reportes exportados, en cambio, puede arrancar con una suscripción mensual sin inversión inicial fuerte, a cambio de menor velocidad de reacción ante cambios de última hora.</p>
+<p>La tabla siguiente resume rangos ilustrativos que sirven como punto de partida para presupuestar, no como cotización cerrada -cada proveedor y cada nivel de complejidad de integración mueve estas cifras hacia arriba o hacia abajo.</p>
+<table>
+<thead>
+<tr><th>Tipo de integración</th><th>Inversión inicial (MXN)</th><th>Costo mensual (MXN)</th><th>Tiempo típico de puesta en marcha</th></tr>
+</thead>
+<tbody>
+<tr><td>Módulo nativo del WMS</td><td>$0 - $40,000</td><td>$3,000 - $9,000</td><td>2 - 4 semanas</td></tr>
+<tr><td>Integración vía API a medida</td><td>$60,000 - $220,000</td><td>$8,000 - $25,000</td><td>6 - 12 semanas</td></tr>
+<tr><td>IA sobre reportes exportados</td><td>$0 - $15,000</td><td>$4,000 - $12,000</td><td>1 - 3 semanas</td></tr>
+</tbody>
+</table>
+<p>Un punto que casi nadie presupuesta: el mantenimiento cuando el ERP se actualiza. Si tu proveedor de ERP lanza una nueva versión y cambia su estructura de datos o su API, la integración con la IA puede romperse si no quedó contemplado un acuerdo de soporte continuo. Pregunta esto explícitamente antes de firmar, porque es la causa más común de que un proyecto de integración funcione perfecto los primeros tres meses y después deje de sincronizar sin que nadie note el problema hasta que aparece un faltante inexplicable.</p>
+</section>
+
+<section class="blog-section">
+<h2>¿Bodega de 500 m² o centro de distribución de 5,000 m²? La IA no se implementa igual</h2>
+<p>El tamaño y la complejidad operativa de tu bodega determinan casi por completo qué tipo de proyecto de IA tiene sentido. Tratar una bodega pyme de 500 metros cuadrados con el mismo enfoque que un centro de distribución de 5,000 metros cuadrados es la receta más común para gastar de más y frustrarse en el camino sin obtener resultados proporcionales a la inversión.</p>
+<p>En una bodega de 500 m², típica de una pyme con un equipo de tres a ocho personas en piso, lo que más aporta es simple: pronóstico de demanda básico, alertas de reorden en el celular del encargado y, si acaso, una app de picking guiado sin inversión en hardware adicional. Un proyecto de este tamaño suele moverse en un rango de $15,000 a $45,000 MXN mensuales todo incluido, y no siempre requiere personal técnico dedicado dentro de la empresa.</p>
+<p>En un centro de distribución de 5,000 m², con múltiples andenes, cross-docking, decenas de pickers y turnos rotativos, el proyecto cambia de naturaleza: entra en juego IoT para rastrear montacargas y ubicación de producto en tiempo real, slotting dinámico, y dashboards de control para varios supervisores simultáneos. Los presupuestos aquí suelen ir de $80,000 a $300,000 MXN mensuales, dependiendo de cuántos módulos se activen y cuántas ubicaciones se monitorean con sensores.</p>
+<h3>Guía rápida por prioridad</h3>
+<p>Entre ambos extremos hay un punto intermedio -bodegas de 1,500 a 3,000 m²- donde la recomendación casi universal es empezar con un piloto acotado a una sola zona o categoría de producto antes de escalar a toda la instalación. Esto permite medir el impacto real con datos propios antes de comprometer presupuesto para el resto del almacén, y evita el error de comprar una plataforma pensada para un centro de distribución grande cuando en realidad se necesita algo mucho más ligero.</p>
+<p>Una guía rápida para decidir por dónde empezar: si tu prioridad es reducir quiebres de stock, arranca por el pronóstico de demanda sin importar el tamaño de tu bodega. Si tu dolor principal es el tiempo de picking y tienes más de 15 personas en piso, el slotting y el picking guiado suelen dar retorno más rápido. Si operas cross-docking o múltiples andenes de carga, ningún proyecto de IA tiene sentido si primero no resuelves la visibilidad en tiempo real del inventario.</p>
+</section>
+
+<section class="blog-section">
+<h2>Los errores que hunden un proyecto de IA en el almacén antes de arrancar</h2>
+<p>La tecnología casi nunca es el problema. Los proyectos de IA en bodegas mexicanas que fracasan o se quedan a medias suelen tropezar con los mismos cuatro errores, que son enteramente evitables si se anticipan desde el diagnóstico inicial en lugar de descubrirlos a la mala tres meses después.</p>
+<p>Los más frecuentes son:</p>
+<ul>
+<li>Implementar sobre un catálogo de SKUs sucio: descripciones duplicadas, claves inconsistentes entre el sistema de compras y el de ventas, y productos "fantasma" que ya no existen pero siguen activos. Ningún modelo predictivo puede pronosticar bien sobre datos contaminados.</li>
+<li>No capacitar a montacarguistas y pickers antes del cambio: si el personal de piso no entiende por qué la ruta de picking cambió o por qué el sistema le indica una ubicación distinta a la de siempre, la resistencia al cambio mata la adopción en las primeras dos semanas de operación.</li>
+<li>Subestimar la conectividad WiFi en el piso de bodega: racks metálicos, techos altos y grandes volúmenes de producto generan zonas muertas de señal que ningún proyecto de picking guiado por aplicación móvil puede tolerar. Un estudio de cobertura previo no es opcional, es la base de todo lo demás.</li>
+<li>Medir solo el software y no la disciplina del proceso: si los operadores siguen registrando salidas a ojo o con retraso de varias horas, ninguna IA puede pronosticar ni optimizar sobre datos que no reflejan la realidad del momento en que ocurrieron.</li>
+</ul>
+<p>Detectar estos errores a tiempo es más barato que corregirlos después. Un diagnóstico previo de dos a tres semanas -que revise catálogo de SKUs, cobertura de red y disposición del personal ante el cambio- cuesta una fracción de lo que cuesta relanzar un proyecto que fracasó por falta de preparación desde el arranque.</p>
+<p>La regla práctica es sencilla: ningún proveedor serio debería prometer resultados en la primera semana sin antes haber revisado estos cuatro puntos contigo. Si te ofrecen instalar el sistema sin pasar por ese diagnóstico previo, es una señal de alerta sobre su experiencia real, no una muestra de eficiencia.</p>
+</section>
+
+<section class="blog-section">
+<h2>Cronograma realista: de la firma del contrato a la operación estable</h2>
+<p>Uno de los mayores malentendidos sobre la IA en bodegas es la expectativa de tiempo. Ningún proyecto serio arranca "encendiendo" un sistema de un día para otro; la implementación real avanza por fases, cada una con objetivos y validaciones propias antes de pasar a la siguiente etapa.</p>
+<p>La fase de diagnóstico es la base de todo lo demás: aquí se audita el catálogo de SKUs, se revisa la calidad del historial de datos, se mapea el layout físico actual y se valida la cobertura de conectividad en piso. Saltarse esta fase para "ganar tiempo" es, paradójicamente, lo que más tiempo termina costando más adelante en el proyecto.</p>
+<p>Después viene el piloto, normalmente acotado a una zona, categoría de producto o turno específico, donde se prueba el modelo de pronóstico o el picking guiado con datos reales y se ajustan los parámetros antes de exponer a toda la operación. Es la fase donde más se aprende y donde el equipo de piso empieza a confiar -o no- en el sistema nuevo.</p>
+<p>El rollout completo extiende lo validado en el piloto al resto de la bodega, con capacitación formal por turno y acompañamiento presencial del proveedor durante las primeras semanas de operación en vivo. Es también el momento de definir con claridad quién, dentro de tu empresa, será el responsable de operar y dar seguimiento al sistema hacia adelante, sin depender permanentemente del proveedor externo.</p>
+<p>La optimización continua no tiene fecha de cierre: los modelos de pronóstico y slotting se recalibran conforme cambia tu mix de productos, tus proveedores o tu volumen de ventas. Un proyecto que se declara "terminado" tres meses después de arrancar generalmente pierde precisión con el tiempo, porque la bodega -y su demanda- nunca dejan de moverse.</p>
+<table>
+<thead>
+<tr><th>Fase</th><th>Duración típica</th><th>Entregable principal</th></tr>
+</thead>
+<tbody>
+<tr><td>Diagnóstico</td><td>2 - 3 semanas</td><td>Auditoría de SKUs, datos y conectividad</td></tr>
+<tr><td>Piloto</td><td>4 - 8 semanas</td><td>Modelo validado en una zona o categoría</td></tr>
+<tr><td>Rollout completo</td><td>6 - 12 semanas</td><td>Sistema operando en toda la bodega</td></tr>
+<tr><td>Optimización continua</td><td>Permanente</td><td>Recalibración mensual o trimestral</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="blog-section">
+<h2>Preguntas que debes hacerle a cualquier proveedor de WMS con IA antes de firmar</h2>
+<p>Elegir proveedor es donde más dinero se pierde o se ahorra en un proyecto de este tipo. Antes de firmar cualquier contrato, hay un conjunto de preguntas que deberías poder responder con claridad -y que tu proveedor debería poder contestar sin rodeos ni tecnicismos innecesarios.</p>
+<p>Estas son las preguntas mínimas que conviene tener resueltas antes de comprometer presupuesto:</p>
+<ul>
+<li>¿El sistema se integra de forma nativa con nuestro ERP o WMS actual, o requiere desarrollo a la medida? ¿Quién es responsable si esa integración se rompe con una actualización futura del ERP?</li>
+<li>¿Cuánto historial de datos necesita el modelo para generar pronósticos confiables, y qué pasa si nuestro historial tiene huecos o inconsistencias evidentes?</li>
+<li>¿Qué pasa con nuestros datos si decidimos cancelar el contrato? ¿Podemos exportarlos en un formato utilizable por otro proveedor sin penalización?</li>
+<li>¿El proveedor incluye capacitación presencial para pickers y montacarguistas, o solo entrega manuales y videos genéricos?</li>
+<li>¿Cuál es el plan de contingencia si el sistema falla durante un pico de demanda como el Buen Fin o una campaña grande de un cliente importante?</li>
+</ul>
+<p>Las respuestas a estas preguntas revelan más sobre la madurez del proveedor que cualquier demostración bien montada en una sala de juntas. Un proveedor que evade preguntas sobre portabilidad de datos o sobre el plan de contingencia probablemente no ha implementado su propio sistema en condiciones reales de una bodega mexicana con todas sus particularidades.</p>
+<p>Por último, pide referencias verificables de clientes con un tamaño de bodega y un giro similar al tuyo, y habla directamente con ellos sobre qué tan realista fue el cronograma prometido frente al cronograma real que vivieron. Esa conversación, más que cualquier ficha técnica, es la que te dice si vale la pena avanzar con ese proveedor. Si además tu empresa está evaluando IA en otras áreas más allá del almacén, vale la pena revisar primero <a href="/blog/que-son-agentes-ia">qué son los agentes de IA</a> y cómo encajan en una estrategia más amplia antes de comprometer presupuesto solo en logística.</p>
+</section>

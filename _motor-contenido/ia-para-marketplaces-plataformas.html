@@ -1,0 +1,91 @@
+<section class="blog-section">
+  <h2>Detección de Fraude con Inteligencia Artificial en Marketplaces Mexicanos</h2>
+  <p>Cuando tu plataforma conecta a compradores y vendedores que nunca se han visto, el fraude deja de ser un riesgo teórico y se convierte en un costo operativo constante. A diferencia de una tienda en línea tradicional, donde tú controlas el inventario y la relación con el cliente, en un marketplace terceros transaccionan directamente entre sí usando tu infraestructura como intermediario. Eso multiplica la superficie de ataque: perfiles de vendedor falsos, compradores que abren disputas de forma sistemática, y redes coordinadas que abusan de las políticas de reembolso.</p>
+  <p>La inteligencia artificial aplicada a la detección de fraude no funciona con reglas fijas del tipo "bloquear si el monto supera X". Funciona con modelos que aprenden patrones de comportamiento normal para tu categoría específica y marcan desviaciones sutiles que un humano revisando manualmente jamás notaría a tiempo.</p>
+  <h3>Tipos de Fraude que la IA Identifica Antes de que Escale</h3>
+  <p>En la práctica, los equipos de riesgo de plataformas digitales en México suelen enfrentar un puñado de patrones recurrentes, cada uno con una firma de comportamiento distinta:</p>
+  <ul>
+    <li>Cuentas de vendedor creadas con documentos de identidad reciclados o generados para simular legitimidad.</li>
+    <li>Triangulación de pagos, donde el dinero entra y sale de la plataforma usando cuentas intermedias para lavar el origen de los fondos.</li>
+    <li>Reseñas y calificaciones fabricadas por redes de cuentas falsas para inflar la reputación de un vendedor nuevo.</li>
+    <li>Publicaciones de productos que nunca existen físicamente, con el objetivo de cobrar y desaparecer antes de que se procese la disputa.</li>
+    <li>Contracargos coordinados, donde un grupo de compradores reclama "producto no recibido" en compras que sí llegaron, explotando la política de protección al comprador.</li>
+  </ul>
+  <p>Los modelos de detección cruzan decenas de señales por transacción: huella digital del dispositivo, velocidad con la que se repiten acciones, coincidencia entre la geolocalización declarada y la real, consistencia del lenguaje en la descripción del producto frente a categorías similares, y el historial de la cuenta en los primeros días de vida. Ninguna señal por sí sola es concluyente, pero la combinación produce un puntaje de riesgo que sí lo es.</p>
+  <p>Un aspecto que muchas plataformas subestiman es que validar identidad de vendedores implica procesar datos personales sensibles: identificaciones oficiales, comprobantes de domicilio, datos bancarios. Bajo la LFPDPPP, eso obliga a tener un aviso de privacidad específico para el flujo de verificación, límites claros de retención de esos documentos, y controles de acceso auditables sobre quién dentro de tu equipo puede ver esa información. Un proveedor de IA antifraude serio te debe mostrar cómo cumple con esto antes de integrar su servicio, no después de un incidente.</p>
+  <p>El otro lado de la moneda es el costo de los falsos positivos. Un modelo demasiado agresivo bloquea vendedores legítimos y compradores reales, generando fricción que termina ahuyentando a la gente honesta más rápido de lo que detiene a la deshonesta. El objetivo no es eliminar el fraude a cero — es imposible y probablemente ni conviene económicamente — sino llevarlo a un nivel donde el costo de detección sea menor que la pérdida que previene, sin sacrificar la experiencia del usuario legítimo.</p>
+  <p>Para marketplaces que manejan pagos entre partes, la automatización también toca la facturación: cuando tu plataforma cobra comisión por transacción, cada cobro necesita su CFDI correspondiente. Integrar la detección de fraude con el motor de facturación evita que se timbren comprobantes fiscales sobre transacciones que después resultan fraudulentas y tienen que cancelarse, lo cual genera trabajo contable adicional y fricción con el SAT si se vuelve recurrente.</p>
+</section>
+
+<section class="blog-section">
+  <h2>Cuánto Cuesta Implementar IA Antifraude y de Recomendaciones en tu Plataforma</h2>
+  <p>El rango de inversión para llevar IA a un marketplace mexicano varía muchísimo según el volumen de transacciones, si construyes internamente o contratas un proveedor, y qué tan crítico es el fraude para tu categoría específica. No existe un precio único, pero sí patrones claros según el tamaño de la operación.</p>
+  <p>La siguiente tabla presenta escenarios ilustrativos — no cotizaciones de un proveedor específico — pensados para que puedas ubicar en qué rango cae tu plataforma antes de pedir propuestas formales.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Tamaño de plataforma</th>
+        <th>Inversión inicial (MXN)</th>
+        <th>Costo mensual recurrente (MXN)</th>
+        <th>Volumen típico de transacciones/mes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Marketplace nicho o regional</td>
+        <td>Entre $60,000 y $180,000</td>
+        <td>Entre $8,000 y $25,000</td>
+        <td>Menos de 5,000</td>
+      </tr>
+      <tr>
+        <td>Marketplace establecido, categoría única</td>
+        <td>Entre $180,000 y $450,000</td>
+        <td>Entre $25,000 y $80,000</td>
+        <td>Entre 5,000 y 50,000</td>
+      </tr>
+      <tr>
+        <td>Plataforma multicategoría de alcance nacional</td>
+        <td>Entre $450,000 y $1,200,000</td>
+        <td>Entre $80,000 y $250,000</td>
+        <td>Más de 50,000</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Estas cifras cubren el modelo de recomendaciones y el de detección de fraude corriendo en paralelo, ya que en la práctica comparten infraestructura de datos y suele salir más eficiente implementarlos juntos que por separado. Si tu plataforma solo necesita uno de los dos, puedes esperar recortes de entre 30% y 45% sobre estos rangos.</p>
+  <p>Hay costos que casi nunca aparecen en la cotización inicial de un proveedor y que sí impactan tu presupuesto real. El etiquetado de datos de entrenamiento —marcar manualmente transacciones históricas como fraudulentas o legítimas para que el modelo aprenda— suele requerir entre dos y seis semanas de trabajo de un analista interno, dependiendo de cuántos meses de historial tengas disponibles y qué tan limpios estén tus registros.</p>
+  <p>El reentrenamiento periódico es otro costo oculto: los patrones de fraude cambian constantemente porque quienes lo cometen ajustan su técnica en cuanto detectan que fueron bloqueados. Un modelo que no se reentrena al menos cada trimestre pierde efectividad de forma silenciosa, y ese reentrenamiento tiene un costo recurrente que debes negociar explícitamente con tu proveedor desde el contrato inicial.</p>
+  <p>También está la integración con tu procesador de pagos y tu sistema de facturación electrónica, que casi siempre requiere desarrollo a la medida por parte de tu equipo técnico o de un tercero, y que rara vez está incluido en el precio base del servicio de IA.</p>
+  <p>Para dimensionar si la inversión tiene sentido, compara el costo mensual recurrente contra tu pérdida histórica por fraude y disputas ganadas por el comprador. Si tu plataforma no lleva ese número con precisión, ese es el primer dato que necesitas antes de cotizar cualquier solución — sin él, es imposible calcular retorno real.</p>
+</section>
+
+<section class="blog-section">
+  <h2>Cronograma Realista para Desplegar IA en tu Marketplace</h2>
+  <p>El error más común al adoptar IA en un marketplace es tratar de lanzar todo el sistema —matching, recomendaciones y antifraude— de manera simultánea y en producción completa desde el primer día. Ese enfoque casi siempre termina en un modelo mal calibrado que genera fricción, bloquea usuarios legítimos, o deja pasar fraude evidente porque nunca tuvo suficiente exposición controlada para aprender.</p>
+  <p>Un despliegue ordenado, que aplica tanto a plataformas de e-commerce como a marketplaces de servicios o inmobiliarios, sigue una secuencia de fases con objetivos y duraciones acotadas:</p>
+  <ol>
+    <li><strong>Fase 0 — Diagnóstico de datos (2 a 3 semanas).</strong> Auditoría de qué información histórica existe, qué tan completa y limpia está, y qué señales de comportamiento se están capturando hoy que podrían alimentar un modelo.</li>
+    <li><strong>Fase 1 — Piloto acotado (4 a 6 semanas).</strong> El modelo corre en modo "sombra" sobre una sola categoría o región, generando puntajes de riesgo o recomendaciones que un equipo humano revisa sin que el sistema actúe de forma automática todavía.</li>
+    <li><strong>Fase 2 — Expansión gradual (2 a 3 meses).</strong> Se activa la acción automática (bloqueo, alerta, recomendación en vivo) primero en el segmento piloto, y después se extiende categoría por categoría, monitoreando de cerca la tasa de falsos positivos en cada expansión.</li>
+    <li><strong>Fase 3 — Optimización continua (permanente).</strong> Reentrenamiento periódico, ajuste de umbrales según estacionalidad —el Buen Fin y diciembre suelen disparar tanto ventas como intentos de fraude— y monitoreo de nuevos patrones que el modelo original no contemplaba.</li>
+  </ol>
+  <p>Saltarse la Fase 1 es la decisión que más caro sale. Sin un periodo de observación en modo sombra, no tienes forma de saber si el modelo está calibrado para tu catálogo específico antes de que empiece a tomar decisiones que afectan a usuarios reales. Un marketplace de insumos industriales B2B, por ejemplo, tiene patrones de transacción completamente distintos a uno de artículos usados entre particulares, y un modelo genérico sin ese ajuste fino puede marcar como sospechosas compras corporativas legítimas de alto volumen.</p>
+  <p>El tiempo total, de diagnóstico a operación estable en todas las categorías, suele tomar entre cuatro y siete meses para una plataforma de tamaño medio. Plataformas nicho con catálogos más simples pueden comprimir esto a diez u once semanas; plataformas nacionales multicategoría normalmente necesitan más de siete meses porque cada vertical requiere su propia calibración. Si tu equipo está evaluando por dónde empezar este proceso, conviene revisar primero cómo <a href="/blog/implementar-ia-empresa-mexico">implementar IA en una empresa mexicana</a> de forma estructurada antes de comprometerte con un proveedor específico.</p>
+  <p>Un punto que rara vez se documenta: el cronograma se retrasa casi siempre por la Fase 0, no por el modelo en sí. Si tus datos de transacciones históricas están fragmentados entre distintos sistemas, sin un identificador único de usuario consistente, o con campos de fraude marcados de forma inconsistente entre analistas, la limpieza de esa base puede duplicar el tiempo estimado de diagnóstico. Vale la pena invertir en esa limpieza antes de firmar con cualquier proveedor de IA, porque ningún modelo, por bueno que sea, compensa datos de entrada desordenados.</p>
+</section>
+
+<section class="blog-section">
+  <h2>Construir o Comprar: Cómo Decidir tu Proveedor de IA para Marketplaces</h2>
+  <p>Antes de firmar con un proveedor o de asignarle el proyecto a tu equipo de ingeniería interno, vale la pena resolver una pregunta previa: ¿tu marketplace tiene un catálogo o un patrón de fraude lo bastante distinto al de cualquier otra plataforma como para justificar construir el modelo desde cero?</p>
+  <p>La mayoría de los marketplaces mexicanos, incluso los que se sienten únicos por su nicho, comparten estructuras de datos y patrones de comportamiento con cientos de plataformas similares en otros mercados. En esos casos, contratar un proveedor especializado suele salir más barato y más rápido que construir internamente, porque ese proveedor ya entrenó su modelo base con volúmenes de datos que tu plataforma sola tardaría años en acumular.</p>
+  <p>Construir internamente tiene sentido cuando tu marketplace maneja un tipo de transacción verdaderamente atípico —por ejemplo, un mercado B2B de maquinaria industrial usada con procesos de negociación de varias semanas por transacción— donde ningún proveedor externo tiene experiencia previa relevante, y cuando ya cuentas con un equipo de ciencia de datos capaz de mantener el modelo en producción de forma indefinida.</p>
+  <p>Un enfoque híbrido, cada vez más común entre plataformas medianas, consiste en comprar el motor base de detección de fraude o recomendaciones de un proveedor establecido, y desarrollar internamente solo las reglas de negocio específicas de tu categoría que se conectan encima de ese motor. Esto reduce el riesgo de depender enteramente de un tercero sin obligarte a construir infraestructura de machine learning desde el primer día.</p>
+  <p>Si decides ir por la vía de contratar un proveedor, hay preguntas que deberías exigir que respondan antes de firmar cualquier contrato:</p>
+  <ul>
+    <li>¿Cómo entrenan el modelo específicamente con los datos de tu plataforma, y no solo con un modelo genérico preentrenado sin ajuste?</li>
+    <li>¿Qué garantías ofrecen sobre el manejo de datos personales bajo la LFPDPPP, incluyendo dónde se almacenan y por cuánto tiempo se retienen los documentos de verificación de identidad?</li>
+    <li>¿Cuál es su nivel de servicio comprometido en tasa de falsos positivos, y qué penalización aplica si no lo cumplen?</li>
+    <li>¿El sistema ofrece explicabilidad suficiente para que puedas justificar ante un usuario por qué su cuenta fue bloqueada o su transacción marcada como sospechosa?</li>
+    <li>¿Qué tan fácil es exportar tus datos y tu historial de decisiones si en el futuro decides cambiar de proveedor?</li>
+  </ul>
+  <p>Un proveedor que evade con vaguedad cualquiera de estas cinco preguntas es una señal de alerta, independientemente de qué tan pulida sea su demostración comercial. Para entender mejor el panorama general de qué son y cómo operan estos sistemas antes de evaluar proveedores, puede ser útil revisar primero qué son los <a href="/blog/que-son-agentes-ia">agentes de IA</a> y cómo se diferencian de las reglas de negocio tradicionales que probablemente ya tienes implementadas en tu plataforma.</p>
+</section>
