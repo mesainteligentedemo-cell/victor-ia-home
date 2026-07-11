@@ -55,42 +55,21 @@
 }</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/blog/blog-premium.css"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#070708;color:#EAE6DF;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden}
-@media(pointer:fine){*{cursor:auto!important}}
-header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;border-bottom:1px solid transparent;transition:background .5s}
-header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,.06);backdrop-filter:blur(18px)}
-.nav-a{color:#706C66;font-size:13px;letter-spacing:.07em;text-decoration:none;transition:color .3s}.nav-a:hover{color:#EAE6DF}
-.btn-p{display:inline-flex;border-radius:5px;font-size:13px;letter-spacing:.09em;font-weight:500;background:#EAE6DF;color:#070708;padding:11px 26px;text-decoration:none}
-.prose h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#EAE6DF;margin:40px 0 16px}
-.prose p,.prose li{font-size:16px;line-height:1.8;color:rgba(234,230,223,.78);margin-bottom:16px}
-.prose ul,.prose ol{margin:0 0 20px 24px}
-.prose a{color:#B89A6A}
-.rv{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.16,1,.3,1)}.rv.on{opacity:1;transform:none}
-.key-takeaways{background:linear-gradient(135deg,rgba(184,154,106,.07),rgba(59,130,246,.03));border:1px solid rgba(184,154,106,.2);border-radius:12px;padding:26px 30px;margin:34px 0}
-.key-takeaways h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px}
-.key-takeaways ul{list-style:none;margin:0}.key-takeaways li{padding:7px 0 7px 18px;position:relative;font-size:15px;line-height:1.6;color:rgba(234,230,223,.82)}
-.key-takeaways li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;background:#B89A6A;border-radius:50%}
-.viai-related{border-top:1px solid rgba(184,154,106,.16);padding-top:32px;margin-top:44px}
-.viai-related h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;margin-bottom:18px}
-.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.related-card{text-decoration:none;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:16px;display:block;transition:all .3s}
-.related-card:hover{border-color:rgba(184,154,106,.5);background:rgba(184,154,106,.03)}
-.related-card .cat{font-size:10.5px;letter-spacing:.12em;color:#B89A6A;text-transform:uppercase;display:block}
-.related-card .ttl{display:block;margin-top:8px;color:rgba(234,230,223,.85);font-size:14.5px;line-height:1.4}
-.lb-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid rgba(184,154,106,.16);padding-top:36px;margin-top:40px}
-.lb-grid h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#EAE6DF;margin-bottom:16px}
-.lb-grid a{color:#B89A6A;text-decoration:none;font-size:14.5px;line-height:1.5}
-@media(max-width:640px){.lb-grid{grid-template-columns:1fr;gap:26px}.related-grid{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="/assets/blog-styles.css"/>
+
 </head>
 <body>
 <header id="hdr"><div style="display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:0 24px;height:68px">
-  <a href="/index.html" style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#EAE6DF;text-decoration:none">Victor <span style="color:#B89A6A">IA</span></a>
+  <a href="/index.html" style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#191b1f;text-decoration:none">Victor <span style="color:#0066ff">IA</span></a>
   <nav style="display:flex;gap:28px;align-items:center"><a class="nav-a" href="/agentes.html">Agentes</a><a class="nav-a" href="/blog/index.html">Blog</a><a class="btn-p" href="/app.html">Empezar gratis</a></nav>
 </div></header>
-<main style="padding-top:110px;max-width:800px;margin:0 auto;padding-left:24px;padding-right:24px"><img src="/img/blog-covers/ia-para-despachos-contables.png" alt="IA para Despachos Contables en México: Cierra Más Rápido, Cobra Más" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;margin-bottom:36px" class="rv"/><div class="rv" style="display:flex;gap:10px;font-size:12px;color:#706C66;margin-bottom:22px"><span>2026-07-11</span><span>·</span><span>Victor IA</span><span>·</span><span>7</span></div><h1 class="rv" style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,50px);font-weight:300;line-height:1.15;color:#EAE6DF;margin-bottom:24px">IA para Despachos Contables en México: Cierra Más Rápido, Cobra Más</h1><div class="key-takeaways rv"><h4>Lo más importante</h4><ul>
+<main style="padding-top:110px;max-width:800px;margin:0 auto;padding-left:24px;padding-right:24px">
+<header class="art-head rv">
+<p class="art-meta"><span class="art-cat">Legal, Finanzas &amp; Seguros</span><span class="art-dot">·</span><span>10 min lectura</span><span class="art-dot">·</span><span>28 MAY 2026</span></p>
+<h1 class="art-title">IA para Despachos Contables en México: Cierra Más Rápido, Cobra Más</h1>
+<p class="art-excerpt">Cómo los contadores públicos mexicanos usan IA para automatizar reportes, declaraciones y análisis financiero. Guía práctica por sector con resultados esperables.</p>
+</header>
+<div class="key-takeaways rv"><h4>Lo más importante</h4><ul>
 <li>Automatización 
          Contabilidad 
          PyMEs México 
@@ -118,11 +97,7 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
 <li>Cada cliente nuevo que entra implica más horas de captura, más revisiones manuales, más riesgo de error en declaraciones.</li>
 <li>El techo de crecimiento no lo pone el mercado — lo pone la capacidad humana de hacer trabajo repetitivo.</li>
 </ul></div>
-  <aside id="category-diagram" class="rv" role="img" aria-label="Diagrama relacionado con finanzas" style="margin:10px 0 40px;border:1px solid rgba(184,154,106,.2);border-radius:14px;padding:22px 14px;background:radial-gradient(120% 120% at 50% 0%,rgba(184,154,106,.06),rgba(7,7,8,0) 70%)">
-    <div style="text-align:center;color:rgba(234,230,223,.4);font-size:12px;padding:20px">
-      [SVG de categoría: finanzas — será incorporado en fase 2]
-    </div>
-  </aside><div class="prose rv">
+  <div class="prose rv">
 <!-- Hero -->
   <section style="padding:96px 0 64px;border-bottom:1px solid rgba(0,0,0,.05)">
     <div style="max-width:780px;margin:0 auto;padding:0 32px">
@@ -131,19 +106,11 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
         <span class="tag">Contabilidad</span>
         <span class="tag">PyMEs México</span>
       </div>
-      <h1 class="rv" style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,54px);font-weight:300;line-height:1.18;color:#000000;margin-bottom:24px">
-        IA para Despachos Contables en México: Cierra Más Rápido, Cobra Más
-      </h1>
+      
       <p class="rv" style="font-size:18px;line-height:1.75;color:rgba(0,0,0,.6);margin-bottom:32px">
         Los despachos contables mexicanos que automatizan sus procesos repetitivos pueden atender a más clientes con el mismo equipo. Aquí está el mapa exacto de qué automatizar, cómo hacerlo y qué esperar en los primeros 90 días.
       </p>
-      <div class="rv" style="display:flex;gap:24px;align-items:center;font-size:12px;color:#666666;letter-spacing:.07em">
-        <span>28 de Mayo de 2026</span>
-        <span style="color:rgba(102,102,102,.3)">·</span>
-        <span>10 min de lectura</span>
-        <span style="color:rgba(102,102,102,.3)">·</span>
-        <span>Victor IA</span>
-      </div>
+      
     
   <!-- Portada -->
   <div class="article-cover">
@@ -333,12 +300,7 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
 </section>
 
 </div>
-  <section class="viai-related rv">
-    <h2>Artículos relacionados en finanzas</h2>
-    <div class="related-grid">
-      <p style="color:rgba(234,230,223,.4);font-size:12px;grid-column:1/-1">[Artículos relacionados serán llenados en fase de indexación]</p>
-    </div>
-  </section>
+  
   <section class="viai-linkbuild rv">
     <div class="lb-grid">
       <div><h2>Sigue leyendo</h2><ul style="list-style:none;padding:0">
@@ -354,15 +316,9 @@ header.scrolled{background:rgba(7,7,8,.92);border-bottom-color:rgba(255,255,255,
       </ul></div>
     </div>
   </section>
-  <section class="rv" style="text-align:center;padding:70px 0 40px;margin-top:40px;border-top:1px solid rgba(255,255,255,.06)">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#EAE6DF;margin-bottom:14px">¿Listo para llevar la IA a tu empresa?</h2>
-    <p style="color:rgba(234,230,223,.6);margin-bottom:24px">Agenda un diagnóstico gratuito.</p>
-    <a class="btn-p" href="/app.html">Empezar gratis →</a>
-  </section>
+  <section class="art-cta rv"><h2>¿Listo para llevar la IA a tu empresa?</h2><p>Agenda un diagnóstico gratuito.</p><a class="btn-p" href="/app.html">Empezar gratis →</a></section>
 </main>
-<footer style="background:#040406;border-top:1px solid rgba(255,255,255,.05);padding:48px 24px;text-align:center">
-  <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(112,108,102,.4)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
-</footer>
+<footer class="site-foot"><p>© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="/blog/blog-premium.js" defer></script>
