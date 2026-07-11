@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victor IA - Hero Scroll Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #f5f5f5;
+    }
+
+    /* Hero Section */
+    [data-hero-wrap] {
+      position: relative;
+      height: 420vh;
+    }
+
+    @media (min-width: 768px) {
+      [data-hero-wrap] {
+        height: 640vh;
+      }
+    }
+
+    [data-hero-viewport] {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    [data-hero-canvas] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    [data-hero-image] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    [data-hero-overlay] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      will-change: transform;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3.5rem 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      [data-hero-overlay] {
+        padding: 3.5rem 2.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      [data-hero-overlay] {
+        padding: 3.5rem 4rem;
+      }
+    }
+
+    [data-hero-content] {
+      position: relative;
+      z-index: 10;
+    }
+
+    [data-hero-title] {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      max-width: 13ch;
+    }
+
+    @media (min-width: 640px) {
+      [data-hero-title] {
+        font-size: 3.75rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      [data-hero-title] {
+        font-size: 4.5rem;
+      }
+    }
+
+    [data-hero-subtitle] {
+      margin-top: 1.5rem;
+      max-width: 42ch;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (min-width: 640px) {
+      [data-hero-subtitle] {
+        font-size: 1.125rem;
+      }
+    }
+
+    [data-hero-cta] {
+      margin-top: 2.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    [data-hero-button] {
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    [data-hero-button-primary] {
+      background: #2563eb;
+      color: white;
+      border: none;
+    }
+
+    [data-hero-button-primary]:hover {
+      background: #1d4ed8;
+    }
+
+    [data-hero-button-secondary] {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+
+    [data-hero-button-secondary]:hover {
+      border-color: white;
+    }
+
+    /* Indicadores */
+    [data-hero-indicators] {
+      position: absolute;
+      bottom: 3.5rem;
+      right: 1.5rem;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 16rem;
+    }
+
+    @media (min-width: 1024px) {
+      [data-hero-indicators] {
+        display: flex;
+      }
+    }
+
+    [data-hero-phase] {
+      text-align: right;
+      font-size: 0.625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    [data-hero-progress-bar] {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-hero-bar] {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: #3b82f6;
+      origin: left;
+      transform: scaleX(0);
+    }
+
+    [data-hero-label] {
+      text-align: right;
+      font-size: 0.625rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Contenido de abajo */
+    section {
+      padding: 5rem 1.5rem;
+      background: white;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #191b1f;
+    }
+
+    section p {
+      max-width: 65ch;
+      line-height: 1.75;
+      color: rgba(0, 0, 0, 0.7);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero con Scroll Frames -->
+  <section data-hero-wrap>
+    <div data-hero-viewport>
+      <!-- Primera imagen (fallback si JS falla) -->
+      <img data-hero-image src="/assets/frames/hero/f001.jpg" alt="Victor IA Hero">
+
+      <!-- Canvas para renderizar frames -->
+      <canvas data-hero-canvas></canvas>
+
+      <!-- Overlay con contenido -->
+      <div data-hero-overlay>
+        <div data-hero-content>
+          <h1 data-hero-title>Victor IA</h1>
+          <p data-hero-subtitle>Inteligencia que transforma tu empresa en minutos, no meses.</p>
+          <div data-hero-cta>
+            <button data-hero-button data-hero-button-primary>Comenzar</button>
+            <button data-hero-button data-hero-button-secondary>Conocer más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicadores de progreso -->
+      <div data-hero-indicators>
+        <span data-hero-phase>Sistema dormido</span>
+        <span data-hero-progress-bar>
+          <span data-hero-bar></span>
+        </span>
+        <span data-hero-label>Progreso del recorrido</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido debajo del hero -->
+  <section>
+    <h2>¿Por qué Victor IA?</h2>
+    <p>Victor IA es una plataforma de inteligencia artificial diseñada para automatizar y optimizar los procesos empresariales más complejos. Desde la gestión de inventario hasta la orquestación de agentes inteligentes, Victor IA lo maneja todo.</p>
+    <p>Nuestro sistema de 200 agentes en paralelo garantiza que tu negocio funcione 24/7 con precisión y eficiencia máximas.</p>
+  </section>
+
+  <!-- Script del hero scroll -->
+  <script src="/assets/js/hero-scroll-frames.js"></script>
+
+  <script>
+    // Inicializar hero scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      new HeroScrollFrames(
+        '[data-hero-wrap]',
+        '[data-hero-canvas]',
+        '[data-hero-phase]',
+        '[data-hero-bar]',
+        '[data-hero-overlay]'
+      )
+    })
+  </script>
+</body>
+</html>
