@@ -1,8 +1,8 @@
-/*!
- * VICTOR IA — Article Reader (lectura por voz del navegador)
- * Sin APIs externas · sin claves · solo Web Speech API
- * Voz masculina en español · resalta PALABRA por PALABRA
- * Lee h1, h2, h3, párrafos, listas y citas de cada artículo.
+﻿/*!
+ * VICTOR IA â€” Article Reader (lectura por voz del navegador)
+ * Sin APIs externas Â· sin claves Â· solo Web Speech API
+ * Voz masculina en espaÃ±ol Â· resalta PALABRA por PALABRA
+ * Lee h1, h2, h3, pÃ¡rrafos, listas y citas de cada artÃ­culo.
  */
 (function () {
   'use strict';
@@ -12,9 +12,9 @@
   if (!prose || /\/blog\/?$/.test(path)) return;
   if (!('speechSynthesis' in window)) return;
 
-  var GOLD = '#B89A6A', CREAM = '#EAE6DF', BG = '#0F0F12', MUTED = '#706C66';
+  var GOLD = '#0066ff', CREAM = '#efece3', BG = '#191b1f', MUTED = '#8a8d94';
 
-  // ── Recolectar bloques legibles en orden (título + cuerpo) ───────────────
+  // â”€â”€ Recolectar bloques legibles en orden (tÃ­tulo + cuerpo) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function collectBlocks() {
     var blocks = [];
     var h1 = document.querySelector('h1');
@@ -38,7 +38,7 @@
       .trim();
   }
 
-  // ── Word-wrap: envuelve cada palabra en <span> para resaltar ─────────────
+  // â”€â”€ Word-wrap: envuelve cada palabra en <span> para resaltar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function wrapWords(el) {
     if (el.dataset.viarWrapped) return;
     el.dataset.viarWrapped = '1';
@@ -59,18 +59,18 @@
 
   var blocks = [], idx = -1, playing = false, paused = false, curEl = null, voice = null;
 
-  // ── Elegir voz MASCULINA en español ──────────────────────────────────────
+  // â”€â”€ Elegir voz MASCULINA en espaÃ±ol â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function pickVoice() {
     var vs = window.speechSynthesis.getVoices() || [];
     var es = vs.filter(function (v) { return /^es/i.test(v.lang); });
     if (!es.length) es = vs;
-    // nombres típicos de voces masculinas en español por SO/navegador
-    var maleNames = /(jorge|juan|diego|carlos|miguel|pablo|enrique|guillermo|male|hombre|raul|álvaro|alvaro|liam|google español)/i;
-    // 1) match explícito de voz masculina
+    // nombres tÃ­picos de voces masculinas en espaÃ±ol por SO/navegador
+    var maleNames = /(jorge|juan|diego|carlos|miguel|pablo|enrique|guillermo|male|hombre|raul|Ã¡lvaro|alvaro|liam|google espaÃ±ol)/i;
+    // 1) match explÃ­cito de voz masculina
     var male = es.find(function (v) { return maleNames.test(v.name); });
     if (male) return male;
     // 2) preferir es-MX, luego es-ES, y descartar nombres femeninos comunes
-    var femNames = /(paulina|mónica|monica|laura|sabina|marisol|esperanza|female|mujer|helena|elvira|google español de estados)/i;
+    var femNames = /(paulina|mÃ³nica|monica|laura|sabina|marisol|esperanza|female|mujer|helena|elvira|google espaÃ±ol de estados)/i;
     var nonFem = es.filter(function (v) { return !femNames.test(v.name); });
     var pool = nonFem.length ? nonFem : es;
     var mx = pool.find(function (v) { return /es[-_]MX/i.test(v.lang); });
@@ -78,7 +78,7 @@
     return mx || sp || pool[0] || null;
   }
 
-  // ── Hablar un bloque con resaltado palabra por palabra ───────────────────
+  // â”€â”€ Hablar un bloque con resaltado palabra por palabra â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function speakBlock(i) {
     if (i < 0 || i >= blocks.length) { stop(); return; }
     idx = i;
@@ -89,13 +89,13 @@
     var words = curEl.querySelectorAll('.viar-w');
     var spoken = clean(curEl.textContent);
 
-    // map de offset de carácter → índice de palabra resaltable
+    // map de offset de carÃ¡cter â†’ Ã­ndice de palabra resaltable
     scrollToEl(curEl);
 
     var u = new SpeechSynthesisUtterance(spoken.slice(0, 1200));
     u.lang = (voice && voice.lang) || 'es-MX';
     u.rate = 0.95;
-    u.pitch = 0.92; // ligeramente más grave = más masculino
+    u.pitch = 0.92; // ligeramente mÃ¡s grave = mÃ¡s masculino
     if (voice) u.voice = voice;
 
     var wi = 0;
@@ -152,7 +152,7 @@
     render();
   }
 
-  // ── UI ──────────────────────────────────────────────────────────────────
+  // â”€â”€ UI â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   var bar;
   function buildUI() {
     var style = document.createElement('style');
@@ -188,10 +188,10 @@
   function render() {
     if (!bar) return;
     if (!playing && !paused) {
-      bar.innerHTML = '<button class="viar-fab" id="viar-start">' + ico('speaker') + 'Escuchar artículo</button>';
+      bar.innerHTML = '<button class="viar-fab" id="viar-start">' + ico('speaker') + 'Escuchar artÃ­culo</button>';
       document.getElementById('viar-start').onclick = play;
     } else {
-      var lbl = playing ? 'Leyendo…' : 'En pausa';
+      var lbl = playing ? 'Leyendoâ€¦' : 'En pausa';
       bar.innerHTML =
         '<div class="viar-controls">' +
         '<button class="viar-ic" id="viar-toggle" title="' + (playing ? 'Pausar' : 'Reanudar') + '">' + ico(playing ? 'pause' : 'play') + '</button>' +
