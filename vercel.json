@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "echo 'Static site - no build needed'",
+  "buildCommand": "cp -r public/* . 2>/dev/null || true && echo 'Assets copied to output'",
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
