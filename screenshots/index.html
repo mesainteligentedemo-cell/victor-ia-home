@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor IA - Screenshots Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #00d4ff;
+            font-size: 2.5em;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        .page-section {
+            margin-bottom: 60px;
+            background: #1a1f3a;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2f4a;
+        }
+
+        .page-title {
+            background: #242d4a;
+            padding: 20px;
+            border-bottom: 1px solid #2a2f4a;
+        }
+
+        .page-title h2 {
+            color: #00d4ff;
+            margin-bottom: 5px;
+            font-size: 1.5em;
+        }
+
+        .page-title p {
+            color: #888;
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        .breakpoints {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .breakpoint {
+            background: #0f1428;
+            border: 1px solid #2a2f4a;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .breakpoint:hover {
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+        }
+
+        .bp-label {
+            background: #1a2847;
+            padding: 12px 16px;
+            font-weight: 600;
+            color: #00d4ff;
+            border-bottom: 1px solid #2a2f4a;
+            font-size: 0.95em;
+        }
+
+        .bp-image-container {
+            position: relative;
+            background: #000;
+            overflow: auto;
+            max-height: 600px;
+        }
+
+        .bp-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .bp-info {
+            padding: 12px 16px;
+            background: #141a2f;
+            border-top: 1px solid #2a2f4a;
+            font-size: 0.85em;
+            color: #888;
+        }
+
+        .error-box {
+            background: #2a1a1a;
+            border: 1px solid #6a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .error-box h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .error-list {
+            color: #d89898;
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .error-list li {
+            margin: 5px 0;
+        }
+
+        .error-list li:before {
+            content: "✗ ";
+            margin-right: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #2a2f4a;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .breakpoints {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Victor IA - Screenshots Comparison</h1>
+        <div class="stats">
+            <p>Total de páginas capturadas: <strong>13</strong> | Breakpoints: <strong>3</strong> (Mobile, Tablet, Desktop) | Total de imágenes: <strong>39</strong></p>
+            <p style="margin-top: 10px; font-size: 0.85em;">Generado: 11/7/2026, 23:35:24</p>
+        </div>
+
+        
+
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Home</h2>
+                    <p>URL: <code>https://victor-ia.xyz/</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="home\mobile.png" alt="home mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 811.3 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="home\tablet.png" alt="home tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 1433.2 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="home\desktop.png" alt="home desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 2328.5 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Blog</h2>
+                    <p>URL: <code>https://victor-ia.xyz/blog</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="blog\mobile.png" alt="blog mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 226.8 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="blog\tablet.png" alt="blog tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 249.7 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="blog\desktop.png" alt="blog desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 293.8 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Como Funciona</h2>
+                    <p>URL: <code>https://victor-ia.xyz/como-funciona</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="como-funciona\mobile.png" alt="como-funciona mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 362.9 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/como-funciona
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="como-funciona\tablet.png" alt="como-funciona tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 676.6 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/como-funciona
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="como-funciona\desktop.png" alt="como-funciona desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 726.4 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/como-funciona
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Agentes</h2>
+                    <p>URL: <code>https://victor-ia.xyz/agentes</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="agentes\mobile.png" alt="agentes mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 1935.9 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/agentes
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="agentes\tablet.png" alt="agentes tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 2014.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/agentes
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="agentes\desktop.png" alt="agentes desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 2033.4 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/agentes
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Precios</h2>
+                    <p>URL: <code>https://victor-ia.xyz/precios</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="precios\mobile.png" alt="precios mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 388.8 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/precios
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="precios\tablet.png" alt="precios tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 671.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/precios
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="precios\desktop.png" alt="precios desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 763.5 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/precios
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Telemetria</h2>
+                    <p>URL: <code>https://victor-ia.xyz/telemetria</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="telemetria\mobile.png" alt="telemetria mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 398.8 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/telemetria
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="telemetria\tablet.png" alt="telemetria tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 691.7 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/telemetria
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="telemetria\desktop.png" alt="telemetria desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 796.5 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/telemetria
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Agendar Videollamada</h2>
+                    <p>URL: <code>https://victor-ia.xyz/agendar-videollamada</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="agendar-videollamada\mobile.png" alt="agendar-videollamada mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 375.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/agendar-videollamada
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="agendar-videollamada\tablet.png" alt="agendar-videollamada tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 676.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/agendar-videollamada
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="agendar-videollamada\desktop.png" alt="agendar-videollamada desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 752.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/agendar-videollamada
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Guia Definitiva</h2>
+                    <p>URL: <code>https://victor-ia.xyz/guia-definitiva</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="guia-definitiva\mobile.png" alt="guia-definitiva mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 4402.8 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/guia-definitiva
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="guia-definitiva\tablet.png" alt="guia-definitiva tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 4445.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/guia-definitiva
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="guia-definitiva\desktop.png" alt="guia-definitiva desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 4471.5 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/guia-definitiva
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Blog Ia Para Manufacturing</h2>
+                    <p>URL: <code>https://victor-ia.xyz/blog/ia-para-manufacturing</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-manufacturing\mobile.png" alt="blog-ia-para-manufacturing mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 183.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-manufacturing
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-manufacturing\tablet.png" alt="blog-ia-para-manufacturing tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 374.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-manufacturing
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-manufacturing\desktop.png" alt="blog-ia-para-manufacturing desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 548.2 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-manufacturing
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Blog Ia Para Retail</h2>
+                    <p>URL: <code>https://victor-ia.xyz/blog/ia-para-retail</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-retail\mobile.png" alt="blog-ia-para-retail mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 183.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-retail
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-retail\tablet.png" alt="blog-ia-para-retail tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 374.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-retail
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-retail\desktop.png" alt="blog-ia-para-retail desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 548.2 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-retail
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Blog Ia Para Financiero</h2>
+                    <p>URL: <code>https://victor-ia.xyz/blog/ia-para-financiero</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-financiero\mobile.png" alt="blog-ia-para-financiero mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 183.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-financiero
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-financiero\tablet.png" alt="blog-ia-para-financiero tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 374.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-financiero
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-financiero\desktop.png" alt="blog-ia-para-financiero desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 548.2 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-financiero
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Blog Ia Para Ecommerce</h2>
+                    <p>URL: <code>https://victor-ia.xyz/blog/ia-para-ecommerce</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-ecommerce\mobile.png" alt="blog-ia-para-ecommerce mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 183.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-ecommerce
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-ecommerce\tablet.png" alt="blog-ia-para-ecommerce tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 374.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-ecommerce
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-ecommerce\desktop.png" alt="blog-ia-para-ecommerce desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 548.2 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-ecommerce
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+            <div class="page-section">
+                <div class="page-title">
+                    <h2>Blog Ia Para Hospitality</h2>
+                    <p>URL: <code>https://victor-ia.xyz/blog/ia-para-hospitality</code></p>
+                </div>
+                <div class="breakpoints">
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Mobile (390×844)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-hospitality\mobile.png" alt="blog-ia-para-hospitality mobile" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 183.1 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-hospitality
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Tablet (768×1024)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-hospitality\tablet.png" alt="blog-ia-para-hospitality tablet" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 374.0 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-hospitality
+                            </div>
+                        </div>
+                    
+                        <div class="breakpoint">
+                            <div class="bp-label">Desktop (1440×900)</div>
+                            <div class="bp-image-container">
+                                <img src="blog-ia-para-hospitality\desktop.png" alt="blog-ia-para-hospitality desktop" class="bp-image" />
+                            </div>
+                            <div class="bp-info">
+                                <strong>Tamaño:</strong> 548.2 KB<br />
+                                <strong>URL:</strong> https://victor-ia.xyz/blog/ia-para-hospitality
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        
+
+        <div class="footer">
+            <p>Victor IA - Sitio Web Actual</p>
+            <p style="margin-top: 10px; font-size: 0.8em;">Todas las imágenes son capturadas automáticamente con Playwright</p>
+        </div>
+    </div>
+</body>
+</html>

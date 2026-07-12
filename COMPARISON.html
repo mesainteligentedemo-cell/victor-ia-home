@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor IA - Comparacion Reference vs Current</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0a0e27;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        header {
+            max-width: 1600px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #00d9ff, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+        }
+
+        .navigation {
+            max-width: 1600px;
+            margin: 0 auto 3rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .breakpoint-btn {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .breakpoint-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .breakpoint-btn.active {
+            background: linear-gradient(135deg, #00d9ff, #00a8ff);
+            border-color: #00d9ff;
+            color: #000;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .comparison-section {
+            margin-bottom: 4rem;
+            display: none;
+        }
+
+        .comparison-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.9);
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #00d9ff;
+            border-radius: 4px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .screenshot-container {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-container:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .screenshot-label {
+            background: rgba(0,217,255,0.1);
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .screenshot-label.current {
+            background: rgba(255,100,100,0.1);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #000;
+        }
+
+        .screenshot-meta {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .size-badge {
+            display: inline-block;
+            background: rgba(0,217,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        .size-badge.current {
+            background: rgba(255,100,100,0.2);
+        }
+
+        .footer {
+            max-width: 1600px;
+            margin: 4rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .legend {
+            max-width: 1600px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-color.reference {
+            background: rgba(0,217,255,0.3);
+            border: 1px solid rgba(0,217,255,0.5);
+        }
+
+        .legend-color.current {
+            background: rgba(255,100,100,0.3);
+            border: 1px solid rgba(255,100,100,0.5);
+        }
+
+        @media (max-width: 1024px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .navigation {
+                gap: 0.5rem;
+            }
+
+            .breakpoint-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        .error-message {
+            padding: 2rem;
+            background: rgba(255,100,100,0.1);
+            border: 1px solid rgba(255,100,100,0.3);
+            border-radius: 8px;
+            color: rgba(255,200,200,0.9);
+            margin: 2rem 0;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Victor IA - Comparacion Visual</h1>
+        <p>Reference (victor-ia.higgsfield.app) vs Current (victor-ia.xyz)</p>
+    </header>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color reference"></div>
+            <span>REFERENCE: victor-ia.higgsfield.app</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color current"></div>
+            <span>CURRENT: victor-ia.xyz</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color current"></div>
+            <span>Usa estos para ver diferencias</span>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="breakpoint-btn active" onclick="showBreakpoint('mobile')">Mobile (390px)</button>
+        <button class="breakpoint-btn" onclick="showBreakpoint('tablet')">Tablet (768px)</button>
+        <button class="breakpoint-btn" onclick="showBreakpoint('desktop')">Desktop (1440px)</button>
+    </div>
+
+    <div class="container">
+        <!-- MOBILE -->
+        <div class="comparison-section active" data-breakpoint="mobile">
+            <div class="section-title">Mobile (390px)</div>
+            <div class="comparison-grid">
+                <div class="screenshot-container">
+                    <div class="screenshot-label">REFERENCE - victor-ia.higgsfield.app</div>
+                    <img src="screenshots-reference/reference_mobile.png" alt="Reference Mobile" class="screenshot-image">
+                    <div class="screenshot-meta">
+                        <div>Viewport: 390px × 1080px</div>
+                        <div class="size-badge">Higgsfield (reference)</div>
+                    </div>
+                </div>
+                <div class="screenshot-container">
+                    <div class="screenshot-label current">CURRENT - victor-ia.xyz</div>
+                    <img src="screenshots-reference/current_mobile.png" alt="Current Mobile" class="screenshot-image">
+                    <div class="screenshot-meta">
+                        <div>Viewport: 390px × 1080px</div>
+                        <div class="size-badge current">Live production</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLET -->
+        <div class="comparison-section" data-breakpoint="tablet">
+            <div class="section-title">Tablet (768px)</div>
+            <div class="comparison-grid">
+                <div class="screenshot-container">
+                    <div class="screenshot-label">REFERENCE - victor-ia.higgsfield.app</div>
+                    <img src="screenshots-reference/reference_tablet.png" alt="Reference Tablet" class="screenshot-image">
+                    <div class="screenshot-meta">
+                        <div>Viewport: 768px × 1080px</div>
+                        <div class="size-badge">Higgsfield (reference)</div>
+                    </div>
+                </div>
+                <div class="screenshot-container">
+                    <div class="screenshot-label current">CURRENT - victor-ia.xyz</div>
+                    <img src="screenshots-reference/current_tablet.png" alt="Current Tablet" class="screenshot-image">
+                    <div class="screenshot-meta">
+                        <div>Viewport: 768px × 1080px</div>
+                        <div class="size-badge current">Live production</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESKTOP -->
+        <div class="comparison-section" data-breakpoint="desktop">
+            <div class="section-title">Desktop (1440px)</div>
+            <div class="comparison-grid">
+                <div class="screenshot-container">
+                    <div class="screenshot-label">REFERENCE - victor-ia.higgsfield.app</div>
+                    <img src="screenshots-reference/reference_desktop.png" alt="Reference Desktop" class="screenshot-image">
+                    <div class="screenshot-meta">
+                        <div>Viewport: 1440px × 1080px</div>
+                        <div class="size-badge">Higgsfield (reference)</div>
+                    </div>
+                </div>
+                <div class="screenshot-container">
+                    <div class="screenshot-label current">CURRENT - victor-ia.xyz</div>
+                    <img src="screenshots-reference/current_desktop.png" alt="Current Desktop" class="screenshot-image">
+                    <div class="screenshot-meta">
+                        <div>Viewport: 1440px × 1080px</div>
+                        <div class="size-badge current">Live production</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Comparacion generada automaticamente con Playwright | Screenshots sincronizados en 3 breakpoints</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.3);">
+            Abre el navegador con Developer Tools (F12) para hacer zoom en detalles específicos
+        </p>
+    </div>
+
+    <script>
+        function showBreakpoint(breakpoint) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.comparison-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Mostrar la sección seleccionada
+            const section = document.querySelector(`[data-breakpoint="${breakpoint}"]`);
+            if (section) {
+                section.classList.add('active');
+            }
+
+            // Actualizar botones activos
+            document.querySelectorAll('.breakpoint-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Scroll al top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Permitir navegacion con teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                const current = document.querySelector('.comparison-section.active').dataset.breakpoint;
+                const breakpoints = ['mobile', 'tablet', 'desktop'];
+                const idx = breakpoints.indexOf(current);
+                if (idx > 0) {
+                    document.querySelector(`[onclick="showBreakpoint('${breakpoints[idx-1]}')"]`).click();
+                }
+            } else if (e.key === 'ArrowRight') {
+                const current = document.querySelector('.comparison-section.active').dataset.breakpoint;
+                const breakpoints = ['mobile', 'tablet', 'desktop'];
+                const idx = breakpoints.indexOf(current);
+                if (idx < breakpoints.length - 1) {
+                    document.querySelector(`[onclick="showBreakpoint('${breakpoints[idx+1]}')"]`).click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

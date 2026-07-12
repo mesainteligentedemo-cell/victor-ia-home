@@ -1,0 +1,48 @@
+{
+  "reference": {
+    "mobile": {
+      "site": "reference",
+      "breakpoint": "mobile",
+      "width": 390,
+      "file": "reference_mobile.png",
+      "url": "https://victor-ia.higgsfield.app/"
+    },
+    "tablet": {
+      "site": "reference",
+      "breakpoint": "tablet",
+      "width": 768,
+      "file": "reference_tablet.png",
+      "url": "https://victor-ia.higgsfield.app/"
+    },
+    "desktop": {
+      "site": "reference",
+      "breakpoint": "desktop",
+      "width": 1440,
+      "file": "reference_desktop.png",
+      "url": "https://victor-ia.higgsfield.app/"
+    }
+  },
+  "current": {
+    "mobile": {
+      "site": "current",
+      "breakpoint": "mobile",
+      "width": 390,
+      "file": "current_mobile.png",
+      "url": "https://victor-ia.xyz/"
+    },
+    "tablet": {
+      "site": "current",
+      "breakpoint": "tablet",
+      "width": 768,
+      "file": "current_tablet.png",
+      "url": "https://victor-ia.xyz/"
+    },
+    "desktop": {
+      "site": "current",
+      "breakpoint": "desktop",
+      "width": 1440,
+      "file": "current_desktop.png",
+      "url": "https://victor-ia.xyz/"
+    }
+  }
+}
