@@ -2,7 +2,8 @@
    VICTOR IA — Light Theme · Canvas Reveal
    ════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+@import url('https://api.fontshare.com/css?f[]=clash-display@200,400,700&f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,20 +15,24 @@ a, a:link, a:visited, a:hover, a:active, a:focus {
 }
 
 :root {
-  --warm:     #F8F7F5;
-  --ink:      #0E0F12;
-  --mute:     rgba(14,15,18,0.45);
-  --dim:      rgba(14,15,18,0.10);
-  --amber:    #FFAA17;
-  --amber-dk: #CC8800;
-  --amber-low: rgba(204,136,0,0.08);
+  --bone:     #EFECE3;
+  --ultramarine: #2743C9;
+  --ink:      #191B1F;
+  --tint:     #E2DFD4;
+  --grey:     #6B6B6B;
+  --mute:     rgba(25,27,31,0.45);
+  --dim:      rgba(25,27,31,0.10);
+  --ultramarine-05: rgba(39,67,201,0.05);
+  --ultramarine-10: rgba(39,67,201,0.10);
+  --ultramarine-20: rgba(39,67,201,0.20);
+  --ultramarine-40: rgba(39,67,201,0.40);
 }
 
-html { background: var(--warm); scroll-behavior: smooth; }
+html { background: var(--bone); scroll-behavior: smooth; }
 
 body {
-  background: var(--warm);
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bone);
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -38,7 +43,8 @@ h1, h2, h3,
 .hero-h1, .m-large, .m-statement,
 .setup-headline, .tracker-title, .agentes-title,
 .proceso-title, .cta-heading {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: 'Clash Display', 'Segoe UI', sans-serif;
+  font-weight: 700;
 }
 
 /* ── Cursor ─────────────────────────────────────── */
@@ -57,11 +63,11 @@ h1, h2, h3,
 #cursor.clicking #cursor-svg { transform: scale(0.85); }
 #cursor-svg { transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1); }
 
-.cr3 { stroke: rgba(14,15,18,0.08); stroke-width: 0.4; }
-.cr2 { stroke: rgba(14,15,18,0.20); stroke-width: 0.4; }
-.cr1 { stroke: var(--ink); stroke-width: 0.7; }
-.cdot { fill: var(--ink); }
-.ccross { stroke: rgba(14,15,18,0.35); stroke-width: 0.5; }
+.cr3 { stroke: var(--ultramarine-05); stroke-width: 0.4; }
+.cr2 { stroke: var(--ultramarine-20); stroke-width: 0.4; }
+.cr1 { stroke: var(--ultramarine); stroke-width: 0.7; }
+.cdot { fill: var(--ultramarine); }
+.ccross { stroke: var(--ultramarine-40); stroke-width: 0.5; }
 
 /* ── Grain ──────────────────────────────────────── */
 .grain {
