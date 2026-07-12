@@ -1,417 +1,398 @@
 <!-- Victor IA — REPLICA PIXEL-PERFECT de victor-ia-codigo-v2.vercel.app -->
 <!DOCTYPE html>
-<html lang="es" class="no-js">
+<html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Victor IA | Agentes de Inteligencia Artificial para Empresas en México</title>
-<meta name="description" content="más de 150 agentes de IA especializados trabajando en paralelo para tu empresa. Automatiza operaciones, reduce costos hasta 40% y crece al 10x."/>
+<title>Victor IA | Agentes de Inteligencia Artificial para Empresas</title>
+<meta name="description" content="Victor IA: plataforma de 150+ agentes de IA para automatizar tu empresa. Reducción de costos, escalabilidad y resultados garantizados."/>
 <link rel="canonical" href="https://victor-ia.xyz/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://victor-ia.xyz/"/>
-<meta property="og:title" content="Victor IA | Agentes de IA para Empresas"/>
-<meta property="og:description" content="más de 150 agentes de IA en paralelo. Automatiza, produce y crece al 10x."/>
+<meta property="og:title" content="Victor IA | Agentes de IA"/>
+<meta property="og:description" content="150+ agentes de IA en paralelo"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
-<link rel="preload" href="/assets/frames/hero/f001.jpg" as="image" imagesizes="100vw"/>
-<link rel="stylesheet" href="/styles-global.css"/>
-<link rel="stylesheet" href="/styles-sections.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet"/>
 
 <style>
-/* ══ DESIGN SYSTEM — CSS VARIABLES ══════════════════════════════════ */
+/* ══ DESIGN SYSTEM ══════════════════════════════════════════════════ */
 :root{
-  /* Colors */
   --bg-primary: #EFECE3;
-  --bg-secondary: #E2DFD4;
-  --bg-card: #E2DFD4;
   --text-primary: #191B1F;
   --text-muted: #6B6B6B;
   --accent: #2743C9;
-  --accent-10: rgba(39,67,201,.1);
-  --accent-20: rgba(39,67,201,.2);
-
-  /* Spacing */
-  --spacing-xs: 8px;
-  --spacing-sm: 12px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-  --spacing-2xl: 40px;
-  --spacing-3xl: 64px;
-
-  /* Layout */
-  --max-width: 1200px;
-  --padding-mobile: 16px;
-  --padding-tablet: 24px;
-  --padding-desktop: 40px;
-
-  /* Transitions */
-  --trans-fast: 200ms cubic-bezier(.16,1,.3,1);
-  --trans-normal: 400ms cubic-bezier(.16,1,.3,1);
+  --border-light: rgba(25,27,31,0.06);
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{background:var(--bg-primary);color:var(--text-primary);font-family:'Satoshi',sans-serif;overflow-x:hidden;font-weight:300;line-height:1.5}
-
-/* Headers */
-header{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;background:rgba(239,236,227,.96);border-bottom:1px solid rgba(25,27,31,.06);backdrop-filter:blur(18px)}
-
-/* Buttons */
-.btn-p{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#FFFFFF;border:1px solid transparent;padding:11px 26px;border-radius:5px;font-size:13px;letter-spacing:.09em;font-weight:500;text-decoration:none;transition:background .25s,transform .2s}
-.btn-p:hover{background:#1F35A3;transform:translateY(-2px)}
-
-.btn-g{display:inline-flex;align-items:center;justify-content:center;background:transparent;color:var(--text-primary);border:1px solid rgba(25,27,31,.18);padding:11px 26px;border-radius:5px;font-size:13px;letter-spacing:.09em;font-weight:500;text-decoration:none;transition:border-color .3s,transform .2s}
-.btn-g:hover{border-color:rgba(39,67,201,.45);transform:translateY(-2px)}
-
-/* Cards */
-.card{background:var(--bg-card);border:1px solid rgba(25,27,31,.054);border-radius:12px;transition:border-color .45s}
-.card:hover{border-color:rgba(39,67,201,.22)}
-
-/* Section spacing */
-section{padding:96px 0}
-section.bg2{background:var(--bg-secondary)}
-
-@media(max-width:768px){
-  section{padding:64px 0}
+body{
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  font-family:'Satoshi','system-ui',sans-serif;
+  font-weight:300;
+  line-height:1.6;
 }
 
-/* Hero Scroll Canvas Styles */
-[data-hero-wrap]{
-  position:relative;
-  height:100vh;
+/* Header */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:64px;
+  background:rgba(239,236,227,0.95);
+  border-bottom:1px solid var(--border-light);
+  backdrop-filter:blur(12px);
+  z-index:1000;
   display:flex;
-  align-items:flex-end;
-  padding-bottom:60px;
-  overflow:hidden;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
 }
 
-[data-hero-canvas]{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:1;
+header a{color:var(--text-primary);text-decoration:none;font-family:'Clash Display',sans-serif;font-size:20px;font-weight:400;}
+header a span{color:var(--accent)}
+
+nav{display:flex;gap:32px}
+nav a{font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
+nav a:hover{color:var(--text-primary)}
+
+/* Main content */
+main{padding-top:64px}
+
+/* Hero section */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 40px;
 }
 
-[data-hero-overlay]{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:linear-gradient(135deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 100%);
-  z-index:5;
-  transition:transform 0.1s ease-out;
+.hero h1{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(48px,8vw,72px);
+  font-weight:400;
+  line-height:1.1;
+  margin-bottom:24px;
+  max-width:900px;
 }
 
-[data-hero-content]{
-  position:relative;
-  z-index:10;
+.hero p{
+  font-size:18px;
+  color:var(--text-muted);
+  max-width:600px;
+  margin:0 auto 48px;
+  line-height:1.7;
+}
+
+.hero-cta{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 28px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.05em;
+  text-decoration:none;
+  transition:all 0.2s;
+}
+
+.btn-primary{
+  background:var(--accent);
   color:white;
+  border:1px solid var(--accent);
 }
 
-[data-hero-bar]{
-  position:absolute;
-  top:0;
-  left:0;
-  height:3px;
-  background:#2743C9;
-  transform-origin:left;
-  z-index:20;
+.btn-primary:hover{
+  background:#1f35a3;
+  border-color:#1f35a3;
 }
 
-[data-hero-phase]{
-  font-size:11px;
-  letter-spacing:.15em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.7);
+.btn-secondary{
+  background:transparent;
+  color:var(--text-primary);
+  border:1px solid rgba(25,27,31,0.2);
+}
+
+.btn-secondary:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+/* Blog section */
+.blog-hero{
+  padding:80px 40px;
+  text-align:center;
+  background:var(--bg-primary);
+}
+
+.blog-hero h2{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(42px,6vw,64px);
+  font-weight:400;
   margin-bottom:16px;
-  height:20px;
 }
 
-/* Utility classes */
-.flex{display:flex}.inline-flex{display:inline-flex}
-.items-center{align-items:center}.justify-between{justify-content:space-between}
-.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-5{gap:1.25rem}
-.mx-auto{margin-left:auto;margin-right:auto}
-.w-full{width:100%}.h-full{height:100%}
-.max-w-1200{max-width:1200px}
-</style>
+.blog-hero p{
+  font-size:16px;
+  color:var(--text-muted);
+  max-width:600px;
+  margin:0 auto;
+}
 
+/* Articles grid */
+.articles{
+  max-width:1200px;
+  margin:0 auto;
+  padding:80px 40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
+}
+
+.article-card{
+  background:white;
+  border:1px solid var(--border-light);
+  border-radius:8px;
+  padding:28px;
+  text-decoration:none;
+  color:var(--text-primary);
+  transition:all 0.3s;
+}
+
+.article-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-2px);
+}
+
+.article-card h3{
+  font-family:'Clash Display',sans-serif;
+  font-size:18px;
+  font-weight:400;
+  margin-bottom:12px;
+  line-height:1.4;
+}
+
+.article-card p{
+  font-size:14px;
+  color:var(--text-muted);
+  line-height:1.6;
+}
+
+.article-meta{
+  font-size:12px;
+  color:#ccc;
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--border-light);
+}
+
+/* Footer */
+footer{
+  background:var(--bg-primary);
+  border-top:1px solid var(--border-light);
+  padding:60px 40px;
+  color:var(--text-muted);
+  font-size:14px;
+}
+
+footer a{color:var(--text-primary);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+.footer-content{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:40px;
+  margin-bottom:40px;
+}
+
+.footer-section h4{
+  font-family:'Clash Display',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  margin-bottom:16px;
+  color:var(--text-primary);
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+
+.footer-section ul{list-style:none}
+.footer-section li{margin-bottom:8px}
+
+.footer-bottom{
+  border-top:1px solid var(--border-light);
+  padding-top:40px;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  header{padding:0 20px}
+  nav{display:none}
+  .hero{padding:60px 20px}
+  .blog-hero{padding:60px 20px}
+  .articles{padding:60px 20px;gap:16px}
+  footer{padding:40px 20px}
+}
+</style>
 </head>
 
-<body style="padding-top:68px">
+<body>
 
-<!-- ══════════════════════ HEADER ══════════════════════ -->
-<header id="hdr" class="flex justify-between items-center" style="padding:0 40px">
-  <a href="/" style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:var(--text-primary);text-decoration:none">
-    Victor <span style="color:var(--accent)">IA</span>
-  </a>
-  <nav class="flex gap-5" style="display:none;flex-wrap:wrap">
-    <a href="#" style="color:#6B6B6B;font-size:13px;text-decoration:none">Resultados</a>
-    <a href="#" style="color:#6B6B6B;font-size:13px;text-decoration:none">Filosofía</a>
-    <a href="#" style="color:#6B6B6B;font-size:13px;text-decoration:none">Capacidades</a>
+<!-- Header -->
+<header>
+  <a href="/">Victor <span>IA</span></a>
+  <nav>
+    <a href="/blog">Blog</a>
+    <a href="#acerca">Acerca</a>
   </nav>
-  <a class="btn-p" href="/agendar" style="margin-left:auto">Agendar</a>
 </header>
 
-<!-- ══════════════════════ 1. HERO — 400 FRAMES SCROLL ══════════════════════ -->
-<section data-hero-wrap>
-  <canvas data-hero-canvas></canvas>
-  <div data-hero-overlay></div>
-  <div data-hero-bar></div>
-
-  <div class="max-w-1200 mx-auto" style="width:100%;padding:0 40px">
-    <div data-hero-content>
-      <div data-hero-phase style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:16px;height:20px">Sistema dormido</div>
-      <h1 style="font-family:'Clash Display','Segoe UI',sans-serif;font-weight:200;line-height:0.95;letter-spacing:-0.02em;font-size:clamp(3rem,7vw,4.5rem);margin:0 0 1.5rem 0;max-width:15ch">Victor IA</h1>
-      <p style="font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.8);max-width:50ch;margin:0 0 2rem 0">Transformamos la comunicación empresarial con inteligencia artificial.</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap">
-        <a class="btn-p" href="#resultados" style="background:#2743C9;color:white">Conocer más</a>
-        <a class="btn-g" href="/agendar-videollamada">Agendar demo</a>
-      </div>
+<main>
+<!-- Hero section -->
+<section class="hero">
+  <div style="max-width:900px;margin:0 auto">
+    <h1>Victor IA</h1>
+    <p>Plataforma de 150+ agentes de inteligencia artificial para automatizar tu empresa. Reducción de costos, escalabilidad y resultados garantizados.</p>
+    <div class="hero-cta">
+      <a href="/blog" class="btn btn-primary">Leer artículos</a>
+      <a href="#" class="btn btn-secondary">Contactar</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════ 2. MARQUEE ══════════════════════ -->
-<section style="padding:14px 0;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05);overflow:hidden;background:var(--bg-primary)">
-  <div style="display:flex;gap:40px;opacity:0.5;animation:scroll 20s linear infinite;white-space:nowrap">
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Más de 150 agentes</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Orquestación automática</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Ejecución en paralelo</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Control de calidad</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Resultado garantizado</span>
-    <!-- Repeat for animation -->
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Más de 150 agentes</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:17px;font-weight:300;letter-spacing:.07em">Orquestación automática</span>
-  </div>
-  <style>
-    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  </style>
-</section>
-
-<!-- ══════════════════════ 3. MÉTRICAS (4 COLUMNAS) ══════════════════════ -->
-<section id="resultados" class="bg2">
-  <div class="max-w-1200 mx-auto" style="padding:0 40px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(0,0,0,.05)">
-      <article style="background:var(--bg-card);padding:40px 32px;text-align:center;border-radius:0">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(48px,6vw,72px);font-weight:600;color:var(--accent);margin-bottom:16px">3.2×</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Más cierres</p>
-      </article>
-      <article style="background:var(--bg-card);padding:40px 32px;text-align:center">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(48px,6vw,72px);font-weight:600;color:var(--text-primary);margin-bottom:16px">68%</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Menos tiempo</p>
-      </article>
-      <article style="background:var(--bg-card);padding:40px 32px;text-align:center">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(48px,6vw,72px);font-weight:600;color:var(--text-primary);margin-bottom:16px">-40%</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Costo por lead</p>
-      </article>
-      <article style="background:var(--bg-card);padding:40px 32px;text-align:center">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(48px,6vw,72px);font-weight:600;color:var(--text-primary);margin-bottom:16px">200</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Agentes IA</p>
-      </article>
-    </div>
+<!-- Blog section -->
+<section class="blog-hero" id="acerca">
+  <div style="max-width:900px;margin:0 auto">
+    <h2>Recursos y Artículos</h2>
+    <p>Explora casos de uso, guías técnicas y mejores prácticas sobre automatización con IA.</p>
   </div>
 </section>
 
-<!-- ══════════════════════ 4. FILOSOFÍA ══════════════════════ -->
-<section>
-  <div class="max-w-1200 mx-auto" style="padding:0 40px;text-align:center">
-    <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:24px">Filosofía</p>
-    <h2 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:32px;max-width:20ch;margin-left:auto;margin-right:auto">No es un asistente. Es el primer supercerebro empresarial de IA en LATAM.</h2>
-    <p style="font-size:16px;line-height:1.7;color:#6B6B6B;margin-bottom:48px;max-width:66ch;margin-left:auto;margin-right:auto">Victor elige de sus 200 agentes especializados los que resuelven tu tarea, los coordina y te entrega el resultado terminado.</p>
+<!-- Articles grid -->
+<section class="articles" id="blog">
+  <!-- Featured articles - Sample structure -->
+  <a href="#" class="article-card">
+    <h3>Agentes IA y Orquestación</h3>
+    <p>Cómo funcionan los agentes de inteligencia artificial y cómo orquestar múltiples agentes para tareas complejas.</p>
+    <div class="article-meta">Automatización • 5 min lectura</div>
+  </a>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(0,0,0,.05);margin-top:32px">
-      <article style="background:#FFFFFF;padding:32px;text-align:left">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Orquestación total</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Selecciona y coordina el mejor agente para cada paso, en paralelo.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:32px;text-align:left">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Ecosistema LATAM</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Voz mexicana natural, integraciones locales y contexto de tu mercado.</p>
-      </article>
-    </div>
-  </div>
+  <a href="#" class="article-card">
+    <h3>Reducción de Costos con IA</h3>
+    <p>Estrategias probadas para reducir costos operativos en un 40% mediante automatización inteligente.</p>
+    <div class="article-meta">Finanzas • 7 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>DevOps y Infraestructura</h3>
+    <p>Mejores prácticas para implementar pipelines de CI/CD y gestionar infraestructura como código.</p>
+    <div class="article-meta">DevOps • 8 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Análisis de Datos con IA</h3>
+    <p>Cómo extraer insights valiosos de tus datos usando análisis avanzados y machine learning.</p>
+    <div class="article-meta">Análisis • 6 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Integraciones API</h3>
+    <p>Guía completa para integrar APIs y conectar tus herramientas con sistemas automáticos.</p>
+    <div class="article-meta">Integraciones • 9 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Seguridad y Compliance</h3>
+    <p>Implementa prácticas de seguridad robustas y cumple con regulaciones de protección de datos.</p>
+    <div class="article-meta">Seguridad • 10 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Atención al Cliente 24/7</h3>
+    <p>Sistemas automáticos de soporte que atienden, resuelven y escalan consultas de clientes.</p>
+    <div class="article-meta">Soporte • 7 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Automatización de Procesos</h3>
+    <p>RPA y automatización de workflows para eliminar tareas manuales y aumentar productividad.</p>
+    <div class="article-meta">Automatización • 8 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>E-commerce y Ventas</h3>
+    <p>Soluciones de IA para e-commerce: recomendaciones, CRM y automatización de ventas.</p>
+    <div class="article-meta">E-commerce • 6 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Marketing Automático</h3>
+    <p>Campañas de marketing automáticas que se adaptan al comportamiento de tus clientes.</p>
+    <div class="article-meta">Marketing • 7 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Visión por Computadora</h3>
+    <p>Aplicaciones de computer vision para inspección de calidad, reconocimiento y análisis visual.</p>
+    <div class="article-meta">IA • 9 min lectura</div>
+  </a>
+
+  <a href="#" class="article-card">
+    <h3>Procesamiento de Lenguaje Natural</h3>
+    <p>NLP para clasificación de textos, análisis de sentimiento y extracción de información.</p>
+    <div class="article-meta">NLP • 8 min lectura</div>
+  </a>
 </section>
 
-<!-- ══════════════════════ 5. PROCESO (3 PASOS) ══════════════════════ -->
-<section class="bg2">
-  <div class="max-w-1200 mx-auto" style="padding:0 40px">
-    <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:24px">Cómo empezamos</p>
-    <h2 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:18ch">Tres pasos. Resultados extraordinarios.</h2>
+</main>
 
-    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid rgba(0,0,0,.05)">
-      <article style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px;border-bottom:1px solid rgba(0,0,0,.05)">
-        <div>
-          <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:42px;font-weight:500;margin-bottom:16px">01</h3>
-          <h4 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:28px;font-weight:500;margin-bottom:16px">Conecta</h4>
-          <p style="font-size:14px;line-height:1.7;color:#6B6B6B">Conectas Victor a tus herramientas y le das el contexto de tu operación.</p>
-        </div>
-        <figure style="aspect-ratio:4/3;background:rgba(0,0,0,.05);border-radius:8px;overflow:hidden">
-          <img src="/assets/step-conecta.jpg" alt="Paso 1: Conecta" style="width:100%;height:100%;object-fit:cover" loading="lazy">
-        </figure>
-      </article>
-
-      <article style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px;border-bottom:1px solid rgba(0,0,0,.05)">
-        <div style="order:2">
-          <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:42px;font-weight:500;margin-bottom:16px">02</h3>
-          <h4 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:28px;font-weight:500;margin-bottom:16px">Dame una tarea</h4>
-          <p style="font-size:14px;line-height:1.7;color:#6B6B6B">Le pides algo en lenguaje natural. Sin prompts técnicos.</p>
-        </div>
-        <figure style="aspect-ratio:4/3;background:rgba(0,0,0,.05);border-radius:8px;overflow:hidden;order:1">
-          <img src="/assets/step-tarea.jpg" alt="Paso 2" style="width:100%;height:100%;object-fit:cover" loading="lazy">
-        </figure>
-      </article>
-
-      <article style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px">
-        <div>
-          <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:42px;font-weight:500;margin-bottom:16px">03</h3>
-          <h4 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:28px;font-weight:500;margin-bottom:16px">Victor hace</h4>
-          <p style="font-size:14px;line-height:1.7;color:#6B6B6B">Coordina agentes, ejecuta en paralelo y entrega el resultado terminado.</p>
-        </div>
-        <figure style="aspect-ratio:4/3;background:rgba(0,0,0,.05);border-radius:8px;overflow:hidden">
-          <img src="/assets/step-entrega.jpg" alt="Paso 3" style="width:100%;height:100%;object-fit:cover" loading="lazy">
-        </figure>
-      </article>
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Producto</h4>
+      <ul>
+        <li><a href="#">Características</a></li>
+        <li><a href="#">Precios</a></li>
+        <li><a href="#">Casos de uso</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Términos</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<!-- ══════════════════════ 6. CAPACIDADES ══════════════════════ -->
-<section id="capacidades">
-  <div class="max-w-1200 mx-auto" style="padding:0 40px">
-    <h2 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:20ch">Una empresa completa. Dentro de un solo sistema.</h2>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(0,0,0,.05)">
-      <article style="background:#FFFFFF;padding:32px">
-        <img src="/assets/icon-videos.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Videos</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Spots cinematográficos, reels y contenido audiovisual generado por IA.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:32px">
-        <img src="/assets/icon-articulos.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Artículos</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Blogs, landing pages y contenido SEO en la voz de tu marca.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:32px">
-        <img src="/assets/icon-email.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Email</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Campañas y secuencias que califican, nutren y cierran.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:32px">
-        <img src="/assets/icon-analisis.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Análisis</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Dashboards ejecutivos y reportes en tiempo real.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:32px">
-        <img src="/assets/icon-automatizacion.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Automatización</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Workflows backend e integraciones API 24/7.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:32px">
-        <img src="/assets/icon-soporte.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:20px;font-weight:500;margin-bottom:12px">Soporte</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Agentes que atienden, resuelven y escalan 24/7.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════ 7. TRANSFORMACIÓN ══════════════════════ -->
-<section class="bg2">
-  <div class="max-w-1200 mx-auto" style="padding:0 40px">
-    <h2 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:18ch">La transformación ya empezó.</h2>
-    <p style="font-size:16px;line-height:1.7;color:#6B6B6B;margin-bottom:48px;max-width:62ch">Las cifras forman parte del contexto publicado en la experiencia de Victor IA.</p>
-
-    <div style="border:1px solid rgba(0,0,0,.05);border-radius:0">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px;border-bottom:1px solid rgba(0,0,0,.05)">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(40px,5vw,64px);font-weight:600">30K+</div>
-        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Empleos por Google</p>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px;border-bottom:1px solid rgba(0,0,0,.05)">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(40px,5vw,64px);font-weight:600">30K+</div>
-        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Empleos por Amazon</p>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px;border-bottom:1px solid rgba(0,0,0,.05)">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(40px,5vw,64px);font-weight:600">8K+</div>
-        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Empleos por Meta</p>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px">
-        <div style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(40px,5vw,64px);font-weight:600;color:var(--accent)">92M</div>
-        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#6B6B6B;text-transform:uppercase">Empleos en riesgo</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════ 8. SUPERCEREBRO ══════════════════════ -->
-<section>
-  <div class="max-w-1200 mx-auto" style="padding:0 40px">
-    <h2 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:18ch">Un sistema. Doscientas inteligencias.</h2>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(0,0,0,.05)">
-      <article style="background:#FFFFFF;padding:48px 32px">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:24px;font-weight:500;margin-bottom:12px">Orquesta</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Interpreta la tarea y compone el equipo correcto.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:48px 32px">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:24px;font-weight:500;margin-bottom:12px">Ejecuta</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Coordina agentes y herramientas en paralelo.</p>
-      </article>
-      <article style="background:#FFFFFF;padding:48px 32px">
-        <h3 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:24px;font-weight:500;margin-bottom:12px">Verifica</h3>
-        <p style="font-size:14px;line-height:1.6;color:#6B6B6B">Una capa revisora valida calidad y cumplimiento.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════ 9. FOOTER ══════════════════════ -->
-<footer style="background:#0066FF;color:white;padding:60px 40px;margin-top:96px">
-  <div class="max-w-1200 mx-auto">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:60px">
-      <div>
-        <h4 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:18px;font-weight:500;margin-bottom:20px">Producto</h4>
-        <ul style="list-style:none;padding:0">
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Features</a></li>
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Pricing</a></li>
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Casos de uso</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:18px;font-weight:500;margin-bottom:20px">Empresa</h4>
-        <ul style="list-style:none;padding:0">
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Acerca de</a></li>
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Blog</a></li>
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-family:'Clash Display','Segoe UI',sans-serif;font-size:18px;font-weight:500;margin-bottom:20px">Legal</h4>
-        <ul style="list-style:none;padding:0">
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Privacidad</a></li>
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Terminos</a></li>
-          <li><a href="#" style="color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;line-height:2">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.2);padding-top:40px;text-align:center;color:rgba(255,255,255,0.6);font-size:14px">
-      <p>&copy; 2026 Victor IA. Todos los derechos reservados.</p>
-    </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Victor IA. Todos los derechos reservados.</p>
   </div>
 </footer>
-
-<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
-<script src="/assets/js/hero-scroll-frames.js" defer></script>
 
 </body>
 </html>
