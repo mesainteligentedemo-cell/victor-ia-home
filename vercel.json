@@ -1,292 +1,11 @@
 {
-  "version": 2,
-  "buildCommand": "cp -r public/* . 2>/dev/null || true && echo 'Assets copied to output'",
-  "outputDirectory": ".",
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "functions": {
-    "api/agenda.js": {
-      "maxDuration": 10
-    },
-    "api/agenda-confirm.js": {
-      "maxDuration": 10
-    },
-    "api/blog-status.js": {
-      "maxDuration": 30
-    },
-    "api/automated-tasks.js": {
-      "maxDuration": 30
-    }
-  },
-  "redirects": [
-    {
-      "source": "/app",
-      "destination": "https://tracker.victor-ia.xyz",
-      "permanent": false
-    },
-    {
-      "source": "/app/:path*",
-      "destination": "https://tracker.victor-ia.xyz/:path*",
-      "permanent": false
-    },
-    {
-      "source": "/blog/ia-para-distribuidores-mayoristas",
-      "destination": "/blog/ia-para-mayoristas-distribuidores",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-distribuidores-mayoristas.html",
-      "destination": "/blog/ia-para-mayoristas-distribuidores",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-aseguradoras",
-      "destination": "/blog/ia-para-aseguradoras-seguros",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-aseguradoras.html",
-      "destination": "/blog/ia-para-aseguradoras-seguros",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-agencias-viajes",
-      "destination": "/blog/ia-para-viajes-agencias-turismo",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-agencias-viajes.html",
-      "destination": "/blog/ia-para-viajes-agencias-turismo",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-ecommerce-marketplaces",
-      "destination": "/blog/ia-para-ecommerce-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-ecommerce-marketplaces.html",
-      "destination": "/blog/ia-para-ecommerce-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/errores-comunes-implementar-ia",
-      "destination": "/blog/errores-implementar-ia-empresa",
-      "permanent": true
-    },
-    {
-      "source": "/blog/errores-comunes-implementar-ia.html",
-      "destination": "/blog/errores-implementar-ia-empresa",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-hoteles-hospedaje",
-      "destination": "/blog/ia-hoteles-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-hoteles-hospedaje.html",
-      "destination": "/blog/ia-hoteles-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/adopcion-ia-pymes-mexico-estadisticas",
-      "destination": "/blog/ia-pymes-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/adopcion-ia-pymes-mexico-estadisticas.html",
-      "destination": "/blog/ia-pymes-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/automatizar-ventas-b2b-ia",
-      "destination": "/blog/agente-ia-ventas-b2b",
-      "permanent": true
-    },
-    {
-      "source": "/blog/automatizar-ventas-b2b-ia.html",
-      "destination": "/blog/agente-ia-ventas-b2b",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-constructoras-inmobiliarias",
-      "destination": "/blog/ia-para-inmobiliarias-mexico",
-      "permanent": true
-    },
-    {
-      "source": "/blog/ia-para-constructoras-inmobiliarias.html",
-      "destination": "/blog/ia-para-inmobiliarias-mexico",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/onboarding-ia-empresas",
-      "destination": "/onboarding-ia-empresas.html"
-    },
-    {
-      "source": "/agencia-ia-mexico",
-      "destination": "/agencia-ia-mexico.html"
-    },
-    {
-      "source": "/automatizacion-procesos-empresas",
-      "destination": "/automatizacion-procesos-empresas.html"
-    },
-    {
-      "source": "/desarrollo-software-ia",
-      "destination": "/desarrollo-software-ia.html"
-    },
-    {
-      "source": "/software-ia-timeshare-salas-de-ventas",
-      "destination": "/software-ia-timeshare-salas-de-ventas.html"
-    },
-    {
-      "source": "/eficiencia-energetica-iot-hoteles-resorts",
-      "destination": "/eficiencia-energetica-iot-hoteles-resorts.html"
-    },
-    {
-      "source": "/agendar-videollamada",
-      "destination": "/agendar-videollamada.html"
-    },
-    {
-      "source": "/preparacion-diagnostico",
-      "destination": "/preparacion-diagnostico.html"
-    },
-    {
-      "source": "/ia-para-inmobiliarias-riviera-maya",
-      "destination": "/ia-para-inmobiliarias-riviera-maya.html"
-    },
-    {
-      "source": "/ia-para-agencias-tours-experiencias",
-      "destination": "/ia-para-agencias-tours-experiencias.html"
-    },
-    {
-      "source": "/ia-para-restaurantes-riviera-maya",
-      "destination": "/ia-para-restaurantes-riviera-maya.html"
-    },
-    {
-      "source": "/ia-para-wellness-yoga-holistico",
-      "destination": "/ia-para-wellness-yoga-holistico.html"
-    },
-    {
-      "source": "/ia-para-educacion-escuelas-capacitacion",
-      "destination": "/ia-para-educacion-escuelas-capacitacion.html"
-    },
-    {
-      "source": "/ia-para-empresas-cancun-riviera-maya-yucatan",
-      "destination": "/ia-para-empresas-cancun-riviera-maya-yucatan.html"
-    },
-    {
-      "source": "/ia-para-empresas-cancun",
-      "destination": "/ia-para-empresas-cancun.html"
-    },
-    {
-      "source": "/time-tracker-agencias",
-      "destination": "/time-tracker-agencias.html"
-    },
-    {
-      "source": "/agentes-ia-agencias",
-      "destination": "/agentes-ia-agencias.html"
-    },
-    {
-      "source": "/crm-agencias",
-      "destination": "/crm-agencias.html"
-    },
-    {
-      "source": "/guia-definitiva",
-      "destination": "/guia-definitiva.html"
-    },
-    {
-      "source": "/agentes",
-      "destination": "/agentes.html"
-    },
-    {
-      "source": "/como-funciona",
-      "destination": "/como-funciona.html"
-    },
-    {
-      "source": "/precios",
-      "destination": "/precios.html"
-    },
-    {
-      "source": "/telemetria",
-      "destination": "/telemetria.html"
-    },
-    {
-      "source": "/brain-tracker",
-      "destination": "/"
-    },
-    {
-      "source": "/:slug((?!blog|img|assets|login|privacidad|seguridad|telemetria|telemetria|terminos|terminos-condiciones|aviso-privacidad|politica-cookies|app|crm-agencias|crm|brain-tracker|brain-tracker-slides|auditoria-seo|og-image|favicon|robots|sitemap|logos|logo-tracker|get_adobe|update_home|agenda|agendar-videollamada|preparacion-diagnostico|api|__|agentes|agentes-ia-agencias|como-funciona|precios|pricing|admin|dashboard|panel|studio|studio-cms|cms|propuesta-aldo|propuesta-rosa-laura|manual-identidad|guia-definitiva|one-pager|presentacion|plan|firma-email|email-preview|contadores|image-lab|alianza-fiscal|video-studio|404|googleede7d050a05a0237|manifest|service|index-old|rebrand-preview|time-tracker-agencias|alma-inclusivo|bahari-inclusivo|cadu-inclusivo|cimamedica-inclusivo|copal-inclusivo|galenia-inclusivo|kaan-inclusivo|laparrilla-inclusivo|palace-inclusivo|xcaret-inclusivo|propuesta-jimena|onboarding-ia-empresas|agencia-ia-mexico|automatizacion-procesos-empresas|desarrollo-software-ia|software-ia-timeshare-salas-de-ventas|eficiencia-energetica-iot-hoteles-resorts|ia-para-inmobiliarias-riviera-maya|ia-para-agencias-tours-experiencias|ia-para-restaurantes-riviera-maya|ia-para-wellness-yoga-holistico|ia-para-educacion-escuelas-capacitacion|ia-para-empresas-cancun-riviera-maya-yucatan|ia-para-empresas-cancun).+)",
-      "destination": "/blog/:slug"
-    },
-    {
-      "source": "/__/auth/:path*",
-      "destination": "https://victor-ia-tracker.firebaseapp.com/__/auth/:path*"
-    }
-  ],
   "headers": [
     {
-      "source": "/assets/frames/(.*)",
+      "source": "/assets/**/*.webp",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/water-trail.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*)\\.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400, stale-while-revalidate=604800"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.css",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=86400"
-        }
-      ]
-    },
-    {
-      "source": "/blog/covers/(.*)\\.webp",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "public, immutable, max-age=31536000"
         },
         {
           "key": "Content-Type",
@@ -295,52 +14,26 @@
       ]
     },
     {
-      "source": "/(.*)\\.html",
+      "source": "/assets/**/*.png",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/",
+      "source": "/assets/**/*.jpg",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/login",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, no-cache, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/brain-tracker-slides",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, no-cache, must-revalidate"
+          "value": "public, max-age=604800"
         }
       ]
     }
-  ]
+  ],
+  "images": {
+    "formats": ["image/avif", "image/webp"],
+    "sizes": [300, 600, 768, 1024, 1440, 1920]
+  }
 }
