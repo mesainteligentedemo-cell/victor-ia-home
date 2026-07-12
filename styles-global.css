@@ -1,28 +1,58 @@
 @import url('/assets/marble-reveal.css');
 
 /* ════════════════════════════════════════════════════════════════
-   VICTOR IA — GLOBAL DESIGN SYSTEM (Pixel-Perfect Awwwards)
+   VICTOR IA — GLOBAL DESIGN SYSTEM v2 (Paleta + Tipografías)
+   Migración: paleta dark legacy → paleta v2 bone/ultramarine/ink
    ════════════════════════════════════════════════════════════════ */
+
+/* ══ FONT IMPORTS — SIEMPRE ANTES DE :root ══
+   NOTA TÉCNICA: "Clash Display" y "Satoshi" NO existen en el catálogo de
+   Google Fonts (verificado) — son tipografías de Fontshare (Indian Type
+   Foundry), distribuidas gratis vía api.fontshare.com. Se cargan desde
+   ahí para que realmente funcionen; JetBrains Mono sí vive en Google
+   Fonts y se mantiene desde ahí sin cambios. */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 /* ══ CSS VARIABLES ══ */
 :root {
-  /* COLORS */
-  --color-bg-primary: #070708;
-  --color-bg-secondary: #0A0A0C;
-  --color-bg-card: #0F0F12;
-  --color-text-primary: #EAE6DF;
-  --color-text-muted: #706C66;
-  --color-gold: #B89A6A;
-  --color-gold-10: rgba(184,154,106,.1);
-  --color-gold-20: rgba(184,154,106,.2);
-  --color-gold-30: rgba(184,154,106,.3);
-  --color-gold-40: rgba(184,154,106,.4);
-  --color-white: #FFFFFF;
-  --color-dark: #000000;
+  /* ── PALETA V2 — tokens de marca (fuente de verdad, hex exactos) ── */
+  --color-bone: #EFECE3;        /* fondo claro principal */
+  --color-ultramarine: #2743C9; /* primario · accents · CTAs */
+  --color-ink: #191B1F;         /* texto oscuro */
+  --color-tint: #E2DFD4;        /* fondo secundario · cards */
+  --color-white: #FFFFFF;       /* blanco puro */
+  --color-grey: #6B6B6B;        /* texto muted */
+
+  /* Variantes rgba de ultramarine (bordes, glows, hovers, focus rings) */
+  --color-ultramarine-10: rgba(39,67,201,.1);
+  --color-ultramarine-20: rgba(39,67,201,.2);
+  --color-ultramarine-30: rgba(39,67,201,.3);
+  --color-ultramarine-40: rgba(39,67,201,.4);
+
+  /* Variantes rgba de ink (sombras, overlays, bordes sutiles) */
+  --color-ink-05: rgba(25,27,31,.05);
+  --color-ink-10: rgba(25,27,31,.1);
+  --color-ink-20: rgba(25,27,31,.2);
+
+  /* ── COLORS (alias semánticos — se mantienen los mismos NOMBRES que
+       la v1 para no romper referencias existentes en otras páginas que
+       cargan este archivo; solo cambian los VALORES a la paleta v2) ── */
+  --color-bg-primary: var(--color-bone);
+  --color-bg-secondary: var(--color-tint);
+  --color-bg-card: var(--color-tint);
+  --color-text-primary: var(--color-ink);
+  --color-text-muted: var(--color-grey);
+  --color-gold: var(--color-ultramarine);       /* legacy alias → ahora acento primario */
+  --color-gold-10: var(--color-ultramarine-10);
+  --color-gold-20: var(--color-ultramarine-20);
+  --color-gold-30: var(--color-ultramarine-30);
+  --color-gold-40: var(--color-ultramarine-40);
+  --color-dark: var(--color-ink);
 
   /* TYPOGRAPHY */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Clash Display', -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Menlo', monospace;
 
   --fs-xs: 11px;
@@ -55,7 +85,7 @@
   --ls-wide: .07em;
   --ls-extra: .12em;
 
-  /* SPACING */
+  /* SPACING — sin cambios (funciona) */
   --space-2xs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -67,13 +97,13 @@
   --space-4xl: 56px;
   --space-5xl: 64px;
 
-  /* LAYOUT */
+  /* LAYOUT — sin cambios */
   --max-width: 1200px;
   --padding-mobile: 16px;
   --padding-tablet: 24px;
   --padding-desktop: 40px;
 
-  /* Z-INDEX */
+  /* Z-INDEX — sin cambios */
   --z-0: 0;
   --z-10: 10;
   --z-20: 20;
@@ -85,19 +115,50 @@
   --z-9999: 9999;
   --z-10000: 100000;
 
-  /* TRANSITIONS */
+  /* TRANSITIONS — sin cambios */
   --trans-xs: 150ms ease-out;
   --trans-sm: 250ms cubic-bezier(.16,1,.3,1);
   --trans-md: 400ms cubic-bezier(.16,1,.3,1);
   --trans-lg: 600ms cubic-bezier(.16,1,.3,1);
   --trans-xl: 800ms cubic-bezier(.16,1,.3,1);
+  /* Reveal cinemático dedicado — mínimo 0.75s (regla global de producción) */
+  --trans-reveal: 750ms cubic-bezier(.16,1,.3,1);
 
-  /* SHADOWS */
-  --shadow-xs: 0 1px 2px rgba(0,0,0,.1);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,.15);
-  --shadow-md: 0 4px 16px rgba(0,0,0,.2);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,.25);
-  --shadow-xl: 0 12px 48px rgba(0,0,0,.3);
+  /* SHADOWS — retinte a base ink en vez de negro puro (misma opacidad) */
+  --shadow-xs: 0 1px 2px var(--color-ink-10);
+  --shadow-sm: 0 2px 8px rgba(25,27,31,.15);
+  --shadow-md: 0 4px 16px rgba(25,27,31,.2);
+  --shadow-lg: 0 8px 32px rgba(25,27,31,.25);
+  --shadow-xl: 0 12px 48px rgba(25,27,31,.3);
+}
+
+/* ══ DARK MODE — overrides de tokens (derivados, ver comentario) ══
+   Contraste verificado (WCAG):
+   - ink/bone  ≈ 12.6:1 (AAA)         - grey/bone ≈ 4.51:1 (AA texto normal)
+   - white/ultramarine ≈ 7.7:1 (AAA)  - ultramarine/bone ≈ 6.5:1 (AAA)
+   En dark mode, ultramarine puro (#2743C9) sobre ink pierde contraste
+   como texto (≈2.24:1) — se usa una variante aclarada (#6D87FF, ≈5.4:1
+   sobre ink) SOLO para texto/links en dark; los botones de fondo sólido
+   siguen usando ultramarine base + texto blanco (7.7:1, no depende del
+   tema). El grey muted también se aclara a #9A9A9A (≈6.1:1 sobre ink). */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: var(--color-ink);
+    --color-bg-secondary: #14161A;
+    --color-bg-card: #14161A;
+    --color-text-primary: var(--color-bone);
+    --color-text-muted: #9A9A9A;
+    --color-gold: #6D87FF;              /* ultramarine aclarado para texto/links en dark */
+    --color-gold-10: rgba(109,135,255,.1);
+    --color-gold-20: rgba(109,135,255,.2);
+    --color-gold-30: rgba(109,135,255,.3);
+    --color-gold-40: rgba(109,135,255,.4);
+    --shadow-xs: 0 1px 2px rgba(0,0,0,.3);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.35);
+    --shadow-md: 0 4px 16px rgba(0,0,0,.4);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.45);
+    --shadow-xl: 0 12px 48px rgba(0,0,0,.5);
+  }
 }
 
 /* ══ RESPONSIVE BREAKPOINTS ══ */
@@ -160,9 +221,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ══ FOCUS STATES (WCAG 2.4.7) ══ */
+/* ══ FOCUS STATES (WCAG 2.4.7) — ultramarine ══ */
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-ultramarine);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -172,7 +233,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-ultramarine);
   outline-offset: 2px;
 }
 
@@ -192,9 +253,48 @@ textarea:focus-visible {
   overflow: hidden;
 }
 
+/* Botón primario — fill ultramarine, texto blanco (contraste 7.7:1) */
+.btn-p {
+  background: var(--color-ultramarine);
+  color: var(--color-white);
+  border: 1px solid transparent;
+  padding: 11px 26px;
+  border-radius: 5px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .09em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background var(--trans-sm), transform var(--trans-xs);
+}
+.btn-p:hover { background: #1F35A3; transform: translateY(-2px); }
+.btn-p:active { transform: translateY(0); }
+
+/* Botón ghost — borde ink, texto ink */
+.btn-g {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink-20);
+  padding: 11px 26px;
+  border-radius: 5px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: .09em;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: border-color var(--trans-sm), transform var(--trans-xs);
+}
+.btn-g:hover { border-color: var(--color-ultramarine-40); transform: translateY(-2px); }
+
 /* ══ LINKS ══ */
 a {
-  color: var(--color-gold);
+  color: var(--color-ultramarine);
   text-decoration: none;
   transition: color var(--trans-sm), opacity var(--trans-sm);
 }
@@ -220,6 +320,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--fw-light);
   line-height: var(--lh-tight);
   letter-spacing: var(--ls-wide);
+  color: var(--color-text-primary);
 }
 
 h1 {
@@ -300,7 +401,7 @@ section {
   }
 
   a {
-    color: #0066cc;
+    color: #2743C9;
     text-decoration: underline;
   }
 }

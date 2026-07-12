@@ -1,4 +1,4 @@
-<!-- Victor IA — Web 4.0 · Readymag Premium Edition -->
+<!-- Victor IA — Web 4.0 · Readymag Premium Edition v2 — 19 Secciones Completas -->
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 <head>
@@ -33,6 +33,7 @@
 <link rel="preload" href="/assets/frames/hero/f001.jpg" as="image" imagesizes="100vw"/>
 <link rel="prefetch" href="/assets/higgsfield/hf_20260709_024041_ac060540-4064-46a0-ae7d-5867b5a6d401.png"/>
 <link rel="stylesheet" href="/styles-global.css"/>
+<link rel="stylesheet" href="/styles-sections.css"/>
 <!-- Tailwind CDN (dev) reemplazado por utilidades estáticas: sin FOUC, sin ~300KB JS, mejor LCP -->
 <style>
 /* ── Utilidades (subset usado en el home) ─────────────────── */
@@ -155,316 +156,35 @@ header.scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(0,0,0,
 .eyec::before,.eyec::after{content:'';display:block;width:0;height:1px;background:rgba(26,26,26,.4);transition:width 1.3s cubic-bezier(.16,1,.3,1)}
 .eyec.on::before,.eyec.on::after{width:18px}
 
-/* ── Split text ──────────────────────────────────── */
-.sl{overflow:hidden;display:block}
-.si{display:block;transform:translateY(108%);opacity:0}
-
-/* ── Initial hidden states (GSAP takes over) ─────── */
-.h-badge,.h-sub,.h-cta,.h-hint,.h-panel{opacity:0;transform:translateY(22px)}
-.h-panel{transform:translateX(36px)}
-
-/* ── Divider ─────────────────────────────────────── */
-.hr{height:1px;background:rgba(0,0,0,.052)}
-
-/* ── Marquee ─────────────────────────────────────── */
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.mq-t{display:flex;animation:mq 30s linear infinite;width:max-content;align-items:center}
-.mq-w:hover .mq-t{animation-play-state:paused}
-
-/* ── Scroll bounce ───────────────────────────────── */
-@keyframes sb{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(7px);opacity:.9}}
-.sb{animation:sb 2.2s ease-in-out infinite}
-
-/* ── SVG ring pulses ─────────────────────────────── */
-@keyframes rp{0%{opacity:.18;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
-.rp1{animation:rp 4s ease-out infinite}
-.rp2{animation:rp 4s ease-out .9s infinite}
-.rp3{animation:rp 4s ease-out 1.8s infinite}
-
-/* ── Number counter ──────────────────────────────── */
-.stat-n{font-family:'Cormorant Garamond',serif;font-weight:300;line-height:1;color:#000000;text-shadow:0 0 80px rgba(26,26,26,.22)}
-
-/* ── Step hover fill ─────────────────────────────── */
-.step{position:relative;overflow:hidden;transition:background-color .4s}
-.step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(26,26,26,.05);transition:width .55s cubic-bezier(.16,1,.3,1);z-index:0}
-.step:hover::before{width:100%}
-.step>*{position:relative;z-index:1}
-
-/* ── Card glow (follows cursor inside) ───────────── */
-.card-g{transition:background .15s}
-
-/* ── Parallax img ────────────────────────────────── */
-.par-img{will-change:transform}
-
-/* ── Section bg alternating ─────────────────────── */
-.bg2{background:#FAFAFA}
-
 /* ── Scroll reveal base ──────────────────────────── */
 .rv{opacity:0;transform:translateY(30px)}
 @keyframes rv-in{to{opacity:1;transform:none}}
 .rv.on{animation:rv-in .8s cubic-bezier(.16,1,.3,1) forwards}
 /* Fallback sin JS / CDN caído: revelar TODO el contenido */
-.no-js .rv,.no-js .si,.no-js .h-badge,.no-js .h-sub,.no-js .h-cta,.no-js .h-hint,.no-js .h-panel{opacity:1!important;transform:none!important;animation:none!important}
+.no-js .rv{opacity:1!important;transform:none!important;animation:none!important}
 /* A11y: respetar reduce-motion */
 @media(prefers-reduced-motion:reduce){
-  .rv,.si,.h-badge,.h-sub,.h-cta,.h-hint,.h-panel{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
-  .mq-t,.sb,.rp1,.rp2,.rp3{animation:none!important}
-  html{scroll-behavior:auto!important}
+  .rv{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
 }
 
-/* ── Gold vertical rule ──────────────────────────── */
-.gold-vr{width:1px;background:rgba(26,26,26,0);transition:background 1.2s .3s}
-.gold-vr.on{background:rgba(26,26,26,.28)}
+/* ── Section spacing ──────────────────────────────– */
+section {padding: 96px 0;}
+section.bg2{background:#FAFAFA}
+section.bg-tint{background:#FAFAFA}
 
-/* ── Large decorative number (background) ───────── */
-.deco-n{font-family:'Cormorant Garamond',serif;font-weight:200;color:rgba(0,0,0,.028);line-height:1;pointer-events:none;user-select:none}
-details{border-bottom:1px solid rgba(0,0,0,.06)}
-details summary{list-style:none;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;color:#000000;font-weight:300;letter-spacing:.01em}
-details summary::-webkit-details-marker{display:none}
-details summary::after{content:'+';color:#1A1A1A;font-size:20px;font-weight:200}
-details[open] summary::after{content:'−'}
-details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
-.svc-card{background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:12px;padding:36px 32px;text-decoration:none;display:block;transition:border-color .45s,transform .4s}
-.svc-card:hover{border-color:rgba(26,26,26,.22);transform:translateY(-4px)}
-
-/* ══ ICON WRAP + ANIMACIONES POR SLUG (hover, quiet-luxury) ══ */
-.ic-wrap{width:48px;height:48px;border-radius:10px;background:rgba(26,26,26,.06);border:1px solid rgba(26,26,26,.12);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:background .45s,border-color .45s,transform .5s cubic-bezier(.16,1,.3,1)}
-.svc-card:hover .ic-wrap{background:rgba(26,26,26,.11);border-color:rgba(26,26,26,.3);transform:translateY(-2px) scale(1.04)}
-.ic *{transform-box:fill-box;transform-origin:center;transition:opacity .4s,transform .5s cubic-bezier(.16,1,.3,1)}
-.svc-card:hover .ic{filter:drop-shadow(0 0 5px rgba(26,26,26,.4))}
-/* 1 · Agentes IA — el orbital exterior gira */
-.svc-card:hover .ic-agents .orbit{animation:icSpin 5s linear infinite}
-/* 2 · Producción Creativa — la pantalla revela un play */
-.svc-card:hover .ic-creative .play{opacity:1;animation:icBeat 1.4s ease-in-out infinite}
-.svc-card:hover .ic-creative .screen{stroke:#1A1A1A}
-/* 3 · Análisis & Datos — la curva se traza hacia arriba */
-.ic-data .trend{stroke-dasharray:24}
-.svc-card:hover .ic-data .trend{animation:icDraw 1.6s cubic-bezier(.16,1,.3,1) infinite}
-/* 4 · Automatización Total — núcleo gira, radios laten */
-.svc-card:hover .ic-auto .core{animation:icSpin 4s linear infinite}
-.svc-card:hover .ic-auto .spokes{animation:icBeat 1.5s ease-in-out infinite}
-/* 5 · Eficiencia e IoT — ondas de señal que se expanden */
-.svc-card:hover .ic-iot .r1{animation:icPing 1.8s ease-out infinite}
-.svc-card:hover .ic-iot .r2{animation:icPing 1.8s ease-out .5s infinite}
-/* 6 · Plan a tu Medida — la estrella destella y gira sutil */
-.svc-card:hover .ic-plan .star{animation:icTwinkle 2.4s ease-in-out infinite}
-@keyframes icSpin{to{transform:rotate(360deg)}}
-@keyframes icBeat{0%,100%{transform:scale(.92);opacity:.7}50%{transform:scale(1.08);opacity:1}}
-@keyframes icDraw{0%{stroke-dashoffset:24}55%,100%{stroke-dashoffset:0}}
-@keyframes icPing{0%{transform:scale(.55);opacity:.7}80%,100%{transform:scale(1.15);opacity:0}}
-@keyframes icTwinkle{0%,100%{transform:rotate(0) scale(1);opacity:.8}50%{transform:rotate(8deg) scale(1.07);opacity:1}}
-@media(prefers-reduced-motion:reduce){.ic *{animation:none!important}}
-/* ══════════════════════════════════════════════════════════
-   MOBILE RESPONSIVE — max-width: 768px
-   !important needed to override all inline styles.
-══════════════════════════════════════════════════════════ */
 @media(max-width:768px){
-
-  /* Cursor: ocultar en touch */
-  /* cursor stays visible — touch-only hide handled by (hover:none) query */
-
-  /* Canvas: ocultar (JS ya no lo inicializa pero por si acaso) */
-  #space-bg{display:none!important}
-
-  /* Decorative large numbers: off */
-  .deco-n{opacity:0!important;pointer-events:none}
-
-  /* ── Padding uniforme en todos los inner containers ── */
-  .sec-inner{
-    padding-left:20px!important;
-    padding-right:20px!important;
-  }
-
-  /* ── HERO ──────────────────────────────────────────── */
-  #hero-grid{
-    grid-template-columns:1fr!important;
-    gap:36px!important;
-    padding-left:20px!important;
-    padding-right:20px!important;
-  }
-  /* Ocultar panel decorativo derecho */
-  #hero-panel{display:none!important}
-  /* Reducir padding top del hero */
-  main>section:first-child{padding-top:56px!important;padding-bottom:48px!important;min-height:unset!important}
-  /* Badge text: reducir letter-spacing */
-  .h-badge span:last-child{letter-spacing:.08em!important;font-size:10px!important}
-  /* Hero CTA buttons: full width */
-  .h-cta{flex-direction:column!important;align-items:flex-start!important}
-  .h-cta .btn-p,.h-cta .btn-g{width:100%!important;justify-content:center!important}
-
-  /* ── STATS ─────────────────────────────────────────── */
-  #stats-grid{grid-template-columns:repeat(2,1fr)!important}
-  #stats-grid>div{padding:28px 18px!important}
-  #stats-grid .stat-n{font-size:clamp(40px,12vw,60px)!important}
-
-  /* ── PHILOSOPHY ────────────────────────────────────── */
-  #philosophy-grid{
-    grid-template-columns:1fr!important;
-    gap:28px!important;
-  }
-  /* Floating card: sacar de position:absolute */
-  #float-card{
-    position:relative!important;
-    bottom:auto!important;
-    right:auto!important;
-    margin-top:14px!important;
-    max-width:100%!important;
-    display:block!important;
-  }
-  #sphere-wrap{aspect-ratio:4/3!important}
-
-  /* ── HOW IT WORKS ──────────────────────────────────── */
-  #steps-grid{
-    grid-template-columns:1fr!important;
-    background:transparent!important;
-    gap:0!important;
-  }
-  #steps-grid .step{
-    padding:28px 20px!important;
-    border-bottom:1px solid rgba(0,0,0,.05)!important;
-  }
-
-  /* ── SERVICES ──────────────────────────────────────── */
-  #services-grid{grid-template-columns:1fr!important;gap:12px!important}
-  .svc-card{padding:26px 20px!important}
-
-  /* ── INFRASTRUCTURE ────────────────────────────────── */
-  #victor-card{
-    width:auto!important;
-    max-width:100%!important;
-    padding:16px 20px!important;
-  }
-  #directors-grid{
-    grid-template-columns:repeat(3,1fr)!important;
-    gap:6px!important;
-  }
-  #directors-grid>div{padding:12px 6px!important}
-  #infra-stats{grid-template-columns:repeat(2,1fr)!important}
-  #infra-stats>div{padding:24px 14px!important}
-  #infra-stats div[style*="font-size:52px"]{font-size:36px!important}
-
-  /* ── COMPARISON TABLE ──────────────────────────────── */
-  /* Mostrar solo 2 columnas: Label | Victor IA */
-  #comparison-wrapper>div{
-    grid-template-columns:1fr 1fr!important;
-    display:grid!important;
-  }
-  /* Ocultar columnas 3 y 4 (Agencia y Equipo interno) */
-  #comparison-wrapper>div>div:nth-child(3),
-  #comparison-wrapper>div>div:nth-child(4){
-    display:none!important;
-  }
-  #comparison-wrapper>div>div:nth-child(1){padding:14px 14px!important;font-size:12px!important}
-  #comparison-wrapper>div>div:nth-child(2){padding:14px 12px!important}
-  #comparison-wrapper{border-radius:10px!important}
-
-  /* ── TESTIMONIALS ──────────────────────────────────── */
-  #testimonials-grid{grid-template-columns:1fr!important;gap:12px!important}
-  #testimonials-grid .card{padding:26px 22px!important}
-  /* Testimonial quote text: slightly smaller */
-  #testimonials-grid .card p[style*="font-size:18px"]{font-size:16px!important}
-
-  /* ── FAQ ───────────────────────────────────────────── */
-  details summary{font-size:14.5px!important;padding:18px 0!important}
-  details p{font-size:14px!important}
-
-  /* ── CTA SECTION ───────────────────────────────────── */
-  #cta-card{padding:40px 22px!important}
-  #cta-card h2{font-size:clamp(36px,10vw,56px)!important}
-  #cta-card>div>div[style*="display:flex"]{flex-direction:column!important;align-items:center!important}
-  #cta-card .btn-p,#cta-card .btn-g{width:100%!important;max-width:280px!important}
-
-  /* ── FOOTER ────────────────────────────────────────── */
-  #footer-grid{
-    grid-template-columns:1fr!important;
-    padding-left:20px!important;
-    padding-right:20px!important;
-    gap:28px!important;
-  }
-  #footer-bottom{
-    padding-left:20px!important;
-    padding-right:20px!important;
-  }
-  /* Footer nav links: no word breaks */
-  #footer-grid a.nav-a{display:block!important;white-space:nowrap!important}
-
-  /* ── GLOBAL: section vertical padding reducido ─────── */
-  section[style*="padding:120px"]{padding-top:72px!important;padding-bottom:72px!important}
-  section[style*="padding:100px"]{padding-top:64px!important;padding-bottom:64px!important}
-
-  /* ── MARQUEE ───────────────────────────────────────── */
-  .mq-t{animation-duration:16s!important}
-  .mq-w{overflow:hidden!important}
-
-} /* end @media 768px */
-
-/* ══ RESPONSIVE BREAKPOINTS (GLOBAL STANDARD) ════════════════════ */
-/* Mobile: 375px */
-@media(max-width:639px){
-  :root{
-    --padding-desktop: var(--padding-mobile);
-  }
-  body{line-height:1.4}
-  .h-cta .btn-p,.h-cta .btn-g{font-size:12px!important;padding:10px 18px!important}
-  @supports (scroll-padding-top:68px){
-    html{scroll-padding-top:68px}
-  }
+  section {padding: 64px 0;}
 }
-
-/* Tablet: 640px - 767px */
-@media(min-width:640px) and (max-width:767px){
-  :root{--padding-desktop: var(--padding-tablet);}
-}
-
-/* Desktop: 768px+ */
-@media(min-width:768px){
-  body{line-height:1.6}
-}
-
-/* Large desktop: 1024px+ */
-@media(min-width:1024px){
-  :root{--padding-desktop: var(--spacing-2xl);}
-}
-
-/* Extra wide: 1440px+ */
-@media(min-width:1440px){
-  :root{--padding-desktop: calc(var(--spacing-3xl) - 24px);}
-}
-
-/* Respeta reduced motion GLOBALMENTE */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:0.01ms!important;animation-iteration-count:1!important;
-    transition-duration:0.01ms!important;scroll-behavior:auto!important
-  }
-  .mq-t,.sb,.rp1,.rp2,.rp3{animation:none!important}
-}
-
-/* Extra small screens */
-@media(max-width:420px){
-  #directors-grid{grid-template-columns:repeat(2,1fr)!important}
-  #stats-grid .stat-n{font-size:clamp(36px,11vw,48px)!important}
-  .h-cta .btn-p,.h-cta .btn-g{font-size:13px!important;padding:12px 20px!important}
-}
-
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":["Organization","LocalBusiness"],"@id":"https://victor-ia.xyz/#org","name":"INFLUENCE IA S.A. DE C.V.","alternateName":"Victor IA","url":"https://victor-ia.xyz","logo":{"@type":"ImageObject","url":"https://victor-ia.xyz/logo.png","width":512,"height":512},"image":"https://victor-ia.xyz/logo.png","description":"El primer supercerebro de inteligencia artificial para empresas en México y LATAM","address":{"@type":"PostalAddress","addressLocality":"Playa del Carmen","addressRegion":"Quintana Roo","postalCode":"77710","addressCountry":"MX"},"contactPoint":{"@type":"ContactPoint","email":"info@victor-ia.com.mx","contactType":"customer service","areaServed":"MX","availableLanguage":"es"}},
 {"@type":"WebSite","@id":"https://victor-ia.xyz/#website","url":"https://victor-ia.xyz","name":"Victor IA","inLanguage":"es-MX","publisher":{"@id":"https://victor-ia.xyz/#org"}},
-{"@type":"SoftwareApplication","name":"Victor IA","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://victor-ia.xyz","description":"Plataforma de agentes de inteligencia artificial para empresas en México. Automatización, producción creativa, análisis de datos, monitoreo IoT."},
-{"@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"¿Qué es Victor IA?","acceptedAnswer":{"@type":"Answer","text":"Victor IA es el primer supercerebro de inteligencia artificial para empresas en LATAM, desarrollado por INFLUENCE IA S.A. DE C.V. Coordina más de 150 agentes expertos especializados en paralelo para automatizar operaciones, producir contenido, analizar datos y tomar decisiones empresariales."}},
-{"@type":"Question","name":"¿Cuánto cuesta Victor IA?","acceptedAnswer":{"@type":"Answer","text":"No hay paquetes fijos. Ofrecemos diagnóstico gratuito y propuesta personalizada para cada empresa. Puedes comenzar sin tarjeta de crédito en menos de 2 minutos."}},
-{"@type":"Question","name":"¿En qué países está disponible Victor IA?","acceptedAnswer":{"@type":"Answer","text":"Victor IA está disponible en México y toda LATAM. Con sede en Playa del Carmen, Quintana Roo, México, el sistema entiende el contexto regional, mercados locales y español nativo."}},
-{"@type":"Question","name":"¿Necesito conocimientos técnicos para usar Victor IA?","acceptedAnswer":{"@type":"Answer","text":"No. Victor IA funciona con lenguaje natural. Solo describes lo que necesitas y el sistema activa los agentes correctos automáticamente. Sin configuración técnica ni curva de aprendizaje."}},
-{"@type":"Question","name":"¿Qué resultados puedo esperar con Victor IA?","acceptedAnswer":{"@type":"Answer","text":"En promedio, los clientes logran un retorno de 3.2× sobre la inversión, reducen el tiempo operativo hasta 68% y ahorran hasta 40% en costos desde las primeras semanas."}}
-]}
+{"@type":"SoftwareApplication","name":"Victor IA","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://victor-ia.xyz","description":"Plataforma de agentes de inteligencia artificial para empresas en México. Automatización, producción creativa, análisis de datos, monitoreo IoT."}
 ]}
 </script>
 <script defer src="https://victor-ia-brain-tracker.vercel.app/vi-track.js" data-site="victor-ia-home"></script>
-  <!-- Hero frame-by-frame cinematic scroll (Cloudinary) -->
-  <script src="/assets/hero-frame-scrub.js" defer></script>
+<script src="/assets/hero-frame-scrub.js" defer></script>
 <link rel="stylesheet" href="/assets/animations.css?v=fx3"/>
 <script src="/assets/animations.js?v=fx2" defer></script>
 </head>
@@ -475,19 +195,17 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
 <symbol id="ic-agents-lux" viewBox="0 0 20 20"><g fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"><circle cx="10" cy="8" r="3"/><path d="M6 16c0-2.2 1.8-4 4-4s4 1.8 4 4"/><circle cx="16" cy="6" r="2" opacity="0.5"/><circle cx="4" cy="6" r="2" opacity="0.5"/></g></symbol>
 <symbol id="ic-creative-lux" viewBox="0 0 20 20"><g fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"><rect x="2" y="3" width="16" height="11" rx="1.5"/><path d="M7 8l3-2 3 2v2l-3 2-3-2v-2z" opacity="0.3"/><path d="M8 18h4M10 15v3"/></g></symbol>
 <symbol id="ic-data-lux" viewBox="0 0 20 20"><g fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"><rect x="2" y="2" width="16" height="14" rx="1.5"/><path d="M4 14l3-4 2 2 3-5 4 7" stroke-width="1.1"/><circle cx="7" cy="6" r="1" opacity="0.3"/></g></symbol>
-<symbol id="ic-auto-lux" viewBox="0 0 20 20"><g fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"><circle cx="10" cy="10" r="3.5"/><path d="M10 2v2M10 16v2M18 10h-2M4 10H2M15.5 4.5l-1.4 1.4M6.9 14.1l1.4-1.4M15.5 15.5l-1.4-1.4M4.5 4.5l1.4 1.4"/></g></symbol>
-<symbol id="ic-iot-lux" viewBox="0 0 20 20"><g fill="none" stroke="#1A1A1A" stroke-width="0.9" stroke-linecap="round"><circle cx="10" cy="10" r="2.5" fill="#1A1A1A" opacity="0.3"/><circle cx="10" cy="10" r="5.5" opacity="0.4"/><circle cx="10" cy="10" r="8.5" opacity="0.2"/></g></symbol>
-<symbol id="ic-plan-lux" viewBox="0 0 20 20"><g fill="none" stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"><path d="M10 2l2.5 6h6.5l-5 3.5 2 6L10 14l-5 3.5 2-6-5-3.5h6.5L10 2z"/></g></symbol>
 </svg>
+
 <!-- Marble background — fixed, full page -->
 <div class="marble-bg" style="position:fixed;top:0;left:0;width:100%;height:100vh;background-image:url('https://res.cloudinary.com/dxy9t8qur/image/upload/v1781849274/marble-textures/marble-textures/hf_20260506_082421_e0d9b84a-e4e3-435a-a052-53082b89032e.webp');background-size:cover;background-position:center;z-index:-1;pointer-events:none" aria-hidden="true"></div>
 <canvas id="reveal-canvas" class="reveal-canvas" style="position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none" aria-hidden="true"></canvas>
+
 <!-- Overlays -->
 <div id="noise"></div>
 <div id="pbar"></div>
 <div id="cur-d"></div>
 <div id="cur-r"></div>
-<!-- Space canvas created by JS -->
 
 <!-- ══════════════════════ HEADER ══════════════════════ -->
 <header id="hdr">
@@ -496,12 +214,11 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
       Victor <span style="color:#1A1A1A">IA</span>
     </a>
     <nav class="hidden md:flex gap-9 items-center">
-      <a class="nav-a" href="agentes.html">Agentes</a>
-      <a class="nav-a" href="como-funciona.html">Cómo Funciona</a>
-      <a class="nav-a" href="precios.html">Precios</a>
+      <a class="nav-a" href="#resultados">Resultados</a>
+      <a class="nav-a" href="#filosofia">Filosofía</a>
+      <a class="nav-a" href="#capacidades">Capacidades</a>
+      <a class="nav-a" href="#faq">FAQ</a>
       <a class="nav-a" href="blog/">Blog</a>
-      <a class="nav-a" href="/agencia-ia-mexico">Agencia IA</a>
-      <a class="nav-a" href="telemetria.html">Eficiencia IoT</a>
     </nav>
     <div class="flex items-center gap-5">
       <a class="nav-a hidden sm:block" href="/login/">Iniciar sesión</a>
@@ -512,7 +229,7 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
 
 <main style="padding-top:68px;position:relative;z-index:10">
 
-<!-- ══════════════════════ HERO ══════════════════════ -->
+<!-- ══════════════════════ 1. HERO (400 FRAMES SCROLL — INTACTO) ══════════════════════ -->
 <section id="hero-scroll" data-hero-wrap style="position:relative;height:420vh">
   <div data-hero-viewport style="position:sticky;top:0;height:100vh;overflow:hidden;background:#000">
     <img data-hero-image src="/assets/frames/hero/f001.jpg" alt="Victor IA Hero" loading="lazy" decoding="async" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover">
@@ -523,738 +240,683 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
         <h1 style="font-family:'Cormorant Garamond',serif;font-weight:200;line-height:0.95;letter-spacing:-0.02em;color:white;text-shadow:0 2px 10px rgba(0,0,0,0.5);max-width:13ch;font-size:clamp(3rem,7vw,4.5rem);margin:0 0 1.5rem 0">Victor IA</h1>
         <p style="font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.8);text-shadow:0 2px 4px rgba(0,0,0,0.5);max-width:42ch;margin:0 0 2.25rem 0">Inteligencia que transforma tu empresa en minutos, no meses.</p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
-          <button style="padding:0.75rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.3s ease;text-shadow:0 1px 2px rgba(0,0,0,0.3);background:#2563eb;color:white;border:none" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">Comenzar</button>
-          <button style="padding:0.75rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.3s ease;text-shadow:0 1px 2px rgba(0,0,0,0.3);background:transparent;color:white;border:2px solid rgba(255,255,255,0.6)" onmouseover="this.style.borderColor='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.6)'">Conocer más</button>
+          <a href="#resultados" class="btn-p">Conocer más</a>
+          <a href="/agendar-videollamada" class="btn-g">Agendar demo</a>
         </div>
       </div>
-    </div>
-
-    <div data-hero-indicators style="position:absolute;bottom:3.5rem;right:1.5rem;z-index:10;display:none;flex-direction:column;gap:0.75rem;width:16rem">
-      <span data-hero-phase style="text-align:right;font-size:0.625rem;font-weight:500;text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.7)">Sistema dormido</span>
-      <span style="display:block;height:1px;width:100%;background:rgba(255,255,255,0.2)">
-        <span data-hero-bar style="display:block;height:1px;width:100%;background:#3b82f6;transform-origin:left;transform:scaleX(0)"></span>
-      </span>
-      <span data-hero-label style="text-align:right;font-size:0.625rem;font-weight:400;text-transform:uppercase;letter-spacing:0.2em;color:rgba(255,255,255,0.5)">Progreso del recorrido</span>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════ MARQUEE ══════════════════════ -->
+<!-- ══════════════════════ 2. MARQUEE ══════════════════════ -->
 <section style="padding:14px 0;border-top:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05);overflow:hidden" class="mq-w">
   <div class="mq-t" style="gap:0;opacity:.32">
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Generación de Video</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Más de 150 agentes</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Síntesis de Voz</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Orquestación automática</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Modelos de Lenguaje</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Ejecución en paralelo</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Diseño Visual IA</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Control de calidad</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Automatización Total</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Análisis de Datos</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Resultado garantizado</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
     <!-- duplicate -->
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Generación de Video</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Más de 150 agentes</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Síntesis de Voz</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Orquestación automática</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Modelos de Lenguaje</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Ejecución en paralelo</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Diseño Visual IA</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Control de calidad</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Automatización Total</span>
-    <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Análisis de Datos</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;letter-spacing:.07em;color:#000000;padding:0 40px">Resultado garantizado</span>
     <span style="color:rgba(26,26,26,.3);font-size:12px">◆</span>
   </div>
 </section>
 
-<!-- ══════════════════════ STATS ══════════════════════ -->
-<section class="rv" style="padding:100px 0;background:#FAFAFA;position:relative;overflow:hidden">
-  <!-- Decorative large number -->
-  <div class="deco-n" style="position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:260px;letter-spacing:-.05em">IA</div>
-
-  <div class="sec-inner" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
-    <p class="eyec" style="margin-bottom:48px">Resultados medibles</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.05)" id="stats-grid">
-      <div style="background:#FAFAFA;padding:40px 32px">
-        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="3.2" data-suffix="×">0</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:10px">Retorno promedio</p>
-      </div>
-      <div style="background:#FAFAFA;padding:40px 32px">
-        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="68" data-suffix="%">0</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:10px">Menos tiempo operativo</p>
-      </div>
-      <div style="background:#FAFAFA;padding:40px 32px">
-        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="40" data-prefix="−" data-suffix="%">0</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:10px">Reducción de costos</p>
-      </div>
-      <div style="background:#FAFAFA;padding:40px 32px">
-        <div class="stat-n" style="font-size:clamp(52px,6vw,82px)" data-target="200">0</div>
-        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:10px">Agentes disponibles</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- ══════════════════════ FILOSOFÍA ══════════════════════ -->
-<section style="padding:120px 0;position:relative;overflow:hidden;background:#FFFFFF">
+<!-- ══════════════════════ 3. MÉTRICAS ══════════════════════ -->
+<section id="resultados" class="bg2">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div style="position:relative;text-align:center">
-      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(200px,30vw,400px);font-weight:200;color:rgba(0,0,0,.03);line-height:1;z-index:0;white-space:nowrap;pointer-events:none;letter-spacing:-.04em">200</div>
-      <div style="position:relative;z-index:1">
-        <p class="eye" style="margin-bottom:28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.6);font-weight:400">Filosofía</p>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#000000;margin-bottom:12px;max-width:900px;margin-left:auto;margin-right:auto">No es un asistente.</h2>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#000000;margin-bottom:44px;max-width:900px;margin-left:auto;margin-right:auto;font-style:italic">Es el primer supercerebro empresarial de IA en LATAM.</h2>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:40px;max-width:700px;margin:0 auto">
-          <div style="display:flex;flex-direction:column;gap:12px;text-align:center">
-            <p style="font-size:17px;font-weight:500;color:#000000;letter-spacing:.01em">Orquestación Total</p>
-            <p style="font-size:15px;line-height:1.7;font-weight:300;color:#666666">Gestiona presupuestos y modelos automáticamente sin intervención humana. Selecciona el mejor sistema para cada tarea.</p>
-          </div>
-          <div style="width:1px;height:40px;background:rgba(0,0,0,.1)"></div>
-          <div style="display:flex;flex-direction:column;gap:12px;text-align:center">
-            <p style="font-size:17px;font-weight:500;color:#000000;letter-spacing:.01em">Ecosistema LATAM</p>
-            <p style="font-size:15px;line-height:1.7;font-weight:300;color:#666666">Entiende el contexto regional, mercados y lenguajes locales de forma nativa. Pensado para empresas en México y LATAM.</p>
-          </div>
-        </div>
-      </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(0,0,0,.05)">
+      <article style="background:#FAFAFA;padding:40px 32px;text-align:center;border-radius:0">
+        <div class="stat-n" style="font-size:clamp(48px,6vw,72px)">3.2×</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:16px">Más cierres</p>
+      </article>
+      <article style="background:#FAFAFA;padding:40px 32px;text-align:center">
+        <div class="stat-n" style="font-size:clamp(48px,6vw,72px)">68%</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:16px">Menos tiempo</p>
+      </article>
+      <article style="background:#FAFAFA;padding:40px 32px;text-align:center">
+        <div class="stat-n" style="font-size:clamp(48px,6vw,72px)">-40%</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:16px">Costo por lead</p>
+      </article>
+      <article style="background:#FAFAFA;padding:40px 32px;text-align:center">
+        <div class="stat-n" style="font-size:clamp(48px,6vw,72px)">200</div>
+        <p style="font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase;margin-top:16px">Agentes IA</p>
+      </article>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<!-- ══════════════════════ 4. FILOSOFÍA ══════════════════════ -->
+<section id="filosofia">
+  <div style="max-width:900px;margin:0 auto;padding:0 24px;text-align:center">
+    <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#1A1A1A;margin-bottom:24px">Filosofía</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:32px">No es un asistente. Es el primer supercerebro empresarial de IA en LATAM.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;margin-bottom:48px;max-width:66ch;margin-left:auto;margin-right:auto">Victor elige de sus 200 agentes especializados los que resuelven tu tarea, los coordina y te entrega el resultado terminado. Sin prompts eternos, sin plantillas.</p>
 
-<!-- ══════════════════════ PROCESO ══════════════════════ -->
-<section style="padding:120px 0;background:#FFFFFF;overflow:hidden">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(0,0,0,.05);margin-top:32px">
+      <article style="background:#FFFFFF;padding:32px;text-align:left">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Orquestación total</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Selecciona y coordina el mejor agente para cada paso, en paralelo.</p>
+      </article>
+      <article style="background:#FFFFFF;padding:32px;text-align:left">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Ecosistema LATAM</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Voz mexicana natural, integraciones locales y contexto de tu mercado.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 5. PROCESO ══════════════════════ -->
+<section id="proceso" class="bg2">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div style="text-align:center;margin-bottom:80px">
-      <p class="eye" style="margin-bottom:22px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.6);font-weight:400">Cómo empezamos</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#000000;margin-bottom:12px">Tres pasos.</h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#666666;font-style:italic">Resultados extraordinarios.</p>
-    </div>
-    <div style="position:relative;max-width:1000px;margin:0 auto">
-      <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(0,0,0,.08);transform:translateX(-50%);z-index:0"></div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;position:relative;z-index:1">
+    <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#1A1A1A;margin-bottom:24px">Cómo empezamos</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:18ch">Tres pasos. Resultados extraordinarios.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:0;border:1px solid rgba(0,0,0,.05)">
+      <article style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px;border-bottom:1px solid rgba(0,0,0,.05)">
         <div>
-          <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px;font-weight:500">Paso 1</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#000000;margin-bottom:16px">Conecta</h3>
-          <p style="font-size:15px;line-height:1.8;color:#666666;font-weight:300">Escribes tu instrucción en lenguaje natural. Victor entiende el contexto completo: tu marca, industria, objetivos y presupuesto. Sin formularios complicados, sin API keys — solo describes qué necesitas.</p>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;margin-bottom:16px">01</h3>
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;margin-bottom:16px">Conecta</h4>
+          <p style="font-size:14px;line-height:1.7;color:#666666">Conectas Victor a tus herramientas y le das el contexto de tu operación. WhatsApp, CRM, correo y datos, en minutos.</p>
         </div>
-        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(0,0,0,.01))">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_024041_ac060540-4064-46a0-ae7d-5867b5a6d401_full.webp 1x, /assets/higgsfield/hf_20260709_024041_ac060540-4064-46a0-ae7d-5867b5a6d401_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_024041_ac060540-4064-46a0-ae7d-5867b5a6d401.png"
-    alt="Paso 1: Conecta"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFDNFVsRVFWUjRuSTFYVzNJa0lRekRXMzMvVytRQytkNjdrY0pQeVVEUGRDbzlZQjRXc2pDMC9QLzlrYkgreGhoUkVMR1NhQ2wraGxXc2JSWC9xVEVhMXB0NkRwRXgxMnVBTFFhTTlpUUdlNTdXZEhnYzZvREdZejk3NWtJeTUxeVlwZythYThTYzB3SE5aVWlZUHN5dENjdjRpQ1ZWSVJhWDV0SHhtTGN4UkFzNnRVeDFDeDRYR0ZrdURZYUMwMUdJQWp5WStRSG5oVUt1cEVqRFJhYUZhMVVWeVZTR2FsbkdscFlYbGN3T1RyUE1UNEFnd3VyRi8vSWF1ZUJzUkJBVlFoQVRRZFA2ZkEvaWZNb3BGMXkxdEJTNWNSaklHbU5XMmRreWhYbjkrRHl4OXpiQ0VsQWpTYzZvVEVHbUxhTnAwVGZDa0Z5cmRVZlV0VlYrRHdVSW5UUTRkM1FVVkExTjBCaGVmVnZBRkV6ZExMWkM1YTBBYndFckluTW9GMlRtbEFWcitEYktvdmVGTGNCRWUwQllhVmV1QUZrTU5pQVJUNXFtYldmcmFXeGxCZ1lZVjlISkJWUk1xMUVMWnhtNGtCVkdEb3E1aE5SV2hhM2xVMlFQUkViTFBRY0NhSVBPWGV6SWxtSEw0bFA1czZWenpyTzhJV0c3ZWtPREYwcUhDTzNwQU5rcWhTcDRTNmZwY0k4aWtTU2tsVTl5cTlWSHEvbU80NmlEUThtSHJBdGJ4OUZqUEw0VDJaWnE4Unk4Yk1KODR2QzVncUI0alk5UURuSzcrcjR2NDZhdGQxQVNtdkhESlE3ZTNCaDFwZmdTY1g4c2lLVHlJeWpNdEt6M0txVnlxTG15N2RlNFJJUFlOSU1pZXJuaTdBL2wvc1FEMjFFdk5DY2lDN0Vjc2p5ZWZGeFRpMVNWNW5CVDN2N2NKVTNWKzRzbFZ6aU5vcTY5SXN0ZjNQT2xxQjdxN3o5KzRacjk3UE5XZzJ1L09DNGh3YUxGTHMzWmpWZllJVW4yelJUVEZXVXNZT2doeVRrakI0MnhTZnpTM0tPMWkrdW9yL3kwZ1JCUXFrU2YxQTI0REVRMGZiTEYrNURXZXdBbTRTM1p3cU1TS3FFekRHTGR1cHpMSXJSZ0hid2ZsTlBNd0kwZGVMZ211NWRHUFE1RTIxcDFtZGcrZkFoV2ZBVzI1bU5tRUVadkgxODFIclpTZDB4c3dSVjZYNmJEcWxuYm1YaGN4U0RQTVNPZUEzQTh0LzJCZ3c4bWFzV3Y2aU9XRDBIMHpZbFJPOEtvVzkxMnk5NlJ5L2dESWJFZEI3djl6VEFBQUFBQVNVVk9SSzVDWUlJPSIgd2lkdGg9IjI2ODgiIGhlaWdodD0iMTUyMCIgZmlsdGVyPSJ1cmwoI2JsdXIpIi8+Cjwvc3ZnPg==') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_024041_ac060540-4064-46a0-ae7d-5867b5a6d401.png"
-  />
-</picture>
+        <figure style="aspect-ratio:4/3;background:rgba(0,0,0,.05);border-radius:8px;overflow:hidden">
+          <img src="/assets/step-conecta.jpg" alt="Paso 1: Conecta" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+        </figure>
+      </article>
+
+      <article style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px;border-bottom:1px solid rgba(0,0,0,.05)">
+        <div style="order:2">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;margin-bottom:16px">02</h3>
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;margin-bottom:16px">Dame una tarea</h4>
+          <p style="font-size:14px;line-height:1.7;color:#666666">Le pides algo en lenguaje natural: "genera 5 videos", "reactiva mi base", "agenda estas citas". Sin prompts técnicos.</p>
         </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;position:relative;z-index:1">
-        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(0,0,0,.01))">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_024041_bf55c08d-a032-43c7-b27a-b578830f102c_full.webp 1x, /assets/higgsfield/hf_20260709_024041_bf55c08d-a032-43c7-b27a-b578830f102c_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_024041_bf55c08d-a032-43c7-b27a-b578830f102c.png"
-    alt="Paso 2: Dame una tarea"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFDOGtsRVFWUjRuSldYVzdMak1BaEVwYXE3L3lYT0F1Wi9mc010SVpwdWtKeGtsUGhkc1U4YWFPSDU3KytmTVFlSG1jblJXQWR4eG55TDY3WS81a3VPZmZtMUQzemp2NGhyK3dkeW43eTczbm1ObjhJMHhwaHpuZGozV0lkajJGcGlkNjNudnVRUFRHVCtpM2hjYm9Kb24xQ3FFNHRpL1BqanFBemdTQk00T2RwaGs1ZkFBdTBxK1RjZ1VsZjkvZDdaTkQvallTelJMSVJKaGQ2TmZLUXNWQ3NrUzZhNEZpZmlEdER0RGRaTm10bUVxa2pCb21ESXZMamMwZ3paaW9USjdVZXN3ak1ybGFSQ0I1UlVnaDRwMm9sVjFEcXhkbGp2ZWh3WnBSb2xEVFRMeDZkWVpZdVNiQVdvV0l1bEdFVGpTcDU1NmdPZVNKVVFKbWlFN2lWcTZUNlVES2hTaVc4TTRwcEwxcmI0SzBnakJFZnRMT2lHTFVzck1SV1JxbTg5R3NSRCtFYlZNN1NTZkdsQXIyMnJZYkVsbW1SaDJrT3RoekhuQlA2WlY0WlYybEhXZldjcVFMbGIxVW95VmV0dHl1ZTVpZVFobXBnbEo1WTcySlpzQUl5NUw3T1oydks3bEM4dWFrY2h3czl6YnBSQ3F3SE1kWWtrWmI1Z25TbmZDQjZIMFQvVktrSDBXbC9mOGUxYUxiWDJ5WkRxT2drOXpva1BibTZwSFNhYXhuVEpkNkJ4RlZpSlZJM0NycmxsWlRhODR4bVRyT2pFR2FlVGJhQUlvb1JTQ2pJL0o5WkplSGNIUThhRERHYlBMTStVeXRiTFl3cTBtdm5aNXpCbkc5YXBUNXlCaTBNcGRnTVZxV3EwWk1xTlJMSVZKUDRkR3lPdnhIc3FYVUpvR2tUMmNZV0hZakR6SFltUjdDV1pkOHZPSmlveDRLSVArMXlKVnVxby9QT0NTSDhJd1pEeHpnWWZxdzM1V3JJU3Z6RUY0eHhEK1hEZk12R29zN3RRSkVJQjRDS25TSkVyYzh2THo1WDYzSWF1d2F6U3JxWkhzODQrS1plNjErNHBxUCs5RW1zTVV3UG94RWFydE9qNlZuUEUwaW5ncnVKbFlxeTd0ZUNyeG5mZGFSKzI5WXBkbWFkYjMzZG9SK3N2eGFGKzc2dlBXRmZmR3FWdGwyN2lJbGlwT29SUS9JdEJwTFgrbDFxR0VKSllvcG5teHQ1WlhqQ0t1Mll0cUlISnRQME9xejUrbEpTVDkwQys5ZUQ1dHltb2hiTzFFcGxoK0JRc3p1RmZPRmZkWTJPWVVId2xmTEMxb1BSa3grV0ErQVhycVRyb2tGWmx4QUFBQUFCSlJVNUVya0pnZ2c9PSIgd2lkdGg9IjI2ODgiIGhlaWdodD0iMTUyMCIgZmlsdGVyPSJ1cmwoI2JsdXIpIi8+Cjwvc3ZnPg==') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_024041_bf55c08d-a032-43c7-b27a-b578830f102c.png"
-  />
-</picture>
-        </div>
+        <figure style="aspect-ratio:4/3;background:rgba(0,0,0,.05);border-radius:8px;overflow:hidden;order:1">
+          <img src="/assets/step-tarea.jpg" alt="Paso 2: Tarea" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+        </figure>
+      </article>
+
+      <article style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px">
         <div>
-          <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px;font-weight:500">Paso 2</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#000000;margin-bottom:16px">Dame una tarea</h3>
-          <p style="font-size:15px;line-height:1.8;color:#666666;font-weight:300">Victor activa automáticamente los agentes que necesitas. Director de Video, Diseño, Marketing, Análisis de Datos — todos trabajando simultáneamente. El orquestador decide quién hace qué y en qué orden para máxima eficiencia.</p>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;margin-bottom:16px">03</h3>
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;margin-bottom:16px">Victor hace</h4>
+          <p style="font-size:14px;line-height:1.7;color:#666666">Coordina a los agentes correctos, ejecuta en paralelo y te entrega el resultado terminado, con control de calidad incluido.</p>
         </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1">
-        <div>
-          <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px;font-weight:500">Paso 3</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#000000;margin-bottom:16px">Victor hace</h3>
-          <p style="font-size:15px;line-height:1.8;color:#666666;font-weight:300">Recibe tus resultados listos para publicar en tu dashboard. Ve el progreso en tiempo real, el gasto en IA y el ROI generado. Sin colas, sin esperas — mientras tú tomas café, los agentes producen.</p>
-        </div>
-        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(0,0,0,.01))">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_024041_af53e288-864d-440d-af0d-301e1cf65521_full.webp 1x, /assets/higgsfield/hf_20260709_024041_af53e288-864d-440d-af0d-301e1cf65521_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_024041_af53e288-864d-440d-af0d-301e1cf65521.png"
-    alt="Paso 3: Victor hace"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTY4IDg4MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgogIDxmaWx0ZXIgaWQ9ImJsdXIiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEwIi8+PC9maWx0ZXI+CiAgPGltYWdlIGhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBRElBQUFBbUNBSUFBQUFKR2w5ckFBQUZFRWxFUVZSNG5IMVlXN0tzT0F5TEtmYS93UHMzWDdPS1NhWnNTWDRBZlhOTzBaQUdva2l5bmJUOSs4K2ZzN3dkL1BuRk9UaU5TNTRlZEMvKzR3TVA0c1Rhd2RZeTgwTjgyQlhIZGZreHVzeThiK1ZsM0I3WDhlaXltMk1rbmhoRG1JaVB3STdBbkhhTWsyeUh5TlQ4d3VMZHh2dk1EQ01CZzZZVWQ5VFROMGNydGpEaTJzVFZtRG80U1laMEt6bmpYSi9JSmtRNzV6ZzdlaEQwNHAyMjdCeS9KV0FWUjZXVU1PNEVjeHA1RW5HdzFSRDV5Ni9FVWppRE4rL2hEUHdWcEN5djhNeTlDVW9hRmpMS0pnRlg5YWVmT2x2eFRxY0NHTFpmWDExZ3Y4Y0pDWFl3SjcrTWpqaVVEMDZLR0lQdE1waGd0WXZWQlcyUXlCYmU3OS9DUHhaT3VFaWJ6T1VTZ2pPL1dYd0VrWnFSZTJzTFNyTFY2UWt1ODZ1VEVTb3pkaXJjRmpDSFFVU0h0czkyMG9LK2RRVTB6UUtVMDNHVVViRnhUOGZVeUR2NkNDc3hIU1FONW9rQkt6Q0pxSE4yWkFHZzRYMkJHVlFSVS9ncWlBbzA0TXVmcDdjNkpiaEFKQXBXMDNUSjh3Tld1SVRoajd3a2h2eFY0QXR2b3Arb09JRDF3QWlUdW9nUFNBbXQyYXVCV3YzWWJJUEVHRyszZFd4ZlYyaDVnckY5dWYzcFNZSVRZVXhlakJua1ljTHFHZk1iRDF0T3VrY2p3dHBCTVdtYnJXdHZOOWplKzNMWFo5a0kxenNFSmdmNW55bURoQVdzakgzbFVDQ0lJMlFjUkM1TmVnWitCMlhCVnBGVXNCU3JqcWFrckt3R3lQZC9tU2hIVW1BYk9IL0JJaWJnaW5SbGkyeWRTL200Q2xvNHlWMGVLTUxvejFUcmJFWE1mYXUzZHJEVkRYOWFpaEJaOEs1RVhOZU9qT25TZWVMcXNEeFkvZWlNMEY1QlhKcXE1NjJmc0RJU085UlRTVkRCbzdxTEJjQjJ1cHluU29FQm9uazR0RUpDQUdkaW42VUNsdTlWYitBWWJLMmhJYW9FdlFxRXpiT1VEdXp3QlVwc3pDOEFHaFlRTW1WbFJtS3ZMNW5JUHRwNjFCMU9FQ3pOZEpGQlcrYkc0aVh5TWRoaWVpK2FGSThINlRSZC80Mm1KN0wxeU81UmZGbEZWRHFDZ0dDQ1Znb3ZvUVdTcWpVc1YxcExORytoekV5T3ZueTJFdFpjK2xXQncvcUEvSzJIcUQ4dTU5SkJueXpWUmNiTFgrczNMQ05ENFJrRkpWOGQxdmtKNk4wOUgyc0xtNjdVQzJWaGFpbUxvVFQ0YjR2TzBSNUFSaUNYSmJVY3U3RCtuQlRWSmtLWVZHbk9LRHBQTFRWT1d4VC9hdTl2YXozcGx0ZFNwZGFmYytQVDU3b2VlUUNDb1FkRnA1QnhEL1BqLzJHblZ3T3N1Q1g1ZVpjWGlXYWRHQlpvN202cVUvZ0t4WmVxbWFqR044SVpzTVpXQnQ4K0lnM0lqSkZXbE9UYVlmVTlvUFo5alVqUk9jaCtzNlN1TzhuSVFpY2JQZGVlcSsxVFN5OWlVdVB3MlZsd3UrUzVFN0lmalBtRzdLMldXTWEyUkNza2E3eHBpYVFobzBUSFp0bVBBNW5nTnNOcEUxMll4Q0pWdkVjZEtUenFDa3phMUxBQkh0K09JWVFqTUdFdmovTlVzS01zSzJwM2oxYUpKa1I4dDlRbzBodFdrVFoybm1Nd3psK2pKcmplQ2M1eU5rbmUxOGlIc0RBZ2lPSFdoRitRcHkrcVNrUWRmVVhLM3oxaWx5Rjh6V2N0aFAvQ1NMTEZiWWlVeVZ6QWxhT1FpNnlVUm5Nbm1Fc25kY3lvN015SnMveWYyQnpXekVaY21MVk9TbTRWZllWZlh1RXZRODN2THdXTHBGUitrTlE3YmhoODNLUTd5Z3QxdWFoQ0JWY0dJK2tKYjZYWEh2bENnSG85K0pJeDJGS2tCb1FLT3B1ckFxdndUcHUzSDgxS09KTDJ4Wm5VcnpUUmEwU2QzQU9CUk16c1RTS0hueGJOM2pJbmNaR3hEM3FHZHQzNWp3UmIzaXBTRllIOHVaRDdjTzFxVnRYZ0x4RWJncWVsTWpCcVBpMjZDMURySWx2bGFXd1lvdnFKWWYzSXVUalZFakZHS3lkMVdLMnJlS1VCYW5peCtHejN5TFB0dm5pUmZFWlkyRFlyMWh0YnYyRVZjU281ZmY1dnI3UDlEK2VNcVV3ZVVQS21BQUFBQUVsRlRrU3VRbUNDIiB3aWR0aD0iMTE2OCIgaGVpZ2h0PSI4ODAiIGZpbHRlcj0idXJsKCNibHVyKSIvPgo8L3N2Zz4=') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_024041_af53e288-864d-440d-af0d-301e1cf65521.png"
-  />
-</picture>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;position:relative;z-index:1">
-        <div>
-          <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px;font-weight:500">Paso 4</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#000000;margin-bottom:16px">Resultados listos</h3>
-          <p style="font-size:15px;line-height:1.8;color:#666666;font-weight:300">Recibe videos, imágenes, copies y estrategias completas. Todo formateado para publicar en redes, email y web. Sin retrabajos.</p>
-        </div>
-        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(0,0,0,.01))">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_023658_2ca0137a-1f80-4999-a50c-776e8e8518c1_full.webp 1x, /assets/higgsfield/hf_20260709_023658_2ca0137a-1f80-4999-a50c-776e8e8518c1_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_023658_2ca0137a-1f80-4999-a50c-776e8e8518c1.png"
-    alt="Paso 4: Resultados listos"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFDZmtsRVFWUjRuSzFYU1c3RE1Bd1VnL3ovalQwVjZDdFVpT0l5WEd5ckM1SEVXaXhxUEVOU0RuMTlmb3d4eGh4b3MvVEZ5SzZFRjZvWG1iTFJwbU1lOWV2MlNuZU5NUzh4all5K3JKejhST3hoY20rUFNrczZkeTZ1WVVVUWU2Y0htL3JoMjRIdGlRMzF4RGpOcmE4OWhwWDNSZ3Ura0dHNEQ3ZVVSOFFsTnNETmVRK3JxSi8yWWxOL29CQUlKVklhY3lBaVlpdE8vVkZidGp5d1V5VDJwdTVOR3RST3A2U3RTdU56cWJqZ1NtRmRibDhtcG54YXNYaHYxTk1SR2xXenV3MFdMSHNkMEZGSm01R21HbHU5aUpBVU9iYVNwSXN0TFREUEFOa3VFbE9KQUNJaDhGcGt1RHJ3TjE0YzRtVGxzVUVZT3RNYkVoUWhIMjBLb2twZ2NrTTM5eWlNc2VDd2RHUG5qSXR1NFk1NmpuVFRTRVRZTWRiblNFdUNrek14UVdtNkhiaVViMXFBQUErS2FPRVVraU9PeXNvVThrdE5DRFVXMkNmSGpRVXhJUDJnRmtCbGpWRmVvL1cxejFRNUxPMTBOUnltTDkyaEszNFpsNFJVb1RORWZuYzZzSWhNRUIvdEFNNTRFdnAyVjBicEpIT3ZxL21CTFJFeC94eWN3dUNaeEJYSlFGL09ySWQ1K2pOc1hDQzJqbElvdkxreE9uMkVCYTRqN29TL1dqcDdXRVVwb3ltODZZMVkyUnllb0wyRzlBc05VY1FVWFI1THdCTjU2ZjJMMGRQWTIwbVk2ekpYYzBVRnJUYmJIaUp2Ni9CZTl4c3lIbzB6RVd1RDBGUGJKT2txdlZKRi9vVW91aFJSL3grNHBxZ2FZZU5lejNMQVBxQ25WRTZGQ2s5RVRVQ29YUjV4bXJubTdIYTNCcE1WSU15ck5QbldzUmsza3NJc1VXVWhSV3VDY0VKUjd3VkVYSzNhNHpRTStDK2xIMjZZaUNsRS9DbTdOMmlxN3hoYTErN1plNFFyZmlFVDliclAyZTJlVDkzRnRyNm1XT294WFp5dVp3WHlaOWI4eFNpMHlET1F4bGFJOUgrb1ltZXdLa3B2bjJiVnFTV0gxdnNHM0o1cERhMmZ5ZHdBQUFBQVNVVk9SSzVDWUlJPSIgd2lkdGg9IjI2ODgiIGhlaWdodD0iMTUyMCIgZmlsdGVyPSJ1cmwoI2JsdXIpIi8+Cjwvc3ZnPg==') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_023658_2ca0137a-1f80-4999-a50c-776e8e8518c1.png"
-  />
-</picture>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:80px;position:relative;z-index:1">
-        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(0,0,0,.01))">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_024041_2f0f0690-ad34-4c8e-9c4e-f8e3f1e4216c_full.webp 1x, /assets/higgsfield/hf_20260709_024041_2f0f0690-ad34-4c8e-9c4e-f8e3f1e4216c_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_024041_2f0f0690-ad34-4c8e-9c4e-f8e3f1e4216c.png"
-    alt="Paso 5: Monitorea en dashboard"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMTY4IDg4MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgc2xpY2UiPgogIDxmaWx0ZXIgaWQ9ImJsdXIiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEwIi8+PC9maWx0ZXI+CiAgPGltYWdlIGhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBRElBQUFBbUNBSUFBQUFKR2w5ckFBQUVJMGxFUVZSNG5JMVlXNUxrSUF6RHFkei9MSHVDL2QxanNRVitTREwwVEdlbUVpQnBFTEl0TzdGL2YvK01kWml0azdkc04vWmwvL21JcmZNKzFyMkgrbVpQM2NxUjZEM1A0MVA2dlFjVHhJUllZNisvRVF4N28rR0htYzFvWVR3YUZ0Mlp6V3I4ZE13eGE2cnIwNG5MZVFsaXhrdnIxMjhaT0NhY05QR2NNYzNleFJ4elBiL2F4MlJmZ0Q4QmpQZHlqeEg1NG5yTWpjbHBOYUhsdzBwNEp1OEZPKzJ4Y3A3eDFzTGdFQTArajI5c0Zpc3Y5dGJEODBZWWQ3TmhqTW1ONkZNeHFuamkwN3EyN1JVT05uMWdEWWtSWTFpWTdBNURnR0NWdmZSaXE1RXZNYkI3NlVpamJSeit6SjZ0ekYzR21RV1l5cm1LL3BORGlUcUlwT0NnYVdlZ3pFWERaSFU5UUYzdUZaWnNuQlkxZThGVkVuMWo3V2JUdWNiWThSa29lMDFRZkk5SlppejB6Q09SSnVndDNRMGRweSt2OFB3SVhwWnZSMmxyZERhOEZ3cEt6K0dhUzNsWWJDakJMM3c2SFV2bzZGN0lNeGRLL0dlVXhkL1NyWk91enR4YTA2NTdEUUFKZ25hNERBenhpUWNLaDZLU1JkY0Z1blZqRiszUXoxQWpjc2pQdisrVGFZVFRxRnZRRlN2T0svbmM0aWdaRXUreUg5WlZvN0dlWE5YNGNEVmt4VlQ1SStORjM2ZE0wS2JnSkVNZEd6cmJpSDZXVG84KzZGYnFsS3E4ekVlbWhqOGJpVjd6aStZcG5FK3ZqU3hsZ0xOYXF2SjNhekpJb3hiRjg4VzhqRWx5V3VxMXlIV1VkTFhuZFBrYlkwMmNKalpRU1RPck44d3JuR0VYMEtWd2FoWnVlamlza2ZVV3NFR24yKytNT0tqaWpmSVkrVWFzb09nVkdLd1dWb1NMT0Z2bE82NmJoSEl1V1ZpblprNkRLUkRYVlJpbjIySXhjc3JhUzNXQWlDaGNLdThXcW1XVkxnMUF5enUxQ3BmbE5UczVqeFBsb0huaUpxbjFjLy9MbkhoVmVQS3dVRTZPVHNVVTd3M3lmZ0ZBdVdiZVNpT3I3RmNWVTJ3UmlsYVN0NGl5dElqaXdodFNiaDhRRWhBRmJjeFVQSkVyZXZKWktrK2lpZlI3MFhaakV6S3NzR2UySy9NU2NhaENHMlVrekZWSDdCZXlxSGxqNFFKRXNFaExGVkNIQlNqRkhheE1vTVYrNG5taFczNmhqT3NBUlNKVEtxejZCS2plY0t2MWdCSzlWbUVGMVBuaW1yT1d5clBtK2RobjR3M3ZsWW51c1BUbEdzZ1NGUWNpb2dlT2ExNEdFaVFHb3VQV0VwQjhDVWhKWXZscUJ5RnVId1I2SkVWT3ZLRWdJUkRERFdUWTMyREY1d1l4SVdLU2RGVHptSyt5azQ5NlVUaC9nMnJxay9pYUFWenlzVVNJcXFRSklSRFJSZVFldGJ4UzJRejNDWllsdk5Lb0ExRDNzWXpIU2pmUTBySmJDVVJ6ZG1wRmlXcW5FVHNzY3ZtYmYxRVN6eDlreUxNaWhVQ2crSXBiL3ZXRktoTHN4NzZGMWV6SkZSQlRCSlZ0ZXFDZlJpU3oySy9PUGpRZEtpeUVBZTJQWXJHZ3NmbXl1VDhrS1Z2RWFnSkpRdzdzaWtqZ3RJaDZoWXZoZEx4ZWxQU0Zqc0ttb1lVUnl3RXNIeUJGRUxwNjJpNVRGOEl5WDNsT2RnUlRmbmJyYkpFbGovUG9UWVJmUm43QkFtVlVvWkpHSEVhRWIwbmF1YVFYUnN0NzQwS0o2M2VWbHdJRXRqQVJld3VCV0dQL0FhS0FoSG8yUkNYeEFBQUFBRWxGVGtTdVFtQ0MiIHdpZHRoPSIxMTY4IiBoZWlnaHQ9Ijg4MCIgZmlsdGVyPSJ1cmwoI2JsdXIpIi8+Cjwvc3ZnPg==') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_024041_2f0f0690-ad34-4c8e-9c4e-f8e3f1e4216c.png"
-  />
-</picture>
-        </div>
-        <div>
-          <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px;font-weight:500">Paso 5</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#000000;margin-bottom:16px">Monitorea en dashboard</h3>
-          <p style="font-size:15px;line-height:1.8;color:#666666;font-weight:300">Análisis en tiempo real: cuál agente trabajó, cuánto costó, qué ROI generaste, dónde optimizar. Inteligencia operativa en un solo lugar.</p>
-        </div>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1">
-        <div>
-          <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.5);margin-bottom:16px;font-weight:500">Paso 6</div>
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#000000;margin-bottom:16px">Escala automáticamente</h3>
-          <p style="font-size:15px;line-height:1.8;color:#666666;font-weight:300">Victor aprende de cada ejecución y optimiza. Cada tarea es más rápida, más barata, más efectiva. El sistema mejora solo con el tiempo.</p>
-        </div>
-        <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(0,0,0,.01))">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_024428_8afb3ad8-6f55-4d4d-ba4d-c62a336a33e7_full.webp 1x, /assets/higgsfield/hf_20260709_024428_8afb3ad8-6f55-4d4d-ba4d-c62a336a33e7_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_024428_8afb3ad8-6f55-4d4d-ba4d-c62a336a33e7.png"
-    alt="Paso 6: Escala automáticamente"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDQ4IDIwNDgiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQXlDQUlBQUFDUlhSL21BQUFHamtsRVFWUjRuSVZaaTVYak9BeVQvRkxpOWQvQnRXRHRJd21Bb0ozc1ptWVN4M0VzQ0FBLzB1enJ2Ly9YWG52cHNmdHA4M1Jjc0hHNHh6WGp3QjlIeitPdlR0Y3IzdkJjWDdYV1o2MnpqMjY5ODd6ZzlLQUNNK2J3RmREcm83aGpEVUVBOVJyRG5IWHNQQkNjZ1BXWTQ5NTFWWERWWDEvN1BQSDhoUzBiQmxNbWduMTRCbGNKVmRNTHRuNk1SZHIyb1p3SHJ3SHh3ZHRQcW5yOFFoRElUdHo5TktDSkxHRTUyYTBYU0RKQXEzN2lqZzNYeUp3d2twTkdLZkZLaDhhMEo0dWExQ2N1emJQdEtGRFJndTVBZHpvRzJ2K0NVM0F4NFdMRlFmYWRLV0xSNWlUVldIWEt2VlVJR3RpbW4zQ3djeXg2TGw3SFJPemVkY1lRd1BaNjVoOCtHVzRFTEUxTVhOUXdBYVZVdzhFcXRzSmhFcEVDUHFJemVVallZTUNSS2VKcGN5TEREWTk3cTV4b2xtOXY3VEw3VHFEeFBtYWlYRlpZaDdmaWU1SW55WEtlNkswOGtQaDFXU0xMQkJGWEk4SW9PdThaeUFKQkNyZExSNUNYNEVEdnlITTVkWEtVQTJkaVRGVGxmWHVhSkhVS2V5UUlDa2UyR2xNOGtCZnFBRXFTS2t3RmtVckhrS1M4YWJzS0laS24rRDFQOXhtSkZhWDFMRjNLMEFSbkVEZThsYkdwOEtXZ2twR2s1VytKdzFIaml3cFBZUUZ6SmZWRFJQNGVSNmJqRFhCMTVrVllHOTRzWEF6dHRXNWRSa0F0TzdsS3plUEVoeEhkVk9tdUE5bGFWNzJsbWd5Q1dVSEpnRExraVZDS2thK3o3a1pUbzF2QlFRbzdJNTJtZWNoRTU0Z201bktxcENZeHVlblQ2YUVhRW84MUNOZGE5MGdLWGdmTGV6V1ZSd2ZScVpDaDUxQVcwbjFEWkhyMUJGSFJCMlQ1ZlVBQkV3RHhjanF1UWQ1aThXSDZhNGVrdzZ6QzdKSlN4aUtYWm55eGxTYm5WSzkxUXI0RWl0ekJMSlZoa3h3UmRFa095NCt4eTZRWm1VRlBtV3laMHhVRXlCM0RXTVVXMDBOSG1UTVVDQ3V0bW9qaFJYNUYzbXFTQVBFZG5ndmRYQXRLaVg4L21oc0h4OHhKS01mS050aGlzNEdiS05FcW1mMkN1RVp3REhkT1dFejZ6T25pS1FYclppdmVJVG8vR1J3Mk9PdVoybHoxbGhzdG9BaERtUUtzSnlCckUxeXlBaGZENjRCb2lHbWRVMng1V1VlejRMUWhSeDUyWGVTM2FubVRhb3pYTUlHR0ZhWjVVb3FDd283SlJYejNPMmdaYVlQUmpTenY2M3Z0NENLeTFBak5hK3lKek5NcFlkM2t4ckk3cDJ1bGZlTnRkZ0pXUGl2dGRiRW9lbGdPblFNZmVKSTBNVTBSTFE5S054UG1NSkpNcVZhdDJlN3N5Q2o3Q2VoTjVKTXRSVk1YZHJRSUZielYxR1JJUHh2TnA0YTRQeEpqalhSdU96dE8xbVVEazdPRnNJZ0VlVkZJSk5vRWMwZXhyV1VCaWlpUkpFYjBZaW9vWWl2WlFSNFBCdm9NazdzK2JYYlQ4bW9sRVlSTUkrZmUrOHBncWdpNmR5Q0w1K1Rxb25xYXdZc3dtUHNXSlhsUUpDWEUrTDJKQmxVbzJZclJIbUYyRjJlb1dnUzBoV3pkeWMyZDl1KzE5L0FXWjE4SGVaemdkQ3lJNTJlQzRDYkJzTWg5QXNvZHdIWVUyM01LYUtJSkhpOTJWVmowZVdZd2laNW9HcWhqYW9mbHU3SThXbXRsOWFyRnNsRkF1WGJjTk5vYUdQRytzK1VxTzg1Vk5ETG00YmdwbWR3RGh6VmNZR3B2VmFsMmo4VHJwVzRTdzJiL2RrTFBLOUJjYUNvWUdGb3dXai9jWVJjQW1pMGlJd2hHNlBEV0lsdUt4QmdwTXNaZTlEdUYyL2QxTGlvWVVKTXJObVRhWnVnZWM3QlZ4L2RUd2RaWGtWZmVPbmU2R2lWdjFKK3lVUXQzZzd3NmVXZVh1TDlvcU1uUFVTVVp3YjF6cWNJbDJLckVnenlBVkpYRDAwYUpiNG1uWHBhbGhyWUw0b3c5Z3ZFN3NqN2ZTV1ZHSXRlWXBDUTBFREZKMlU2Z0ZYVVZFcjNnSDVoYXlva0p1ajBnS3Vtcmt0SmJsUnFxR0dKbG9WVE9mWmNkZlJtaUQyeGh4MHVGeThxb2lWaVpXU205MlRLeGxkU0I3Wk5ZeGhLUlBrdFhkU2QvT3ZxeVNPWUZZS3YzYkhydHgvclRhSVp3STRFSkV5ZlVDU0pIZW14d01uV1lkZ2VMZmNCOWJjbDZtdWhrNlZWUFZsSng3QzFuL3JDWGQ2NjBQYUpUWmJLVE5iR0NJOGpDTnRPWGJsa2lXanhhUlFLVXRycUxTTXNqeTNNRjUyMFhyTWFlZkdWSzQ4ZUpqRlhobFU5SHdlN0l4L0Mzd1VUclpVdlpMTlZhWUR5WFA3MWxwNUs4K2R1VllleWFlb0t3aHRsOUptNzZxYXVWNVMwV241SmxJQU5WcnRTUjBMMi85azNGSHF6N2xoYU5yYWtIb0RSTXk2c0x0amwvMldrOXY4ajh5K01Mck9reWRZMld0d0FMOUhIVDJqYjF6SEQ5MkZwNS9QUFJ5bmdsYm9BVHVDMFRFbGFOaGpZZGV5UnFvN3MvUGovNSt4Y3NtVXdlYjROYnhJSVBSS0l3Mmw1K2RYYjYvNE1yVzQ5L0M5alNEQzgvSXM2UDY4TDZzejBJNjdqZWdMUzlvcVcvZi9oR2hDZDN6eURKSFc2TFdCTDc2Ylg1ZzRFSDBETVdoaDRDM3hvSXNtVWlLc2NPc3hLWWYycmRxUy8yOUlVSkZJZitmN0VSeE44NEd4S09uTkhQRG8yWC93RklFK3lmMWRyeEpRQUFBQUJKUlU1RXJrSmdnZz09IiB3aWR0aD0iMjA0OCIgaGVpZ2h0PSIyMDQ4IiBmaWx0ZXI9InVybCgjYmx1cikiLz4KPC9zdmc+') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_024428_8afb3ad8-6f55-4d4d-ba4d-c62a336a33e7.png"
-  />
-</picture>
-        </div>
-      </div>
+        <figure style="aspect-ratio:4/3;background:rgba(0,0,0,.05);border-radius:8px;overflow:hidden">
+          <img src="/assets/step-entrega.jpg" alt="Paso 3: Entrega" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+        </figure>
+      </article>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
-
-<!-- ══════════════════════ CAPACIDADES ══════════════════════ -->
-<section style="padding:120px 0;background:#FFFFFF">
+<!-- ══════════════════════ 6. CAPACIDADES ══════════════════════ -->
+<section id="capacidades">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
-    <div style="text-align:center;margin-bottom:72px">
-      <p class="eye" style="margin-bottom:22px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.6);font-weight:400">Capacidades</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#000000;margin-bottom:12px">Un sistema.</h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#666666;font-style:italic">Infinitas aplicaciones.</p>
-    </div>
-    <div id="services-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px">
-      <div style="background:rgba(26,123,255,.04);border:1px solid rgba(26,123,255,.12);border-radius:12px;overflow:hidden;transition:all 200ms ease;display:grid;grid-template-rows:180px 1fr">
-        <div style="width:100%;height:100%;overflow:hidden;background:rgba(0,0,0,.05)">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_023658_3e3139cf-5c1c-4078-9100-f0b06a0fb68a_full.webp 1x, /assets/higgsfield/hf_20260709_023658_3e3139cf-5c1c-4078-9100-f0b06a0fb68a_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_023658_3e3139cf-5c1c-4078-9100-f0b06a0fb68a.png"
-    alt="Agentes IA"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFDRlVsRVFWUjRuSzFYMjNMRUlBZ05uZnovVi9hdEQvMEVPaW9xbHdPbWFabmR6UW9pUnk1SzZQdnI4K3JFOHBDbm84M0ZjbUhUWnBBZUZFUm94YnZXbVZoelVjcmtpeHV1QkJ0M0NVZFFCR0FwVjdINmVoQU1MZlVGRFFxbEQ2WjJTUkFQeHMxdFcwaVdyZ2xvV2lBcU5CUmk2Q0c5M3IybVpMbVZaUlVqZUJ4czBSbUxNWW1DR08yb0I2ZDRzYkV4eUNxRVd1WUJvUVR4WDNLTEp5SXE1dGxRNmRTSlpZRzlWZVVXWjJhYmU2TEM4RW43YldXSFVZSWdkdXY4NG96Z1FpZE00MmcrWXVsVFpoQXRKaHk3MUVPWGoyNUk5QnF1SEtlaEdnNHBud0s0TU5iaGcySEhIL05VTGVQT093UExGWnhld094SS9vSkNTMVRXOGFrMGZRVVk4UGM1WmZJazRsVHlkdUtranorc3l5L3N2WVdGa3hWeTZVbHFRK0tUNklHM0tPWFFPMUFQRkQ5c2k5VExoMENWOTdKU0h6WG5OYmlDN25rT0czQk1vdy95L0V1ejFQZ0pzdDU5bmJOUktsRkFESTJnSTVBVmNscG0zRGcxWVFkVjY3T3BIUkFUMURiZXNlN3YzdXZsUFJRN21ST2xUdFA2OXR5eWNaR21WNGFjaHkrMHBBL0E2U3p4RzJxWER6a0R2Qm9oRzBGeXlzWi95YVlkWE5OSHdBMU5acndUbS9tSmJENlI0d253S2hyejFlWUMvbjZacmN1SDFnVXJzckdoNW1YZDJiRjNEd2ppYi9wL0RGMldhcFc0Y1phTkZ6bFVJRnJGRzloU1E0OVF0RGEzcU1xdHEwVHA3UjVJUXZTNzNKTDZXMitYOGMyWGthVW5rQXBucW9RSXNMU3I3QUVSbHdoSDdNR3Uxa0dqcmZzRCszZnBCSVRncFpZQUFBQUFTVVZPUks1Q1lJST0iIHdpZHRoPSIyNjg4IiBoZWlnaHQ9IjE1MjAiIGZpbHRlcj0idXJsKCNibHVyKSIvPgo8L3N2Zz4=') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_023658_3e3139cf-5c1c-4078-9100-f0b06a0fb68a.png"
-  />
-</picture>
-        </div>
-        <div style="padding:36px;display:flex;flex-direction:column">
-          <div style="width:48px;height:48px;border:2px solid #1A7BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A7BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8M9 10.5h6M9 13.5h6" opacity="0.3"/></g></svg>
-          </div>
-          <h3 style="font-size:17px;font-weight:500;color:#000000;margin-bottom:12px">Agentes IA</h3>
-          <p style="font-size:14px;line-height:1.7;color:#666666;font-weight:300">más de 150 expertos especializados coordinados por un supercerebro. Producción, diseño, datos, estrategia y más — en paralelo.</p>
-        </div>
-      </div>
-      <div style="background:rgba(26,123,255,.04);border:1px solid rgba(26,123,255,.12);border-radius:12px;overflow:hidden;transition:all 200ms ease;display:grid;grid-template-rows:180px 1fr">
-        <div style="width:100%;height:100%;overflow:hidden;background:rgba(0,0,0,.05);position:relative">
-          <video src="/assets/higgsfield/hf_20260709_024409_22c12844-05e1-42b4-adc7-90694efd92a2.mp4" poster="/assets/higgsfield/hf_20260709_023658_4e4a9688-d169-4992-b335-3958eb7bce9f.png" preload="none" muted loop style="width:100%;height:100%;object-fit:cover;display:block"></video>
-        </div>
-        <div style="padding:36px;display:flex;flex-direction:column">
-          <div style="width:48px;height:48px;border:2px solid #1A7BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A7BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 10l4 3-4 3v-6z"/><circle cx="19" cy="6" r="1" fill="#1A7BFF"/></g></svg>
-          </div>
-          <h3 style="font-size:17px;font-weight:500;color:#000000;margin-bottom:12px">Producción Creativa</h3>
-          <p style="font-size:14px;line-height:1.7;color:#666666;font-weight:300">Video, copy, diseño visual e identidad de marca generados en horas. Calidad de agencia, velocidad de IA.</p>
-        </div>
-      </div>
-      <div style="background:rgba(26,123,255,.04);border:1px solid rgba(26,123,255,.12);border-radius:12px;overflow:hidden;transition:all 200ms ease;display:grid;grid-template-rows:180px 1fr">
-        <div style="width:100%;height:100%;overflow:hidden;background:rgba(0,0,0,.05)">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_023658_78475b90-d423-496f-92c9-325fac183453_full.webp 1x, /assets/higgsfield/hf_20260709_023658_78475b90-d423-496f-92c9-325fac183453_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_023658_78475b90-d423-496f-92c9-325fac183453.png"
-    alt="Análisis & Datos"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFDUEVsRVFWUjRuS1ZYV1c3RklBd01VZTUvejM1VjZnVmNZUmFQTnlEdnVXcExqSmZ4Z2tQSzMrL1BOWWlvL3BtUGphV2ZVeXFsaEd6NDFjek9LZndqL0VhUHRuS0lvUkVOOFdyWTRCK2VHek5FUElndTZzaEUrT0VFMFJza05MMGgxMlNybTJVdUsyWHBsQUJ4LzE1Z0lwTUJvcGFmRnlrbE5zOEtZS3c5dzFxdHlCY1JBTmhvS1BYTWFXOHFzMkhHc3U4T3MzT25Ta3RUdVdyR3NIS0FObHkyTGk0Z0JSUzFGNk9aem10bFZVdk5LTzd1YUppcmRWcTBHdlZLdG5JMk9WNEVLa29BYktLb2Q5VVlDaGJXM0p1NDFyM0ZBUUVZaVZPMExScTBKditKb0xmODBGSnBJOWR1SXM0RFFoblhGUnhWQTkxZWVXd29wSnF0VVRpTVpweEMybUFpa3hPVU1FZFBsYXduM2l0MVdOdlRyc1lFWmIwVkZGR0JvdTBKVXN0N0xhVlZLT290QWRIM0loU1FtM3pVQU4zV2tSNVJTd3ZrOXdHVmErVjhiUHVTM2d0TVdwY2NnSUVpUE9SQmFDNEdYenlBbGU3WmQ4K1YwYXNYL0pIMG5jYW9wbDdjVDBKK1lzMmQ2eE1TV01tOC9jYjR3WjBtRWF2ajFEYnAvcVpUTE5ERnBTVlNIb3RVS3hvUTUxN0tKaHQ3OWNRT3c0cHpnNEpMNThYZWlDdGpNZzlDOUdtTHM3WFh1MXFBbGwxT0l0c283V0c1RDRPQTVPYlhyM2o0VllHcGV0Ti91MnNnR3FYZGVYU2ZPS0RkOXFLMFI0VTRoaVVuc0FKc2ovWlNuQ0QwNVlORXVvb3k0eEVCS3Y0YWFEV0lMMUkxNkhuVnNxN054NkV0NVpKbU1xRzNTbE1mdmJLWUtwVXdWcFdPanpIaHliSkY1QnRsNlM4Ylh1ZjVLNGpKZno0dk1ZRVd1aDRVblVROFBZblY3d2dLSVUyZ1hQMEQzT2RPcXRjMzNjVUFBQUFBU1VWT1JLNUNZSUk9IiB3aWR0aD0iMjY4OCIgaGVpZ2h0PSIxNTIwIiBmaWx0ZXI9InVybCgjYmx1cikiLz4KPC9zdmc+') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_023658_78475b90-d423-496f-92c9-325fac183453.png"
-  />
-</picture>
-        </div>
-        <div style="padding:36px;display:flex;flex-direction:column">
-          <div style="width:48px;height:48px;border:2px solid #1A7BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A7BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 12l3.5-4L14 11l3-3M9 20v-4m6 4v-2m-9-3h2m4 0h2" opacity="0.3"/></g></svg>
-          </div>
-          <h3 style="font-size:17px;font-weight:500;color:#000000;margin-bottom:12px">Análisis &amp; Datos</h3>
-          <p style="font-size:14px;line-height:1.7;color:#666666;font-weight:300">Dashboard en tiempo real con ROI visible, reportes automáticos y decisiones basadas en inteligencia operativa.</p>
-        </div>
-      </div>
-      <div style="background:rgba(26,123,255,.04);border:1px solid rgba(26,123,255,.12);border-radius:12px;overflow:hidden;transition:all 200ms ease;display:grid;grid-template-rows:180px 1fr">
-        <div style="width:100%;height:100%;overflow:hidden;background:rgba(0,0,0,.05)">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_023658_8c96dd43-dc31-46b8-ac03-944e29df9a26_full.webp 1x, /assets/higgsfield/hf_20260709_023658_8c96dd43-dc31-46b8-ac03-944e29df9a26_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_023658_8c96dd43-dc31-46b8-ac03-944e29df9a26.png"
-    alt="Automatización Total"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFETjBsRVFWUjRuSlZYYTVJbUlRaVRycjcvdWJacWYreVIyT0lSQ09vM0QydG1XbTBiUXdMaXlMKy9mOVphdXRDVXV2bEhCRE5TUGV2YklDZThXMlByYWIxc2c5UHlIQXRNZVh0dEJmOHVuUi9WL0xMdmxKK05WT0NRcUptM1huK252U0Y5MXJieWxXQVhNL011VlJCVXoybXJIRmViRFh2cUR6RUUwYjBSVWdRY3I4dDFZTmtXNlV1b0FPNWdhN2dvdmF0cWU1M1Q0bDdIS0RlL1lDNTcyTE9DSUVsL2xUOTJuamFVVFBTNjJvWnU3cjNKYUtNY3QwT2JyMEUvVzRhSllNdWR3b0xxRDBwYkpqbGkrUzVoMmYvb1VCdU1rS2xzOGhmRzFnU21YMW9UbUVHT2RteDUyS1dJV3dodm5NVVMvTWx0c2R6MXROZzZ3SHhDSnRzd3RYTVFwV091akpFd3FtRXpOV21Wa1I2ZXo4NVd3KzBJdTNBbDgrd2dRVVdPMk9yazNlbE9vblBiU2xiekRMRGxKZjZhdDQzWWdVUWNCNVlTUzV1SVRrWEdGeDNEQUpwdU5KbnBtUzhGV3dqOHdWWmpIWjZwYnorSGg3NWhwTUo0MTc2Q0ZFdUF6OEZKbnZJQnBGQVY5ZU1oYmdSS1ZrQ0ZLdDRQRWZrOHd2NWN0RUJFQ0Zvckl4ZmpuWjN5VGRBc1BoVnNSWXNVUUxQdG1DeXE4cmlIaVBRUmltTXpTYW8xTklSTUZUSjlKcWJzMkUvV3RmemNaem9YWW9FaS9CQ1ZNVlZoRUtjcS8rQXRuWk1qbU5GN1BwZUdTMWhvYjBZTFNwV1Vuenh5bEpNZm01aDVQbFBMKzhZV3BKZXpSUFBRV20wSTZzWloxeTIzSHFPeFltT2pNeXdlejl3Mk1ybFJYbTJzdlpyZFh6dHlrbTh1UGs4MGJvOVhJM0U4Ujg3UXJlNEg3YWlsKzl2eEx1OFlzOVZHVCtVQzBzQlF4cTBBd3cyaGNQNHdwSHR0K0tyVm9VVXozbitTSzk4djRmalcxV0VyZ21MVHVJYmdkSTMrQk9FKzM0YkJsbVBKcXpsd0FSWDBuVnJLN3R0OTM0djJiS0Y5ck5rVzZNV2VjZFcwazlHRDBSOXhmTS85WmQ1VmZ0aVlpU3R0MHdkNTdaeU9pb0NiYmhTVE9NQnhLZ2ZVaGZLUWZrVzk2ZXpkSSs1Q1ZEMVlOamtHYjRpRnF1OVZBMldPeWtuZE5jVzF4cjNsR21CN09oOWdOMmJHZENKMEVZTXZBS0tyUnNLRXhsSnNKYXNKK1M3SUZ2K2NkV2RzYlllVGlUaUExQ1hCcWRxa1hjMFdCZW8wU2Yvc1Rrd2MzdCtLbUxHRjc0TzNGQkdYdkNHRURsNVl2cm92L0tyZFJVUnM1VFVwNHZ6d05rb0Z2bXQ2RGhTWG82Unl2WG03QzBrYi9nZGhhaER1SjNGT3pBQUFBQUJKUlU1RXJrSmdnZz09IiB3aWR0aD0iMjY4OCIgaGVpZ2h0PSIxNTIwIiBmaWx0ZXI9InVybCgjYmx1cikiLz4KPC9zdmc+') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_023658_8c96dd43-dc31-46b8-ac03-944e29df9a26.png"
-  />
-</picture>
-        </div>
-        <div style="padding:36px;display:flex;flex-direction:column">
-          <div style="width:48px;height:48px;border:2px solid #1A7BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A7BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12a3 3 0 106 0 3 3 0 00-6 0z"/><path d="M12 7v1m0 8v1m5-8h-1m-8 0h-1" opacity="0.3"/></g></svg>
-          </div>
-          <h3 style="font-size:17px;font-weight:500;color:#000000;margin-bottom:12px">Automatización Total</h3>
-          <p style="font-size:14px;line-height:1.7;color:#666666;font-weight:300">Flujos que se ejecutan solos. Desde captación de leads hasta entrega de proyectos completos, sin intervención manual.</p>
-        </div>
-      </div>
-      <div style="background:rgba(26,123,255,.04);border:1px solid rgba(26,123,255,.12);border-radius:12px;overflow:hidden;transition:all 200ms ease;display:grid;grid-template-rows:180px 1fr">
-        <div style="width:100%;height:100%;overflow:hidden;background:rgba(0,0,0,.05)">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_023658_a72adc38-b1fa-414a-8f9c-3eb6c6d4d0f1_full.webp 1x, /assets/higgsfield/hf_20260709_023658_a72adc38-b1fa-414a-8f9c-3eb6c6d4d0f1_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_023658_a72adc38-b1fa-414a-8f9c-3eb6c6d4d0f1.png"
-    alt="Eficiencia e IoT"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFERWtsRVFWUjRuSTFYQzdMYklBeEVtSGYvNlJuZXBYb2JPdnF2QkU3amVHSU1RbHF0RmtMb3orL2ZaNDcxak9laE5mZDZ4bnBvcmZIRERmNytXZHpRV3kzbjVNYWNZeExmNVBjWW03L0dHUHJZMElhbVdKSjg5RldlM3FGdkt5ZHRkU1Ardkxrdk40a3A3YjAzaGFGRmpWY0FJNzJVVDU0c2hsc2dzUnQrY0U0MlNnNUxnSkREa2NRREc0SWFQTUQ0eFhjQnBWRnAxN3dzajNBc3lBS3pZV0dQUktTSXhIWnlGSUdnK0xmZkFRaWFJN0RlV0hUR2dYUnQ2NnlkRHRNSzhNdTRCdDVqbG1TeG9tWVFNMFo2YWxpU2NEZlUzQTYzcFFjeXJCYzdpQ0o2cXA1TklvdWt4MEVlQ3BKTUJDcm9Ea2xMYVVVTURZQ2FxcmFtbFN3VW81RWp2QU5DMnBLOHpwWlZ6RjA0c1ppdnhna2kvS0VsakdRbTVsekwyQ1cvSzJlcHRpaVpSWEZJamM0My83VitlczJ1REU5S2ZldHlnTEp1a0VoejYydndpTmZBZlhpSjFHZFRBUGp2bWV6Z1hkRWFUQ2Vyb2JuTVIyMjBCZFVuc0xaeWR5Z0oxalcvanpCZzJaZVZzbjJiRlQwaDBmTHVGckJCK0doNnErdHV3QXE0OHRIVE1vWG5qdksySTV4RkRWaG5rUHUxUHcrWUhOK21mWTZTb3lqNWc4cnJaaWhYMlp1ei9VMXVYK1hmaWxoK1lhOGRINjl2ckwveXVMcjEreXk2dGJQVHp5VitWcmhNaGgvcHErZnpZSFBNZUhOQS83RW8xaExIanpYVmcyVUJqdEFmbkxjUWNuZnhqb1Q4THFBWlVEMFRsdDlLNHdTOVp3OTdNVmorbWlIZzlDaHQwdU9WSENLMXgxeHhkT25iSCtSUW1MRkNXMGZCNXQvVHo3dTFPL0pHN3VoU1FNOGxxNUtKWWJDRG5iVHVBN1dJWm9KU0FCMEVjd1VhM1A3UlN3cG9oM1pqRVhuS2szdkQ1Z1lyRS9HY3JWbUxXQVNrZHdXR0JVT3U3U0NNeW9zaUlzc29QYUlWTVVxZGV4SGxtRDRPdHBSZEdXQldZTFNKKzdLTVRGbEY2UkcvRlhFSERRSkI1Q3g2Ui8wbFc3a0FpdFM5Y0xwTXVCMEZnenFjVWttZ3VXL1ZGWnlDeVI1cWJHbUp4bzJ0a2tXcFlDa21vaW56bGpMaHpxLzdFSWVFaUNBcFFYUFJsdi85NnYvWlFCc0FveWhHZS90MkNpRzk0ckhXQ0RqRi9VMURJNWNBQ0NOV1JuSWcrRHkwNVp2amlSSTNpRmdOdnNXS0Z2VXFiS21lUWx0Vkg4RUo3S2V4MnZUNUQ4djc0aXhIemlwYkFBQUFBRWxGVGtTdVFtQ0MiIHdpZHRoPSIyNjg4IiBoZWlnaHQ9IjE1MjAiIGZpbHRlcj0idXJsKCNibHVyKSIvPgo8L3N2Zz4=') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_023658_a72adc38-b1fa-414a-8f9c-3eb6c6d4d0f1.png"
-  />
-</picture>
-        </div>
-        <div style="padding:36px;display:flex;flex-direction:column">
-          <div style="width:48px;height:48px;border:2px solid #1A7BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A7BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="1"/><path d="M4 10h16M12 14v3m-3 0h6"/><circle cx="20" cy="8" r="1.5" fill="#1A7BFF"/></g></svg>
-          </div>
-          <h3 style="font-size:17px;font-weight:500;color:#000000;margin-bottom:12px">Eficiencia e IoT</h3>
-          <p style="font-size:14px;line-height:1.7;color:#666666;font-weight:300">Monitoreo para edificios, hoteles, flotillas y transportadoras. Alertas en tiempo real y análisis predictivo.</p>
-        </div>
-      </div>
-      <div style="background:rgba(26,123,255,.04);border:1px solid rgba(26,123,255,.12);border-radius:12px;overflow:hidden;transition:all 200ms ease;display:grid;grid-template-rows:180px 1fr">
-        <div style="width:100%;height:100%;overflow:hidden;background:rgba(0,0,0,.05)">
-          <picture>
-  <source srcset="/assets/higgsfield/hf_20260709_023658_b4f9b777-648e-46da-9a2b-b35f5b3e6470_full.webp 1x, /assets/higgsfield/hf_20260709_023658_b4f9b777-648e-46da-9a2b-b35f5b3e6470_small.webp 768w" type="image/webp"/>
-  <img
-    src="/assets/higgsfield/hf_20260709_023658_b4f9b777-648e-46da-9a2b-b35f5b3e6470.png"
-    alt="Plan a tu Medida"
-    loading="lazy"
-    decoding="async"
-    style="background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNjg4IDE1MjAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIHNsaWNlIj4KICA8ZmlsdGVyIGlkPSJibHVyIj48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPjwvZmlsdGVyPgogIDxpbWFnZSBocmVmPSJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQURJQUFBQWNDQUlBQUFDcyszdWdBQUFEeEVsRVFWUjRuSTFYVzdiY0lBd3puT3gvaWYzc1QvZUFlMnhKdHNsTUg5dzdtWkR3RUpKc21QWHI1dzgzOS95NCszR3pjOXo4WkFWL2Vldm5ITXNiMXRYSjhIZVZ0ZUt6NHNOaUc5OTd4ODFlV2ExbjFTcTY3R1dQbXhVbXk5SHppUjdWOTZnazdGSFBUdXdaa0d6bDdUTFAyMlcrYmRzeDI5a1FMWjJ0WWdYNTZPcjc1RE9OMlNBUzZ6MzVMS1JOYkhFeUZJSERiVUN4RXdnNVJjRUs1R3VobnEyWHgxOCtiN1l3K2VTcWFSemx0SXFGK2kyaVcwd0FwazdJWWp1NWlzdUUxWmc4VkU5VTRPdmhFaWhETXNRMWZlZXB5Mmx5ZS8wVUloYWRlRmdDVUNLN1dzZDlpdFk2VXY4SEx3a3NPNDByR1lQOW85RCtqQU9VVXFhNWd1ZGJSR25yZGh4eXBsalZyYTJXbmhSYmtHNWdhMmQ5SSt5ODZwK1dkL2Z3elZycktOYU83U0RNL0d6YngzMXJOY0Z0b294STVCQmdpNG9CMUdYOWdlVGNrT3BHbllRcjVoajY0UVZzQldLTEtFNEdtNU5tbEVkd2FDdng5Y0psbjU2ZnVLYnJjOFcwU0lrNHpQNkdCZCtEcVFyaVJ5Ni81cWZkVzlJM3hETjFuQzRwZCtSMUFSQ2VSNUFrdUF6VThGaGFIcjZubm5Ma1lBdDlPMy9OSEhiejVmTzJjdGVWc2FiaDhiakpVaGZrcVZ3OXZBVVkwZi9GVnRtcXNwbGl3ZlhxTWw0ajd2bEZWWnROc0lMRktJc1h3TW1jbXNrZVdUK2FiZllaSzZ5STd3UTJORFppVUxadHFMeW9kYTNpamlaNXUxY3pleWh6Ym1Lc1VLQ0RxV2RuTkN0MVMyTHRXOHFOdmFaUlZVU1Vnb3FSSy9wNmVvelk0bzl3dW5EV1htWlNZOUJLYkQxZUUvNHg2V3ZYclBYTTFNRGhGQ1dYa08vZVhmZng0cDlsdHZLL0RQMWxvd2hZdGRwL2xTVWpqMVNKTE5DdlJvUDF2Y2QvTGVpcGJuL0FwVGNyd25obUpjeUUyTUhKcXJZT0FMV3YxN0UrUVdiN0NiMTIwaS9Md2xSNXhzUzNzWXFSMWxVdGd2QktwODI4cVI2OUpWV0grcm9rZU96emxKaDMyRFluVjhZOUZadEt6cEEwNmNHMVBpMm9vSXNVd2hTU2wvcnFEeEdsRHBNdGdWR2RQRVBHYUVqTGwxeTE5UlV3bk9Od21COVVGWEhFVENVdUxQVllzSnBaYmVld0VnQWxSQ05iN0RmNTZjS2RrQjlSSTBuckI4Y01sTkwzUXZtOERFL0dRRmpKQzdaTVRzQmUwVUZTN20vdkVoYWhpYkpoTlJxU3JkOXg4V0Q4Vml4UFl6ekhjZEJFc2Zvd1BKeDdNMDJlQjZ4ZDdxL2ZadzF0c0ZXczhyOFNST3JETXdZWlNwUUFCdE1ZTGZiWE5EUzhOWnhWWDRPbG02MkxNRVRpZFNqSmlSR0xjWS9qYjF5aUprc1AvZUlrTExscGVZVWVhQldjOFdPMlREWm9IUGFDdHhvUlVqN0JFU1RTd2VKaCs1T2NmVzhSU2dReTgvWHJlZ3FvSE5lL2tEcHEwMXRGRjVIa3FnRXV3VURiSFBDZEQyNkV4UFVCcXozVjN3Vy9tQjA2L0FaSnM5eUgxTFVDTHdBQUFBQkpSVTVFcmtKZ2dnPT0iIHdpZHRoPSIyNjg4IiBoZWlnaHQ9IjE1MjAiIGZpbHRlcj0idXJsKCNibHVyKSIvPgo8L3N2Zz4=') center/cover; width:100%; height:100%; object-fit:cover; display:block;"
-    data-original="hf_20260709_023658_b4f9b777-648e-46da-9a2b-b35f5b3e6470.png"
-  />
-</picture>
-        </div>
-        <div style="padding:36px;display:flex;flex-direction:column">
-          <div style="width:48px;height:48px;border:2px solid #1A7BFF;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A7BFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7.5h7.5l-6 4.5 2.5 7.5L12 17l-6 4.5 2.5-7.5-6-4.5h7.5L12 2z"/></g></svg>
-          </div>
-          <h3 style="font-size:17px;font-weight:500;color:#000000;margin-bottom:12px">Plan a tu Medida</h3>
-          <p style="font-size:14px;line-height:1.7;color:#666666;font-weight:300">Sin paquetes fijos. Diagnóstico gratuito y propuesta personalizada. Solo pagas por lo que realmente necesitas.</p>
-        </div>
-      </div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:20ch">Una empresa completa. Dentro de un solo sistema.</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(0,0,0,.05)">
+      <article style="background:#FFFFFF;padding:32px">
+        <img src="/assets/icon-videos.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Videos</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Spots cinematográficos, reels y contenido audiovisual generado por IA con dirección creativa propia.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <img src="/assets/icon-articulos.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Artículos</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Blogs, landing pages y contenido SEO en la voz exacta de tu marca, listo para publicar.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <img src="/assets/icon-email.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Email</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Campañas, secuencias y respuestas automáticas que califican, nutren y cierran en tu nombre.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <img src="/assets/icon-analisis.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Análisis</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Dashboards ejecutivos y reportes en tiempo real. Decisiones con datos, no con intuición.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <img src="/assets/icon-automatizacion.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Automatización</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Workflows backend, integraciones API y sincronización total de tus herramientas 24/7.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <img src="/assets/icon-soporte.png" alt="" style="width:40px;height:40px;margin-bottom:24px" loading="lazy">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Soporte</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Agentes de voz y texto que atienden, resuelven y escalan en WhatsApp, teléfono y web.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
-
-<!-- ══════════════════════ INFRAESTRUCTURA ══════════════════════ -->
-<section style="padding:120px 0;background:#FAFAFA;overflow:hidden">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
-    <div class="rv" style="text-align:center;margin-bottom:72px">
-      <p class="eyec" style="margin-bottom:22px" data-eyec>Cómo está construido</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
-        Una empresa completa.<br/><span style="font-style:italic;color:#666666">Dentro de un solo sistema.</span>
-      </h2>
-      <p style="max-width:600px;margin:24px auto 0;font-size:15px;line-height:1.8;color:#666666;font-weight:300">Victor IA no es un chatbot — es una infraestructura de inteligencia artificial organizada como una empresa, con directores especializados y equipos de agentes que trabajan en simultáneo.</p>
-    </div>
-
-    <!-- Pirámide de capas -->
-    <div style="max-width:860px;margin:0 auto">
-
-      <!-- Capa 1: Victor -->
-      <div class="rv" style="display:flex;justify-content:center;margin-bottom:2px">
-        <div id="victor-card" style="background:linear-gradient(135deg,rgba(26,26,26,.12),rgba(26,26,26,.04));border:1px solid rgba(26,26,26,.35);border-radius:14px;padding:20px 36px;text-align:center;width:320px">
-          <div style="font-size:11px;letter-spacing:.14em;color:rgba(26,26,26,.6);text-transform:uppercase;margin-bottom:6px">Nivel 1 — Orquestador</div>
-          <div style="font-size:19px;font-weight:500;color:#000000;margin-bottom:4px">Victor — Super Agente</div>
-          <div style="font-size:12px;color:#666666">Recibe la instrucción · Selecciona estrategia · Coordina a todos</div>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:center;height:28px;align-items:center">
-        <svg width="1" height="28"><line x1="0.5" y1="0" x2="0.5" y2="28" stroke="rgba(26,26,26,.2)" stroke-width="1" stroke-dasharray="3 3"/></svg>
-      </div>
-
-      <!-- Capa 2: Directores -->
-      <div id="directors-grid" class="rv" style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:2px">
-        <div style="background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:16px 12px;text-align:center">
-          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A1A1A" stroke-width="1" stroke-linecap="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 10l5 3 5-3" opacity="0.3"/><circle cx="10" cy="10" r="1.5" fill="#1A1A1A" opacity="0.5"/></g></svg></div>
-          <div style="font-size:12px;font-weight:500;color:#000000;margin-bottom:2px">Director de Video</div>
-          <div style="font-size:10px;color:#666666">8 agentes</div>
-        </div>
-        <div style="background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:16px 12px;text-align:center">
-          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A1A1A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l1 3h3.5l-3 2 1 3.5L12 9l-2.5 1.5 1-3.5-3-2h3.5L12 2z"/><path d="M12 15v6M8 20h8" opacity="0.3"/></g></svg></div>
-          <div style="font-size:12px;font-weight:500;color:#000000;margin-bottom:2px">Director de Marketing</div>
-          <div style="font-size:10px;color:#666666">6 agentes</div>
-        </div>
-        <div style="background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:16px 12px;text-align:center">
-          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A1A1A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 5h6l-5 3.5 2 6L12 13l-5 3.5 2-6-5-3.5h6L12 2z"/><path d="M12 13v7" opacity="0.2"/></g></svg></div>
-          <div style="font-size:12px;font-weight:500;color:#000000;margin-bottom:2px">Director Creativo</div>
-          <div style="font-size:10px;color:#666666">7 agentes</div>
-        </div>
-        <div style="background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:16px 12px;text-align:center">
-          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A1A1A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="14" rx="2"/><path d="M6 18h12M8 20h8" opacity="0.3"/><circle cx="12" cy="9" r="2" opacity="0.4"/></g></svg></div>
-          <div style="font-size:12px;font-weight:500;color:#000000;margin-bottom:2px">Director Técnico</div>
-          <div style="font-size:10px;color:#666666">5 agentes</div>
-        </div>
-        <div style="background:rgba(0,0,0,.02);border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:16px 12px;text-align:center">
-          <div style="margin-bottom:6px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><g stroke="#1A1A1A" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="16" rx="1.5"/><path d="M5 16l3-5 2 2.5 4-6 5 8" stroke-width="1.1"/><circle cx="8" cy="6" r="1" fill="#1A1A1A" opacity="0.3"/></g></svg></div>
-          <div style="font-size:12px;font-weight:500;color:#000000;margin-bottom:2px">Director de Datos</div>
-          <div style="font-size:10px;color:#666666">4 agentes</div>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:center;height:28px;align-items:center">
-        <div style="width:80%;border-top:1px dashed rgba(26,26,26,.12)"></div>
-      </div>
-
-      <!-- Capa 3: Especialistas -->
-      <div class="rv" style="background:rgba(0,0,0,.015);border:1px solid rgba(0,0,0,.05);border-radius:14px;padding:24px 32px;text-align:center">
-        <div style="font-size:11px;letter-spacing:.14em;color:rgba(102,102,102,.5);text-transform:uppercase;margin-bottom:10px">Nivel 3 — más de 150 Especialistas</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">SEO Técnico</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Copywriter</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Growth Hacker</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Diseñador Visual</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Automatizaciones</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Email Marketing</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Analista de Datos</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Desarrollador Web</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Brand Strategist</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Asesor Legal</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">Director de Video</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.06);border-radius:20px;color:#666666">CFO Virtual</span>
-          <span style="font-size:11px;padding:4px 12px;background:rgba(26,26,26,.08);border:1px solid rgba(26,26,26,.15);border-radius:20px;color:rgba(26,26,26,.6)">+ ~188 más</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats de infraestructura -->
-    <div id="infra-stats" class="rv" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,.05);margin-top:72px">
-      <div style="background:#FAFAFA;padding:36px;text-align:center">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#000000;line-height:1">+150</div>
-        <div style="font-size:12px;letter-spacing:.09em;color:#666666;margin-top:8px;text-transform:uppercase">Agentes activos</div>
-      </div>
-      <div style="background:#FAFAFA;padding:36px;text-align:center">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#000000;line-height:1">40%</div>
-        <div style="font-size:12px;letter-spacing:.09em;color:#666666;margin-top:8px;text-transform:uppercase">Reducción de costos</div>
-      </div>
-      <div style="background:#FAFAFA;padding:36px;text-align:center">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#000000;line-height:1">10×</div>
-        <div style="font-size:12px;letter-spacing:.09em;color:#666666;margin-top:8px;text-transform:uppercase">Más velocidad</div>
-      </div>
-      <div style="background:#FAFAFA;padding:36px;text-align:center">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:200;color:#000000;line-height:1">3.2×</div>
-        <div style="font-size:12px;letter-spacing:.09em;color:#666666;margin-top:8px;text-transform:uppercase">ROI promedio</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- ══════════════════════ VENTAJA COMPETITIVA ══════════════════════ -->
-<section style="padding:120px 0;overflow:hidden">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
-    <div class="rv" style="text-align:center;margin-bottom:72px">
-      <p class="eyec" style="margin-bottom:22px" data-eyec>Por qué Victor IA gana</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
-        Antes, tenías que elegir<br/><span style="font-style:italic;color:#666666">entre velocidad, calidad o costo.</span>
-      </h2>
-      <p style="max-width:560px;margin:24px auto 0;font-size:15px;line-height:1.8;color:#666666;font-weight:300">Con Victor IA, tienes los tres al mismo tiempo. Así es cómo nos comparamos con las alternativas tradicionales.</p>
-    </div>
-
-    <!-- Tabla de comparativa -->
-    <div id="comparison-wrapper" class="rv" style="overflow:hidden;border-radius:16px;border:1px solid rgba(0,0,0,.07)">
-
-      <!-- Header -->
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;background:#FAFAFA;border-bottom:1px solid rgba(0,0,0,.07)">
-        <div style="padding:20px 28px;font-size:12px;letter-spacing:.09em;color:#666666;text-transform:uppercase"></div>
-        <div style="padding:20px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.25);background:rgba(26,26,26,.04)">
-          <div style="font-size:14px;font-weight:500;color:#000000;margin-bottom:2px">Victor IA</div>
-          <div style="font-size:10px;letter-spacing:.09em;color:rgba(26,26,26,.6);text-transform:uppercase">Recomendado</div>
-        </div>
-        <div style="padding:20px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.05)">
-          <div style="font-size:14px;font-weight:400;color:#666666">Agencia tradicional</div>
-        </div>
-        <div style="padding:20px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.05)">
-          <div style="font-size:14px;font-weight:400;color:#666666">Equipo interno</div>
-        </div>
-      </div>
-
-      <!-- Filas -->
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(0,0,0,.04)">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Costo mensual promedio</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03);font-size:14px;color:#1A1A1A;font-weight:500">$3,000 – $8,000 USD</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">$8,000 – $25,000 USD</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">$15,000 – $40,000 USD</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(0,0,0,.04)">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Velocidad de entrega</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03);font-size:14px;color:#1A1A1A;font-weight:500">Horas</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">3 – 8 semanas</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">Días o semanas</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(0,0,0,.04)">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Disponibilidad</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03);font-size:14px;color:#1A1A1A;font-weight:500">24 / 7 / 365</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">Horario laboral</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">Horario laboral</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(0,0,0,.04)">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Número de expertos</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03);font-size:14px;color:#1A1A1A;font-weight:500">más de 150 simultáneos</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">3 – 8 personas</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:13px;color:#666666">5 – 15 personas</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(0,0,0,.04)">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Video + diseño + copy + datos</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03)">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(26,26,26,.15)"/><path d="M5 8l2.5 2.5L11 5.5" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:11px;color:rgba(102,102,102,.5)">Contratos separados</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:11px;color:rgba(102,102,102,.5)">Depende del equipo</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid rgba(0,0,0,.04)">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Escala sin límite</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03)">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(26,26,26,.15)"/><path d="M5 8l2.5 2.5L11 5.5" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:11px;color:rgba(102,102,102,.5)">Limitado a capacidad</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:11px;color:rgba(102,102,102,.5)">Requiere contratación</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr">
-        <div style="padding:18px 28px;font-size:13px;color:#000000">Dashboard y ROI en tiempo real</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(26,26,26,.15);background:rgba(26,26,26,.03)">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(26,26,26,.15)"/><path d="M5 8l2.5 2.5L11 5.5" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:11px;color:rgba(102,102,102,.5)">Reportes mensuales</div>
-        <div style="padding:18px 20px;text-align:center;border-left:1px solid rgba(0,0,0,.04);font-size:11px;color:rgba(102,102,102,.5)">Herramientas externas</div>
-      </div>
-
-    </div>
-
-    <!-- CTA debajo de la tabla -->
-    <div class="rv" style="text-align:center;margin-top:52px">
-      <p style="font-size:14px;color:#666666;margin-bottom:24px;font-weight:300">¿Listo para operar diferente?</p>
-      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
-        <a class="btn-p" href="agenda.html" style="padding:13px 32px;font-size:14px">Agendar diagnóstico gratuito</a>
-        <a class="btn-g" href="precios.html" style="padding:13px 32px;font-size:14px">Ver planes</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- ══════════════════════ TESTIMONIOS ══════════════════════ -->
-<section style="padding:120px 0;background:#FFFFFF">
+<!-- ══════════════════════ 7. TRANSFORMACIÓN ══════════════════════ -->
+<section class="bg2">
   <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:18ch">La transformación ya empezó.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;margin-bottom:48px;max-width:62ch">Las cifras forman parte del contexto publicado en la experiencia cinematográfica de Victor IA. Se presentan como señales de mercado, no como telemetría propia.</p>
 
-    <!-- Header -->
-    <div style="text-align:center;margin-bottom:72px">
-      <p class="eye" style="margin-bottom:22px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.6);font-weight:400">Resultados Reales</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#000000;margin-bottom:12px">Lo que dicen</h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,5vw,68px);line-height:1.1;letter-spacing:-.025em;color:#666666;font-style:italic">nuestros clientes.</p>
-    </div>
-
-    <div id="testimonials-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px">
-
-      <div style="background:#F9F9F9;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:36px;display:flex;flex-direction:column">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.8;color:#000000;margin-bottom:28px;font-weight:300;flex-grow:1">
-          "Reducimos 6 semanas de trabajo de producción a 3 días. Victor coordina a todos los agentes y nosotros solo aprobamos."
-        </p>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(0,0,0,.05);padding-top:20px">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(26,123,255,.1);border:1px solid rgba(26,123,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#1A7BFF;flex-shrink:0">DM</div>
-          <div>
-            <p style="font-size:13px;font-weight:500;color:#000000">Daniela Méndez</p>
-            <p style="font-size:12px;letter-spacing:.05em;color:#666666">CMO · Nexora Capital</p>
-          </div>
-        </div>
+    <div style="border:1px solid rgba(0,0,0,.05);border-radius:0">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px;border-bottom:1px solid rgba(0,0,0,.05)">
+        <div class="stat-n" style="font-size:clamp(40px,5vw,64px)">30K+</div>
+        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase">Empleos señalados por Google</p>
       </div>
-
-      <div style="background:#F9F9F9;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:36px;display:flex;flex-direction:column">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.8;color:#000000;margin-bottom:28px;font-weight:300;flex-grow:1">
-          "Por fin un sistema que entiende toda la empresa — no solo marketing. Legal, capacitación y ventas en un solo lugar con IA."
-        </p>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(0,0,0,.05);padding-top:20px">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(26,123,255,.1);border:1px solid rgba(26,123,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#1A7BFF;flex-shrink:0">RP</div>
-          <div>
-            <p style="font-size:13px;font-weight:500;color:#000000">Rodrigo Peña</p>
-            <p style="font-size:12px;letter-spacing:.05em;color:#666666">CEO · Meridian Group</p>
-          </div>
-        </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px;border-bottom:1px solid rgba(0,0,0,.05)">
+        <div class="stat-n" style="font-size:clamp(40px,5vw,64px)">30K+</div>
+        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase">Empleos señalados por Amazon</p>
       </div>
-
-      <div style="background:#F9F9F9;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:36px;display:flex;flex-direction:column">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.8;color:#000000;margin-bottom:28px;font-weight:300;flex-grow:1">
-          "El dashboard en tiempo real cambió cómo tomamos decisiones. Ver el gasto en IA vs. ROI generado cada día es invaluable."
-        </p>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid rgba(0,0,0,.05);padding-top:20px">
-          <div style="width:40px;height:40px;border-radius:50%;background:rgba(26,123,255,.1);border:1px solid rgba(26,123,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#1A7BFF;flex-shrink:0">ST</div>
-          <div>
-            <p style="font-size:13px;font-weight:500;color:#000000">Sofía Torres</p>
-            <p style="font-size:12px;letter-spacing:.05em;color:#666666">Directora · Lumina Studios</p>
-          </div>
-        </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px;border-bottom:1px solid rgba(0,0,0,.05)">
+        <div class="stat-n" style="font-size:clamp(40px,5vw,64px)">8K+</div>
+        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase">Empleos señalados por Meta</p>
       </div>
-
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding:28px">
+        <div class="stat-n" style="font-size:clamp(40px,5vw,64px);color:#1A1A1A">92M</div>
+        <p style="text-align:right;font-size:12px;letter-spacing:.13em;color:#666666;text-transform:uppercase">Empleos en riesgo hacia 2030</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════ FAQ ══════════════════════ -->
-<section style="padding:100px 0;background:#FAFAFA">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
-    <div class="rv" style="margin-bottom:72px;text-align:center">
-      <p class="eyec" style="margin-bottom:22px" data-eyec>Preguntas Frecuentes</p>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(38px,4.5vw,64px);line-height:1.06;letter-spacing:-.025em">
-        Todo lo que<br/><span style="font-style:italic;color:#666666">necesitas saber.</span>
-      </h2>
-    </div>
-    <div class="rv" style="max-width:760px;margin:0 auto">
-      <details>
-        <summary>¿Qué es Victor IA y cómo funciona?</summary>
-        <p>Victor IA es el primer supercerebro de inteligencia artificial para empresas en LATAM. Coordina más de 150 agentes expertos especializados de forma simultánea — selecciona el mejor modelo disponible para cada tarea y los orquesta automáticamente. Solo necesitas describir lo que necesitas en lenguaje natural y el sistema hace el resto.</p>
-      </details>
-      <details>
-        <summary>¿Cuánto cuesta Victor IA?</summary>
-        <p>No hay paquetes fijos. Cada empresa es diferente — ofrecemos un diagnóstico gratuito y una propuesta personalizada basada en tus necesidades reales. Puedes comenzar sin tarjeta de crédito. <a href="precios.html" style="color:#1A1A1A">Ver planes →</a></p>
-      </details>
-      <details>
-        <summary>¿Necesito conocimientos técnicos para usarlo?</summary>
-        <p>No. Victor IA funciona con lenguaje natural. Solo describes lo que necesitas — igual que hablarías con un asistente humano — y el sistema activa los agentes correctos automáticamente. Sin configuración técnica, sin curva de aprendizaje.</p>
-      </details>
-      <details>
-        <summary>¿En qué países está disponible?</summary>
-        <p>Victor IA está disponible en México y toda LATAM. Con sede en Playa del Carmen, Quintana Roo, México, el sistema entiende el contexto regional, los mercados locales y el español nativo de la región.</p>
-      </details>
-      <details>
-        <summary>¿Qué resultados puedo esperar?</summary>
-        <p>En promedio, nuestros clientes ven un retorno de 3.2× sobre la inversión, una reducción del 68% en tiempo operativo y hasta un 40% de ahorro en costos. Los resultados son visibles en el dashboard desde la primera semana.</p>
-      </details>
-      <details>
-        <summary>¿Qué tipos de tareas puede hacer Victor IA?</summary>
-        <p>Producción de video, copy y contenido, diseño visual, análisis de datos, automatización de procesos completos, monitoreo IoT para flotillas y edificios, reportes ejecutivos, estrategia de marca, y mucho más — todo coordinado desde un solo comando. <a href="agentes.html" style="color:#1A1A1A">Ver todos los agentes →</a></p>
-      </details>
-      <details>
-        <summary>¿Por qué es mejor que contratar una agencia o un equipo interno?</summary>
-        <p>Una agencia tradicional trabaja con 3-8 personas, tarda semanas en entregar y cobra por proyecto. Un equipo interno cuesta $15,000–$40,000 USD mensuales solo en sueldos, más prestaciones. Victor IA opera con más de 150 expertos simultáneos, entrega en horas, está disponible 24/7 y cuesta una fracción de ambas opciones. Además, todo queda documentado en tu dashboard con ROI visible desde el día uno.</p>
-      </details>
-      <details>
-        <summary>¿Cómo ahorra tiempo y dinero en operaciones?</summary>
-        <p>Nuestros clientes eliminan tareas manuales repetitivas (reportes, seguimientos, generación de contenido, análisis de datos) que antes tomaban días. El sistema automatiza flujos completos — desde captar un lead hasta entregar la propuesta — sin intervención humana. En promedio, el equipo recupera 68% de su tiempo operativo para enfocarse en decisiones estratégicas.</p>
-      </details>
+<!-- ══════════════════════ 8. SUPERCEREBRO ══════════════════════ -->
+<section>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:18ch">Un sistema. Doscientas inteligencias.</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(0,0,0,.05)">
+      <article style="background:#FFFFFF;padding:48px 32px">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin-bottom:12px">Orquesta</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Interpreta la tarea y compone el equipo correcto en menos de dos segundos.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:48px 32px">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin-bottom:12px">Ejecuta</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Coordina agentes, modelos y herramientas en paralelo con contexto compartido.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:48px 32px">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin-bottom:12px">Verifica</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Una capa revisora valida calidad, trazabilidad y cumplimiento antes de entregar.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<!-- ══════════════════════ 9. TRACKER ══════════════════════ -->
+<section class="bg2">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#1A1A1A;margin-bottom:24px">El Tracker</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:20ch">El sistema operativo de la empresa.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;margin-bottom:48px;max-width:62ch">El Tracker reúne operación, producción, CRM, finanzas, telemetría, observabilidad e infraestructura en un panel de comando.</p>
 
-<!-- ══════════════════════ GUÍA DEFINITIVA CONVERTER ══════════════════════ -->
-<section style="padding:80px 24px;background:#FFFFFF">
-  <div class="sec-inner" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px">
-    <div class="rv" style="background:linear-gradient(135deg,rgba(26,26,26,.06) 0%,rgba(26,26,26,.02) 100%);border:1px solid rgba(26,26,26,.18);border-radius:16px;padding:56px 64px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center">
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px">
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">Dashboard</span>
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">Analytics</span>
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">Finanzas</span>
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">Organigrama</span>
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">APIs</span>
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">Reportes</span>
+      <span style="border:1px solid rgba(0,0,0,.15);padding:12px 20px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666666">CRM</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1px solid rgba(0,0,0,.05)">
+      <article style="padding:20px;border-right:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;margin-bottom:8px">Imagen</h3>
+        <p style="font-size:13px;color:#999999">Fotografía, producto, retrato y arquitectura</p>
+      </article>
+      <article style="padding:20px;border-right:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;margin-bottom:8px">Video</h3>
+        <p style="font-size:13px;color:#999999">Spots, motion design, social y corporativo</p>
+      </article>
+      <article style="padding:20px;border-right:1px solid rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.05)">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;margin-bottom:8px">Presentaciones</h3>
+        <p style="font-size:13px;color:#999999">Propuestas, pitch, reportes y capacitación</p>
+      </article>
+      <article style="padding:20px;border-right:1px solid rgba(0,0,0,.05)">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;margin-bottom:8px">Web</h3>
+        <p style="font-size:13px;color:#999999">Landing pages, sitios, SaaS y portafolios</p>
+      </article>
+      <article style="padding:20px;border-right:1px solid rgba(0,0,0,.05)">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;margin-bottom:8px">Voz</h3>
+        <p style="font-size:13px;color:#999999">Narración, agentes, música y timestamps</p>
+      </article>
+      <article style="padding:20px">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;margin-bottom:8px">Administración</h3>
+        <p style="font-size:13px;color:#999999">Finanzas, clientes, propuestas y reportes</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 10. DISCIPLINAS ══════════════════════ -->
+<section>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start">
       <div>
-        <p style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#1A1A1A;margin-bottom:14px">Recurso gratuito</p>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:200;color:#000000;line-height:1.12;letter-spacing:-.025em;margin-bottom:16px">Guía Definitiva de IA<br/>para Empresas en México <em style="font-style:italic;color:#666666">2026</em></h2>
-        <p style="font-size:15px;line-height:1.7;color:rgba(0,0,0,.55);margin-bottom:24px;max-width:520px">10 capítulos con datos reales, calculadora de ROI interactiva, checklist de evaluación de proveedores y plan de implementación de 90 días.</p>
-        <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
-          <a href="/guia-definitiva.html" class="btn-p" style="padding:13px 28px;font-size:13px">Descargar gratis</a>
-          <div style="display:flex;gap:16px;font-size:12px;color:rgba(26,26,26,.65)">
-            <span>✓ 10 Capítulos</span>
-            <span>✓ Calculadora ROI</span>
-            <span>✓ Checklist Proveedores</span>
-          </div>
-        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:16ch">200 agentes. Ocho disciplinas.</h2>
+        <p style="font-size:16px;line-height:1.7;color:#666666">Especialistas activados según la tarea, no un modelo genérico intentando hacerlo todo.</p>
       </div>
-      <div style="text-align:center;min-width:180px">
-        <div style="background:linear-gradient(135deg,#FAFAFA,#F5F5F5);border:1px solid rgba(26,26,26,.22);border-radius:12px;padding:28px 24px;display:inline-block">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:200;color:#1A1A1A;line-height:1">47</div>
-          <div style="font-size:11px;letter-spacing:.12em;color:rgba(26,26,26,.6);text-transform:uppercase;margin-top:4px">Páginas de valor</div>
+
+      <div style="border-top:1px solid rgba(0,0,0,.05)">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">01</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Producción creativa</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">VIDEO</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">02</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Contenido y copy</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">COPY</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">03</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Voz y audio</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">VOICE</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">04</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Análisis y datos</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">DATA</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">05</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Automatización</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">AUTO</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">06</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Plataformas</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">APIS</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">07</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Desarrollo</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">CODE</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px 0">
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500">08</span>
+          <h3 style="flex:1;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500">Seguridad privada</h3>
+          <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#999999">PRIVATE</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<!-- ══════════════════════ 11. INTEGRACIONES ══════════════════════ -->
+<section class="bg2" style="overflow:hidden;padding:64px 0">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;margin-bottom:48px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:18ch">160+ integraciones. Una sola operación.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;max-width:52ch">Conectores nativos, administrados y APIs para CRM, mensajería, datos, pagos, nube y automatización.</p>
+  </div>
 
-<!-- ══════════════════════ CTA ══════════════════════ -->
-<section style="padding:80px 24px 120px;background:#FAFAFA">
-  <div style="max-width:1200px;margin:0 auto;padding:0 40px">
-    <div id="cta-card" class="card rv" style="padding:80px 64px;text-align:center;position:relative;overflow:hidden">
-      <!-- Radial glow that expands on scroll (JS handles it) -->
-      <div id="cta-glow" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(26,26,26,.03) 0%,transparent 65%);transition:opacity .8s"></div>
-      <div style="position:relative">
-        <p class="eyec" style="margin-bottom:28px" data-eyec>¿Listo para empezar?</p>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:200;font-size:clamp(44px,6vw,86px);line-height:1.04;letter-spacing:-.03em;margin-bottom:24px">
-          Comienza gratis<br/><span style="font-style:italic;color:#666666">hoy mismo.</span>
-        </h2>
-        <p style="font-size:16px;line-height:1.8;font-weight:300;color:#666666;max-width:400px;margin:0 auto 44px">
-          Sin tarjeta de crédito · Configuración en 2 minutos. Únete a las empresas que ya operan al 10× de velocidad.
-        </p>
-        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-          <div class="mag"><a class="btn-p" href="/agendar-videollamada" style="padding:14px 40px;font-size:14px">Agendar videollamada</a></div>
-          <div class="mag"><a class="btn-g" href="como-funciona.html" style="padding:14px 40px;font-size:14px">Ver cómo funciona →</a></div>
+  <div style="display:flex;flex-wrap:wrap;gap:12px;padding:0 24px;justify-content:center">
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">WhatsApp</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">HubSpot</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Salesforce</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Supabase</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">n8n</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Stripe</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Twilio</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">AWS</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Shopify</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Google Cloud</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">Slack</span>
+    <span style="border:1px solid rgba(0,0,0,.12);background:#FFFFFF;padding:12px 20px;font-size:13px;font-weight:500;color:#333333">OpenAI</span>
+  </div>
+</section>
+
+<!-- ══════════════════════ 12. ESCALAS ══════════════════════ -->
+<section>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px">Victor para cada escala.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;margin-bottom:48px;max-width:54ch">La arquitectura cambia con el tamaño, riesgo y complejidad de la operación.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(0,0,0,.05)">
+      <article style="background:#FFFFFF;padding:32px">
+        <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:16px">01</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;margin-bottom:8px">Startups</h3>
+        <p style="font-size:14px;color:#666666">Automatización legal y CRM</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:16px">02</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;margin-bottom:8px">PyMEs</h3>
+        <p style="font-size:14px;color:#666666">Pipeline de ventas y marketing</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:16px">03</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;margin-bottom:8px">Medianas</h3>
+        <p style="font-size:14px;color:#666666">Compliance y Analytics BI</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px">
+        <p style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:16px">04</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;margin-bottom:8px">Grandes</h3>
+        <p style="font-size:14px;color:#666666">Enterprise y arquitectura custom</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 13. TESTIMONIOS ══════════════════════ -->
+<section class="bg2">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#1A1A1A;margin-bottom:32px">Lo que dicen</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:64px">
+      <blockquote style="border:1px solid rgba(0,0,0,.08);background:#FFFFFF;padding:32px;border-radius:4px">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:24px">"Pasamos de responder leads en horas a segundos. El agente cerró ventas el primer fin de semana."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="/assets/cliente-rodrigo.jpg" alt="Rodrigo M." style="width:40px;height:40px;border-radius:50%;object-fit:cover">
+          <div>
+            <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Rodrigo M.</p>
+            <p style="font-size:11px;color:#999999">Director Comercial · Inmobiliaria</p>
+          </div>
+        </div>
+      </blockquote>
+
+      <blockquote style="border:1px solid rgba(0,0,0,.08);background:#FAFAFA;padding:32px;border-radius:4px">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:24px">"Reactivaron una base muerta de 4,000 contactos. En 48 horas teníamos citas agendadas otra vez."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="/assets/cliente-laura.jpg" alt="Laura T." style="width:40px;height:40px;border-radius:50%;object-fit:cover">
+          <div>
+            <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Laura T.</p>
+            <p style="font-size:11px;color:#999999">CMO · Grupo Hotelero</p>
+          </div>
+        </div>
+      </blockquote>
+
+      <blockquote style="border:1px solid rgba(0,0,0,.08);border-top:2px solid #1A1A1A;background:#FFFFFF;padding:32px;border-radius:4px">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:24px">"No contraté una agencia, contraté un equipo que nunca duerme. El ROI se explica solo."</p>
+        <div style="display:flex;align-items:center;gap:12px">
+          <img src="/assets/cliente-andres.jpg" alt="Andrés V." style="width:40px;height:40px;border-radius:50%;object-fit:cover">
+          <div>
+            <p style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Andrés V.</p>
+            <p style="font-size:11px;color:#999999">CEO · Desarrolladora</p>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:500;line-height:1.15;max-width:18ch">Confían en nuestros clientes.</h3>
+  </div>
+</section>
+
+<!-- ══════════════════════ 14. VTC ELITE TRAINING ══════════════════════ -->
+<section>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="display:grid;grid-template-columns:1.1fr 1.4fr;gap:64px">
+      <div>
+        <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#1A1A1A;margin-bottom:24px">Entrenamiento</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:500;line-height:1.15;margin-bottom:24px">VTC Elite Training</h2>
+        <p style="font-size:16px;line-height:1.7;color:#666666">Entrenamiento operativo para equipos comerciales, OPC, gerencias y nuevos colaboradores.</p>
+      </div>
+
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:18px;font-weight:500;color:#1A1A1A">01</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500">Fundamentos</h3>
+          <p style="font-size:12px;color:#999999;text-align:right">Contexto, procesos y lenguaje comercial</p>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:18px;font-weight:500;color:#1A1A1A">02</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500">Práctica guiada</h3>
+          <p style="font-size:12px;color:#999999;text-align:right">Roleplay IA y retroalimentación</p>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(0,0,0,.05)">
+          <span style="font-size:18px;font-weight:500;color:#1A1A1A">03</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500">Dominio</h3>
+          <p style="font-size:12px;color:#999999;text-align:right">Métricas, objeciones y cierre</p>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding:20px 0">
+          <span style="font-size:18px;font-weight:500;color:#1A1A1A">04</span>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500">Certificación</h3>
+          <p style="font-size:12px;color:#999999;text-align:right">Evaluación y evidencia de competencia</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 15. TELEMETRÍA ══════════════════════ -->
+<section class="bg2">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+      <div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:18ch">Telemetría para decidir, no adivinar.</h2>
+        <p style="font-size:16px;line-height:1.7;color:#666666">Ingresos, costos, ahorro, actividad de agentes e integraciones convergen en una misma capa semántica.</p>
+      </div>
+
+      <div style="border:1px solid rgba(0,0,0,.1);background:#FFFFFF;border-radius:4px;overflow:hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid rgba(0,0,0,.05)">
+          <p style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#999999;font-weight:500">Datos operativos de muestra</p>
+          <span style="display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#1A1A1A;font-weight:500">
+            <span style="display:block;width:6px;height:6px;background:#1A1A1A;border-radius:50%;animation:pulse 2s infinite"></span>
+            Actualizado ahora
+          </span>
+        </div>
+
+        <div style="padding:0">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid rgba(0,0,0,.05)">
+            <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#999999">Ingresos influidos</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300">$284,600</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid rgba(0,0,0,.05)">
+            <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#999999">Costo operativo IA</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300">$31,480</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid rgba(0,0,0,.05)">
+            <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#999999">Horas recuperadas</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300">1,126 h</p>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:20px">
+            <p style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#999999">ROI modelado</p>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300">3.2×</p>
+          </div>
+        </div>
+
+        <p style="padding:16px 20px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#999999;border-top:1px solid rgba(0,0,0,.05)">Fuente: síntesis Victor IA · MXN/USD</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 16. SEGURIDAD ══════════════════════ -->
+<section class="bg2">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:20ch">Control empresarial desde el diseño.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;margin-bottom:48px;max-width:58ch">Modelos privados, despliegue on-premise, cifrado, acceso por invitación y trazabilidad por entregable.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(0,0,0,.05)">
+      <article style="background:#FFFFFF;padding:32px;border-left:3px solid transparent">
+        <h3 style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px">SOC 2</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Arquitectura preparada para controles de seguridad. Solicita el alcance vigente.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px;border-left:3px solid transparent">
+        <h3 style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px">HIPAA</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Configuraciones elegibles sujetas a servicios, integraciones y acuerdo BAA.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px;border-left:3px solid transparent">
+        <h3 style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px">Datos</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Opciones privadas y on-premise para mantener información dentro del perímetro.</p>
+      </article>
+
+      <article style="background:#FFFFFF;padding:32px;border-left:3px solid #1A1A1A">
+        <h3 style="font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px">Auditoría</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Registro de agente, acción, momento, fuente y resultado.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 17. FAQ ══════════════════════ -->
+<section id="faq">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:48px;max-width:18ch">Todo lo que necesitas saber.</h2>
+
+    <div style="max-width:800px;border:1px solid rgba(0,0,0,.05)">
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Qué es Victor IA exactamente?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Es un supercerebro empresarial: más de 200 agentes de IA especializados que Victor coordina automáticamente para operar tu empresa. Ventas, soporte, marketing, datos y producción, todo en un solo sistema.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Cuánto cuesta Victor IA?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Trabajamos por proyecto a la medida y planes mensuales según tu operación. Definimos alcance y precio antes de empezar, sin sorpresas ni permanencias forzadas.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Puedo integrar mis herramientas actuales?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Sí. WhatsApp, HubSpot, Salesforce, Supabase, n8n, Stripe, Twilio y prácticamente cualquier sistema con API.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿En qué idiomas funciona?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Español e inglés de forma nativa, con voz mexicana natural. Los agentes se adaptan al tono y contexto de tu mercado.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Qué tan seguro es dejar mis datos?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Ofrecemos modelos privados y despliegue on-premise donde tu data nunca sale de tu red. Control y discreción total.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Cómo mido que un agente hace lo que dice?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Cada entregable pasa por control de calidad y queda registrado con métricas. Ves qué agente hizo qué, cuándo y con qué resultado.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Cuánto tarda la implementación?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Un agente base puede operar en 2 a 4 semanas. Los ecosistemas completos se despliegan por fases.</p>
+      </details>
+
+      <details style="border-bottom:1px solid rgba(0,0,0,.05)">
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Los agentes trabajan en paralelo?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Sí. Victor distribuye tareas independientes al mismo tiempo y coordina sus resultados antes de la revisión final.</p>
+      </details>
+
+      <details>
+        <summary style="padding:24px;cursor:pointer;font-size:16px;display:flex;justify-content:space-between;align-items:center">
+          <span>¿Cómo funciona VTC Elite Training?</span>
+          <span style="font-size:20px">+</span>
+        </summary>
+        <p style="padding:0 24px 24px;color:#666666;line-height:1.7">Combina módulos, práctica guiada, roleplay IA, evaluación por competencia y evidencia de progreso para equipos comerciales.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 18. BLOG / GUÍA ══════════════════════ -->
+<section class="bg2">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <div style="margin-bottom:64px">
+      <p style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#1A1A1A;margin-bottom:24px">Blog</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px">Inteligencia aplicada</h2>
+      <p style="font-size:16px;line-height:1.7;color:#666666;max-width:62ch">Guías técnicas, telemetría, automatización y entrenamiento para operar con agentes de IA.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(0,0,0,.05);margin-bottom:48px">
+      <a href="#" style="background:#FFFFFF;padding:32px;text-decoration:none;color:inherit;border-radius:0;display:flex;flex-direction:column">
+        <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#1A1A1A;font-weight:600;margin-bottom:16px">Telemetría</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:16px;line-height:1.3">Telemetría financiera: decisiones sin adivinar</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666;flex:1;margin-bottom:16px">Ingresos influidos, costos operativos y ROI en tiempo real para empresas con agentes IA.</p>
+        <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1A1A1A;font-weight:500">Leer artículo →</span>
+      </a>
+
+      <a href="#" style="background:#FFFFFF;padding:32px;text-decoration:none;color:inherit;border-radius:0;display:flex;flex-direction:column">
+        <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#1A1A1A;font-weight:600;margin-bottom:16px">Entrenamiento</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:16px;line-height:1.3">Roleplay IA para ventas: metodología VTC</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666;flex:1;margin-bottom:16px">Cómo entrenar equipos comerciales con agentes de voz natural. Objeciones, cierre y métricas.</p>
+        <span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#1A1A1A;font-weight:500">Leer artículo →</span>
+      </a>
+    </div>
+
+    <div style="padding:24px 0">
+      <h3 style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#999999;margin-bottom:24px;font-weight:600">Temas del archivo Victor IA</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+        <span style="font-size:14px;color:#666666">Producción Creativa</span>
+        <span style="font-size:14px;color:#666666">Contenido SEO</span>
+        <span style="font-size:14px;color:#666666">Síntesis de Voz</span>
+        <span style="font-size:14px;color:#666666">Análisis de Datos</span>
+        <span style="font-size:14px;color:#666666">Automatización</span>
+        <span style="font-size:14px;color:#666666">Integraciones API</span>
+        <span style="font-size:14px;color:#666666">Seguridad & Compliance</span>
+        <span style="font-size:14px;color:#666666">Metodología VTC</span>
+        <span style="font-size:14px;color:#666666">On-Premise & Cloud</span>
+        <span style="font-size:14px;color:#666666">Arquitectura Enterprise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ 19. PROYECTO ══════════════════════ -->
+<section>
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:500;line-height:1.15;margin-bottom:24px;max-width:18ch">Cada proyecto es diferente.</h2>
+    <p style="font-size:16px;line-height:1.7;color:#666666;margin-bottom:48px;max-width:56ch">Victor IA trabaja por proyectos a medida y planes mensuales definidos según la operación.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+      <article style="border-top:2px solid rgba(0,0,0,.1);padding-top:24px">
+        <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:12px">01</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Análisis profundo</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Entendemos procesos, datos, herramientas y objetivos antes de proponer.</p>
+      </article>
+
+      <article style="border-top:2px solid rgba(0,0,0,.1);padding-top:24px">
+        <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:12px">02</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Solución a medida</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Definimos agentes, integraciones, controles y entregables para la operación real.</p>
+      </article>
+
+      <article style="border-top:2px solid rgba(0,0,0,.1);padding-top:24px">
+        <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A1A1A;font-weight:500;margin-bottom:12px">03</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;margin-bottom:12px">Medición de retorno</h3>
+        <p style="font-size:14px;line-height:1.6;color:#666666">Acordamos métricas, costos, línea base y periodo de recuperación antes de escalar.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1263,23 +925,17 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
 
 <!-- ══════════════════════ FOOTER ══════════════════════ -->
 <footer style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,.05);padding:64px 0 40px;position:relative;z-index:10">
-  <div id="footer-grid" style="max-width:1200px;margin:0 auto;padding:0 24px 0 64px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px">
     <div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:.04em;color:#000000;margin-bottom:18px">Victor <span style="color:#1A1A1A">IA</span></div>
       <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Servicios</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:22px">
         <li><a class="nav-a" href="/agencia-ia-mexico">Agencia de IA</a></li>
-        <li><a class="nav-a" href="/automatizacion-procesos-empresas">Automatización</a></li>
-        <li><a class="nav-a" href="/onboarding-ia-empresas">Onboarding IA</a></li>
-        <li><a class="nav-a" href="/desarrollo-software-ia">Software con IA</a></li>
-        <li><a class="nav-a" href="/software-ia-timeshare-salas-de-ventas">Software Timeshare</a></li>
-        <li><a class="nav-a" href="/eficiencia-energetica-iot-hoteles-resorts">Eficiencia Energética IoT</a></li>
-        <li><a class="nav-a" href="/ia-para-inmobiliarias-riviera-maya">IA Inmobiliaria</a></li>
-        <li><a class="nav-a" href="/ia-para-agencias-tours-experiencias">IA para Tours</a></li>
-        <li><a class="nav-a" href="/ia-para-restaurantes-riviera-maya">IA Restaurantes</a></li>
-        <li><a class="nav-a" href="/ia-para-wellness-yoga-holistico">IA Wellness</a></li>
-        <li><a class="nav-a" href="/ia-para-educacion-escuelas-capacitacion">IA Educación</a></li>
-        <li><a class="nav-a" href="/ia-para-empresas-cancun-riviera-maya-yucatan">IA en Cancún</a></li>
+        <li><a class="nav-a" href="/automatizacion-procesos">Automatización</a></li>
+        <li><a class="nav-a" href="/onboarding-ia">Onboarding IA</a></li>
+        <li><a class="nav-a" href="/software-ia">Software con IA</a></li>
+        <li><a class="nav-a" href="/ia-timeshare">Software Timeshare</a></li>
+        <li><a class="nav-a" href="/eficiencia-iot">Eficiencia IoT</a></li>
       </ul>
       <p style="font-size:13.5px;line-height:1.7;font-weight:300;color:#666666;max-width:260px;margin-bottom:14px">El primer supercerebro de IA en LATAM. Redefiniendo la productividad empresarial.</p>
       <p style="font-size:11px;letter-spacing:.10em;color:rgba(102,102,102,.3)">México · victor-ia.xyz</p>
@@ -1287,26 +943,26 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
     <div>
       <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Producto</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
-        <li><a class="nav-a" href="agentes.html">Agentes IA</a></li>
-        <li><a class="nav-a" href="como-funciona.html">Cómo funciona</a></li>
-        <li><a class="nav-a" href="precios.html">Precios</a></li>
-        <li><a class="nav-a" href="app.html">App</a></li>
-        <li><a class="nav-a" href="telemetria.html">Eficiencia e IoT</a></li>
-        <li><a class="nav-a" href="time-tracker-agencias.html">Time Tracker Agencias</a></li>
-        <li><a class="nav-a" href="agentes-ia-agencias.html">Agentes para Agencias</a></li>
+        <li><a class="nav-a" href="#capacidades">Capacidades</a></li>
+        <li><a class="nav-a" href="#proceso">Cómo funciona</a></li>
+        <li><a class="nav-a" href="/precios">Precios</a></li>
+        <li><a class="nav-a" href="/app">App</a></li>
+        <li><a class="nav-a" href="/telemetria">Telemetría</a></li>
+        <li><a class="nav-a" href="/blog">Blog</a></li>
       </ul>
     </div>
     <div>
       <h4 style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(102,102,102,.35);margin-bottom:18px">Legal</h4>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:11px">
-        <li><a class="nav-a" href="aviso-privacidad.html">Aviso de Privacidad</a></li>
-        <li><a class="nav-a" href="terminos-condiciones.html">Términos y Condiciones</a></li>
-        <li><a class="nav-a" href="politica-cookies.html">Política de Cookies</a></li>
-        <li><a class="nav-a" href="seguridad.html">Seguridad</a></li>
+        <li><a class="nav-a" href="/privacidad">Aviso de Privacidad</a></li>
+        <li><a class="nav-a" href="/terminos">Términos y Condiciones</a></li>
+        <li><a class="nav-a" href="/cookies">Política de Cookies</a></li>
+        <li><a class="nav-a" href="/seguridad">Seguridad</a></li>
       </ul>
     </div>
   </div>
-  <div id="footer-bottom" style="max-width:1200px;margin:0 auto;padding:28px 64px 0;margin-top:48px;border-top:1px solid rgba(0,0,0,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+
+  <div style="max-width:1200px;margin:0 auto;padding:28px 24px 0;margin-top:48px;border-top:1px solid rgba(0,0,0,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
     <p style="font-size:10.5px;letter-spacing:.09em;color:rgba(102,102,102,.28)">© 2026 INFLUENCE IA S.A. DE C.V. — Todos los derechos reservados.</p>
     <div style="display:flex;gap:18px">
       <a class="nav-a" href="#" aria-label="Web" style="color:rgba(102,102,102,.28)">
@@ -1317,412 +973,50 @@ details p{font-size:14.5px;line-height:1.84;color:#666666;padding-bottom:22px}
       </a>
     </div>
   </div>
-<div class="footer-cta" style="max-width:1200px;margin:36px auto 0;padding:0 64px;text-align:center"><a href="/agendar-videollamada" class="btn-p">Agendar videollamada</a></div>
+
+  <div style="max-width:1200px;margin:36px auto 0;padding:0 24px;text-align:center"><a href="/agendar-videollamada" class="btn-p">Agendar videollamada</a></div>
 </footer>
 
 <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
-<!-- Three.js eliminado: el home no lo usa (evita 404 + request bloqueante) -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 
 <script>
-(function(){
 'use strict';
-
 /* ────────────────────────────────────────────────────────────
-   GUARD — si un CDN (GSAP/ScrollTrigger) no cargó, revelar TODO
-   el contenido y abortar el realce, en vez de dejar la página negra.
+   BASIC SETUP — Si CDN no cargó, fallback
 ──────────────────────────────────────────────────────────── */
 if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
   document.documentElement.classList.add('no-js');
-  return;
+} else {
+  gsap.registerPlugin(ScrollTrigger);
 }
-const hasLenis = typeof Lenis !== 'undefined';
 
 /* ────────────────────────────────────────────────────────────
-   LENIS — ultra-smooth scroll (con fallback si no cargó)
+   HEADER SCROLL STATE
 ──────────────────────────────────────────────────────────── */
-const lenis = (hasLenis && window.innerWidth>768) ? new Lenis({
-  duration: 1.35,
-  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothWheel: true,
-}) : {raf:()=>{},on:()=>{},destroy:()=>{}};
-(function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(0);
-
-/* ────────────────────────────────────────────────────────────
-   GSAP + ScrollTrigger
-──────────────────────────────────────────────────────────── */
-gsap.registerPlugin(ScrollTrigger);
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add(t => lenis.raf(t * 1000));
-gsap.ticker.lagSmoothing(0);
-
-/* ────────────────────────────────────────────────────────────
-   CUSTOM CURSOR (lerp lag)
-──────────────────────────────────────────────────────────── */
-const dot = document.getElementById('cur-d');
-const ring= document.getElementById('cur-r');
-let cx=window.innerWidth/2, cy=window.innerHeight/2;
-let rx=cx, ry=cy;
-const LF = 0.10;
-let cursorVisible = false;
-
-document.addEventListener('mousemove', e => {
-  cx = e.clientX; cy = e.clientY;
-  if(!cursorVisible){ cursorVisible=true; dot.style.opacity='1'; ring.style.opacity='1'; }
-});
-document.addEventListener('mouseleave', ()=>{ dot.style.opacity='0'; ring.style.opacity='0'; cursorVisible=false; });
-document.addEventListener('mousedown', ()=>ring.classList.add('shrink'));
-document.addEventListener('mouseup',   ()=>ring.classList.remove('shrink'));
-document.querySelectorAll('a,button,[data-hover]').forEach(el=>{
-  el.addEventListener('mouseenter',()=>ring.classList.add('expand'));
-  el.addEventListener('mouseleave',()=>ring.classList.remove('expand'));
-});
-
-(function animCursor(){
-  rx += (cx-rx)*LF; ry += (cy-ry)*LF;
-  dot.style.left=cx+'px';  dot.style.top=cy+'px';
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animCursor);
-})();
-
-/* ────────────────────────────────────────────────────────────
-   SCROLL PROGRESS BAR
-──────────────────────────────────────────────────────────── */
-const pbar = document.getElementById('pbar');
-lenis.on('scroll', ({progress})=>{ pbar.style.width=(progress*100)+'%'; });
-
-/* ────────────────────────────────────────────────────────────
-   HEADER scroll state
-──────────────────────────────────────────────────────────── */
-const hdr = document.getElementById('hdr');
-ScrollTrigger.create({ start:'top -40', onUpdate: self => hdr.classList.toggle('scrolled', self.scroll()>40) });
-
-/* ────────────────────────────────────────────────────────────
-   HERO ENTRANCE TIMELINE
-──────────────────────────────────────────────────────────── */
-const heroTL = gsap.timeline({ delay: 0.25 });
-heroTL
-  .to('.h-badge',  { opacity:1, y:0, duration:.75, ease:'power3.out' })
-  .to('.si',       { y:'0%', opacity:1, duration:1.1, ease:'power4.out', stagger:.13 }, '-=.35')
-  .to('.h-sub',    { opacity:1, y:0, duration:.9, ease:'power3.out' }, '-=.6')
-  .to('.h-cta',    { opacity:1, y:0, duration:.8, ease:'power3.out' }, '-=.5')
-  .to('.h-hint',   { opacity:1, y:0, duration:.7, ease:'power3.out' }, '-=.4')
-  .to('.h-panel',  { opacity:1, x:0, duration:1.1, ease:'power4.out' }, '-=.8')
-  /* space canvas fades in via its own setTimeout */
-
-/* ────────────────────────────────────────────────────────────
-   HERO — MOUSE PARALLAX DEPTH
-──────────────────────────────────────────────────────────── */
-/* throttled con rAF: máx 1 update por frame, no por cada evento de ratón */
-let _pmx=0,_pmy=0,_pTick=false;
-document.addEventListener('mousemove', e => {
-  if(window.innerWidth<=768)return;
-  _pmx = (e.clientX/window.innerWidth  - .5);
-  _pmy = (e.clientY/window.innerHeight - .5);
-  if(_pTick)return; _pTick=true;
-  requestAnimationFrame(()=>{
-    gsap.to('#hero-copy', { x:_pmx*-14, y:_pmy*-9, duration:1.8, ease:'power2.out', overwrite:'auto' });
-    gsap.to('.h-panel',   { x:_pmx*20,  y:_pmy*14, duration:1.8, ease:'power2.out', overwrite:'auto' });
-    _pTick=false;
-  });
+window.addEventListener('scroll', () => {
+  const hdr = document.getElementById('hdr');
+  if (window.scrollY > 60) {
+    hdr.classList.add('scrolled');
+  } else {
+    hdr.classList.remove('scrolled');
+  }
 });
 
 /* ────────────────────────────────────────────────────────────
-   SCROLL REVEALS — generic
+   DETAILS AUTO-CLOSE
 ──────────────────────────────────────────────────────────── */
-requestAnimationFrame(()=>requestAnimationFrame(()=>{document.querySelectorAll('.rv').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.95){el.classList.add('on');}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});}));
-
-/* Recalcular triggers cuando las fuentes terminan de cargar (evita disparos a destiempo) */
-if(document.fonts&&document.fonts.ready){document.fonts.ready.then(()=>ScrollTrigger.refresh());}
-window.addEventListener('load',()=>ScrollTrigger.refresh());
-
-/* ────────────────────────────────────────────────────────────
-   EYEBROWS
-──────────────────────────────────────────────────────────── */
-document.querySelectorAll('[data-eye]').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
-document.querySelectorAll('[data-eyec]').forEach(el=>{el.classList.add('eyec');const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
-document.querySelectorAll('.eye').forEach(el=>{const rc=el.getBoundingClientRect();if(rc.top<window.innerHeight*.92){setTimeout(()=>el.classList.add('on'),100);}else{ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('on')});}});
-
-/* ────────────────────────────────────────────────────────────
-   GOLD VERTICAL RULES
-──────────────────────────────────────────────────────────── */
-document.querySelectorAll('[data-vr]').forEach(el=>{
-  ScrollTrigger.create({ trigger:el, start:'top 85%', onEnter:()=>el.classList.add('on') });
-});
-
-/* ────────────────────────────────────────────────────────────
-   STAT COUNTERS
-──────────────────────────────────────────────────────────── */
-document.querySelectorAll('.stat-n[data-target]').forEach(el=>{
-  const target = parseFloat(el.dataset.target);
-  const suffix = el.dataset.suffix||'';
-  const prefix = el.dataset.prefix||'';
-  const isFloat = el.dataset.target.includes('.');
-  let started = false;
-  ScrollTrigger.create({
-    trigger: el, start: 'top 85%',
-    onEnter: ()=>{
-      if(started) return; started=true;
-      gsap.to({ v:0 }, {
-        v: target, duration:2.2, ease:'power2.out',
-        onUpdate: function(){
-          const val = this.targets()[0].v;
-          el.textContent = prefix + (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
-        }
+document.querySelectorAll('details').forEach(detail => {
+  detail.addEventListener('toggle', function() {
+    if (this.open) {
+      document.querySelectorAll('details').forEach(d => {
+        if (d !== this) d.open = false;
       });
     }
   });
 });
-
-/* ────────────────────────────────────────────────────────────
-   MAGNETIC BUTTONS
-──────────────────────────────────────────────────────────── */
-document.querySelectorAll('.mag').forEach(wrap => {
-  const btn = wrap.querySelector('button,a') || wrap;
-  wrap.addEventListener('mousemove', e => {
-    const r = wrap.getBoundingClientRect();
-    const x = ((e.clientX - r.left)/r.width  - .5) * 20;
-    const y = ((e.clientY - r.top) /r.height - .5) * 20;
-    gsap.to(btn, { x, y, duration:.5, ease:'power2.out' });
-  });
-  wrap.addEventListener('mouseleave', () => {
-    gsap.to(btn, { x:0, y:0, duration:.8, ease:'elastic.out(1,.38)' });
-  });
-});
-
-/* ────────────────────────────────────────────────────────────
-   CARD 3D TILT
-──────────────────────────────────────────────────────────── */
-document.querySelectorAll('.card-tilt').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left)/r.width;
-    const y = (e.clientY - r.top) /r.height;
-    gsap.to(card, {
-      rotateX:(y-.5)*-12, rotateY:(x-.5)*12,
-      duration:.5, ease:'power2.out',
-      transformPerspective:900, transformStyle:'preserve-3d'
-    });
-  });
-  card.addEventListener('mouseleave', () => {
-    gsap.to(card, { rotateX:0, rotateY:0, duration:.9, ease:'elastic.out(1,.3)' });
-  });
-});
-
-/* ────────────────────────────────────────────────────────────
-   CARD INNER GLOW (cursor radial follows mouse inside card)
-──────────────────────────────────────────────────────────── */
-document.querySelectorAll('.card-g').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = e.clientX - r.left;
-    const y = e.clientY - r.top;
-    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(26,26,26,.07) 0%, transparent 55%), #FAFAFA`;
-  });
-  card.addEventListener('mouseleave', () => { card.style.background=''; });
-});
-
-/* par-img removed — sphere has no parallax */
-
-/* ────────────────────────────────────────────────────────────
-   CTA SECTION — glow intensifies on scroll
-──────────────────────────────────────────────────────────── */
-const ctaGlow = document.getElementById('cta-glow');
-if(ctaGlow){
-  ScrollTrigger.create({
-    trigger:ctaGlow, start:'top 70%', end:'top 10%', scrub:1,
-    onUpdate: self => {
-      ctaGlow.style.background = `radial-gradient(ellipse at 50% 0%, rgba(26,26,26,${.03+self.progress*.09}) 0%, transparent 65%)`;
-    }
-  });
-}
-
-/* ────────────────────────────────────────────────────────────
-   CANVAS 2D — Deep Space Background
-──────────────────────────────────────────────────────────── */
-(function initSpace(){ return; /* Space canvas DISABLED — clean white theme (matches agentes.html) */
-  const cv = document.createElement('canvas');
-  cv.id = 'space-bg';
-  Object.assign(cv.style, { position:'fixed', inset:'0', width:'100%', height:'100%', zIndex:'0', pointerEvents:'none', opacity:'0', transition:'opacity 3s ease' });
-  document.body.prepend(cv);
-  const ctx = cv.getContext('2d');
-  const DPR = Math.min(window.devicePixelRatio||1, 2);
-
-  let W, H, mx, my;
-  function sizeCanvas(){
-    W = window.innerWidth; H = window.innerHeight;
-    cv.width = W*DPR; cv.height = H*DPR;
-    ctx.setTransform(DPR,0,0,DPR,0,0);   /* dibujar en píxeles CSS, nítido en Retina */
-  }
-  sizeCanvas(); mx = W/2; my = H/2;
-
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  window.addEventListener('resize', () => { sizeCanvas(); buildStars(); });
-
-  let stars = [], shoots = [], shootTimer = 0;
-
-  function buildStars(){
-    stars = [];
-    for(let i=0;i<420;i++) stars.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*.7+.15, layer:0, tw:Math.random()*Math.PI*2, sp:Math.random()*.008+.004 });
-    for(let i=0;i<90;i++)  stars.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.1+.5, layer:1, tw:Math.random()*Math.PI*2, sp:Math.random()*.012+.006 });
-    for(let i=0;i<28;i++)  stars.push({ x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.6+1.0, layer:2, tw:Math.random()*Math.PI*2, sp:Math.random()*.018+.009 });
-  }
-
-  const asts = Array.from({length:5}, () => ({
-    x:Math.random()*W, y:Math.random()*H,
-    vx:(Math.random()-.5)*.14, vy:(Math.random()-.5)*.11,
-    r:Math.random()*11+7, rot:Math.random()*Math.PI*2, drot:(Math.random()-.5)*.004,
-    sides:Math.floor(Math.random()*4)+5,
-    jt:Array.from({length:9}, ()=>.6+Math.random()*.8)
-  }));
-
-  buildStars();
-
-  let t = 0;
-  function tick(){
-    requestAnimationFrame(tick);
-    t++;
-    ctx.clearRect(0, 0, W, H);
-
-    /* Nebula patches */
-    const nb = [
-      [W*.12, H*.2,  280, 'rgba(0,0,0,.022)'],
-      [W*.78, H*.55, 220, 'rgba(0,0,0,.018)'],
-      [W*.5,  H*.82, 180, 'rgba(0,0,0,.013)'],
-    ];
-    for(const [nx,ny,nr,nc] of nb){
-      const g = ctx.createRadialGradient(nx,ny,0,nx,ny,nr);
-      g.addColorStop(0, nc); g.addColorStop(1, 'transparent');
-      ctx.fillStyle = g;
-      ctx.beginPath(); ctx.arc(nx,ny,nr,0,Math.PI*2); ctx.fill();
-    }
-
-    /* Stars with parallax layers */
-    const px = (mx/W-.5), py = (my/H-.5);
-    for(const s of stars){
-      s.tw += s.sp;
-      const a = .25 + Math.sin(s.tw)*.22 + s.layer*.12;
-      const ox = px*(s.layer+1)*-7;
-      const oy = py*(s.layer+1)*-7;
-      ctx.beginPath(); ctx.arc(s.x+ox, s.y+oy, s.r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(26,26,26,${Math.min(a,.55).toFixed(2)})`;
-      ctx.fill();
-    }
-
-    /* Asteroids */
-    for(const a of asts){
-      a.x+=a.vx; a.y+=a.vy; a.rot+=a.drot;
-      if(a.x<-60) a.x=W+60; if(a.x>W+60) a.x=-60;
-      if(a.y<-60) a.y=H+60; if(a.y>H+60) a.y=-60;
-      ctx.save(); ctx.translate(a.x,a.y); ctx.rotate(a.rot);
-      ctx.beginPath();
-      for(let i=0;i<a.sides;i++){
-        const ang=(i/a.sides)*Math.PI*2;
-        const jr = a.jt[i%a.jt.length];
-        const rx=Math.cos(ang)*a.r*jr, ry=Math.sin(ang)*a.r*jr;
-        i===0 ? ctx.moveTo(rx,ry) : ctx.lineTo(rx,ry);
-      }
-      ctx.closePath();
-      ctx.strokeStyle='rgba(26,26,26,.16)'; ctx.lineWidth=.7; ctx.stroke();
-      ctx.fillStyle='rgba(0,0,0,.45)'; ctx.fill();
-      ctx.restore();
-    }
-
-    /* Shooting stars */
-    shootTimer++;
-    if(shootTimer > 180+Math.random()*220){
-      shootTimer=0;
-      shoots.push({ x:Math.random()*W*.65, y:Math.random()*H*.28, vx:4.5+Math.random()*5, vy:1.8+Math.random()*2, len:90+Math.random()*130, life:1, fade:.014+Math.random()*.014 });
-    }
-    for(let i=shoots.length-1;i>=0;i--){
-      const s=shoots[i]; s.x+=s.vx; s.y+=s.vy; s.life-=s.fade;
-      if(s.life<=0){ shoots.splice(i,1); continue; }
-      const g=ctx.createLinearGradient(s.x,s.y,s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5));
-      g.addColorStop(0,`rgba(0,0,0,${(s.life*.5).toFixed(2)})`);
-      g.addColorStop(1,'transparent');
-      ctx.strokeStyle=g; ctx.lineWidth=1.2;
-      ctx.beginPath(); ctx.moveTo(s.x,s.y); ctx.lineTo(s.x-s.vx*(s.len/5),s.y-s.vy*(s.len/5)); ctx.stroke();
-    }
-  }
-
-  tick();
-  setTimeout(()=>{ cv.style.opacity='1'; }, 500);
-})();
-
-/* ────────────────────────────────────────────────────────────
-   PHILOSOPHY SECTION — Gravitational Mind (Canvas2D, mouse-reactive)
-──────────────────────────────────────────────────────────── */
-(function initPhilosophy(){
-  const wrap=document.getElementById('sphere-wrap');
-  if(!wrap)return;
-  const cv=document.createElement('canvas');
-  cv.style.cssText='width:100%;height:100%;display:block;border-radius:12px';
-  wrap.innerHTML='';
-  wrap.appendChild(cv);
-  const ctx=cv.getContext('2d');
-  const DPR=Math.min(window.devicePixelRatio||1,2);
-  let S=wrap.offsetWidth||500;                       /* tamaño lógico (px CSS) */
-  function resize(){S=wrap.offsetWidth||500;cv.width=S*DPR;cv.height=S*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
-  resize();
-  new ResizeObserver(resize).observe(wrap);
-  let mx=-999,my=-999,mIn=false;
-  wrap.addEventListener('mousemove',e=>{const rc=wrap.getBoundingClientRect();mx=(e.clientX-rc.left);my=(e.clientY-rc.top);mIn=true;});
-  wrap.addEventListener('mouseleave',()=>{mIn=false;mx=-999;my=-999;});
-  const N=280;
-  const ps=Array.from({length:N},(_,i)=>{const a=Math.random()*Math.PI*2,d=40+Math.random()*180;return{x:(S/2)+Math.cos(a)*d,y:(S/2)+Math.sin(a)*d,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:.6+Math.random()*1.6,ph:Math.random()*Math.PI*2};});
-  const blobs=Array.from({length:6},()=>({x:Math.random()*S,y:Math.random()*S,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:70+Math.random()*110,ph:Math.random()*Math.PI*2}));
-  let t=0;
-  (function frame(){
-    requestAnimationFrame(frame);
-    t+=.010;
-    const W=S,H=S;
-    ctx.fillStyle='rgba(255,255,255,.17)';
-    ctx.fillRect(0,0,W,H);
-    blobs.forEach(b=>{b.x+=b.vx;b.y+=b.vy;if(b.x<-b.r||b.x>W+b.r)b.vx*=-1;if(b.y<-b.r||b.y>H+b.r)b.vy*=-1;const al=.06+Math.sin(t*.7+b.ph)*.03;const g=ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);g.addColorStop(0,`rgba(26,26,26,${al})`);g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();});
-    for(let i=0;i<N;i++){
-      const p=ps[i];
-      const dx=mx-p.x,dy=my-p.y,d=Math.sqrt(dx*dx+dy*dy)+.1;
-      if(d<220){const f=(220-d)/220;if(d<70){p.vx-=(dx/d)*f*2.5;p.vy-=(dy/d)*f*2.5;}else{p.vx+=(dx/d)*f*.9;p.vy+=(dy/d)*f*.9;}}
-      p.vx+=(W/2-p.x)*.00018;p.vy+=(H/2-p.y)*.00018;
-      p.vx+=Math.sin(t*1.1+p.ph)*.018;p.vy+=Math.cos(t*.9+p.ph)*.018;
-      p.vx*=.968;p.vy*=.968;
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-      const spd=Math.sqrt(p.vx*p.vx+p.vy*p.vy);
-      const tc=Math.min(spd/3.5,1);
-      const cv2=Math.round(26+tc*60);
-      ctx.shadowColor=`rgba(${cv2},${cv2},${cv2},.5)`;
-      ctx.shadowBlur=6+spd*4;
-      ctx.fillStyle=`rgba(${cv2},${cv2},${cv2},${.5+tc*.35})`;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*(1+spd*.25),0,Math.PI*2);ctx.fill();
-    }
-    ctx.shadowBlur=0;
-    for(let i=0;i<N;i+=2){const p=ps[i];for(let j=i+2;j<N;j+=2){const q=ps[j];const dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){ctx.strokeStyle=`rgba(26,26,26,${(1-d/85)*.18})`;ctx.lineWidth=.4;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}
-    const pr=45+Math.sin(t*1.6)*18;
-    const pg=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,pr);
-    pg.addColorStop(0,'rgba(26,26,26,.32)');pg.addColorStop(.5,'rgba(26,26,26,.12)');pg.addColorStop(1,'rgba(255,255,255,0)');
-    ctx.fillStyle=pg;ctx.beginPath();ctx.arc(W/2,H/2,pr,0,Math.PI*2);ctx.fill();
-    if(mIn&&mx>0){const mg=ctx.createRadialGradient(mx,my,0,mx,my,90);mg.addColorStop(0,'rgba(0,0,0,.22)');mg.addColorStop(.6,'rgba(26,26,26,.08)');mg.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=mg;ctx.beginPath();ctx.arc(mx,my,90,0,Math.PI*2);ctx.fill();}
-  })();
-})();
-
-})();
-</script>
-
-<!-- Hero Scroll Frames Animation -->
-<script src="/assets/js/hero-scroll-frames.js" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  new HeroScrollFrames(
-    '[data-hero-wrap]',
-    '[data-hero-canvas]',
-    '[data-hero-phase]',
-    '[data-hero-bar]',
-    '[data-hero-overlay]'
-  )
-})
 </script>
 
 </body>
