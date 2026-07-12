@@ -77,6 +77,61 @@ section.bg2{background:var(--bg-secondary)}
   section{padding:64px 0}
 }
 
+/* Hero Scroll Canvas Styles */
+[data-hero-wrap]{
+  position:relative;
+  height:100vh;
+  display:flex;
+  align-items:flex-end;
+  padding-bottom:60px;
+  overflow:hidden;
+}
+
+[data-hero-canvas]{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+[data-hero-overlay]{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 100%);
+  z-index:5;
+  transition:transform 0.1s ease-out;
+}
+
+[data-hero-content]{
+  position:relative;
+  z-index:10;
+  color:white;
+}
+
+[data-hero-bar]{
+  position:absolute;
+  top:0;
+  left:0;
+  height:3px;
+  background:#2743C9;
+  transform-origin:left;
+  z-index:20;
+}
+
+[data-hero-phase]{
+  font-size:11px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:16px;
+  height:20px;
+}
+
 /* Utility classes */
 .flex{display:flex}.inline-flex{display:inline-flex}
 .items-center{align-items:center}.justify-between{justify-content:space-between}
@@ -103,10 +158,15 @@ section.bg2{background:var(--bg-secondary)}
   <a class="btn-p" href="/agendar" style="margin-left:auto">Agendar</a>
 </header>
 
-<!-- ══════════════════════ 1. HERO ══════════════════════ -->
-<section style="position:relative;height:100vh;display:flex;align-items:flex-end;padding-bottom:60px;background:#000 url(/assets/home-hero/hero-bg.jpg) center/cover no-repeat">
+<!-- ══════════════════════ 1. HERO — 400 FRAMES SCROLL ══════════════════════ -->
+<section data-hero-wrap>
+  <canvas data-hero-canvas></canvas>
+  <div data-hero-overlay></div>
+  <div data-hero-bar></div>
+
   <div class="max-w-1200 mx-auto" style="width:100%;padding:0 40px">
-    <div style="position:relative;z-index:10;color:white">
+    <div data-hero-content>
+      <div data-hero-phase style="font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:16px;height:20px">Sistema dormido</div>
       <h1 style="font-family:'Clash Display','Segoe UI',sans-serif;font-weight:200;line-height:0.95;letter-spacing:-0.02em;font-size:clamp(3rem,7vw,4.5rem);margin:0 0 1.5rem 0;max-width:15ch">Victor IA</h1>
       <p style="font-size:1rem;line-height:1.5;color:rgba(255,255,255,0.8);max-width:50ch;margin:0 0 2rem 0">Transformamos la comunicación empresarial con inteligencia artificial.</p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap">
@@ -349,6 +409,9 @@ section.bg2{background:var(--bg-secondary)}
     </div>
   </div>
 </footer>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script src="/assets/js/hero-scroll-frames.js" defer></script>
 
 </body>
 </html>
