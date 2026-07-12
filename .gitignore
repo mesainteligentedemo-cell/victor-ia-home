@@ -1,2 +1,6 @@
 .vercel
 .env*
+# Large video files
+*.mp4
+public/**/*.mp4
+public/assets/**/*.mp4

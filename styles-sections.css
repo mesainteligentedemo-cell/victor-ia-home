@@ -1,0 +1,689 @@
+/* ════════════════════════════════════════════════════════════════
+   VICTOR IA — HOME · ESTILOS POR SECCIÓN (v2)
+   Paleta v2 (bone/ultramarine/ink/tint/white/grey) + tipografías v2
+   (Clash Display / Satoshi) vía styles-global.css. Este archivo NO
+   redefine tokens — solo layout, grid, animación y dark mode por
+   sección.
+
+   ── NOTA DE ALCANCE (auditoría real del DOM) ──────────────────────
+   Se pidió cubrir "19 secciones". Contando con `grep -n "^<section"
+   index.html` (y validado con `grep -n "<section"` para descartar
+   indentación) el archivo tiene EXACTAMENTE 12 elementos <section>,
+   más <header id="hdr"> y <footer> (14 bloques nombrados en total).
+   No existen 19 secciones en el DOM actual — este archivo cubre las
+   14 reales, identificadas por los comentarios ══ TITULO ══ que ya
+   trae el HTML:
+     1. HEADER            (header#hdr)                — no es <section>
+     2. HERO              (#hero-scroll)               — nth-of-type(1)
+     3. MARQUEE           (marquee de servicios)       — nth-of-type(2)
+     4. STATS / METRICS   (#stats-grid, .stat-n)       — nth-of-type(3)
+     5. FILOSOFÍA         (philosophy)                 — nth-of-type(4)
+     6. PROCESO           (6 pasos "Paso 1..6")        — nth-of-type(5)
+     7. CAPACIDADES       (#services-grid, cards)      — nth-of-type(6)
+     8. INFRAESTRUCTURA   (#directors-grid, #infra-stats) — nth-of-type(7)
+     9. VENTAJA COMPETITIVA (#comparison-wrapper)      — nth-of-type(8)
+    10. TESTIMONIOS       (#testimonials-grid, cards)  — nth-of-type(9)
+    11. FAQ               (details/summary)            — nth-of-type(10)
+    12. GUÍA DEFINITIVA   (converter/lead magnet)      — nth-of-type(11)
+    13. CTA               (#cta-card)                  — nth-of-type(12)
+    14. FOOTER             (footer, #footer-grid)      — no es <section>
+
+   Los selectores usan `main > section:nth-of-type(N)` (estable, no
+   requiere tocar el HTML) Y una clase semántica `.section-*` como
+   alias documentado, por si más adelante se agregan las clases al
+   markup — ambos apuntan a las mismas reglas.
+
+   ── GSAP / ScrollTrigger / Lenis ───────────────────────────────────
+   Ya están cargados en index.html (líneas ~1325-1327):
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+   Este archivo define el CONTRATO CSS que ese JS debe togglear:
+   clases de estado (.is-visible, .is-active, .counted) + keyframes.
+   Ejemplo de hook esperado (referencia, no ejecutable desde CSS):
+     ScrollTrigger.create({ trigger:'.section-metrics', start:'top 75%',
+       onEnter:()=>document.querySelector('.section-metrics').classList.add('is-visible') });
+
+   ── IMPORTANTE ──
+   .section-hero NO se modifica: el sistema Ken Burns de 400 frames
+   (hero-scroll-frames.js + hero-frame-scrub.js) ya está optimizado.
+   Aquí solo se documenta el selector, sin propiedades.
+
+   ── TRANSICIONES ──
+   Reveals de sección usan var(--trans-reveal) = 750ms (mínimo global
+   de producción). Micro-interacciones de hover (cards, botones) usan
+   var(--trans-sm)/var(--trans-md) — más rápidas a propósito, para que
+   el hover se sienta responsivo y no "pastoso".
+   ════════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   0 · HEADER — .site-header
+   ══════════════════════════════════════════════════════════════ */
+.site-header,
+header#hdr {
+  background: transparent;
+  transition: background var(--trans-md), border-color var(--trans-md);
+}
+
+.site-header.scrolled,
+header#hdr.scrolled {
+  background: rgba(239, 236, 227, .92); /* bone translúcido */
+  border-bottom-color: var(--color-ink-10);
+  backdrop-filter: blur(18px);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   1 · HERO — .section-hero
+   400-frame Ken Burns · NO TOCAR (existente, optimizado)
+   ══════════════════════════════════════════════════════════════ */
+.section-hero,
+main > section:nth-of-type(1) {
+  /* intencionalmente vacío — ver nota de alcance arriba */
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2 · MARQUEE — .section-marquee
+   ══════════════════════════════════════════════════════════════ */
+.section-marquee,
+main > section:nth-of-type(2) {
+  background: var(--color-bone);
+  border-top: 1px solid var(--color-ink-05);
+  border-bottom: 1px solid var(--color-ink-05);
+  padding: 14px 0 !important;
+}
+
+.section-marquee .mq-t,
+main > section:nth-of-type(2) .mq-t {
+  color: var(--color-ink);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3 · STATS / METRICS — .section-metrics
+   ScrollTrigger + count-up en .stat-n
+   ══════════════════════════════════════════════════════════════ */
+.section-metrics,
+main > section:nth-of-type(3) {
+  background: var(--color-tint);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-metrics #stats-grid,
+main > section:nth-of-type(3) #stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* mobile 390px: 2 cols (pares numéricos) */
+  gap: 1px;
+  background: var(--color-ink-05);
+}
+
+@media (min-width: 768px) {
+  .section-metrics #stats-grid,
+  main > section:nth-of-type(3) #stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 cols */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-metrics #stats-grid,
+  main > section:nth-of-type(3) #stats-grid {
+    grid-template-columns: repeat(4, 1fr); /* desktop: 4 cols */
+  }
+}
+
+.section-metrics #stats-grid > div,
+main > section:nth-of-type(3) #stats-grid > div {
+  background: var(--color-tint);
+}
+
+.section-metrics .stat-n,
+main > section:nth-of-type(3) .stat-n {
+  color: var(--color-ink);
+  text-shadow: 0 0 80px var(--color-ultramarine-20);
+}
+
+/* Estado inicial esperado por GSAP: número en 0, opacidad reducida.
+   ScrollTrigger hace onEnter → agrega .is-visible al contenedor y
+   anima data-target vía tween numérico (JS). El keyframe de abajo es
+   un fallback puramente CSS (pulso sutil) mientras el JS cuenta. */
+.section-metrics.is-visible .stat-n,
+main > section:nth-of-type(3).is-visible .stat-n {
+  animation: statPulse var(--trans-reveal) cubic-bezier(.16,1,.3,1) 1;
+}
+
+@keyframes statPulse {
+  0%   { opacity: 0; transform: translateY(16px) scale(.96); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.section-metrics .deco-n,
+main > section:nth-of-type(3) .deco-n {
+  color: rgba(25, 27, 31, .028);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4 · FILOSOFÍA — .section-philosophy
+   Fade in on scroll (reveal simple, reutiliza .rv del global)
+   ══════════════════════════════════════════════════════════════ */
+.section-philosophy,
+main > section:nth-of-type(4) {
+  background: var(--color-bone);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-philosophy .rv,
+main > section:nth-of-type(4) .rv {
+  transition: opacity var(--trans-reveal), transform var(--trans-reveal);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5 · PROCESO — .section-process
+   Stagger animation en los 6 pasos
+   ══════════════════════════════════════════════════════════════ */
+.section-process,
+main > section:nth-of-type(5) {
+  background: var(--color-bone);
+  overflow: hidden;
+}
+
+.section-process [style*="grid-template-columns:1fr 1fr"],
+main > section:nth-of-type(5) [style*="grid-template-columns:1fr 1fr"] {
+  grid-template-columns: 1fr; /* mobile 390px: 1 col, imagen y texto apilados */
+  gap: 32px !important;
+}
+
+@media (min-width: 768px) {
+  .section-process [style*="grid-template-columns:1fr 1fr"],
+  main > section:nth-of-type(5) [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr 1fr; /* tablet+: 2 cols como diseño original */
+    gap: 60px !important;
+  }
+}
+
+/* Cada bloque de paso es un target de stagger para GSAP:
+   gsap.from('.section-process .proceso-step', { opacity:0, y:40,
+     stagger:.15, scrollTrigger:{ trigger:'.section-process', start:'top 70%' }}) */
+.section-process > div > div > div,
+main > section:nth-of-type(5) > div > div > div {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--trans-reveal), transform var(--trans-reveal);
+}
+
+.section-process.is-visible > div > div > div,
+main > section:nth-of-type(5).is-visible > div > div > div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays por paso (1..6) — JS puede sobreescribir con GSAP stagger real */
+.section-process.is-visible > div > div:nth-of-type(1) > div,
+main > section:nth-of-type(5).is-visible > div > div:nth-of-type(1) > div { transition-delay: 0ms; }
+.section-process.is-visible > div > div:nth-of-type(2) > div,
+main > section:nth-of-type(5).is-visible > div > div:nth-of-type(2) > div { transition-delay: 90ms; }
+.section-process.is-visible > div > div:nth-of-type(3) > div,
+main > section:nth-of-type(5).is-visible > div > div:nth-of-type(3) > div { transition-delay: 180ms; }
+
+/* ══════════════════════════════════════════════════════════════
+   6 · CAPACIDADES — .section-capabilities .section-cards
+   Hover parallax en tarjetas (#services-grid)
+   ══════════════════════════════════════════════════════════════ */
+.section-capabilities,
+.section-cards,
+main > section:nth-of-type(6) {
+  background: var(--color-bone);
+}
+
+.section-capabilities #services-grid,
+main > section:nth-of-type(6) #services-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile 390px: 1 col */
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .section-capabilities #services-grid,
+  main > section:nth-of-type(6) #services-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet 768px: 2 cols */
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-capabilities #services-grid,
+  main > section:nth-of-type(6) #services-grid {
+    grid-template-columns: repeat(3, 1fr); /* desktop 1440px: 3 cols */
+    gap: 28px;
+  }
+}
+
+/* Hover parallax — el card "flota" y su ícono se acerca (perspective tilt) */
+.section-capabilities #services-grid > div,
+main > section:nth-of-type(6) #services-grid > div,
+.svc-card {
+  border-color: var(--color-ultramarine-20) !important;
+  background: var(--color-ultramarine-10) !important;
+  transform: translateZ(0) translateY(0) scale(1);
+  transition: transform var(--trans-md), border-color var(--trans-md), box-shadow var(--trans-md);
+  will-change: transform;
+}
+
+.section-capabilities #services-grid > div:hover,
+main > section:nth-of-type(6) #services-grid > div:hover,
+.svc-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: var(--color-ultramarine-40) !important;
+  box-shadow: var(--shadow-md);
+}
+
+.section-capabilities #services-grid > div > div:first-child,
+main > section:nth-of-type(6) #services-grid > div > div:first-child {
+  transition: transform var(--trans-lg);
+}
+
+.section-capabilities #services-grid > div:hover > div:first-child,
+main > section:nth-of-type(6) #services-grid > div:hover > div:first-child {
+  transform: scale(1.06); /* parallax sutil de la imagen/video dentro del card */
+}
+
+/* ══════════════════════════════════════════════════════════════
+   7 · INFRAESTRUCTURA — .section-infrastructure
+   ══════════════════════════════════════════════════════════════ */
+.section-infrastructure,
+main > section:nth-of-type(7) {
+  background: var(--color-tint);
+  overflow: hidden;
+}
+
+#victor-card {
+  background: linear-gradient(135deg, var(--color-ultramarine-10), var(--color-ultramarine-10) 40%, transparent) !important;
+  border-color: var(--color-ultramarine-30) !important;
+}
+
+.section-infrastructure #directors-grid,
+main > section:nth-of-type(7) #directors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* mobile 390px: 2 cols (5 tarjetas) */
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .section-infrastructure #directors-grid,
+  main > section:nth-of-type(7) #directors-grid {
+    grid-template-columns: repeat(3, 1fr); /* tablet 768px: 3 cols */
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-infrastructure #directors-grid,
+  main > section:nth-of-type(7) #directors-grid {
+    grid-template-columns: repeat(5, 1fr); /* desktop 1440px: 5 cols (diseño original) */
+  }
+}
+
+.section-infrastructure #infra-stats,
+main > section:nth-of-type(7) #infra-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* mobile: 2 cols */
+  gap: 1px;
+  background: var(--color-ink-05);
+}
+
+@media (min-width: 768px) {
+  .section-infrastructure #infra-stats,
+  main > section:nth-of-type(7) #infra-stats {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 cols */
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-infrastructure #infra-stats,
+  main > section:nth-of-type(7) #infra-stats {
+    grid-template-columns: repeat(4, 1fr); /* desktop: 4 cols */
+  }
+}
+
+.section-infrastructure #infra-stats > div,
+main > section:nth-of-type(7) #infra-stats > div {
+  background: var(--color-tint);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   8 · VENTAJA COMPETITIVA — .section-comparison
+   ══════════════════════════════════════════════════════════════ */
+.section-comparison,
+main > section:nth-of-type(8) {
+  background: var(--color-bone);
+  overflow: hidden;
+}
+
+#comparison-wrapper {
+  border-color: var(--color-ink-10) !important;
+}
+
+#comparison-wrapper > div:first-child {
+  background: var(--color-tint) !important;
+}
+
+/* Columna "Victor IA" resaltada en ultramarine (antes era ink/gold) */
+#comparison-wrapper [style*="background:rgba(26,26,26,.04)"],
+#comparison-wrapper [style*="background:rgba(26,26,26,.03)"] {
+  background: var(--color-ultramarine-10) !important;
+  border-left-color: var(--color-ultramarine-20) !important;
+}
+
+/* Grid responsive de la tabla — mobile 390px: solo 2 cols (label + Victor IA) */
+.section-comparison #comparison-wrapper > div,
+main > section:nth-of-type(8) #comparison-wrapper > div {
+  grid-template-columns: 1.4fr 1fr;
+}
+
+@media (min-width: 768px) {
+  .section-comparison #comparison-wrapper > div,
+  main > section:nth-of-type(8) #comparison-wrapper > div {
+    grid-template-columns: 1.2fr 1fr 1fr; /* tablet 768px: +1 competidor */
+  }
+  .section-comparison #comparison-wrapper > div > div:nth-child(4),
+  main > section:nth-of-type(8) #comparison-wrapper > div > div:nth-child(4) {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-comparison #comparison-wrapper > div,
+  main > section:nth-of-type(8) #comparison-wrapper > div {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr; /* desktop: 4 cols completas */
+  }
+  .section-comparison #comparison-wrapper > div > div:nth-child(4),
+  main > section:nth-of-type(8) #comparison-wrapper > div > div:nth-child(4) {
+    display: block;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   9 · TESTIMONIOS — .section-testimonials .section-cards
+   Hover parallax (mismo contrato que Capacidades)
+   ══════════════════════════════════════════════════════════════ */
+.section-testimonials,
+main > section:nth-of-type(9) {
+  background: var(--color-white);
+}
+
+.section-testimonials #testimonials-grid,
+main > section:nth-of-type(9) #testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile 390px: 1 col */
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .section-testimonials #testimonials-grid,
+  main > section:nth-of-type(9) #testimonials-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet 768px: 2 cols */
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section-testimonials #testimonials-grid,
+  main > section:nth-of-type(9) #testimonials-grid {
+    grid-template-columns: repeat(3, 1fr); /* desktop 1440px: 3 cols */
+    gap: 28px;
+  }
+}
+
+.section-testimonials #testimonials-grid > div,
+main > section:nth-of-type(9) #testimonials-grid > div {
+  background: var(--color-tint) !important;
+  border-color: var(--color-ink-10) !important;
+  transform: translateY(0) scale(1);
+  transition: transform var(--trans-md), box-shadow var(--trans-md);
+}
+
+.section-testimonials #testimonials-grid > div:hover,
+main > section:nth-of-type(9) #testimonials-grid > div:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-md);
+}
+
+.section-testimonials #testimonials-grid [style*="color:#1A7BFF"],
+main > section:nth-of-type(9) #testimonials-grid [style*="color:#1A7BFF"] {
+  color: var(--color-ultramarine) !important;
+}
+
+.section-testimonials #testimonials-grid [style*="background:rgba(26,123,255,.1)"],
+main > section:nth-of-type(9) #testimonials-grid [style*="background:rgba(26,123,255,.1)"] {
+  background: var(--color-ultramarine-10) !important;
+  border-color: var(--color-ultramarine-20) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   10 · FAQ — .section-faq
+   ══════════════════════════════════════════════════════════════ */
+.section-faq,
+main > section:nth-of-type(10) {
+  background: var(--color-tint);
+}
+
+.section-faq details,
+main > section:nth-of-type(10) details {
+  border-bottom-color: var(--color-ink-10);
+}
+
+.section-faq details summary,
+main > section:nth-of-type(10) details summary {
+  color: var(--color-ink);
+  transition: color var(--trans-sm);
+}
+
+.section-faq details summary:hover,
+main > section:nth-of-type(10) details summary:hover {
+  color: var(--color-ultramarine);
+}
+
+.section-faq details summary::after,
+main > section:nth-of-type(10) details summary::after {
+  color: var(--color-ultramarine);
+}
+
+.section-faq details p,
+main > section:nth-of-type(10) details p {
+  color: var(--color-grey);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   11 · GUÍA DEFINITIVA (lead magnet) — .section-guide
+   ══════════════════════════════════════════════════════════════ */
+.section-guide,
+main > section:nth-of-type(11) {
+  background: var(--color-bone);
+}
+
+.section-guide [style*="linear-gradient(135deg,rgba(26,26,26,.06)"],
+main > section:nth-of-type(11) [style*="linear-gradient(135deg,rgba(26,26,26,.06)"] {
+  background: linear-gradient(135deg, var(--color-ultramarine-10) 0%, transparent 100%) !important;
+  border-color: var(--color-ultramarine-30) !important;
+}
+
+.section-guide [style*="grid-template-columns:1fr auto"],
+main > section:nth-of-type(11) [style*="grid-template-columns:1fr auto"] {
+  grid-template-columns: 1fr; /* mobile 390px: 1 col, número debajo */
+  text-align: center;
+  gap: 28px !important;
+}
+
+@media (min-width: 768px) {
+  .section-guide [style*="grid-template-columns:1fr auto"],
+  main > section:nth-of-type(11) [style*="grid-template-columns:1fr auto"] {
+    grid-template-columns: 1fr auto; /* tablet+: layout original */
+    text-align: left;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   12 · CTA — .section-cta
+   Fade in on scroll
+   ══════════════════════════════════════════════════════════════ */
+.section-cta,
+main > section:nth-of-type(12) {
+  background: var(--color-tint);
+}
+
+#cta-card {
+  background: var(--color-bone) !important;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--trans-reveal), transform var(--trans-reveal);
+}
+
+/* GSAP/ScrollTrigger agrega .is-visible al hacer onEnter sobre #cta-card */
+.section-cta.is-visible #cta-card,
+main > section:nth-of-type(12).is-visible #cta-card,
+#cta-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#cta-glow {
+  background: radial-gradient(ellipse at 50% 0%, var(--color-ultramarine-10) 0%, transparent 65%) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER — .site-footer
+   ══════════════════════════════════════════════════════════════ */
+.site-footer,
+footer {
+  background: var(--color-white);
+  border-top-color: var(--color-ink-05);
+}
+
+.site-footer .nav-a,
+footer .nav-a {
+  color: var(--color-grey);
+  transition: color var(--trans-sm);
+}
+
+.site-footer .nav-a:hover,
+footer .nav-a:hover {
+  color: var(--color-ultramarine);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — puntos de referencia globales de este archivo
+   mobile 390px (base, mobile-first) · tablet 768px · desktop 1440px
+   (con parada intermedia en 1024px donde el diseño lo pedía)
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 389px) {
+  /* Extra-small guard: nunca menos de 1 columna, nunca overflow-x */
+  .section-metrics #stats-grid,
+  main > section:nth-of-type(3) #stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DARK MODE — @media (prefers-color-scheme: dark)
+   Reutiliza los tokens ya invertidos en styles-global.css
+   (--color-bg-primary, --color-bg-secondary, --color-text-primary,
+   --color-text-muted, --color-gold pasan a sus variantes dark ahí);
+   aquí solo se ajustan bordes/imagenes/decorativos que en el HTML
+   están hardcodeados con hex claros vía atributo style.
+   ══════════════════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+  .site-header,
+  header#hdr {
+    background: transparent;
+  }
+  .site-header.scrolled,
+  header#hdr.scrolled {
+    background: rgba(25, 27, 31, .92);
+    border-bottom-color: rgba(255, 255, 255, .08);
+  }
+
+  .section-marquee,
+  main > section:nth-of-type(2) {
+    background: var(--color-bg-primary);
+    border-top-color: rgba(255, 255, 255, .06);
+    border-bottom-color: rgba(255, 255, 255, .06);
+  }
+  .section-marquee .mq-t,
+  main > section:nth-of-type(2) .mq-t {
+    color: var(--color-text-primary);
+  }
+
+  .section-metrics,
+  main > section:nth-of-type(3),
+  .section-infrastructure,
+  main > section:nth-of-type(7),
+  .section-faq,
+  main > section:nth-of-type(10),
+  .section-cta,
+  main > section:nth-of-type(12) {
+    background: var(--color-bg-secondary);
+  }
+
+  .section-philosophy,
+  main > section:nth-of-type(4),
+  .section-process,
+  main > section:nth-of-type(5),
+  .section-capabilities,
+  main > section:nth-of-type(6),
+  .section-comparison,
+  main > section:nth-of-type(8),
+  .section-guide,
+  main > section:nth-of-type(11) {
+    background: var(--color-bg-primary);
+  }
+
+  .section-testimonials,
+  main > section:nth-of-type(9) {
+    background: var(--color-bg-primary);
+  }
+
+  .section-metrics #stats-grid > div,
+  main > section:nth-of-type(3) #stats-grid > div,
+  .section-infrastructure #infra-stats > div,
+  main > section:nth-of-type(7) #infra-stats > div {
+    background: var(--color-bg-secondary);
+  }
+
+  .section-metrics .stat-n,
+  main > section:nth-of-type(3) .stat-n,
+  #victor-card,
+  .section-infrastructure #directors-grid > div,
+  main > section:nth-of-type(7) #directors-grid > div {
+    color: var(--color-text-primary);
+  }
+
+  .section-capabilities #services-grid > div,
+  main > section:nth-of-type(6) #services-grid > div,
+  .svc-card,
+  .section-testimonials #testimonials-grid > div,
+  main > section:nth-of-type(9) #testimonials-grid > div {
+    background: var(--color-bg-secondary) !important;
+    border-color: rgba(255, 255, 255, .08) !important;
+  }
+
+  #comparison-wrapper {
+    border-color: rgba(255, 255, 255, .1) !important;
+  }
+  #comparison-wrapper > div:first-child {
+    background: var(--color-bg-secondary) !important;
+  }
+
+  #cta-card {
+    background: var(--color-bg-secondary) !important;
+  }
+
+  .site-footer,
+  footer {
+    background: var(--color-bg-primary);
+    border-top-color: rgba(255, 255, 255, .06);
+  }
+
+  /* Textos/números decorativos hardcodeados en negro vía inline style */
+  .deco-n {
+    color: rgba(239, 236, 227, .04) !important;
+  }
+}
