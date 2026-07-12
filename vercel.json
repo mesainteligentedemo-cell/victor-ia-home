@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/assets/**/*.webp",
+      "source": "/assets/(.*).webp",
       "headers": [
         {
           "key": "Cache-Control",
@@ -14,7 +14,7 @@
       ]
     },
     {
-      "source": "/assets/**/*.png",
+      "source": "/assets/(.*).png",
       "headers": [
         {
           "key": "Cache-Control",
@@ -23,11 +23,29 @@
       ]
     },
     {
-      "source": "/assets/**/*.jpg",
+      "source": "/assets/(.*).jpg",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*).js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, immutable, max-age=31536000"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*).css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, immutable, max-age=31536000"
         }
       ]
     }
