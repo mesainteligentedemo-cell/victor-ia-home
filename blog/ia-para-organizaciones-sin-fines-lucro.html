@@ -252,10 +252,145 @@
 </svg>
 </div>
 
-    <...
+    <p>La recaudación es, para la mayoría de las organizaciones, el músculo más débil y a la vez el más determinante para la supervivencia. Y no porque falte dinero disponible en el país, sino porque cultivarlo de forma sistemática exige un trabajo constante que los equipos pequeños no alcanzan a sostener. De acuerdo con el Centro Mexicano para la Filantropía (Cemefi), el sector no lucrativo mexicano aportó cerca del 1.82% del PIB en 2024 —alrededor de 571 mil millones de pesos— y sostiene la participación de más de 3.2 millones de voluntarios y cientos de miles de empleos directos. Hay músculo filantrópico; lo que falta muchas veces es la capacidad operativa para atenderlo bien.</p>
+
+    <p>La composición de ese dinero también dice algo importante. Según el registro de donatarias autorizadas, del total de donativos recaudados en un ejercicio reciente cerca del 63% provino de personas morales —empresas y fundaciones— frente a aproximadamente 30% de personas físicas y 7% del sector público. Esa concentración significa que perder o descuidar a un solo donante corporativo grande puede desestabilizar el presupuesto anual completo. La diversificación hacia donadores individuales recurrentes —más pequeños, pero más numerosos y estables— es la mejor póliza de seguro que puede construir una organización. Y ese es, precisamente, el tipo de trabajo relacional y repetitivo donde la IA rinde más.</p>
+
+    <h3>Segmentación predictiva: hablarle a cada donante como corresponde</h3>
+
+    <p>El error clásico de recaudación es tratar a toda la base de contactos igual: el mismo correo masivo, con el mismo monto sugerido, en la misma fecha, para quien donó una vez hace tres años y para quien aporta cada mes desde 2019. Un modelo de IA cambia esa lógica. Al analizar el historial de donativos, la frecuencia, el monto promedio, la respuesta a campañas anteriores y las señales de comportamiento (aperturas de correo, clics, asistencia a eventos), la organización puede segmentar su base en grupos con estrategias distintas: a quién pedirle un aumento de aportación, a quién invitar a convertirse en donante recurrente, a quién simplemente agradecer para no quemar la relación.</p>
+
+    <p>No hace falta un equipo de científicos de datos para lograrlo. Las plataformas de gestión de donantes con IA integrada —y descuentos específicos para el tercer sector— ya incorporan estos modelos de puntuación. La organización carga su historial y el sistema devuelve prioridades accionables: "estos 40 donantes tienen alta probabilidad de aumentar su aportación si se les contacta este trimestre". El coordinador de recaudación deja de adivinar y empieza a trabajar sobre una lista ordenada por probabilidad de éxito.</p>
+
+    <div class="rv article-visual" id="viz-ong-flow" style="margin:2.5rem 0;">
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;display:block;" role="img" aria-label="Embudo de cultivo de donantes: del primer contacto al donante recurrente con ayuda de IA">
+<defs>
+<pattern id="ong_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="0.3" opacity="0.16"/></pattern>
+<linearGradient id="ong_core" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0066ff" stop-opacity="0.9"/><stop offset="100%" stop-color="#1A1A1A" stop-opacity="0.9"/></linearGradient>
+<radialGradient id="ong_glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0066ff" stop-opacity="0.32"/><stop offset="100%" stop-color="#0066ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="450" fill="#FFFFFF"/><rect width="800" height="450" fill="url(#ong_grid)"/>
+<text x="40" y="46" font-family="serif" font-size="17" fill="#1A1A1A" letter-spacing="3">DEL PRIMER CONTACTO AL DONANTE RECURRENTE</text>
+<text x="40" y="68" font-family="sans-serif" font-size="11" fill="#000000" opacity="0.5">La IA cultiva cada relaci&#243;n en el momento correcto</text>
+<g id="ong_flow" stroke="#0066ff" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="8 6">
+<path d="M170,210 L300,210"/><path d="M410,210 L510,210"/><path d="M620,210 L680,210"/>
+</g>
+<g class="ong_node"><rect x="60" y="170" width="110" height="80" rx="10" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="115" y="205" font-family="sans-serif" font-size="12" fill="#1A1A1A" text-anchor="middle">Contacto</text><text x="115" y="225" font-family="sans-serif" font-size="10" fill="#000000" opacity="0.5" text-anchor="middle">nuevo</text></g>
+<g class="ong_node"><rect x="300" y="170" width="110" height="80" rx="10" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="355" y="205" font-family="sans-serif" font-size="12" fill="#1A1A1A" text-anchor="middle">Primer</text><text x="355" y="225" font-family="sans-serif" font-size="10" fill="#000000" opacity="0.5" text-anchor="middle">donativo</text></g>
+<g class="ong_node"><rect x="510" y="170" width="110" height="80" rx="10" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="565" y="205" font-family="sans-serif" font-size="12" fill="#1A1A1A" text-anchor="middle">Cultivo</text><text x="565" y="225" font-family="sans-serif" font-size="10" fill="#000000" opacity="0.5" text-anchor="middle">con IA</text></g>
+<circle cx="740" cy="210" r="52" fill="url(#ong_glow)"/>
+<circle id="ong_pulse" cx="740" cy="210" r="38" fill="url(#ong_core)"/>
+<text x="740" y="206" font-family="sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">DONANTE</text>
+<text x="740" y="222" font-family="sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">RECURRENTE</text>
+<text x="115" y="330" font-family="sans-serif" font-size="11" fill="#000000" opacity="0.55" text-anchor="middle">Bienvenida</text>
+<text x="355" y="330" font-family="sans-serif" font-size="11" fill="#000000" opacity="0.55" text-anchor="middle">Agradecimiento</text>
+<text x="565" y="330" font-family="sans-serif" font-size="11" fill="#000000" opacity="0.55" text-anchor="middle">Reporte de impacto</text>
+<text x="760" y="435" font-family="sans-serif" font-size="9" fill="#1A1A1A" opacity="0.35" text-anchor="end" letter-spacing="2">VICTOR IA</text>
+</svg>
 </div>
-  
-  <section class="viai-linkbuild rv">
+<script>
+(function(){function run(){if(!window.gsap){return setTimeout(run,200);}var g=window.gsap;
+g.to("#ong_pulse",{scale:1.12,transformOrigin:"740px 210px",duration:1.4,repeat:-1,yoyo:true,ease:"sine.inOut"});
+g.to("#ong_flow",{strokeDashoffset:-28,duration:1.1,repeat:-1,ease:"none"});
+g.fromTo(".ong_node",{opacity:0.4},{opacity:1,duration:1,repeat:-1,yoyo:true,ease:"sine.inOut",stagger:0.3});
+}if(document.readyState!=='loading')run();else document.addEventListener('DOMContentLoaded',run);})();
+</script>
+
+    <p>La otra mitad del trabajo de recaudación es la retención. Conseguir un donante nuevo cuesta mucho más que conservar uno existente, y sin embargo la mayoría de las organizaciones pequeñas dedican casi todo su esfuerzo a captar y casi nada a cuidar. Un agente de IA cierra esa brecha automatizando el ciclo de agradecimiento y seguimiento: envía el recibo deducible en minutos, agradece con un mensaje personalizado, comparte a los pocos meses un reporte concreto de lo que su donativo hizo posible y, cuando detecta que un donante recurrente lleva demasiado tiempo sin aportar, avisa al equipo para una llamada humana oportuna. La tecnología no reemplaza el vínculo: lo hace posible a una escala que un equipo de tres personas jamás alcanzaría a mano.</p>
+
+    <h2>Gestión de voluntarios: coordinar sin agotar a la coordinadora</h2>
+
+    <p>Después de la recaudación, la coordinación de voluntarios es la segunda gran fuente de trabajo administrativo invisible. Confirmar asistencia, recordar la hora y el lugar, reasignar cuando alguien cancela a última hora, registrar quién asistió y agradecer después: cada evento se traga horas de mensajería manual que recaen casi siempre sobre una sola persona. En un país donde, según Cemefi, más de tres millones de personas participan como voluntarias, ese cuello de botella se multiplica en cada organización que depende de manos disponibles.</p>
+
+    <p>La IA convierte ese caos en un flujo ordenado. Un agente puede gestionar todo el ciclo del voluntario por WhatsApp o correo: confirma la participación, envía recordatorios a 48 y 24 horas, reacomoda cupos cuando alguien se da de baja, registra la asistencia real y dispara un mensaje de agradecimiento con la foto del evento. El resultado no es solo ahorro de tiempo: es una experiencia más profesional que hace que el voluntario quiera volver. Y la retención de voluntarios, igual que la de donantes, es donde se juega la sostenibilidad de largo plazo.</p>
+
+    <ul>
+      <li><strong>Emparejamiento por habilidades:</strong> el sistema cruza las capacidades declaradas de cada voluntario (diseño, logística, atención directa) con las necesidades de cada proyecto y sugiere la mejor asignación.</li>
+      <li><strong>Recordatorios automáticos escalonados:</strong> reducen las ausencias de la misma forma que reducen los no-shows en cualquier agenda de servicios.</li>
+      <li><strong>Registro y reconocimiento:</strong> cada participación queda documentada, lo que facilita constancias, cartas de recomendación y reportes para financiadores que exigen evidencia de movilización comunitaria.</li>
+    </ul>
+
+    <h2>Reportes de impacto: de semanas de trabajo a un borrador en minutos</h2>
+
+    <p>Ninguna tarea genera tanta frustración en el sector social como el reporte de impacto. Los financiadores —gobierno, fundaciones, empresas con responsabilidad social— exigen informes detallados con indicadores, narrativa y evidencia. Elaborarlos consume semanas del personal más capacitado, justo el que debería estar diseñando programas o en el campo. Y la paradoja es cruel: mientras más reporta una organización, menos tiempo tiene para generar el impacto que reporta.</p>
+
+    <p>Aquí los modelos de lenguaje ofrecen uno de los retornos más inmediatos. Alimentados con los datos crudos del programa —número de beneficiarios, actividades realizadas, resultados medidos— generan en minutos un borrador estructurado, coherente y adaptado al formato de cada financiador. El equipo pasa de escribir desde cero a revisar y afinar, lo que reduce el tiempo de elaboración de forma drástica. Un mismo conjunto de datos puede reconvertirse, además, en versiones distintas para públicos distintos: el informe técnico para el financiador, el resumen emotivo para redes sociales y la ficha ejecutiva para el consejo, todo desde la misma fuente y sin reescribir a mano cada una.</p>
+
+    <div class="key-takeaways rv">
+      <h4>Tareas del sector social donde la IA rinde más rápido</h4>
+      <ul>
+        <li><strong>Redacción de reportes de impacto</strong> para financiadores, a partir de datos crudos del programa.</li>
+        <li><strong>Segmentación y seguimiento de donantes</strong> para diversificar ingresos y aumentar la recurrencia.</li>
+        <li><strong>Coordinación de voluntarios</strong> con confirmaciones, recordatorios y registro automáticos.</li>
+        <li><strong>Atención de primer contacto</strong> a beneficiarios y donantes potenciales vía chatbot, 24/7.</li>
+        <li><strong>Traducción y adaptación de materiales</strong> para comunidades y financiadores internacionales.</li>
+      </ul>
+    </div>
+
+    <h2>Marco legal: datos de donantes y beneficiarios bajo la LFPDPPP</h2>
+
+    <p>Adoptar IA en el sector social implica manejar datos sensibles: información de donantes, de beneficiarios y, en muchos casos, de poblaciones en situación de vulnerabilidad. En México, ese manejo está regulado por la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, que aplica también a las organizaciones de la sociedad civil. Cumplirla no es opcional ni un trámite: es parte de la confianza que sostiene toda la relación con los donantes.</p>
+
+    <p>Las obligaciones básicas son claras y perfectamente compatibles con el uso de IA: publicar un aviso de privacidad visible en cada punto de recolección de datos (formularios, sitio web, eventos), obtener consentimiento explícito para usar la información con fines de análisis o comunicación, y firmar convenios de responsabilidad compartida con los proveedores tecnológicos que procesan datos en la nube. La regla de oro operativa es minimizar: que los modelos trabajen con la menor cantidad de datos identificables posible y que la información sensible de beneficiarios nunca alimente sistemas que no la requieran. Una organización que diseña su gobernanza de datos desde el principio convierte el cumplimiento en un activo reputacional, no en una carga.</p>
+
+    <h2>Atención y captación 24/7: el chatbot como primer punto de contacto</h2>
+
+    <p>Buena parte del interés que recibe una organización llega fuera del horario de oficina: alguien que quiere donar un domingo por la noche, un beneficiario que necesita orientación, un voluntario que pregunta cómo sumarse. Sin nadie que responda en el momento, ese interés se enfría y muchas veces se pierde. Un chatbot bien diseñado atiende ese primer contacto de forma inmediata: explica qué hace la organización, cómo donar, cómo ser voluntario o a qué servicios se puede acceder, y deja el caso ordenado para que una persona lo retome cuando corresponda.</p>
+
+    <p>El valor no está solo en la disponibilidad, sino en la consistencia. El chatbot nunca responde de mal humor, nunca olvida mencionar la cuenta para donativos y nunca deja un mensaje sin contestar por estar saturado. Para organizaciones que dependen de la conversión de cada persona interesada —porque cada donante y cada voluntario cuentan— esa consistencia se traduce directamente en más recursos y más manos. Y como toda la tecnología descrita en este artículo, se implementa por etapas: primero las preguntas más frecuentes, después la captación de donativos, luego la orientación a beneficiarios.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0 40px">
+      <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1A1A1A">24/7</div>
+        <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.05em">Atención de primer contacto sin equipo de guardia</div>
+      </div>
+      <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1A1A1A">1.82%</div>
+        <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.05em">Del PIB aporta el sector no lucrativo (Cemefi, 2024)</div>
+      </div>
+      <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1A1A1A">3.2M</div>
+        <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.05em">Voluntarios activos en México (Cemefi, 2024)</div>
+      </div>
+    </div>
+
+    <h2>Cómo empezar en 90 días sin arriesgar el presupuesto</h2>
+
+    <p>La forma más segura de adoptar IA en una ONG no es un gran proyecto tecnológico, sino un caso de uso acotado que demuestre valor con datos propios. La secuencia que mejor funciona en organizaciones pequeñas es deliberadamente modesta al inicio:</p>
+
+    <ul>
+      <li><strong>Semanas 1-2 — El dolor más repetitivo.</strong> Identifica la tarea que más tiempo consume y menos criterio profesional requiere. Casi siempre es la redacción de reportes o el seguimiento a donantes. Empieza ahí.</li>
+      <li><strong>Semanas 3-6 — Piloto medible.</strong> Automatiza ese único proceso y mide el antes y el después en horas ahorradas. Un dato concreto —"pasamos de tres días a media tarde por informe"— vale más que cualquier promesa.</li>
+      <li><strong>Semanas 7-10 — Adopción del equipo.</strong> Involucra a quienes operan el proceso para que la herramienta se use de verdad. La barrera nunca es técnica; es humana.</li>
+      <li><strong>Semanas 11-13 — Segundo caso.</strong> Con el ahorro del primer piloto demostrado, suma un proceso más: coordinación de voluntarios o atención de primer contacto.</li>
+    </ul>
+
+    <p>Este enfoque escalonado mantiene el riesgo bajo y construye el caso de negocio con evidencia interna. Cada etapa se financia con el tiempo que liberó la anterior, y la organización aprende a usar la tecnología sin apostar su presupuesto en una sola jugada.</p>
+
+    <h2>Tres errores que frenan a las organizaciones (y cómo evitarlos)</h2>
+
+    <h3>Error 1: querer automatizarlo todo el primer mes</h3>
+    <p>El entusiasmo lleva a intentar cinco proyectos a la vez, lo que dispersa el esfuerzo y termina sin ningún resultado claro. La disciplina de un solo caso de uso bien medido es lo que genera adopción real.</p>
+
+    <h3>Error 2: comprar tecnología cara antes de entender el problema</h3>
+    <p>Muchas organizaciones adquieren plataformas robustas que luego nadie usa. Primero se identifica el proceso doloroso; después se elige la herramienta —y buena parte del trabajo inicial se puede hacer con planes gratuitos o con descuentos para el tercer sector.</p>
+
+    <h3>Error 3: tratarlo como un proyecto de tecnología y no de operación</h3>
+    <p>La IA cambia la forma de trabajar del equipo. Si la coordinadora de voluntarios o la responsable de recaudación no participan en el diseño, el sistema se subutiliza. La tecnología se adopta cuando resuelve un dolor que la gente siente, no cuando se impone desde arriba.</p>
+
+    <blockquote>Una ONG que no mide, improvisa. Una que mide pero no actúa, se agota reportando. Una que interpreta sus datos y automatiza lo repetitivo libera a su gente para lo único que la tecnología no puede hacer: estar en el campo, con las personas. Esa es la diferencia entre sobrevivir de convocatoria en convocatoria y construir una organización sostenible.</blockquote>
+
+    <p>El panorama tecnológico juega a favor del sector. El reporte de McKinsey <em>The State of AI</em> documenta que el 88% de las organizaciones a nivel global ya usa IA en al menos una función y que el 79% ha adoptado IA generativa, aunque solo cerca del 7% la ha escalado a toda su operación. Para una ONG, esto significa dos cosas: la tecnología ya está madura y accesible, y todavía hay una ventaja real para quienes la adopten antes que el resto de su sector.</p>
+
+    <h2>Conclusión: hacer más con lo mismo, sin traicionar la misión</h2>
+
+    <p>La objeción legítima de cualquier líder social es que la tecnología no puede sustituir el trabajo humano que da sentido a una organización. Y es cierto: la IA no consuela a una familia, no acompaña a un beneficiario ni construye la confianza de una comunidad. Pero tampoco pretende hacerlo. Lo que hace es quitarle a los equipos las horas de administración que hoy los alejan de esa misión, para devolvérselas convertidas en tiempo de campo, de programa y de relación.</p>
+
+    <p>La barrera de entrada nunca fue tan baja: herramientas gratuitas o con descuento para el tercer sector, implementación por casos acotados y resultados medibles en semanas. La pregunta ya no es si una ONG mexicana puede permitirse la IA, sino cuánto impacto está dejando sobre la mesa cada mes que sigue llenando formatos a mano. En Victor IA acompañamos a organizaciones sociales a identificar su primer caso de uso, implementarlo con datos reales y escalar solo lo que demuestre valor —para que la tecnología sirva a la misión, y no al revés.</p>
+</article>
+</div>
+
+<section class="viai-linkbuild rv">
     <div class="lb-grid">
       <div><h2>Sigue leyendo</h2><ul style="list-style:none;padding:0">
         <li style="margin-bottom:10px"><a href="/blog/que-son-agentes-ia">¿Qué son los Agentes de IA y cómo trabajan en 2026?</a></li>

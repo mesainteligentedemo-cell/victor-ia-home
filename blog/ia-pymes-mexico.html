@@ -197,9 +197,140 @@
         <p style="font-size:14px;line-height:1.7;color:rgba(0,0,0,.65);margin:0">Recordatorios de pago, seguimiento de facturas vencidas, generación de estados de cuenta y comunicación con clientes en proceso de cobranza. Un proceso que muchos dueños evitan porque "es incómodo" — y que un agente ejecuta con precisión, consistencia y sin el elemento emocional que lo hace difícil.</p>
       </div>
 
-      <div class="rv article-visual" style="margin:2.5rem 0;">
-<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;display:block;">
-<defs><pattern id="gbr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" st...
+      <p>Estos cinco procesos comparten un rasgo: son repetitivos, consumen muchas horas y no requieren el criterio único de un dueño o director. Por eso son el terreno perfecto para empezar. La recomendación práctica no es automatizar los cinco a la vez, sino elegir el que más duele hoy —casi siempre atención al cliente o seguimiento de ventas— y demostrar el valor ahí antes de sumar el siguiente.</p>
+
+      <div class="rv article-visual" id="viz-pymes5" style="margin:2.5rem 0;">
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;display:block;" role="img" aria-label="Cinco procesos de una PyME conectados a un núcleo de agentes de IA">
+<defs>
+<pattern id="pym_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="0.3" opacity="0.16"/></pattern>
+<linearGradient id="pym_c" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0066ff" stop-opacity="0.9"/><stop offset="100%" stop-color="#1A1A1A" stop-opacity="0.9"/></linearGradient>
+<radialGradient id="pym_glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0066ff" stop-opacity="0.35"/><stop offset="100%" stop-color="#0066ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="450" fill="#FFFFFF"/><rect width="800" height="450" fill="url(#pym_grid)"/>
+<text x="40" y="46" font-family="serif" font-size="17" fill="#1A1A1A" letter-spacing="3">LA PYME QUE OPERA CON AGENTES</text>
+<text x="40" y="68" font-family="sans-serif" font-size="11" fill="#000000" opacity="0.5">Cinco procesos &#8594; un n&#250;cleo de IA que los ejecuta</text>
+<g id="pym_flow" stroke="#0066ff" stroke-width="1.4" fill="none" opacity="0.55" stroke-dasharray="6 6">
+<path d="M150,150 L400,250"/><path d="M400,110 L400,250"/><path d="M650,150 L400,250"/><path d="M180,360 L400,250"/><path d="M620,360 L400,250"/>
+</g>
+<circle cx="400" cy="250" r="62" fill="url(#pym_glow)"/>
+<circle id="pym_pulse" cx="400" cy="250" r="44" fill="url(#pym_c)"/>
+<text x="400" y="246" font-family="sans-serif" font-size="13" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">TU PYME</text>
+<text x="400" y="264" font-family="sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" opacity="0.8">+ agentes</text>
+<g font-family="sans-serif" font-size="10" fill="#1A1A1A" text-anchor="middle">
+<g class="pym_node"><circle cx="150" cy="150" r="11" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="150" y="126">Atenci&#243;n</text></g>
+<g class="pym_node"><circle cx="400" cy="110" r="11" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="400" y="92">Ventas</text></g>
+<g class="pym_node"><circle cx="650" cy="150" r="11" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="650" y="126">Reportes</text></g>
+<g class="pym_node"><circle cx="180" cy="360" r="11" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="180" y="386">Marketing</text></g>
+<g class="pym_node"><circle cx="620" cy="360" r="11" fill="#FFFFFF" stroke="#1A1A1A" stroke-width="1.5"/><text x="620" y="386">Cobranza</text></g>
+</g>
+<text x="760" y="435" font-family="sans-serif" font-size="9" fill="#1A1A1A" opacity="0.35" text-anchor="end" letter-spacing="2">VICTOR IA</text>
+</svg>
+</div>
+<script>
+(function(){function run(){if(!window.gsap){return setTimeout(run,200);}var g=window.gsap;
+g.to("#pym_pulse",{scale:1.12,transformOrigin:"400px 250px",duration:1.4,repeat:-1,yoyo:true,ease:"sine.inOut"});
+g.to("#pym_flow",{strokeDashoffset:-24,duration:1.1,repeat:-1,ease:"none"});
+g.fromTo(".pym_node",{opacity:0.4},{opacity:1,duration:1,repeat:-1,yoyo:true,ease:"sine.inOut",stagger:0.25});
+}if(document.readyState!=='loading')run();else document.addEventListener('DOMContentLoaded',run);})();
+</script>
+
+      <h2>El costo real: contratar una persona vs. activar un agente</h2>
+      <p>La comparación que importa para una PyME no es "IA sí o IA no", sino "una contratación más o un agente". Cuando se pone en esos términos, la aritmética cambia. Contratar a una persona para tareas operativas implica sueldo, prestaciones de ley, espacio, equipo, capacitación y tiempo de gestión — un costo fijo que crece cada año y que existe estés o no vendiendo. Un agente de IA para un caso de uso acotado empieza en un rango muy inferior, no genera carga social y escala sin sumar costo proporcional.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0 40px">
+        <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1A1A1A">$299 USD</div>
+          <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.05em">Punto de entrada mensual para un caso de uso</div>
+        </div>
+        <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1A1A1A">15-40 h</div>
+          <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.05em">Horas operativas liberadas por semana</div>
+        </div>
+        <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1A1A1A">4.1×</div>
+          <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.05em">ROI típico reportado a 6 meses</div>
+        </div>
+      </div>
+      <p>Estas cifras —el punto de entrada desde $299 USD al mes, entre 15 y 40 horas liberadas por semana y un retorno de 4.1× a seis meses— corresponden a los resultados típicos que reportan las implementaciones de Victor IA en PyMEs. No son un promedio universal del mercado: dependen del proceso elegido y de qué tan bien se mida la línea base. Pero ilustran por qué la conversación ya no es sobre si una PyME puede pagar IA, sino sobre cuánto le cuesta seguir sin ella.</p>
+
+      <h2>Cómo la IA nivela el campo contra las grandes empresas</h2>
+      <p>Durante décadas, la ventaja de las grandes empresas fue simple: más gente, más presupuesto, más capacidad de procesar información. Podían tener un equipo de atención a clientes 24/7, un departamento de marketing produciendo contenido sin parar y analistas dedicados a mirar los números. La PyME competía en desventaja estructural, no por falta de talento sino por falta de manos.</p>
+      <p>La IA borra buena parte de esa desventaja. Hoy una PyME puede ofrecer atención inmediata a cualquier hora, mantener una presencia de contenido consistente y tomar decisiones basadas en datos — capacidades que antes exigían una nómina que solo un corporativo podía sostener. Por primera vez, el tamaño de la empresa deja de determinar el tamaño de su capacidad operativa. La agilidad de la PyME, combinada con la escala que da la IA, se convierte incluso en una ventaja: puede moverse más rápido que un gran corporativo atrapado en sus procesos.</p>
+
+      <h2>El panorama de las PyMEs en México: por qué esto importa tanto</h2>
+      <p>Para dimensionar la oportunidad conviene mirar el tamaño del universo. De acuerdo con los Censos Económicos 2024 del INEGI, en México existen alrededor de 5.5 millones de unidades económicas, de las cuales el 95.4% son microempresas, el 3.7% pequeñas y el 0.7% medianas. Es decir, las micro, pequeñas y medianas empresas concentran prácticamente la totalidad del tejido empresarial del país.</p>
+      <p>El contraste de productividad es revelador: según el mismo censo, las grandes empresas —apenas el 0.2% del total— generan más de la mitad del valor agregado nacional, mientras que las microempresas, que son la abrumadora mayoría, aportan una fracción mucho menor pese a emplear a alrededor del 40% del personal ocupado. Esa brecha de productividad es precisamente el espacio donde la IA puede tener el mayor impacto: dar a las PyMEs herramientas para producir más con lo mismo, acortando la distancia que hoy las separa de las grandes.</p>
+
+      <h2>La brecha digital que es, en realidad, una oportunidad</h2>
+      <p>El punto de partida tecnológico de la mayoría de las PyMEs mexicanas todavía es bajo, y eso —contraintuitivamente— es una buena noticia para quien actúe primero. Distintos análisis del ecosistema coinciden en que cerca de la mitad de las PyMEs del país sigue operando con procesos administrativos manuales, y solo una pequeña proporción utiliza herramientas de analítica avanzada o inteligencia artificial. Al mismo tiempo, la adopción crece rápido: reportes recientes del sector ubican el salto de la adopción de IA entre PyMEs de alrededor del 28% al 37% en apenas un año.</p>
+      <p>La barrera más citada no es el costo ni la tecnología, sino la claridad: una parte importante de las empresas afirma que todavía no identifica con precisión qué valor comercial concreto le aportaría la IA. Ahí está la oportunidad para quien la implemente con método — no adoptando tecnología por moda, sino resolviendo un problema medible. Mientras la mayoría duda por falta de un caso claro, la PyME que empieza con un proceso de alto impacto y una métrica definida captura ventaja antes que su competencia.</p>
+
+      <h2>Cómo medir el ROI en una PyME sin complicarse</h2>
+      <p>Una PyME no necesita un tablero sofisticado para saber si la IA le está funcionando. Bastan tres números que ya conoce de su operación diaria:</p>
+      <ul>
+        <li><strong>Horas recuperadas por semana.</strong> Cuánto tiempo dedicaba el equipo a la tarea antes del agente y cuánto después. Es la métrica más directa y la que más rápido se siente.</li>
+        <li><strong>Velocidad de respuesta al cliente.</strong> El tiempo entre que un cliente escribe y recibe una respuesta útil, que suele pasar de horas a minutos.</li>
+        <li><strong>Conversión de ventas.</strong> Qué porcentaje de prospectos avanza a cliente cuando el seguimiento deja de perderse por falta de tiempo. Las implementaciones bien ejecutadas reportan incrementos de 20 a 35%.</li>
+      </ul>
+      <p>Con esos tres datos, el dueño de una PyME puede saber en semanas —no en años— si la inversión rinde, y decidir con evidencia propia si vale la pena sumar el siguiente proceso.</p>
+
+      <h2>Casos por industria: dónde la IA rinde más en la PyME mexicana</h2>
+      <h3>Comercio y e-commerce</h3>
+      <p>Atención a clientes por WhatsApp, seguimiento de carritos abandonados y respuesta inmediata sobre disponibilidad y envíos. En un sector donde la velocidad de respuesta define la venta, un agente que contesta al instante convierte más que un equipo humano que responde horas después.</p>
+      <h3>Servicios profesionales</h3>
+      <p>Contadores, abogados, consultores y agencias ganan al automatizar el seguimiento de clientes, la generación de reportes y la comunicación recurrente. Liberan las horas facturables que hoy se van en tareas administrativas y las devuelven al trabajo de mayor valor.</p>
+      <h3>Salud y consultorios</h3>
+      <p>Agendado de citas, recordatorios, respuesta a preguntas frecuentes de pacientes y seguimiento post-consulta. Reducen el ausentismo a citas y liberan al personal de recepción para la atención presencial.</p>
+      <h3>Restaurantes y hospitality</h3>
+      <p>Reservas, respuesta a reseñas, gestión de pedidos y comunicación con clientes recurrentes. La consistencia del servicio, incluso en horas pico, se sostiene sin sumar personal.</p>
+      <h3>Manufactura y distribución media</h3>
+      <p>Seguimiento de pedidos, cotizaciones automáticas, reportes de inventario y comunicación con proveedores. Procesos de datos que hoy consumen medio día se resuelven en minutos y con menos errores.</p>
+
+      <h2>Los errores más comunes de las PyMEs al adoptar IA</h2>
+      <p>La ambición mal calibrada es el enemigo número uno. Estos tres tropiezos concentran la mayoría de los fracasos, y los tres son evitables:</p>
+      <ul>
+        <li><strong>Automatizar todo a la vez.</strong> Querer resolver los cinco procesos en el primer mes dispara costos y dispersa la atención. Un caso de alto impacto, bien hecho, financia los siguientes.</li>
+        <li><strong>No definir métricas antes de empezar.</strong> Sin un número base, es imposible saber si la IA funcionó. La medición se hace antes de encender el sistema, no después.</li>
+        <li><strong>Dejar fuera al equipo humano.</strong> Cuando la gente no entiende que la IA le quita trabajo tedioso en lugar de amenazar su puesto, aparece la resistencia. La comunicación temprana es parte del proyecto.</li>
+      </ul>
+      <p>La consultora Gartner ha advertido que más del 40% de los proyectos de IA agéntica en el mundo podrían cancelarse antes de 2027, casi siempre por costos mal controlados o valor de negocio poco claro. Para una PyME, la protección contra ese riesgo es justamente empezar pequeño y medido: el piloto acotado limita la exposición y construye la evidencia.</p>
+
+      <h2>Mitos que frenan a las PyMEs (y por qué ya no son ciertos)</h2>
+      <p>Buena parte de la parálisis en el segmento PyME viene de ideas que fueron verdad hace tres años y hoy ya no lo son. Vale la pena desmontarlas una por una:</p>
+      <h3>"La IA es solo para grandes empresas"</h3>
+      <p>Fue cierto cuando implementar IA exigía ingenieros de datos y presupuestos de seis cifras. Hoy las plataformas de agentes se configuran sin código, se integran con las herramientas que la PyME ya usa y muestran resultados en semanas. El punto de entrada cabe en el presupuesto de una microempresa.</p>
+      <h3>"Necesito personal técnico para usarla"</h3>
+      <p>Los agentes modernos se operan en lenguaje natural, muchas veces desde WhatsApp. El equipo no programa nada: le encarga objetivos como se los encargaría a un colaborador. La curva de aprendizaje para el equipo completo suele ser de una a dos semanas.</p>
+      <h3>"Es muy caro y el retorno es incierto"</h3>
+      <p>Precisamente por eso el método correcto empieza con un piloto acotado y medido: la inversión inicial es pequeña, y el retorno se comprueba con datos propios antes de escalar. El riesgo se contiene en cada paso.</p>
+      <h3>"La IA va a despersonalizar mi negocio"</h3>
+      <p>Al contrario: al absorber lo repetitivo, la IA devuelve horas para que las personas den atención genuina donde importa. El trato humano se reserva para los momentos que lo merecen, y deja de desperdiciarse en responder la misma pregunta cuarenta veces al día.</p>
+
+      <h2>Preguntas frecuentes de dueños de PyME</h2>
+      <h3>¿Cuánto tiempo tarda en verse el primer resultado?</h3>
+      <p>Con un caso de uso bien elegido, los primeros ahorros de tiempo aparecen en las primeras semanas del piloto. El retorno documentado —horas liberadas y aumento de conversión— suele consolidarse hacia el primer trimestre.</p>
+      <h3>¿Qué pasa con mis datos y los de mis clientes?</h3>
+      <p>Una implementación seria trabaja con controles de acceso, datos exportables y cumplimiento de la normativa mexicana de protección de datos personales. La información sigue siendo tuya y portable, lo que evita quedar atado a un solo proveedor.</p>
+      <h3>¿Y si mi negocio es muy específico?</h3>
+      <p>Los agentes se configuran con el conocimiento de tu operación: tus productos, tus políticas, tu voz. No son genéricos; aprenden los matices de tu negocio durante el piloto, que es justo cuando se afinan con supervisión humana.</p>
+
+      <blockquote>La IA no le pide a una PyME que se convierta en una empresa de tecnología. Le pide que resuelva un problema real, uno a la vez, con una herramienta que por fin está a su alcance.</blockquote>
+
+      <h2>Cómo empezar con presupuesto limitado</h2>
+      <p>La ruta recomendada para una PyME con recursos ajustados es deliberadamente conservadora, porque la prudencia es lo que la hace funcionar:</p>
+      <ul>
+        <li><strong>Elige un solo proceso de alto impacto.</strong> El que más tiempo consume y más duele hoy — normalmente atención a clientes o seguimiento de ventas.</li>
+        <li><strong>Corre un piloto de 30 días con una métrica clara.</strong> Un agente, un número que mejorar, supervisión cercana las primeras semanas.</li>
+        <li><strong>Decide con datos.</strong> Si el piloto probó el ahorro o el aumento de conversión, expande; si no, ajusta. La inversión sigue siendo pequeña y reversible.</li>
+        <li><strong>Escala con lo que ahorraste.</strong> Cada nuevo proceso automatizado se paga con el retorno del anterior, sin comprometer el flujo de efectivo.</li>
+      </ul>
+      <p>Este enfoque convierte la IA de una apuesta arriesgada en una serie de pasos que se autofinancian. La PyME no necesita fe: necesita un primer resultado, y a partir de ahí la decisión se toma sola. La clave psicológica es esa primera victoria concreta —el equipo que recupera diez horas a la semana, el cliente que recibe respuesta al instante, el prospecto que ya no se pierde— porque una vez que se ve el ahorro con datos propios, la resistencia interna desaparece y la expansión deja de ser una discusión para volverse una consecuencia natural del éxito anterior.</p>
+      <p>Vale la pena insistir en un punto que suele pasarse por alto: el objetivo del primer piloto no es solo ahorrar, es aprender. Al terminar esos 30 días, la PyME no solo tiene un proceso automatizado; tiene un método probado, un equipo que perdió el miedo a la tecnología y la certeza de qué funciona en su contexto específico. Ese conocimiento acumulado es tan valioso como el ahorro mismo, porque es lo que hace que cada automatización siguiente sea más rápida y más barata que la anterior.</p>
+
+      <h2>Conclusión: el mejor momento para una PyME es ahora</h2>
+      <p>Las pequeñas y medianas empresas mexicanas cargan con la mayor parte del empleo del país y con una brecha de productividad histórica frente a los grandes corporativos. La inteligencia artificial es la primera tecnología que, de forma realista y accesible, les da la oportunidad de cerrar esa brecha — no contratando más gente, sino haciendo más con la que ya tienen.</p>
+      <p>El costo de entrada nunca fue tan bajo, la tecnología nunca fue tan capaz y la ventana de ventaja —ese espacio entre la adopción masiva y el dominio real— sigue abierta. La pregunta para cualquier dueño de PyME ya no es si la IA sirve, sino cuánto está costando cada mes de operación sin ella. En Victor IA acompañamos ese primer paso, del diagnóstico al piloto y a la escala, para que tu empresa compita con las grandes usando las mismas armas.</p>
+</div>
+  </section>
 </div>
   
   <section class="viai-linkbuild rv">
