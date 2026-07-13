@@ -248,15 +248,119 @@
 
     <div class="rv article-visual" style="margin:2.5rem 0;">
 <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;display:block;">
-<defs><pattern id="gbr" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="0.3" opacity="0.2"/></pattern></defs>
-<rect width="800" height="450" fill="#FFFFFF"/><rect width="800" height="450" fill="url(#gbr)"/>
-<text x="400" y="55" font-family="serif" font-size="18" fill="#1A1A1A" letter-spacing="3" text-anchor="middle">IMPACTO POR AREA DE NEGOCIO</text>
-<line x1="176" y1="95" x2="176" y2="385" stroke="rgba(26,26,26,.2)" stroke-width="1"/>
-
-<text x="168" y="129" font-family="sans-serif" font-size="11" fill="#000000" opacity="0.65" text-anchor="end">Ventas</text>
-<rect x="176" y="115" width="436" height="22" rx="3" fill="#1A1A1A" opacity="0.85"/>
-<text x="620" y="129" font-family="sans-serif" font-size="11" fill="#1A1A1A">78...
+<defs>
+<pattern id="tienda_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="0.3" opacity="0.2"/></pattern>
+<linearGradient id="tienda_fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0066ff" stop-opacity="0.18"/><stop offset="100%" stop-color="#0066ff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="800" height="450" fill="#FFFFFF"/>
+<rect width="800" height="450" fill="url(#tienda_grid)"/>
+<text x="400" y="48" font-family="serif" font-size="11" fill="#1A1A1A" letter-spacing="4" text-anchor="middle">DEMANDA SEMANAL</text>
+<text x="400" y="80" font-family="serif" font-size="26" font-weight="300" fill="#000000" text-anchor="middle">Reposición que se anticipa al pico</text>
+<line x1="90" y1="360" x2="740" y2="360" stroke="rgba(26,26,26,.25)" stroke-width="1"/>
+<line x1="90" y1="120" x2="90" y2="360" stroke="rgba(26,26,26,.25)" stroke-width="1"/>
+<path id="tienda_area" d="M110,300 C170,260 210,180 270,175 C340,170 380,300 450,300 C520,300 560,150 620,140 C670,135 700,210 730,230 L730,360 L110,360 Z" fill="url(#tienda_fill)" opacity="0"/>
+<path id="tienda_demand" d="M110,300 C170,260 210,180 270,175 C340,170 380,300 450,300 C520,300 560,150 620,140 C670,135 700,210 730,230" fill="none" stroke="#0066ff" stroke-width="2.6" stroke-linecap="round"/>
+<circle id="tienda_p1" cx="270" cy="175" r="6" fill="#0066ff"/>
+<circle id="tienda_p2" cx="620" cy="140" r="6" fill="#0066ff"/>
+<text x="270" y="160" font-family="sans-serif" font-size="10" fill="#1A1A1A" text-anchor="middle">Quincena</text>
+<text x="620" y="126" font-family="sans-serif" font-size="10" fill="#1A1A1A" text-anchor="middle">Evento local</text>
+<text x="110" y="378" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.55" text-anchor="middle">Lun</text>
+<text x="420" y="378" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.55" text-anchor="middle">Jue</text>
+<text x="730" y="378" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.55" text-anchor="middle">Dom</text>
+<text x="400" y="422" font-family="sans-serif" font-size="9" fill="#1A1A1A" opacity="0.35" text-anchor="middle" letter-spacing="2">VICTOR IA &#183; LA IA APRENDE LOS PICOS QUE EL PROMEDIO SIMPLE IGNORA</text>
+</svg>
 </div>
+<script>(function(){function run(){if(!window.gsap){return setTimeout(run,200);}var g=window.gsap;
+var p=document.getElementById("tienda_demand");if(p){var L=p.getTotalLength();g.set(p,{strokeDasharray:L,strokeDashoffset:L});g.to(p,{strokeDashoffset:0,duration:3,ease:"power2.inOut",repeat:-1,repeatDelay:2.6});}
+g.to("#tienda_area",{opacity:1,duration:1.6,delay:1.4,ease:"sine.inOut",repeat:-1,yoyo:true,repeatDelay:1});
+g.to("#tienda_p1",{scale:1.6,opacity:0.35,transformOrigin:"270px 175px",duration:1.2,repeat:-1,yoyo:true,ease:"sine.inOut"});
+g.to("#tienda_p2",{scale:1.6,opacity:0.35,transformOrigin:"620px 140px",duration:1.2,delay:0.6,repeat:-1,yoyo:true,ease:"sine.inOut"});
+}run();})();</script>
+
+    <p>El sistema no adivina: aprende de tu propio historial. Cada quiebre evitado es una venta que sí ocurre y un cliente que no se va a la competencia por no encontrar lo que buscaba. Ese doble efecto —venta directa recuperada más lealtad preservada— es lo que hace del inventario predictivo el caso de uso con retorno más rápido en el comercio físico. La lógica completa, con el detalle de cómo se conectan los datos, la desarrollamos en <a href="/blog/automatizar-inventario-ia-retail">cómo automatizar el inventario con IA en el retail mexicano</a>.</p>
+  </article>
+
+  <section class="art-extend rv" style="max-width:780px;margin:0 auto;padding:0 32px 24px">
+  <article class="prose">
+
+    <h2>3. Merma y prevención de pérdidas: ver lo que antes era invisible</h2>
+
+    <p>Después de los quiebres de stock, la merma es la segunda hemorragia silenciosa de cualquier tienda física. Producto que caduca sin venderse, mercancía dañada, errores de captura, diferencias de inventario que nadie sabe explicar y, sí, robo hormiga. El problema histórico de la merma es que se detecta tarde: cuando haces el conteo físico trimestral y descubres que faltan piezas, el dinero ya se perdió y la causa ya se enfrió.</p>
+
+    <p>La IA cambia el momento de la detección. Al cruzar en tiempo casi real las ventas registradas con los movimientos de inventario, un sistema puede señalar anomalías el mismo día que ocurren: una categoría cuya salida física no coincide con sus tickets, un patrón de descuadres en cierto turno, un producto perecedero que se acerca a su fecha límite sin rotación suficiente. No acusa a nadie; ilumina dónde mirar. Y esa iluminación temprana es lo que convierte una pérdida estructural en un problema gestionable.</p>
+
+    <blockquote>La merma no se elimina con más vigilancia; se reduce con mejor información. Ver la anomalía el día que ocurre, y no tres meses después, es la diferencia entre corregir y lamentar.</blockquote>
+
+    <h2>4. Personalización y experiencia sin contratar más personal</h2>
+
+    <p>El comercio físico compite contra el digital en un terreno desigual: la tienda en línea conoce cada clic de su cliente, mientras que la tienda física, tradicionalmente, olvida al cliente en cuanto cruza la puerta de salida. La IA acorta esa brecha. Conectando el punto de venta con un programa de lealtad ligero o incluso con el número de WhatsApp del cliente, una tienda puede reconocer patrones de compra, anticipar reposiciones personales y enviar recordatorios útiles en el momento correcto.</p>
+
+    <p>No se trata de vigilar, sino de servir mejor con lo que el cliente ya comparte voluntariamente. Una ferretería que sabe que cierto contratista compra material cada dos semanas puede avisarle cuando llega el producto que suele llevar; una farmacia puede recordar una reposición recurrente. Esa atención, imposible de sostener manualmente con cientos de clientes, se vuelve viable cuando un agente la orquesta. La contraparte, por supuesto, es hacerlo con respeto a la privacidad y consentimiento claro, un equilibrio que conviene diseñar desde el inicio y que aplica a cualquier negocio que personalice con datos.</p>
+
+    <h2>Cómo empezar sin infraestructura ni equipo de TI</h2>
+
+    <p>El mayor mito sobre la IA en retail es que exige una inversión tecnológica que solo las cadenas grandes pueden pagar. La realidad de 2026 es la opuesta: el punto de entrada más accesible es un agente conectado a tu sistema de ventas actual, sin servidores propios ni personal técnico. El proceso típico es sencillo: exportas tu historial de ventas, el agente lo ingesta y devuelve un diagnóstico inicial, y a partir de ahí recibes alertas accionables por WhatsApp o correo. La barrera ya no es el dinero ni la tecnología; es la decisión de empezar.</p>
+
+    <p>Para una PyME que da sus primeros pasos, el orden recomendado es empezar por el inventario predictivo —el caso de mayor retorno inmediato—, consolidar esa victoria y luego sumar análisis de tráfico o personalización. Intentar todo a la vez es la receta clásica del proyecto que se estanca. Este enfoque por fases es el mismo que describimos en <a href="/blog/ia-prediccion-demanda-retail">predicción de demanda con IA para retail</a> y que sostiene la propuesta más amplia de <a href="/blog/ia-pymes-mexico">cómo las PyMEs mexicanas compiten con las grandes usando IA</a>: no se gana con el sistema más caro, sino con el caso de uso mejor elegido.</p>
+
+    <div class="rv" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0">
+      <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#1A1A1A">48h</div>
+        <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.06em">Configuración típica sin código</div>
+      </div>
+      <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#1A1A1A">90</div>
+        <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.06em">Días de historial para predecir</div>
+      </div>
+      <div style="background:#FAFAFA;border:1px solid rgba(0,0,0,.054);border-radius:10px;padding:24px;text-align:center">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#1A1A1A">1</div>
+        <div style="font-size:12px;color:#666666;margin-top:6px;letter-spacing:.06em">Sucursal basta para empezar</div>
+      </div>
+    </div>
+
+    <h2>Casos por categoría: dónde pega más rápido</h2>
+
+    <p>No todas las tiendas capturan valor de la misma forma, y conviene aterrizar el argumento en categorías concretas del comercio mexicano. En las ferreterías y materiales de construcción, la variabilidad brutal del inventario —miles de SKUs con demandas muy distintas— hace que el inventario predictivo pague solo casi de inmediato: menos capital inmovilizado en tornillería de baja rotación, menos quiebres en el cemento o la varilla que sí mueven caja. En la ropa y el calzado, la batalla es de tallas y temporadas; la IA ayuda a no quedarse con la curva de tallas incompleta que mata la venta y a liquidar a tiempo lo que no rotó.</p>
+
+    <p>En las papelerías y los artículos de oficina, la demanda es marcadamente estacional —el regreso a clases lo cambia todo— y anticipar ese pico con datos, en lugar de con la memoria del año pasado, evita tanto el desabasto como la sobrecompra que luego se queda muerta. En las farmacias independientes, el juego es de caducidades y reposición crítica: un medicamento agotado es una venta perdida y a veces un cliente que no vuelve, mientras que un lote vencido es merma pura. Y en las misceláneas y abarrotes, con cientos de productos y márgenes finos, la suma de pequeñas mejoras en reposición y merma se convierte en la diferencia entre un mes rentable y uno apenas a flote.</p>
+
+    <blockquote>El común denominador de las tiendas que más ganan con IA no es el sector, sino tener suficiente historial y suficientes productos distintos como para que los patrones existan. Con unos cientos de SKUs y un par de años de operación, ya hay señal que aprender.</blockquote>
+
+    <h2>Integración con lo que ya tienes</h2>
+
+    <p>Una objeción legítima de cualquier dueño de tienda es que ya invirtió en un sistema de punto de venta y no quiere tirarlo para empezar de cero. La buena noticia es que rara vez hace falta. Las soluciones actuales se conectan con lo que ya usas: exportaciones de tu POS, tu lector de código de barras, tus hojas de cálculo de inventario. El agente ingesta esos datos, los ordena y empieza a devolver valor sin exigir que cambies tu operación de raíz. El cambio es incremental, no una cirugía mayor.</p>
+
+    <p>Esa compatibilidad es clave para la adopción real. Un sistema que obliga a rehacer todo se abandona; uno que se monta encima de lo existente se queda. Por eso el criterio al elegir proveedor no es solo qué tan avanzada es la IA, sino qué tan bien se integra con tu realidad concreta. La misma lógica de conexión con sistemas existentes que hace viable el inventario predictivo abre la puerta, más adelante, a sumar predicción de demanda y análisis de tráfico sobre la misma base de datos, sin duplicar esfuerzo.</p>
+
+    <h2>El contexto mexicano: por qué ahora</h2>
+
+    <p>El comercio minorista es una de las columnas del empleo y del consumo en México, y su peso en la economía lo confirman los indicadores de actividad que publica periódicamente el <a href="https://www.inegi.org.mx/" target="_blank" rel="noopener noreferrer">INEGI ↗</a>. En un sector con márgenes ajustados y alta competencia, cada punto porcentual de merma evitada o de quiebre corregido se traduce directamente en rentabilidad. Por eso la conversación sobre IA en retail dejó de ser futurista: es una palanca de margen en un negocio donde el margen es escaso.</p>
+
+    <p>A escala global, el patrón es claro. Análisis de <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">McKinsey ↗</a> ubican al comercio y las operaciones entre las funciones que más valor capturan con IA, siempre que el rediseño del proceso acompañe a la tecnología. Y reportes de mercado recopilados por <a href="https://www.statista.com/" target="_blank" rel="noopener noreferrer">Statista ↗</a> muestran una adopción creciente de herramientas de analítica y automatización en el comercio minorista. La ventana de oportunidad para las tiendas mexicanas es precisamente esta: la tecnología ya es accesible, pero la adopción todavía no es universal, así que quien se mueve ahora gana ventaja de tiempo.</p>
+
+    <h2>Qué medir para saber si está funcionando</h2>
+
+    <p>Implementar IA sin medir es gastar sin saber. Una tienda que adopta estas herramientas debería vigilar un puñado de indicadores mes con mes: la tasa de quiebres de stock en productos de alta rotación, el porcentaje de merma sobre ventas, la tasa de conversión de tráfico a compra, el ticket promedio y el tiempo que el personal dedica a tareas administrativas frente a atención directa. Si esos números mejoran de forma sostenida, el sistema está pagando su costo; si no, hay que ajustar la configuración o el caso de uso.</p>
+
+    <p>La disciplina de medición es también la que permite defender la inversión ante uno mismo o ante los socios. El retorno en retail suele materializarse en pocos meses, pero solo se puede demostrar si existe una línea base contra la cual comparar. Ese marco de medición —línea base, seguimiento y decisión— es el mismo que aplica a cualquier proyecto de IA y que detallamos al hablar de <a href="/blog/medir-impacto-ia-kpis">cómo medir el impacto de la IA con KPIs</a> claros y accionables.</p>
+
+    <h2>Errores comunes al llevar IA a una tienda física</h2>
+
+    <ul>
+      <li><strong>Comprar hardware antes de necesitarlo:</strong> muchas soluciones aprovechan las cámaras y el POS que ya tienes; empieza por software, no por fierros.</li>
+      <li><strong>Querer automatizar todo el primer día:</strong> un caso de uso bien elegido supera a cinco a medias.</li>
+      <li><strong>No limpiar el catálogo:</strong> si tus SKUs están duplicados o mal capturados, la IA aprende de datos sucios y falla.</li>
+      <li><strong>Ignorar al equipo de piso:</strong> los vendedores conocen patrones que ningún dato revela; súmalos, no los sustituyas.</li>
+      <li><strong>Olvidar la privacidad:</strong> si personalizas con datos del cliente, hazlo con consentimiento y transparencia.</li>
+    </ul>
+
+    <h2>De la tienda que reacciona a la tienda que anticipa</h2>
+
+    <p>El cambio de fondo que trae la IA al comercio físico no es tecnológico, es de postura. Una tienda tradicional reacciona: repone cuando ve el hueco en el anaquel, ajusta personal cuando ya perdió ventas, descubre la merma cuando cuenta. Una tienda asistida por IA anticipa: repone antes del quiebre, coloca al personal donde estará la demanda, ve la anomalía el día que ocurre. Esa diferencia de postura, sostenida mes tras mes, es la que separa a las tiendas que apenas sobreviven de las que crecen con márgenes sanos. La tecnología ya está al alcance de una miscelánea con unos cientos de productos; lo único que falta es decidir dar el primer paso y elegir bien por dónde empezar.</p>
+
+  </article>
+  </section>
+  </div>
   
   <section class="viai-linkbuild rv">
     <div class="lb-grid">
