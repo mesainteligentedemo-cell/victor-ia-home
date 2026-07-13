@@ -76,7 +76,38 @@
 <li>Las empresas que ganan en este momento no son las que despiden más rápido, sino las que reasignan a sus equipos a trabajo de mayor valor antes de que la competencia lo haga.</li>
 <li>82% de las empresas mexicanas no capacita a su personal en IA — esa brecha es el mayor riesgo competitivo de 2026, no la tecnología.</li>
 </ul></div><div class="prose rv">
-<p>Oracle acaba de eliminar 30,000 empleos en cuatro países, México incluido. El dinero liberado —entre 8,000 y 10,000 millones de dólares— va directamente a proyectos de inteligencia artificial. No son empleos de manufactura. Son puestos de soporte técnico, desarrollo de software y operaciones de conocimiento.</p>
+<div class="rv article-visual" style="margin:2.5rem 0;">
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;display:block;">
+<defs>
+<pattern id="emp_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="0.3" opacity="0.22"/></pattern>
+<linearGradient id="emp_g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1A1A" stop-opacity="0.10"/><stop offset="100%" stop-color="#1A1A1A" stop-opacity="0.03"/></linearGradient>
+</defs>
+<rect width="800" height="420" fill="#FFFFFF"/>
+<rect width="800" height="420" fill="url(#emp_grid)"/>
+<text x="400" y="46" font-family="serif" font-size="11" fill="#1A1A1A" letter-spacing="4" text-anchor="middle">EMPLEO E INTELIGENCIA ARTIFICIAL &#183; 2025-2030</text>
+<text x="400" y="80" font-family="serif" font-size="27" font-weight="300" fill="#000000" text-anchor="middle">Destrucci&#243;n y creaci&#243;n de empleo (WEF)</text>
+<line x1="90" y1="330" x2="710" y2="330" stroke="rgba(26,26,26,.25)" stroke-width="1"/>
+<rect id="emp_bar1" x="150" y="152" width="110" height="178" rx="4" fill="url(#emp_g)" stroke="rgba(26,26,26,.35)" stroke-width="1"/>
+<text x="205" y="140" font-family="serif" font-size="26" font-weight="300" fill="#1A1A1A" text-anchor="middle">170M</text>
+<text x="205" y="352" font-family="sans-serif" font-size="10" fill="#000000" opacity="0.6" text-anchor="middle" letter-spacing="1">EMPLEOS CREADOS</text>
+<rect id="emp_bar2" x="345" y="233" width="110" height="97" rx="4" fill="url(#emp_g)" stroke="rgba(26,26,26,.35)" stroke-width="1"/>
+<text x="400" y="223" font-family="serif" font-size="26" font-weight="300" fill="#1A1A1A" text-anchor="middle">92M</text>
+<text x="400" y="352" font-family="sans-serif" font-size="10" fill="#000000" opacity="0.6" text-anchor="middle" letter-spacing="1">EMPLEOS DESPLAZADOS</text>
+<rect id="emp_bar3" x="540" y="248" width="110" height="82" rx="4" fill="#1A1A1A" opacity="0.9"/>
+<text id="emp_pulse" x="595" y="238" font-family="serif" font-size="26" font-weight="300" fill="#1A1A1A" text-anchor="middle">+78M</text>
+<text x="595" y="352" font-family="sans-serif" font-size="10" fill="#000000" opacity="0.6" text-anchor="middle" letter-spacing="1">SALDO NETO</text>
+<path id="emp_line" d="M 90 300 C 250 270, 430 235, 710 150" fill="none" stroke="#1A1A1A" stroke-width="2" opacity="0.5"/>
+<text x="400" y="398" font-family="sans-serif" font-size="9" fill="#1A1A1A" opacity="0.4" text-anchor="middle" letter-spacing="2">VICTOR IA &#183; FUTURE OF JOBS REPORT 2025 — PROYECCI&#211;N GLOBAL A 2030</text>
+</svg>
+</div>
+<script>(function(){function run(){if(!window.gsap){return setTimeout(run,200);}var g=window.gsap;
+g.from("#emp_bar1",{scaleY:0,svgOrigin:"205 330",duration:1.1,ease:"power2.out"});
+g.from("#emp_bar2",{scaleY:0,svgOrigin:"400 330",duration:1.1,delay:0.2,ease:"power2.out"});
+g.from("#emp_bar3",{scaleY:0,svgOrigin:"595 330",duration:1.1,delay:0.4,ease:"power2.out"});
+var L=document.getElementById("emp_line");if(L){var len=L.getTotalLength();g.set(L,{strokeDasharray:len,strokeDashoffset:len});g.to(L,{strokeDashoffset:0,duration:2.2,delay:0.5,ease:"sine.inOut"});}
+g.to("#emp_pulse",{scale:1.12,svgOrigin:"595 231",duration:1.4,repeat:-1,yoyo:true,ease:"sine.inOut"});
+}run();})();</script>
+<p>La noticia que encendió el debate fue Oracle. Conviene contarla con precisión, sin dramatismo. La compañía recortó alrededor de 21,000 puestos en el último año —cerca del 13% de su plantilla global, según <a href="https://www.cnbc.com/2026/06/23/oracle-ai-job-cuts-layoffs-21000.html" target="_blank" rel="noopener noreferrer">CNBC ↗</a>— y absorbió unos 1,800 millones de dólares en indemnizaciones. El capital liberado no se guardó: Oracle elevó su gasto de inversión 162% hasta 55,700 millones de dólares para construir centros de datos y capacidad de cómputo para inteligencia artificial. No son empleos de manufactura los que se recortaron. Son puestos de soporte técnico, desarrollo de software y operaciones de conocimiento —justamente los que durante años se consideraron seguros.</p>
 
 <p>La misma semana, los editores de Wikipedia salieron en huelga por los despidos en Wikimedia, los tribunales chinos empezaron a aplicar un marco legal que prohíbe los despidos justificados exclusivamente por IA, y un think tank del Reino Unido exigió que los empleados tengan voz sobre cómo se implementa la IA en su empresa. El debate dejó de ser teórico.</p>
 
@@ -112,6 +143,100 @@
 
 <p>No se trata de despedir a nadie. Se trata de decidir activamente adónde va el talento de tu empresa, antes de que la presión competitiva tome esa decisión por ti.</p>
 </div>
+
+  <section class="art-extend rv" style="max-width:780px;margin:0 auto;padding:0 32px 24px">
+  <article class="prose">
+
+    <h2>Lo que dicen los datos globales sobre el futuro del trabajo</h2>
+
+    <p>Conviene separar el ruido de la señal. La narrativa de "la IA se lleva todos los empleos" vende titulares, pero los datos de las organizaciones que estudian el mercado laboral a escala cuentan una historia más precisa. El <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener noreferrer">Future of Jobs Report 2025 del Foro Económico Mundial ↗</a> proyecta que, hacia 2030, la transformación tecnológica desplazará una parte importante de las tareas actuales pero creará más empleos de los que elimina en términos netos, siempre y cuando la fuerza laboral se recapacite. La palabra clave es esa: recapacitación. El desplazamiento no es un destino, es una transición mal gestionada.</p>
+
+    <p>El <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">State of AI de McKinsey ↗</a> añade un matiz que aplica directamente a México: la mayor parte del valor de la IA no proviene de reemplazar personas, sino de aumentar la productividad de las que ya están. Un equipo que usa IA para las tareas repetitivas puede procesar más volumen, con menos errores, sin ampliar la nómina. Para una empresa mexicana que pelea contra márgenes ajustados y rotación alta, esa palanca —hacer más con el mismo equipo— vale más que el ahorro de un despido. La misma lógica que explicamos en nuestra visión sobre el <a href="/blog/futuro-trabajo-ia-mexico-2030">futuro del trabajo con IA en México hacia 2030</a> se resume así: el empleo no desaparece, se redefine, y quien redefine primero gana.</p>
+
+    <div class="rv article-visual" style="margin:2.5rem 0;">
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;display:block;">
+<defs>
+<pattern id="emp2_grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="0.3" opacity="0.22"/></pattern>
+<linearGradient id="emp2_grad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1A1A" stop-opacity="0.14"/><stop offset="100%" stop-color="#1A1A1A" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="800" height="420" fill="#FFFFFF"/>
+<rect width="800" height="420" fill="url(#emp2_grid)"/>
+<text x="400" y="50" font-family="serif" font-size="11" fill="#1A1A1A" letter-spacing="4" text-anchor="middle">TRANSICION DE ROLES</text>
+<text x="400" y="82" font-family="serif" font-size="26" font-weight="300" fill="#000000" text-anchor="middle">De tareas repetitivas a trabajo de criterio</text>
+<line x1="90" y1="340" x2="740" y2="340" stroke="rgba(26,26,26,.25)" stroke-width="1"/>
+<line x1="90" y1="120" x2="90" y2="340" stroke="rgba(26,26,26,.25)" stroke-width="1"/>
+<text x="70" y="130" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.5" text-anchor="end">100%</text>
+<text x="70" y="235" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.5" text-anchor="end">50%</text>
+<text x="70" y="343" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.5" text-anchor="end">0%</text>
+<text x="150" y="360" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.55" text-anchor="middle">Hoy</text>
+<text x="400" y="360" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.55" text-anchor="middle">Con IA</text>
+<text x="650" y="360" font-family="sans-serif" font-size="10" fill="#1A1A1A" opacity="0.55" text-anchor="middle">Rol redefinido</text>
+<path id="emp2_area" d="M150,300 C300,290 340,190 400,175 C520,150 600,140 650,135 L650,340 L150,340 Z" fill="url(#emp2_grad)" opacity="0"/>
+<path id="emp2_line" d="M150,300 C300,290 340,190 400,175 C520,150 600,140 650,135" fill="none" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round"/>
+<circle id="emp2_pulse" cx="650" cy="135" r="7" fill="#1A1A1A"/>
+<circle cx="150" cy="300" r="4" fill="#1A1A1A" opacity="0.55"/>
+<text x="180" y="292" font-family="sans-serif" font-size="12" fill="#1A1A1A">Tarea repetitiva alta</text>
+<text x="500" y="128" font-family="sans-serif" font-size="12" fill="#1A1A1A">Criterio humano alto</text>
+<text x="400" y="405" font-family="sans-serif" font-size="9" fill="#1A1A1A" opacity="0.35" text-anchor="middle" letter-spacing="2">VICTOR IA &#183; LA IA DESPLAZA TAREAS, NO NECESARIAMENTE PERSONAS</text>
+</svg>
+</div>
+<script>(function(){function run(){if(!window.gsap){return setTimeout(run,200);}var g=window.gsap;
+var p=document.getElementById("emp2_line");if(p){var L=p.getTotalLength();g.set(p,{strokeDasharray:L,strokeDashoffset:L});g.to(p,{strokeDashoffset:0,duration:3,ease:"power2.inOut",repeat:-1,repeatDelay:2.5});}
+g.to("#emp2_area",{opacity:1,duration:1.6,delay:1.4,ease:"sine.inOut",repeat:-1,yoyo:true,repeatDelay:1});
+g.to("#emp2_pulse",{scale:1.6,opacity:0.35,transformOrigin:"650px 135px",duration:1.3,repeat:-1,yoyo:true,ease:"sine.inOut"});
+}run();})();</script>
+
+    <h2>Impacto sector por sector en México</h2>
+
+    <p>La exposición a la IA no es uniforme. Depende de cuánto del trabajo diario de un sector consiste en procesar información estructurada de forma repetitiva. En México, algunos sectores sentirán el cambio antes que otros, y conviene saber en cuál estás parado.</p>
+
+    <h3>Servicios financieros y BPO</h3>
+
+    <p>Los centros de contacto y de procesos de negocio (BPO) que operan desde Guadalajara, Monterrey y CDMX para clientes de Estados Unidos son de los más expuestos, precisamente porque su propuesta de valor histórica —mano de obra calificada a menor costo— se solapa con lo que la IA hace bien. Aquí la estrategia ganadora no es competir contra la IA en costo, sino subir en la cadena de valor: pasar de resolver tickets a diseñar y supervisar los agentes de IA que resuelven esos tickets. El operador que hoy responde consultas se convierte en el especialista que entrena y audita al <a href="/blog/agente-ia-servicio-cliente-24-7">agente de IA que atiende 24/7</a>.</p>
+
+    <h3>Comercio, logística y manufactura</h3>
+
+    <p>En estos sectores la IA se aplica menos al reemplazo directo y más a la optimización: predicción de demanda, planeación de rutas, mantenimiento predictivo, control de calidad por visión artificial. El empleo operativo se mantiene, pero cambia el perfil: se valora más al colaborador que sabe interpretar el tablero del sistema y menos al que solo captura datos. México, como hub manufacturero del nearshoring, tiene una ventana clara para capacitar a su fuerza laboral en estas herramientas antes de que la competencia asiática o estadounidense lo haga.</p>
+
+    <h3>Servicios profesionales y despachos</h3>
+
+    <p>Contadores, abogados, arquitectos y agencias de marketing viven de producir documentos y análisis. La IA generativa acelera esa producción de forma dramática, lo que significa que un despacho pequeño puede atender la carga que antes requería el doble de gente. El riesgo no es que desaparezca la profesión; es que el despacho que no adopta IA pierda competitividad frente al que factura lo mismo con la mitad de las horas.</p>
+
+    <h2>Cómo diseñar la transición sin traumas: reskilling que sí funciona</h2>
+
+    <p>La palabra "capacitación" evoca cursos genéricos que nadie termina. El reskilling en IA que funciona es distinto: es específico, práctico y anclado al trabajo real de la persona. En lugar de un curso teórico de "introducción a la IA", se entrena al equipo de ventas a usar un asistente que redacta seguimientos, y al de operaciones a leer las alertas de un sistema predictivo. La habilidad se construye sobre la tarea que ya conocen.</p>
+
+    <p>Un programa realista para una empresa mediana mexicana se ve así: primero, un diagnóstico de qué roles tocan más tareas automatizables; segundo, elegir una o dos herramientas y volverlas parte del flujo diario; tercero, nombrar campeones internos —personas del propio equipo que dominan la herramienta y enseñan a los demás—; y cuarto, medir el tiempo liberado y reasignarlo de forma explícita. Este mismo enfoque escalonado es el que detallamos en la guía para <a href="/blog/implementar-ia-empresa-mexico">implementar IA en tu empresa mexicana en 90 días</a>. La diferencia entre las empresas que capacitan bien y las que no es que las primeras deciden qué hacer con el tiempo que la IA libera, en lugar de dejar que se evapore.</p>
+
+    <h3>El costo real de capacitar (en pesos)</h3>
+
+    <p>Uno de los mitos más costosos es que preparar al equipo para la IA requiere presupuestos corporativos. No es así. Las herramientas de productividad con IA —asistentes de escritura, copilotos de código, agentes de atención— tienen planes que van de cientos a unos pocos miles de pesos por usuario al mes. La capacitación estructurada de un equipo pequeño, con acompañamiento de un socio que configure los flujos, suele ubicarse en rangos de decenas de miles de pesos como inversión inicial, no de millones. Comparado con el costo de contratar y capacitar personal nuevo —o peor, de perder mercado frente a un competidor más ágil— la cifra es marginal. Para dimensionarla con método, vale la pena revisar cómo <a href="/blog/roi-inteligencia-artificial">medir el ROI de la inteligencia artificial</a> antes de comprometer un peso.</p>
+
+    <h2>El marco legal mexicano: lo que la Ley Federal del Trabajo sí exige</h2>
+
+    <p>Adoptar IA no ocurre en un vacío jurídico. En México, cualquier reestructura de roles debe respetar la Ley Federal del Trabajo: los despidos siguen requiriendo causa justificada o el pago de la indemnización correspondiente, y "la IA lo hace mejor" no es, por sí solo, una causal reconocida. Reasignar funciones dentro de un mismo puesto es válido; modificar sustancialmente las condiciones de trabajo puede requerir acuerdo. La tendencia internacional —tribunales que limitan los despidos basados exclusivamente en algoritmos— sugiere que conviene documentar las decisiones y priorizar la reubicación sobre la separación.</p>
+
+    <p>Hay una segunda capa: la protección de datos. Si los sistemas de IA procesan información de empleados o de clientes, aplica la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP). Esto obliga a tener avisos de privacidad actualizados que mencionen el uso de IA, a limitar el tratamiento a lo consentido y a elegir proveedores con infraestructura adecuada. Y una tercera, la de bienestar: la NOM-035 sobre factores de riesgo psicosocial cobra relevancia cuando una transición tecnológica genera incertidumbre en la plantilla. Comunicar con transparencia qué se automatiza y por qué no es solo buena práctica; reduce el riesgo laboral real.</p>
+
+    <h2>Un caso ilustrativo: la empresa que reasignó en lugar de recortar</h2>
+
+    <p>Imaginemos —a modo de ejemplo, no como cliente real— una comercializadora mediana de refacciones con oficinas en Querétaro y unas 60 personas. Su área de atención recibía cientos de correos y mensajes diarios con las mismas preguntas: disponibilidad, precios, estatus de pedido. Cuatro personas dedicaban el grueso de su jornada a responderlas. En lugar de recortar, la dirección implementó un <a href="/blog/que-son-agentes-ia">agente de IA</a> que resolvía el 70% de esas consultas de forma automática y escalaba el resto con contexto. ¿El resultado? Nadie salió. Las cuatro personas pasaron a un rol de gestión de cuentas clave: dar seguimiento proactivo a los clientes más importantes, detectar oportunidades de venta cruzada y resolver los casos complejos que la IA no debía tocar. En pocos meses, ese equipo —el mismo, con habilidades nuevas— generó más ingresos por la vía del seguimiento del que jamás habría producido respondiendo correos. Esa es la forma de la transición bien hecha.</p>
+
+    <h2>Qué esperar en los primeros 90 días</h2>
+
+    <p><strong>Días 1–30:</strong> diagnóstico honesto. Mapear los tres a cinco roles con mayor carga de tareas repetitivas y medir cuánto tiempo consumen. Sin esa línea base, cualquier afirmación de mejora es una anécdota.</p>
+
+    <p><strong>Días 31–60:</strong> implementar la primera automatización en el proceso de mayor volumen y menor riesgo —casi siempre atención a consultas repetidas o generación de reportes—. Nombrar campeones internos y empezar a documentar el tiempo liberado.</p>
+
+    <p><strong>Días 61–90:</strong> lo más importante y lo más olvidado: reasignar de forma explícita el tiempo recuperado a trabajo de mayor valor, y comunicarlo. El error clásico es automatizar y dejar que el tiempo liberado se diluya en más de lo mismo. La ventaja competitiva aparece cuando ese tiempo se redirige a clientes, análisis o mejora de procesos.</p>
+
+    <h2>La decisión que define la próxima década</h2>
+
+    <p>La reconfiguración del trabajo por IA no es un evento futuro; ya empezó, y los despidos de las grandes tecnológicas son solo la punta más visible. Para una empresa mexicana, la pregunta no es si la IA llegará a su sector —llegará—, sino quién decidirá cómo. Las empresas que gestionan la transición de forma activa convierten la amenaza en ventaja: mismo equipo, más capacidad, mejor servicio. Las que esperan a que la presión competitiva las obligue lo harán tarde, mal y con más costo humano. Si estás evaluando por dónde empezar, entender primero <a href="/blog/ia-pymes-mexico">cómo la IA permite a las PyMEs mexicanas competir con las grandes empresas</a> te dará el mapa. La tecnología ya está disponible; lo escaso es la decisión de usarla con criterio.</p>
+
+  </article>
+  </section>
+
   <section class="viai-linkbuild rv">
     <div class="lb-grid">
       <div><h2>Sigue leyendo</h2><ul style="list-style:none;padding:0">
