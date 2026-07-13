@@ -1,0 +1,752 @@
+{
+  "operation": "Purge Step 0 — remove fabricated identical block",
+  "date": "2026-07-12",
+  "repo": "victor-ia-home",
+  "removed_block_md5": "c92d6d4e795ea8549712131957207a4a",
+  "removed_block_bytes": 2286,
+  "removed_block_visible_words": 225,
+  "markers": [
+    "FEMSA y Grupo Bimbo",
+    "40% mas leads",
+    "Desafios comunes y soluciones",
+    "Casos de exito en Mexico",
+    "class=blog-section"
+  ],
+  "files_purged": 122,
+  "errors": [],
+  "note": "Pre-existing truncated 2nd-SVG artifact (text-ancho...) was NOT part of this block and left untouched (present in clean pre-injection base too).",
+  "files": [
+    {
+      "file": "agente-ia-servicio-cliente-24-7.html",
+      "before_words": 3034,
+      "after_words": 2809,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "agente-ia-ventas-b2b.html",
+      "before_words": 2699,
+      "after_words": 2474,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "agentes-ia-sistemas-legados-mexico.html",
+      "before_words": 2668,
+      "after_words": 2443,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "agentes-ia-vs-empleados.html",
+      "before_words": 2342,
+      "after_words": 2117,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "analisis-competencia-ia-mexico.html",
+      "before_words": 1933,
+      "after_words": 1708,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-cobranza-cuentas-por-cobrar.html",
+      "before_words": 3023,
+      "after_words": 2798,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-email-marketing-ia.html",
+      "before_words": 2701,
+      "after_words": 2476,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-facturacion-cfdi-ia.html",
+      "before_words": 2827,
+      "after_words": 2602,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-inventario-ia-retail.html",
+      "before_words": 3101,
+      "after_words": 2876,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-marketing-ia-mexico.html",
+      "before_words": 2413,
+      "after_words": 2188,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-reclutamiento-ia-mexico.html",
+      "before_words": 2922,
+      "after_words": 2697,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "automatizar-reportes-financieros-ia.html",
+      "before_words": 2911,
+      "after_words": 2686,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "calcular-roi-ia-antes-invertir.html",
+      "before_words": 3099,
+      "after_words": 2874,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "chatbot-whatsapp-empresas-mexico.html",
+      "before_words": 2911,
+      "after_words": 2686,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "como-elegir-agente-ia.html",
+      "before_words": 3078,
+      "after_words": 2853,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "como-elegir-proveedor-ia-mx.html",
+      "before_words": 2830,
+      "after_words": 2605,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "como-vender-servicios-ia-mexico.html",
+      "before_words": 3111,
+      "after_words": 2886,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "diferencia-chatbot-agente-ia.html",
+      "before_words": 3527,
+      "after_words": 3302,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "errores-implementar-ia-empresa.html",
+      "before_words": 2962,
+      "after_words": 2737,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "escalar-ia-piloto-a-produccion-mexico.html",
+      "before_words": 2686,
+      "after_words": 2461,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "futuro-trabajo-ia-mexico-2030.html",
+      "before_words": 2827,
+      "after_words": 2602,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "generative-ai-diseno-grafico.html",
+      "before_words": 2111,
+      "after_words": 1886,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "guia-prompts-empresas-mexico.html",
+      "before_words": 2264,
+      "after_words": 2039,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-customer-success-retencion.html",
+      "before_words": 2211,
+      "after_words": 1986,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-empleo-mexico-2026-que-hacer.html",
+      "before_words": 1740,
+      "after_words": 1515,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-generativa-para-marketing.html",
+      "before_words": 2387,
+      "after_words": 2162,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-hoteles-mexico.html",
+      "before_words": 1866,
+      "after_words": 1641,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-multiagente-empresa-mexico.html",
+      "before_words": 2279,
+      "after_words": 2054,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-multiagente-que-es.html",
+      "before_words": 2792,
+      "after_words": 2567,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-abogados-despachos-mexico.html",
+      "before_words": 1853,
+      "after_words": 1628,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-abogados-litigio.html",
+      "before_words": 2671,
+      "after_words": 2446,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-academias-idiomas.html",
+      "before_words": 2046,
+      "after_words": 1821,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-administracion-propiedades.html",
+      "before_words": 1960,
+      "after_words": 1735,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-agencias-marketing-mexico.html",
+      "before_words": 1937,
+      "after_words": 1712,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-agencias-publicitarias.html",
+      "before_words": 2917,
+      "after_words": 2692,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-agencias-viajes-paquetes.html",
+      "before_words": 2250,
+      "after_words": 2025,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-agrotech-campo-mexico.html",
+      "before_words": 2307,
+      "after_words": 2082,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-arquitectos-diseno.html",
+      "before_words": 1952,
+      "after_words": 1727,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-aseguradoras-seguros.html",
+      "before_words": 1913,
+      "after_words": 1688,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-asesores-financieros.html",
+      "before_words": 2292,
+      "after_words": 2067,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-auto-partes-industria.html",
+      "before_words": 2342,
+      "after_words": 2117,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-bancos-fintech-mx.html",
+      "before_words": 1996,
+      "after_words": 1771,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-bodegas-almacenes.html",
+      "before_words": 2102,
+      "after_words": 1877,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-bufetes-juridicos.html",
+      "before_words": 2633,
+      "after_words": 2408,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-clinicas-medicas-mexico.html",
+      "before_words": 2238,
+      "after_words": 2013,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-colegios-privados-mx.html",
+      "before_words": 2146,
+      "after_words": 1921,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-concesionarias-autos.html",
+      "before_words": 2440,
+      "after_words": 2215,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-constructoras-obra.html",
+      "before_words": 2221,
+      "after_words": 1996,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-consultores-independientes.html",
+      "before_words": 1877,
+      "after_words": 1652,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-contadores-despachos.html",
+      "before_words": 2732,
+      "after_words": 2507,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-corredores-bolsa.html",
+      "before_words": 2950,
+      "after_words": 2725,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-creadores-podcasts.html",
+      "before_words": 2141,
+      "after_words": 1916,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-delivery-ultima-milla.html",
+      "before_words": 2366,
+      "after_words": 2141,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-dentistas-mexico.html",
+      "before_words": 2194,
+      "after_words": 1969,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-despachos-arquitectura.html",
+      "before_words": 2911,
+      "after_words": 2686,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-despachos-contables.html",
+      "before_words": 2201,
+      "after_words": 1976,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-distribuidoras-alimentos.html",
+      "before_words": 1918,
+      "after_words": 1693,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-ecommerce-mexico.html",
+      "before_words": 2008,
+      "after_words": 1783,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-educacion-ejecutiva-MBA.html",
+      "before_words": 2196,
+      "after_words": 1971,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-empresas-limpieza.html",
+      "before_words": 2858,
+      "after_words": 2633,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-escuelas-academias-mexico.html",
+      "before_words": 4085,
+      "after_words": 3860,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-eventos-empresariales.html",
+      "before_words": 4322,
+      "after_words": 4097,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-farmacias-mexico.html",
+      "before_words": 4111,
+      "after_words": 3886,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-gimnasios-fitness.html",
+      "before_words": 3982,
+      "after_words": 3757,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-hoteles-boutique-mexico.html",
+      "before_words": 4134,
+      "after_words": 3909,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-hoteles-cancun-riviera-maya.html",
+      "before_words": 3130,
+      "after_words": 2905,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-influencers-creadores-contenido.html",
+      "before_words": 4174,
+      "after_words": 3949,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-inmobiliarias-mexico.html",
+      "before_words": 4125,
+      "after_words": 3900,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-laboratorios-quimicos.html",
+      "before_words": 4095,
+      "after_words": 3870,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-logistica-cadena-suministro.html",
+      "before_words": 4039,
+      "after_words": 3814,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-manufactura-mediana-mexico.html",
+      "before_words": 4115,
+      "after_words": 3890,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-marketplaces-plataformas.html",
+      "before_words": 4020,
+      "after_words": 3795,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-mayoristas-distribuidores.html",
+      "before_words": 4231,
+      "after_words": 4006,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-moda-textil-confeccion.html",
+      "before_words": 4365,
+      "after_words": 4140,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-notarias-registro-publico.html",
+      "before_words": 4209,
+      "after_words": 3984,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-nutriologos-fitness.html",
+      "before_words": 2760,
+      "after_words": 2535,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-organizaciones-sin-fines-lucro.html",
+      "before_words": 2054,
+      "after_words": 1829,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-periodismo-prensa-mx.html",
+      "before_words": 2056,
+      "after_words": 1831,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-plataformas-credito.html",
+      "before_words": 2725,
+      "after_words": 2500,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-productoras-medios.html",
+      "before_words": 2116,
+      "after_words": 1891,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-productores-agricolas.html",
+      "before_words": 3135,
+      "after_words": 2910,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-psicologos-terapeutas.html",
+      "before_words": 1765,
+      "after_words": 1540,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-publicistas-agencias-creativas.html",
+      "before_words": 2194,
+      "after_words": 1969,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-reclutas-headhunters.html",
+      "before_words": 1919,
+      "after_words": 1694,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-reclutas-tech-it.html",
+      "before_words": 2207,
+      "after_words": 1982,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-restaurantes-mexico.html",
+      "before_words": 2208,
+      "after_words": 1983,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-rrhh-recursos-humanos.html",
+      "before_words": 2941,
+      "after_words": 2716,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-salones-belleza-estetica.html",
+      "before_words": 2161,
+      "after_words": 1936,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-sector-automotriz.html",
+      "before_words": 2897,
+      "after_words": 2672,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-sector-energia-mx.html",
+      "before_words": 2273,
+      "after_words": 2048,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-sector-publico-gobierno.html",
+      "before_words": 2269,
+      "after_words": 2044,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-seguros-vida-salud.html",
+      "before_words": 2020,
+      "after_words": 1795,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-servicios-tecnicos.html",
+      "before_words": 1984,
+      "after_words": 1759,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-spas-wellness-mexico.html",
+      "before_words": 2098,
+      "after_words": 1873,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-startups-mexico-2026.html",
+      "before_words": 1894,
+      "after_words": 1669,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-talleres-mecanicos.html",
+      "before_words": 2206,
+      "after_words": 1981,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-terapeutas-coaches.html",
+      "before_words": 1996,
+      "after_words": 1771,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-tiendas-fisicas-retail.html",
+      "before_words": 2105,
+      "after_words": 1880,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-transporte-publico-movilidad.html",
+      "before_words": 2133,
+      "after_words": 1908,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-vendedores-independientes.html",
+      "before_words": 3034,
+      "after_words": 2809,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-veterinarias-mascotas.html",
+      "before_words": 2018,
+      "after_words": 1793,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-para-viajes-agencias-turismo.html",
+      "before_words": 2132,
+      "after_words": 1907,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-prediccion-demanda-retail.html",
+      "before_words": 2125,
+      "after_words": 1900,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-pymes-mexico.html",
+      "before_words": 1660,
+      "after_words": 1435,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "ia-sector-turismo-mexico.html",
+      "before_words": 1513,
+      "after_words": 1288,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "implementar-ia-empresa-mexico.html",
+      "before_words": 1398,
+      "after_words": 1173,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "inteligencia-artificial-para-empresas-mexico.html",
+      "before_words": 1725,
+      "after_words": 1500,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "medir-impacto-ia-kpis.html",
+      "before_words": 2124,
+      "after_words": 1899,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "medir-roi-proyecto-ia.html",
+      "before_words": 2390,
+      "after_words": 2165,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "monitoreo-edificios-iot-ia.html",
+      "before_words": 1282,
+      "after_words": 1057,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "privacidad-datos-ia-empresas.html",
+      "before_words": 2260,
+      "after_words": 2035,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "privacidad-ia-lfpdppp-mexico.html",
+      "before_words": 2033,
+      "after_words": 1808,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "privacidad-vs-personalizacion-ia.html",
+      "before_words": 2277,
+      "after_words": 2052,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "produccion-contenido-ia.html",
+      "before_words": 1893,
+      "after_words": 1668,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "que-son-agentes-ia.html",
+      "before_words": 1629,
+      "after_words": 1404,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "reducir-costos-ia.html",
+      "before_words": 1748,
+      "after_words": 1523,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "resumen-ia-semana-mayo-2026.html",
+      "before_words": 1681,
+      "after_words": 1456,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "roi-inteligencia-artificial.html",
+      "before_words": 1988,
+      "after_words": 1763,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "seguridad-datos-ia-mexico.html",
+      "before_words": 2335,
+      "after_words": 2110,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "telemetria-iot-flotillas-mexico.html",
+      "before_words": 1652,
+      "after_words": 1427,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "tendencias-ia-latam-2026.html",
+      "before_words": 2720,
+      "after_words": 2495,
+      "bytes_removed": 2286
+    },
+    {
+      "file": "voice-ai-atencion-clientes-espanol.html",
+      "before_words": 2194,
+      "after_words": 1969,
+      "bytes_removed": 2286
+    }
+  ]
+}
